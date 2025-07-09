@@ -37,7 +37,7 @@ const Navigation = () => {
                 to={item.path}
                 className={`text-sm font-medium transition-all duration-300 hover:text-neon-pink ${
                   isActive(item.path)
-                    ? "neon-text animate-neon-pulse"
+                    ? "text-neon-pink animate-neon-pulse"
                     : "text-white"
                 }`}
               >
@@ -76,7 +76,7 @@ const Navigation = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-medium transition-all duration-300 hover:text-neon-pink ${
                   isActive(item.path)
-                    ? "neon-text animate-neon-pulse"
+                    ? "text-neon-pink animate-neon-pulse"
                     : "text-white"
                 }`}
               >

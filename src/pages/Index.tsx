@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -79,9 +80,9 @@ const Index = () => {
         
         <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6">
-            <span className="text-white">THE SHOWROOM</span>
+            <span className="neon-text animate-neon-pulse">THE SHOWROOM</span>
             <br />
-            <span className="neon-text">MIAMI</span>
+            <span className="text-white">MIAMI</span>
           </h1>
           
           <p className="text-xl sm:text-2xl text-neon-cyan font-rajdhani font-medium mb-4">
