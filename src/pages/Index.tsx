@@ -81,7 +81,7 @@ const Index = () => {
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6">
             <span className="text-white">THE SHOWROOM</span>
             <br />
-            <span className="bg-gradient-to-br from-neon-pink via-neon-purple to-neon-blue text-transparent bg-clip-text">MIAMI</span>
+            <span className="neon-text">MIAMI</span>
           </h1>
           
           <p className="text-xl sm:text-2xl text-neon-cyan font-rajdhani font-medium mb-4">
