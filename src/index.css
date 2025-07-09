@@ -57,33 +57,14 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bungee;
-    letter-spacing: 0.05em;
-  }
-
-  .logo-text {
-    @apply font-bungee;
-  }
-
-  .cta-text {
-    @apply font-russo;
-    letter-spacing: 0.03em;
-  }
-
-  .display-text {
-    @apply font-bungee;
+    @apply font-orbitron;
   }
 }
 
 @layer components {
   .neon-text {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-neon-pink via-neon-purple to-neon-blue;
-    text-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(128, 0, 255, 0.3), 0 0 30px rgba(0, 128, 255, 0.2);
-  }
-
-  .neon-text-cyan {
-    @apply text-neon-cyan;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
   }
 
   .neon-border {
@@ -92,25 +73,5 @@
 
   .miami-bg {
     background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(128, 0, 255, 0.1) 50%, rgba(0, 128, 255, 0.1) 100%);
-  }
-
-  .retro-glow {
-    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.4)) drop-shadow(0 0 16px rgba(128, 0, 255, 0.3));
-  }
-
-  .bold-neon {
-    @apply font-bungee text-transparent bg-clip-text bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan;
-    text-shadow: 
-      0 0 5px rgba(255, 0, 128, 0.8),
-      0 0 10px rgba(255, 0, 128, 0.6),
-      0 0 15px rgba(128, 0, 255, 0.4),
-      0 0 20px rgba(0, 128, 255, 0.3);
-    letter-spacing: 0.1em;
-  }
-
-  .cta-button {
-    @apply font-russo font-bold tracking-wider;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
   }
 }
