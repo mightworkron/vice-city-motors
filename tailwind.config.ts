@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,10 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'bungee': ['Bungee', 'cursive'],
-				'russo': ['Russo One', 'sans-serif'],
-				'orbitron': ['Orbitron', 'monospace'],
-				'rajdhani': ['Rajdhani', 'sans-serif'],
+				'display': ['Space Grotesk', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+				'body': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
