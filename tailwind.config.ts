@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'display': ['Space Grotesk', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-				'body': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+				'orbitron': ['Orbitron', 'monospace'],
+				'rajdhani': ['Rajdhani', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
