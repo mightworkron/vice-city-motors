@@ -24,7 +24,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-orbitron font-bold neon-text">
+            <div className="text-xl md:text-2xl logo-text neon-text">
               THE SHOWROOM
             </div>
           </Link>
@@ -35,7 +35,7 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-all duration-300 hover:text-neon-pink ${
+                className={`text-sm font-russo font-medium uppercase tracking-wide transition-all duration-300 hover:text-neon-pink ${
                   isActive(item.path)
                     ? "text-neon-pink animate-neon-pulse"
                     : "text-white"
@@ -50,7 +50,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a
               href="tel:305-419-8379"
-              className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300"
+              className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 font-orbitron"
             >
               <Phone size={18} />
               <span className="font-medium">305-419-8379</span>
@@ -74,7 +74,7 @@ const Navigation = () => {
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block text-sm font-medium transition-all duration-300 hover:text-neon-pink ${
+                className={`block text-sm font-russo font-medium uppercase tracking-wide transition-all duration-300 hover:text-neon-pink ${
                   isActive(item.path)
                     ? "text-neon-pink animate-neon-pulse"
                     : "text-white"
@@ -85,7 +85,7 @@ const Navigation = () => {
             ))}
             <a
               href="tel:305-419-8379"
-              className="flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 pt-2 border-t border-neon-purple/30"
+              className="flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 pt-2 border-t border-neon-purple/30 font-orbitron"
             >
               <Phone size={18} />
               <span className="font-medium">305-419-8379</span>
