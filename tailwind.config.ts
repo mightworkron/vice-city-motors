@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,8 +20,6 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'bungee': ['Bungee', 'cursive'],
-				'russo': ['Russo One', 'sans-serif'],
 				'orbitron': ['Orbitron', 'monospace'],
 				'rajdhani': ['Rajdhani', 'sans-serif'],
 			},
