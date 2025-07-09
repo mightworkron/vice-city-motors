@@ -20,8 +20,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'display': ['Space Grotesk', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-				'body': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+				'bungee': ['Bungee', 'cursive'],
+				'russo': ['Russo One', 'sans-serif'],
+				'orbitron': ['Orbitron', 'monospace'],
+				'rajdhani': ['Rajdhani', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -72,6 +74,7 @@ export default {
 					purple: '#8000ff',
 					blue: '#0080ff',
 					cyan: '#00ffff',
+					green: '#00ff80',
 				}
 			},
 			borderRadius: {
@@ -112,6 +115,14 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'neon-glow': {
+					'0%, 100%': {
+						filter: 'drop-shadow(0 0 5px currentColor) drop-shadow(0 0 10px currentColor)'
+					},
+					'50%': {
+						filter: 'drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor) drop-shadow(0 0 30px currentColor)'
+					}
 				}
 			},
 			animation: {
@@ -119,11 +130,16 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
 				'gradient-shift': 'gradient-shift 3s ease infinite',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'neon-glow': 'neon-glow 2s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'miami-gradient': 'linear-gradient(135deg, #ff0080, #8000ff, #0080ff)',
 				'neon-gradient': 'linear-gradient(45deg, #ff0080, #8000ff, #0080ff, #00ffff)',
+			},
+			fontSize: {
+				'display': ['4rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+				'hero': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
 			}
 		}
 	},
