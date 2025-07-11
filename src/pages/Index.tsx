@@ -6,55 +6,78 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
+
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle form submission here
   };
-  const services = [{
-    icon: Wrench,
-    title: "Collision Repair & Custom Builds",
-    description: "Expert collision repair and bespoke automotive customization with precision craftsmanship.",
-    link: "/collision-repair",
-    gradient: "from-neon-pink to-neon-purple"
-  }, {
-    icon: Truck,
-    title: "Emergency Towing",
-    description: "24/7 emergency towing services across Miami with rapid response times.",
-    link: "/emergency-towing",
-    gradient: "from-neon-purple to-neon-blue"
-  }, {
-    icon: Car,
-    title: "Exotic & Luxury Car Rentals",
-    description: "Premium fleet of exotic and luxury vehicles for special occasions and business needs.",
-    link: "/exotic-rentals",
-    gradient: "from-neon-blue to-neon-cyan"
-  }, {
-    icon: Palette,
-    title: "Wraps, Tints & PPF",
-    description: "Professional vehicle wraps, window tinting, and paint protection film installation.",
-    link: "/wraps-and-tints",
-    gradient: "from-neon-cyan to-neon-pink"
-  }];
-  const galleryImages = ["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=500&h=300&fit=crop"];
-  return <div className="min-h-screen bg-background">
+
+  const services = [
+    {
+      icon: Wrench,
+      title: "Collision Repair & Custom Builds",
+      description: "Expert collision repair and bespoke automotive customization with precision craftsmanship.",
+      link: "/collision-repair",
+      gradient: "from-neon-pink to-neon-purple"
+    },
+    {
+      icon: Truck,
+      title: "Emergency Towing",
+      description: "24/7 emergency towing services across Miami with rapid response times.",
+      link: "/emergency-towing",
+      gradient: "from-neon-purple to-neon-blue"
+    },
+    {
+      icon: Car,
+      title: "Exotic & Luxury Car Rentals",
+      description: "Premium fleet of exotic and luxury vehicles for special occasions and business needs.",
+      link: "/exotic-rentals",
+      gradient: "from-neon-blue to-neon-cyan"
+    },
+    {
+      icon: Palette,
+      title: "Wraps, Tints & PPF",
+      description: "Professional vehicle wraps, window tinting, and paint protection film installation.",
+      link: "/wraps-and-tints",
+      gradient: "from-neon-cyan to-neon-pink"
+    }
+  ];
+
+  const galleryImages = [
+    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1563720223185-11003d516935?w=500&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=500&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=500&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=500&h=300&fit=crop"
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=1920&h=1080&fit=crop')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        opacity: 0.3
-      }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 z-10" />
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster=""
+        >
+          <source src="https://scontent-ams2-1.cdninstagram.com/o1/v/t16/f2/m86/AQMDpdEBc63R7X4n8gyOePXP8UALydGzzBOFRA_MHWzoBVZgYfF_4Rjh0aHLhAUbtrvtDQhFpqv85yFZ0zy8Ci4JvTK8bzUI4h5sR6M.mp4" type="video/mp4" />
+        </video>
+        
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
         
         <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6">
@@ -71,21 +94,6 @@ const Index = () => {
             Premium automotive services in the heart of Miami. From collision repair to exotic rentals, 
             we deliver excellence with every project.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
-              <Phone className="mr-2" size={20} />
-              Book Now
-            </Button>
-            <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-              Get Custom Build
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
-          </div>
-
-          <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float">
-            305-419-8379
-          </a>
         </div>
       </section>
 
@@ -143,11 +151,21 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => <Link key={index} to={service.link} className="group relative bg-card rounded-lg p-8 border border-neon-purple/30 hover:border-neon-pink/50 transition-all duration-300 transform hover:scale-105">
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300`} />
+            {services.map((service, index) => (
+              <Link
+                key={index}
+                to={service.link}
+                className="group relative bg-card rounded-lg p-8 border border-neon-purple/30 hover:border-neon-pink/50 transition-all duration-300 transform hover:scale-105"
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300`}
+                />
                 
                 <div className="relative z-10">
-                  <service.icon className="text-neon-cyan group-hover:text-neon-pink transition-colors duration-300 mb-4" size={48} />
+                  <service.icon
+                    className="text-neon-cyan group-hover:text-neon-pink transition-colors duration-300 mb-4"
+                    size={48}
+                  />
                   <h3 className="text-xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-pink transition-colors duration-300">
                     {service.title}
                   </h3>
@@ -156,10 +174,14 @@ const Index = () => {
                   </p>
                   <div className="flex items-center text-neon-cyan group-hover:text-neon-pink transition-colors duration-300">
                     <span className="font-medium">Learn More</span>
-                    <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform duration-300" size={16} />
+                    <ArrowRight
+                      className="ml-2 group-hover:translate-x-2 transition-transform duration-300"
+                      size={16}
+                    />
                   </div>
                 </div>
-              </Link>)}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -177,11 +199,20 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg aspect-square cursor-pointer">
-                <img src={image} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-lg aspect-square cursor-pointer"
+              >
+                <img
+                  src={image}
+                  alt={`Gallery ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -204,7 +235,10 @@ const Index = () => {
                   <Phone className="text-neon-cyan" size={24} />
                   <div>
                     <p className="text-white font-medium">Call Us</p>
-                    <a href="tel:305-419-8379" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300">
+                    <a
+                      href="tel:305-419-8379"
+                      className="text-neon-cyan hover:text-neon-pink transition-colors duration-300"
+                    >
                       305-419-8379
                     </a>
                   </div>
@@ -232,24 +266,35 @@ const Index = () => {
             <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Input placeholder="Your Name" value={formData.name} onChange={e => setFormData({
-                  ...formData,
-                  name: e.target.value
-                })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" />
+                  <Input
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink"
+                  />
                 </div>
                 <div>
-                  <Input type="email" placeholder="Your Email" value={formData.email} onChange={e => setFormData({
-                  ...formData,
-                  email: e.target.value
-                })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" />
+                  <Input
+                    type="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink"
+                  />
                 </div>
                 <div>
-                  <Textarea placeholder="Tell us about your project or service needs" rows={4} value={formData.message} onChange={e => setFormData({
-                  ...formData,
-                  message: e.target.value
-                })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" />
+                  <Textarea
+                    placeholder="Tell us about your project or service needs"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none"
+                  />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300"
+                >
                   Send Message
                 </Button>
               </form>
@@ -259,6 +304,8 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
