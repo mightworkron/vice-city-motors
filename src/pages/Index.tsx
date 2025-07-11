@@ -6,20 +6,17 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
-
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle form submission here
   };
-
   const services = [{
     icon: Wrench,
     title: "Collision Repair & Custom Builds",
@@ -45,9 +42,7 @@ const Index = () => {
     link: "/wraps-and-tints",
     gradient: "from-neon-cyan to-neon-pink"
   }];
-
   const galleryImages = ["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=500&h=300&fit=crop"];
-
   return <div className="min-h-screen bg-background">
       <Navigation />
 
@@ -65,7 +60,7 @@ const Index = () => {
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6">
             <span className="text-white">THE SHOWROOM</span>
             <br />
-            <span className="neon-text animate-neon-pulse">MIAMI</span>
+            <span className="neon-text animate-neon-pulse text-neon-pink">MIAMI</span>
           </h1>
           
           <p className="text-xl sm:text-2xl text-neon-cyan font-rajdhani font-medium mb-4">
@@ -129,11 +124,7 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop" 
-                alt="The Showroom Miami Workshop" 
-                className="rounded-lg neon-border" 
-              />
+              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop" alt="The Showroom Miami Workshop" className="rounded-lg neon-border" />
             </div>
           </div>
         </div>
@@ -241,35 +232,24 @@ const Index = () => {
             <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Input
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink"
-                  />
+                  <Input placeholder="Your Name" value={formData.name} onChange={e => setFormData({
+                  ...formData,
+                  name: e.target.value
+                })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" />
                 </div>
                 <div>
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink"
-                  />
+                  <Input type="email" placeholder="Your Email" value={formData.email} onChange={e => setFormData({
+                  ...formData,
+                  email: e.target.value
+                })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" />
                 </div>
                 <div>
-                  <Textarea
-                    placeholder="Tell us about your project or service needs"
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none"
-                  />
+                  <Textarea placeholder="Tell us about your project or service needs" rows={4} value={formData.message} onChange={e => setFormData({
+                  ...formData,
+                  message: e.target.value
+                })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" />
                 </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300"
-                >
+                <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
                   Send Message
                 </Button>
               </form>
@@ -281,5 +261,4 @@ const Index = () => {
       <Footer />
     </div>;
 };
-
 export default Index;
