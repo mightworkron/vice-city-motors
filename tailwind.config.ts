@@ -98,10 +98,10 @@ export default {
 				},
 				'neon-pulse': {
 					'0%, 100%': {
-						textShadow: '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor'
+						textShadow: '0 0 3px currentColor, 0 0 6px currentColor, 0 0 9px currentColor'
 					},
 					'50%': {
-						textShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor'
+						textShadow: '0 0 6px currentColor, 0 0 12px currentColor, 0 0 18px currentColor'
 					}
 				},
 				'gradient-shift': {
