@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,44 +7,62 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
+
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle form submission here
   };
-  const services = [{
-    icon: Wrench,
-    title: "Collision Repair & Custom Builds",
-    description: "Expert collision repair and bespoke automotive customization with precision craftsmanship.",
-    link: "/collision-repair",
-    gradient: "from-neon-pink to-neon-purple"
-  }, {
-    icon: Truck,
-    title: "Emergency Towing",
-    description: "24/7 emergency towing services across Miami with rapid response times.",
-    link: "/emergency-towing",
-    gradient: "from-neon-purple to-neon-blue"
-  }, {
-    icon: Car,
-    title: "Exotic & Luxury Car Rentals",
-    description: "Premium fleet of exotic and luxury vehicles for special occasions and business needs.",
-    link: "/exotic-rentals",
-    gradient: "from-neon-blue to-neon-cyan"
-  }, {
-    icon: Palette,
-    title: "Wraps, Tints & PPF",
-    description: "Professional vehicle wraps, window tinting, and paint protection film installation.",
-    link: "/wraps-and-tints",
-    gradient: "from-neon-cyan to-neon-pink"
-  }];
-  const galleryImages = ["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=500&h=300&fit=crop", "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=500&h=300&fit=crop"];
-  return <div className="min-h-screen bg-background">
+
+  const services = [
+    {
+      icon: Wrench,
+      title: "Collision Repair & Custom Builds",
+      description: "Expert collision repair and bespoke automotive customization with precision craftsmanship.",
+      link: "/collision-repair",
+      gradient: "from-neon-pink to-neon-purple"
+    },
+    {
+      icon: Truck,
+      title: "Emergency Towing",
+      description: "24/7 emergency towing services across Miami with rapid response times.",
+      link: "/emergency-towing",
+      gradient: "from-neon-purple to-neon-blue"
+    },
+    {
+      icon: Car,
+      title: "Exotic & Luxury Car Rentals",
+      description: "Premium fleet of exotic and luxury vehicles for special occasions and business needs.",
+      link: "/exotic-rentals",
+      gradient: "from-neon-blue to-neon-cyan"
+    },
+    {
+      icon: Palette,
+      title: "Wraps, Tints & PPF",
+      description: "Professional vehicle wraps, window tinting, and paint protection film installation.",
+      link: "/wraps-and-tints",
+      gradient: "from-neon-cyan to-neon-pink"
+    }
+  ];
+
+  const galleryImages = [
+    "/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png",
+    "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png",
+    "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png",
+    "/lovable-uploads/a3ac9bd2-1140-4ce9-a38a-958b8c8a65d3.png",
+    "/lovable-uploads/fb43b1a6-141d-4106-99ab-6e46d477f530.png",
+    "/lovable-uploads/41c46b9a-b7d4-4186-bfbb-9a97be2bdfd3.png"
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
@@ -177,11 +196,20 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg aspect-square cursor-pointer">
-                <img src={image} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-lg aspect-square cursor-pointer"
+              >
+                <img
+                  src={image}
+                  alt={`Gallery ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -259,6 +287,8 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
