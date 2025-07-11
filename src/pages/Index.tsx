@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -72,9 +73,15 @@ const Index = () => {
           loop
           muted
           playsInline
-          poster=""
+          preload="auto"
+          onError={(e) => console.error('Video failed to load:', e)}
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
+          style={{ minWidth: '100%', minHeight: '100%' }}
         >
           <source src="https://scontent-ams2-1.cdninstagram.com/o1/v/t16/f2/m86/AQMDpdEBc63R7X4n8gyOePXP8UALydGzzBOFRA_MHWzoBVZgYfF_4Rjh0aHLhAUbtrvtDQhFpqv85yFZ0zy8Ci4JvTK8bzUI4h5sR6M.mp4" type="video/mp4" />
+          {/* Fallback background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900" />
         </video>
         
         <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
