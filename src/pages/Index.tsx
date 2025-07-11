@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -67,22 +66,40 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          onError={(e) => console.error('Video failed to load:', e)}
-          onLoadStart={() => console.log('Video loading started')}
-          onCanPlay={() => console.log('Video can play')}
-          style={{ minWidth: '100%', minHeight: '100%' }}
-        >
-          <source src="https://scontent-ams2-1.cdninstagram.com/o1/v/t16/f2/m86/AQMDpdEBc63R7X4n8gyOePXP8UALydGzzBOFRA_MHWzoBVZgYfF_4Rjh0aHLhAUbtrvtDQhFpqv85yFZ0zy8Ci4JvTK8bzUI4h5sR6M.mp4" type="video/mp4" />
-          {/* Fallback background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900" />
-        </video>
+        {/* Blurred background clone for full-width coverage */}
+        <div className="absolute inset-0 z-0">
+          <iframe
+            src="https://www.youtube.com/embed/g_-Mf00r4zw?autoplay=1&mute=1&loop=1&playlist=g_-Mf00r4zw&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+            className="w-full h-full scale-150 blur-sm opacity-40"
+            style={{ 
+              minWidth: '177.78vh', // 16:9 aspect ratio to cover full height
+              minHeight: '100%',
+              transform: 'scale(1.5) translateX(-16.67%)', // Center and scale to fill
+              filter: 'blur(8px)'
+            }}
+            allow="autoplay; encrypted-media"
+            allowFullScreen={false}
+            frameBorder="0"
+            title="Background Video"
+          />
+        </div>
+
+        {/* Main centered video */}
+        <div className="absolute inset-0 z-5 flex items-center justify-center">
+          <iframe
+            src="https://www.youtube.com/embed/g_-Mf00r4zw?autoplay=1&mute=1&loop=1&playlist=g_-Mf00r4zw&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+            className="w-full max-w-md h-full max-h-screen"
+            style={{ 
+              aspectRatio: '9/16',
+              maxHeight: '100vh',
+              maxWidth: '56.25vh' // 9:16 aspect ratio
+            }}
+            allow="autoplay; encrypted-media"
+            allowFullScreen={false}
+            frameBorder="0"
+            title="The Showroom Miami Video"
+          />
+        </div>
         
         <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
         
