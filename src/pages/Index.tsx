@@ -143,7 +143,7 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop" alt="The Showroom Miami Workshop" className="rounded-lg neon-border" />
+              <img src="/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png" alt="The Showroom Miami" className="rounded-lg neon-border" />
             </div>
           </div>
         </div>
