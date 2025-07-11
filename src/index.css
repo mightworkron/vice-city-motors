@@ -5,44 +5,52 @@
 
 @layer base {
   :root {
-    --background: 8 8% 8%;
-    --foreground: 300 100% 95%;
+    --background: 26 26% 10%;
+    --foreground: 0 0% 95%;
 
-    --card: 10 10% 12%;
-    --card-foreground: 300 100% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 10 10% 12%;
-    --popover-foreground: 300 100% 95%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 300 100% 50%;
-    --primary-foreground: 8 8% 8%;
+    --primary: 16 100% 50%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 270 50% 20%;
-    --secondary-foreground: 300 100% 90%;
+    --secondary: 280 100% 41%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 270 20% 15%;
-    --muted-foreground: 300 50% 70%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 270 100% 60%;
-    --accent-foreground: 8 8% 8%;
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 5%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 270 30% 25%;
-    --input: 270 30% 25%;
-    --ring: 300 100% 50%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 16 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 8 8% 8%;
-    --sidebar-foreground: 300 100% 95%;
-    --sidebar-primary: 300 100% 50%;
-    --sidebar-primary-foreground: 8 8% 8%;
-    --sidebar-accent: 270 50% 20%;
-    --sidebar-accent-foreground: 300 100% 90%;
-    --sidebar-border: 270 30% 25%;
-    --sidebar-ring: 300 100% 50%;
+    --sidebar-background: 26 26% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 16 100% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 280 100% 41%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 16 100% 50%;
+
+    /* Custom graffiti colors */
+    --graffiti-orange: 16 100% 50%;
+    --graffiti-purple: 280 100% 41%;
+    --graffiti-cyan: 190 100% 50%;
+    --graffiti-green: 120 100% 50%;
+    --graffiti-pink: 320 100% 75%;
+    --graffiti-dark: 26 26% 10%;
   }
 }
 
@@ -52,26 +60,127 @@
   }
 
   body {
-    @apply bg-background text-foreground font-rajdhani;
-    background: radial-gradient(ellipse at top, rgba(128, 0, 255, 0.1) 0%, rgba(8, 8, 8, 1) 50%);
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(var(--graffiti-dark)) 0%, hsl(0 0% 8%) 100%);
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-orbitron;
+    @apply font-black tracking-wide;
+    font-family: 'Arial Black', 'Helvetica', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
   }
 }
 
 @layer components {
-  .neon-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-neon-pink via-neon-purple to-neon-blue;
-    text-shadow: 0 0 6px rgba(255, 0, 128, 0.3);
+  .graffiti-text {
+    background: linear-gradient(45deg, 
+      hsl(var(--graffiti-orange)), 
+      hsl(var(--graffiti-cyan)), 
+      hsl(var(--graffiti-pink)),
+      hsl(var(--graffiti-green))
+    );
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
   }
 
-  .neon-border {
-    box-shadow: 0 0 10px rgba(255, 0, 128, 0.3), 0 0 20px rgba(128, 0, 255, 0.2), 0 0 30px rgba(0, 128, 255, 0.1);
+  .graffiti-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--graffiti-orange) / 0.3),
+      0 0 40px hsl(var(--graffiti-cyan) / 0.2),
+      0 0 60px hsl(var(--graffiti-pink) / 0.1);
   }
 
-  .miami-bg {
-    background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(128, 0, 255, 0.1) 50%, rgba(0, 128, 255, 0.1) 100%);
+  .graffiti-border {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, 
+      hsl(var(--graffiti-orange)), 
+      hsl(var(--graffiti-cyan)), 
+      hsl(var(--graffiti-pink))
+    ) 1;
+  }
+
+  .street-card {
+    @apply bg-card/80 backdrop-blur-sm rounded-2xl;
+    border: 1px solid hsl(var(--border));
+    box-shadow: 
+      0 8px 32px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(0 0% 100% / 0.1);
+  }
+
+  .neon-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neon-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 20px 40px hsl(0 0% 0% / 0.4),
+      0 0 30px hsl(var(--graffiti-orange) / 0.4),
+      0 0 60px hsl(var(--graffiti-cyan) / 0.2);
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, 
+      hsl(var(--graffiti-dark)) 0%,
+      hsl(var(--graffiti-purple) / 0.1) 25%,
+      hsl(var(--graffiti-orange) / 0.1) 50%,
+      hsl(var(--graffiti-cyan) / 0.1) 75%,
+      hsl(var(--graffiti-dark)) 100%
+    );
+  }
+}
+
+@layer utilities {
+  .text-graffiti {
+    @apply graffiti-text;
+  }
+
+  .shadow-graffiti {
+    @apply graffiti-glow;
+  }
+
+  .border-graffiti {
+    @apply graffiti-border;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px hsl(var(--graffiti-orange) / 0.3),
+      0 0 40px hsl(var(--graffiti-cyan) / 0.2);
+  }
+  50% { 
+    box-shadow: 
+      0 0 40px hsl(var(--graffiti-orange) / 0.5),
+      0 0 80px hsl(var(--graffiti-cyan) / 0.3),
+      0 0 120px hsl(var(--graffiti-pink) / 0.2);
   }
 }
