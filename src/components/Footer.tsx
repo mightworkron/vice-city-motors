@@ -8,6 +8,25 @@ const Footer = () => {
   return (
     <footer className="bg-black/90 border-t border-neon-purple/30 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Google Maps Section */}
+        <div className="mb-12">
+          <h3 className="text-white font-orbitron font-bold mb-6 text-center text-2xl">
+            <span className="neon-text">Find Us</span>
+          </h3>
+          <div className="relative rounded-lg overflow-hidden neon-border">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.8234567890123!2d-80.2234567890123!3d25.8234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s7820%20NW%206th%20Ct%2C%20Miami%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            />
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Tagline */}
           <div className="col-span-1 md:col-span-2">
