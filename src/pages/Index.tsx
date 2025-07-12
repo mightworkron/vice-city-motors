@@ -70,22 +70,28 @@ const Index = () => {
         backgroundImage: "url('/lovable-uploads/72157161-abaa-4935-b3a0-7c261301cec1.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        opacity: 0.7
+        opacity: 0.4
       }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90 z-10" />
         
         <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6" style={{
+            textShadow: '3px 3px 0px rgba(0,0,0,0.8), 6px 6px 0px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1)'
+          }}>
             <span className="text-white">THE SHOWROOM</span>
             <br />
             <span className="neon-text animate-neon-pulse text-neon-pink">MIAMI</span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-neon-cyan font-rajdhani font-medium mb-4">
+          <p className="text-xl sm:text-2xl text-neon-cyan font-rajdhani font-medium mb-4" style={{
+            textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,234,255,0.3)'
+          }}>
             Miami's Auto Source Since 2018
           </p>
           
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed" style={{
+            textShadow: '1px 1px 3px rgba(0,0,0,0.9)'
+          }}>
             Premium automotive services in the heart of Miami. From collision repair to exotic rentals, 
             we deliver excellence with every project.
           </p>
