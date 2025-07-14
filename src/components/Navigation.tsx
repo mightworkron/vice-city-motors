@@ -21,13 +21,13 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-neon-purple/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center justify-center flex-1 md:flex-none">
             <img 
               src="/lovable-uploads/d8b68c76-1025-4605-b3f4-3b4231f091db.png" 
               alt="The Showroom Miami Logo" 
-              className="h-20 w-auto max-w-[450px] object-contain"
+              className="h-16 w-auto max-w-[450px] object-contain"
             />
           </Link>
 
