@@ -25,9 +25,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/99218314-d54c-4177-abfb-9f888952a5ef.png" 
+              src="/lovable-uploads/2b1adf65-d49e-44e7-9d03-1c5a06f21c63.png" 
               alt="The Showroom Miami Logo" 
-              className="h-12 w-auto max-w-[200px] object-contain"
+              className="h-12 w-auto max-w-[250px] object-contain"
             />
           </Link>
 
