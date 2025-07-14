@@ -27,7 +27,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/99218314-d54c-4177-abfb-9f888952a5ef.png" 
               alt="The Showroom Miami Logo" 
-              className="h-12 w-auto"
+              className="h-12 w-auto max-w-[200px] object-contain"
             />
           </Link>
 
