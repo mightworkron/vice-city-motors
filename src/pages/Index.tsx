@@ -108,10 +108,12 @@ const Index = () => {
                 <Phone className="mr-2" size={20} />
                 Book Now
               </Button>
-              <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Get Custom Build
-                <ArrowRight className="ml-2" size={20} />
-              </Button>
+              <Link to="/custom-builds">
+                <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                  Get Custom Build
+                  <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </Link>
             </div>
 
             <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float">
