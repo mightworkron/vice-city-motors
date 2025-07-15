@@ -9,6 +9,7 @@ import CollisionRepair from "./pages/CollisionRepair";
 import EmergencyTowing from "./pages/EmergencyTowing";
 import ExoticRentals from "./pages/ExoticRentals";
 import WrapsAndTints from "./pages/WrapsAndTints";
+import CustomBuilds from "./pages/CustomBuilds";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/emergency-towing" element={<EmergencyTowing />} />
           <Route path="/exotic-rentals" element={<ExoticRentals />} />
           <Route path="/wraps-and-tints" element={<WrapsAndTints />} />
+          <Route path="/custom-builds" element={<CustomBuilds />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

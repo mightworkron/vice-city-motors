@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Clock, Instagram } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -70,6 +70,12 @@ const Footer = () => {
               >
                 Wraps & Tints
               </Link>
+              <Link
+                to="/custom-builds"
+                className="block text-gray-300 hover:text-neon-pink transition-colors duration-300"
+              >
+                Custom Builds
+              </Link>
             </div>
           </div>
 
@@ -84,6 +90,15 @@ const Footer = () => {
                   className="hover:text-neon-pink transition-colors duration-300"
                 >
                   305-419-8379
+                </a>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <Mail size={16} className="text-neon-cyan" />
+                <a
+                  href="mailto:info@showroommiami.com"
+                  className="hover:text-neon-pink transition-colors duration-300"
+                >
+                  info@showroommiami.com
                 </a>
               </div>
               <div className="flex items-start space-x-2 text-gray-300">
