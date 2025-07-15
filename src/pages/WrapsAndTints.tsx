@@ -1,60 +1,27 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const WrapsAndTints = () => {
-  const wrapServices = [
-    "Full vehicle color change wraps",
-    "Partial wraps and accent graphics",
-    "Commercial and advertising wraps",
-    "Textured and specialty finishes",
-    "Custom design and artwork",
-    "Wrap removal and restoration"
-  ];
-
-  const tintServices = [
-    "Automotive window tinting (all types)",
-    "Ceramic and nano-ceramic films",
-    "Security and safety window films",
-    "Commercial building tinting",
-    "Residential window solutions",
-    "UV protection and glare reduction"
-  ];
-
-  const ppfBenefits = [
-    "Paint protection from rock chips",
-    "Self-healing technology",
-    "UV and chemical resistance",
-    "Maintains vehicle resale value",
-    "Crystal clear, invisible protection",
-    "10-year manufacturer warranty"
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const wrapServices = ["Full vehicle color change wraps", "Partial wraps and accent graphics", "Commercial and advertising wraps", "Textured and specialty finishes", "Custom design and artwork", "Wrap removal and restoration"];
+  const tintServices = ["Automotive window tinting (all types)", "Ceramic and nano-ceramic films", "Security and safety window films", "Commercial building tinting", "Residential window solutions", "UV protection and glare reduction"];
+  const ppfBenefits = ["Paint protection from rock chips", "Self-healing technology", "UV and chemical resistance", "Maintains vehicle resale value", "Crystal clear, invisible protection", "10-year manufacturer warranty"];
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.2
-          }}
-        />
+        <div className="absolute inset-0 z-0" style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        opacity: 0.2
+      }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70 z-10" />
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8"
-          >
+          <Link to="/" className="inline-flex items-center text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8">
             <ArrowLeft size={20} className="mr-2" />
             Back to Home
           </Link>
@@ -93,21 +60,14 @@ const WrapsAndTints = () => {
                 to completion, we handle every detail with precision and care.
               </p>
               
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
                 <Phone className="mr-2" size={20} />
                 Get Free Quote
               </Button>
             </div>
             
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&h=400&fit=crop" 
-                alt="Vehicle Wrap and Tinting"
-                className="rounded-lg neon-border"
-              />
+              <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&h=400&fit=crop" alt="Vehicle Wrap and Tinting" className="rounded-lg neon-border" />
               <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
                 <Palette className="text-white" size={32} />
               </div>
@@ -131,12 +91,10 @@ const WrapsAndTints = () => {
                 that transform your vehicle's appearance.
               </p>
               <ul className="space-y-3">
-                {wrapServices.map((service, index) => (
-                  <li key={index} className="flex items-center text-gray-300">
+                {wrapServices.map((service, index) => <li key={index} className="flex items-center text-gray-300">
                     <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
                     <span className="text-sm">{service}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -151,12 +109,10 @@ const WrapsAndTints = () => {
                 and UV protection with professional installation.
               </p>
               <ul className="space-y-3">
-                {tintServices.map((service, index) => (
-                  <li key={index} className="flex items-center text-gray-300">
+                {tintServices.map((service, index) => <li key={index} className="flex items-center text-gray-300">
                     <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
                     <span className="text-sm">{service}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -171,12 +127,10 @@ const WrapsAndTints = () => {
                 paint while maintaining its original beauty.
               </p>
               <ul className="space-y-3">
-                {ppfBenefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center text-gray-300">
+                {ppfBenefits.map((benefit, index) => <li key={index} className="flex items-center text-gray-300">
                     <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
                     <span className="text-sm">{benefit}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
           </div>
@@ -196,19 +150,24 @@ const WrapsAndTints = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { name: "3M", category: "Wraps & PPF" },
-              { name: "Avery Dennison", category: "Vehicle Wraps" },
-              { name: "XPEL", category: "Paint Protection" },
-              { name: "SunTek", category: "Window Films" }
-            ].map((brand, index) => (
-              <div key={index} className="text-center">
+            {[{
+            name: "3M",
+            category: "Wraps & PPF"
+          }, {
+            name: "Avery Dennison",
+            category: "Vehicle Wraps"
+          }, {
+            name: "XPEL",
+            category: "Paint Protection"
+          }, {
+            name: "SunTek",
+            category: "Window Films"
+          }].map((brand, index) => <div key={index} className="text-center">
                 <div className="bg-gradient-to-r from-neon-pink/20 to-neon-purple/20 rounded-lg p-6 mb-3">
                   <div className="text-xl font-orbitron font-bold text-white">{brand.name}</div>
                 </div>
                 <div className="text-sm text-gray-300">{brand.category}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -226,21 +185,34 @@ const WrapsAndTints = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Consultation", desc: "Discuss your vision and requirements", time: "30 min" },
-              { step: "02", title: "Design & Quote", desc: "Create custom design and provide detailed estimate", time: "1-2 days" },
-              { step: "03", title: "Preparation", desc: "Vehicle prep and material ordering", time: "1-3 days" },
-              { step: "04", title: "Installation", desc: "Professional installation and quality check", time: "1-5 days" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
+            {[{
+            step: "01",
+            title: "Consultation",
+            desc: "Discuss your vision and requirements",
+            time: "30 min"
+          }, {
+            step: "02",
+            title: "Design & Quote",
+            desc: "Create custom design and provide detailed estimate",
+            time: "1-2 days"
+          }, {
+            step: "03",
+            title: "Preparation",
+            desc: "Vehicle prep and material ordering",
+            time: "1-3 days"
+          }, {
+            step: "04",
+            title: "Installation",
+            desc: "Professional installation and quality check",
+            time: "1-5 days"
+          }].map((item, index) => <div key={index} className="text-center">
                 <div className="bg-gradient-to-r from-neon-pink to-neon-purple rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-orbitron font-bold">{item.step}</span>
                 </div>
                 <h3 className="text-lg font-orbitron font-bold text-white mb-2">{item.title}</h3>
                 <p className="text-gray-300 text-sm mb-2">{item.desc}</p>
                 <div className="text-neon-cyan text-xs font-medium">{item.time}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -258,21 +230,11 @@ const WrapsAndTints = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop"
-            ].map((image, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-lg">
-                <img
-                  src={image}
-                  alt={`Project ${index + 1}`}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+            {["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
+                <img src={image} alt={`Project ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -289,28 +251,16 @@ const WrapsAndTints = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
-            >
+            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
               <Phone className="mr-2" size={20} />
               Call 305-419-8379
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300"
-            >
-              <Palette className="mr-2" size={20} />
-              View Portfolio
-            </Button>
+            
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default WrapsAndTints;
