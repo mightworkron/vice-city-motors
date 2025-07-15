@@ -1,3 +1,14 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://theshowroommiami.com/sitemap.xml
+
+# Crawl-delay for courtesy
+Crawl-delay: 1
+
+# Allow common bots
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +21,16 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Disallow admin or sensitive areas (if any)
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /api/
+
+# Allow all image and media files
+Allow: /lovable-uploads/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
