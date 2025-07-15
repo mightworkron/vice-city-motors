@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CollisionRepair from "./pages/CollisionRepair";
 import EmergencyTowing from "./pages/EmergencyTowing";
@@ -19,15 +19,17 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/collision-repair" element={<CollisionRepair />} />
-        <Route path="/emergency-towing" element={<EmergencyTowing />} />
-        <Route path="/exotic-rentals" element={<ExoticRentals />} />
-        <Route path="/wraps-and-tints" element={<WrapsAndTints />} />
-        <Route path="/custom-builds" element={<CustomBuilds />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/collision-repair" element={<CollisionRepair />} />
+          <Route path="/emergency-towing" element={<EmergencyTowing />} />
+          <Route path="/exotic-rentals" element={<ExoticRentals />} />
+          <Route path="/wraps-and-tints" element={<WrapsAndTints />} />
+          <Route path="/custom-builds" element={<CustomBuilds />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
