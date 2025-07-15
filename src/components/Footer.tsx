@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Clock, Instagram, Mail } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, Mail, Facebook } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -117,14 +117,27 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center space-x-4 mt-6">
               <a
-                href="#"
+                href="https://www.facebook.com/showroom.miami"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-neon-pink transition-colors duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/the.showroom.miami"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-neon-pink transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@showroommiami"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-neon-pink transition-colors duration-300"
                 aria-label="TikTok"
               >
