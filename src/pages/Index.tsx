@@ -85,7 +85,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                 <Phone className="mr-2" size={20} />
-                Book Now
+                Call Now
               </Button>
               <Link to="/custom-builds">
                 <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
