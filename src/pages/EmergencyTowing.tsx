@@ -102,15 +102,13 @@ const EmergencyTowing = () => {
                     ensure safe transport without risk of damage.
                   </p>
                   
-                  <a href="tel:305-419-8379">
-                    <Button 
-                      size="lg" 
-                      className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300"
-                    >
-                      <Phone className="mr-2" size={20} />
-                      Call For Emergency
-                    </Button>
-                  </a>
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300"
+                  >
+                    <Phone className="mr-2" size={20} />
+                    Call For Emergency
+                  </Button>
                 </article>
                 
                 <div className="relative">
@@ -260,15 +258,13 @@ const EmergencyTowing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:305-419-8379">
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
-                  >
-                    <Phone className="mr-2" size={20} />
-                    Call 305-419-8379 NOW
-                  </Button>
-                </a>
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
+                >
+                  <Phone className="mr-2" size={20} />
+                  Call 305-419-8379 NOW
+                </Button>
               </div>
               
               <div className="mt-8 p-6 bg-gradient-to-r from-neon-purple/20 to-neon-blue/20 rounded-lg">

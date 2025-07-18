@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const ExoticRentals = () => {
   const features = ["Curated fleet of exotic and luxury vehicles", "Flexible rental periods from hourly to monthly", "White-glove delivery and pickup service", "Comprehensive insurance coverage included", "24/7 concierge support during rental", "Special event and wedding packages"];
   const vehicles = [{
@@ -19,9 +18,7 @@ const ExoticRentals = () => {
     examples: ["Porsche 911 Cabriolet", "BMW i8 Roadster", "Audi R8 Spyder"],
     image: "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=400&h=250&fit=crop"
   }];
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
@@ -73,12 +70,10 @@ const ExoticRentals = () => {
                 that ensures your luxury experience is seamless from start to finish.
               </p>
               
-              <a href="tel:305-419-8379">
-                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
-                  <Phone className="mr-2" size={20} />
-                  Reserve Your Dream Car
-                </Button>
-              </a>
+              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                <Phone className="mr-2" size={20} />
+                Reserve Your Dream Car
+              </Button>
             </div>
             
             <div className="relative">
@@ -239,19 +234,16 @@ const ExoticRentals = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:305-419-8379">
-              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
-                <Phone className="mr-2" size={20} />
-                Call 305-419-8379
-              </Button>
-            </a>
+            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+              <Phone className="mr-2" size={20} />
+              Call 305-419-8379
+            </Button>
+            
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ExoticRentals;
