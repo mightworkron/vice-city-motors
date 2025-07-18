@@ -72,10 +72,12 @@ const CustomBuilds = () => {
                     that are truly one-of-a-kind.
                   </p>
                   
-                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
-                    <Phone className="mr-2" size={20} />
-                    Schedule Consultation
-                  </Button>
+                  <a href="tel:305-419-8379">
+                    <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                      <Phone className="mr-2" size={20} />
+                      Schedule Consultation
+                    </Button>
+                  </a>
                 </article>
                 
                 <div className="relative">
@@ -187,10 +189,12 @@ const CustomBuilds = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
-                  <Phone className="mr-2" size={20} />
-                  Call 305-419-8379
-                </Button>
+                <a href="tel:305-419-8379">
+                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                    <Phone className="mr-2" size={20} />
+                    Call 305-419-8379
+                  </Button>
+                </a>
               </div>
             </div>
           </section>
