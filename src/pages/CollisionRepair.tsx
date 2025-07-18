@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
+
 const CollisionRepair = () => {
   const benefits = ["Insurance claim assistance and direct billing", "OEM and aftermarket parts availability", "Advanced paint matching technology", "Frame straightening and alignment", "Quality guarantee on all repairs", "Rental car coordination"];
   return <>
@@ -62,10 +63,12 @@ const CollisionRepair = () => {
                     quality guarantee and exceptional customer service.
                   </p>
                   
-                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
-                    <Phone className="mr-2" size={20} />
-                    Schedule Estimate
-                  </Button>
+                  <a href="tel:305-419-8379">
+                    <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                      <Phone className="mr-2" size={20} />
+                      Schedule Estimate
+                    </Button>
+                  </a>
                 </article>
                 
                 <div className="relative">
@@ -161,10 +164,12 @@ const CollisionRepair = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
-                  <Phone className="mr-2" size={20} />
-                  Call 305-419-8379
-                </Button>
+                <a href="tel:305-419-8379">
+                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                    <Phone className="mr-2" size={20} />
+                    Call 305-419-8379
+                  </Button>
+                </a>
                 <Link to="/custom-builds">
                   
                 </Link>
@@ -177,4 +182,5 @@ const CollisionRepair = () => {
       </div>
     </>;
 };
+
 export default CollisionRepair;

@@ -8,17 +8,20 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
+
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle form submission here
   };
+
   const services = [{
     icon: Wrench,
     title: "Collision Repair & Custom Builds",
@@ -44,7 +47,9 @@ const Index = () => {
     link: "/wraps-and-tints",
     gradient: "from-neon-cyan to-neon-pink"
   }];
+
   const galleryImages = ["/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png", "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png", "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png", "/lovable-uploads/a3ac9bd2-1140-4ce9-a38a-958b8c8a65d3.png", "/lovable-uploads/fb43b1a6-141d-4106-99ab-6e46d477f530.png", "/lovable-uploads/41c46b9a-b7d4-4186-bfbb-9a97be2bdfd3.png"];
+
   return <>
       <SEOHead seoData={pageSEO.home} structuredData={generateStructuredData('home')} />
       <div className="min-h-screen bg-background">
@@ -83,10 +88,12 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
-                <Phone className="mr-2" size={20} />
-                Call Now
-              </Button>
+              <a href="tel:305-419-8379">
+                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
+                  <Phone className="mr-2" size={20} />
+                  Call Now
+                </Button>
+              </a>
               <Link to="/custom-builds">
                 <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
                   Get Custom Build
@@ -278,4 +285,5 @@ const Index = () => {
       </div>
     </>;
 };
+
 export default Index;
