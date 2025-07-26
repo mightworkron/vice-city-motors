@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Phone, CheckCircle, Shield, Clock } from "lucide-react";
+import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 
@@ -149,6 +149,49 @@ const CollisionRepair = () => {
                     <p className="text-gray-300">{item.desc}</p>
                   </div>)}
               </div>
+            </div>
+          </section>
+
+          {/* Repair Authorization Form Section */}
+          <section className="py-16" aria-labelledby="authorization-form">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center mb-6">
+                  <FileText className="text-neon-cyan mr-4" size={40} />
+                  <h2 id="authorization-form" className="text-3xl font-orbitron font-bold">
+                    <span className="neon-text">Sign Our Legally Binding</span>
+                  </h2>
+                </div>
+                <h3 className="text-2xl font-orbitron font-bold text-white mb-4">
+                  Repair Authorization & Consent Form
+                </h3>
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                  Complete our secure authorization form to begin your collision repair process. 
+                  This form ensures we have proper consent and details for your vehicle restoration.
+                </p>
+              </div>
+
+              <div className="bg-card rounded-lg p-6 border border-neon-purple/30 neon-border">
+                <div className="w-full">
+                  <iframe
+                    id="JotFormIFrame-252064962124050"
+                    title="Legally Binding Repair Authorization and Consent"
+                    onLoad={() => window.parent.scrollTo(0,0)}
+                    allowTransparency="true"
+                    allow="geolocation; microphone; camera; fullscreen; payment"
+                    src="https://form.jotform.com/252064962124050"
+                    frameBorder="0"
+                    style={{minWidth:"100%", maxWidth:"100%", height:"539px", border:"none"}}
+                    scrolling="no"
+                    className="w-full rounded-lg"
+                  />
+                </div>
+              </div>
+              
+              <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+              <script dangerouslySetInnerHTML={{
+                __html: `window.jotformEmbedHandler("iframe[id='JotFormIFrame-252064962124050']", "https://form.jotform.com/")`
+              }} />
             </div>
           </section>
 
