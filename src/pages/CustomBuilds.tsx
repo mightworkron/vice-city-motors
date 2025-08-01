@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
-import FloatingCallButton from "@/components/FloatingCallButton";
 
 const CustomBuilds = () => {
   const customFeatures = ["Performance upgrades and modifications", "Luxury interior customization", "Custom paint and graphic work", "Suspension and handling upgrades", "Audio system integration", "Body kit installation"];
@@ -202,7 +201,6 @@ const CustomBuilds = () => {
         </main>
 
         <Footer />
-        <FloatingCallButton />
       </div>
     </>
   );
