@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -11,10 +10,7 @@ const CollisionRepair = () => {
   const benefits = ["Insurance claim assistance and direct billing", "OEM and aftermarket parts availability", "Advanced paint matching technology", "Frame straightening and alignment", "Quality guarantee on all repairs", "Rental car coordination"];
   
   return <>
-      <SEOHead 
-        seoData={pageSEO.collisionRepair}
-        structuredData={generateStructuredData('service', 'Collision Repair')}
-      />
+      <SEOHead seoData={pageSEO.collisionRepair} structuredData={generateStructuredData('service', 'Collision Repair')} />
       <div className="min-h-screen bg-background">
         <Navigation />
         
@@ -240,7 +236,6 @@ const CollisionRepair = () => {
         </main>
 
         <Footer />
-        <FloatingCallButton />
       </div>
     </>;
 };

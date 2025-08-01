@@ -1,11 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Truck, Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const EmergencyTowing = () => {
   const services = [

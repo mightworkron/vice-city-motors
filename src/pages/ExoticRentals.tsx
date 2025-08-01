@@ -1,9 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const ExoticRentals = () => {
   const features = ["Curated fleet of exotic and luxury vehicles", "Flexible rental periods from hourly to monthly", "White-glove delivery and pickup service", "Comprehensive insurance coverage included", "24/7 concierge support during rental", "Special event and wedding packages"];

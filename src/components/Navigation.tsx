@@ -49,15 +49,18 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Phone and Mobile Menu Button */}
+          {/* Enhanced Phone and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <a
               href="tel:305-419-8379"
-              className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-pulse hover:animate-none hover:scale-105 group"
-              aria-label="Call The Showroom Miami"
+              className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 px-4 py-2 rounded-lg border border-neon-cyan/30 hover:border-neon-pink/50 text-neon-cyan hover:text-neon-pink transition-all duration-300 hover:scale-105 neon-border"
+              aria-label="Call Showroom Miami"
             >
-              <Phone size={18} className="group-hover:animate-bounce" />
-              <span className="font-medium">305-419-8379</span>
+              <Phone size={20} className="animate-pulse" />
+              <div className="flex flex-col">
+                <span className="font-orbitron font-bold text-sm">CALL NOW</span>
+                <span className="font-medium text-xs">305-419-8379</span>
+              </div>
             </a>
 
             {/* Mobile menu button */}
@@ -89,11 +92,14 @@ const Navigation = () => {
             ))}
             <a
               href="tel:305-419-8379"
-              className="flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 pt-2 border-t border-neon-purple/30 animate-pulse hover:animate-none group"
-              aria-label="Call The Showroom Miami"
+              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 px-4 py-3 rounded-lg border border-neon-cyan/30 text-neon-cyan hover:text-neon-pink transition-all duration-300 mt-4"
+              aria-label="Call Showroom Miami"
             >
-              <Phone size={18} className="group-hover:animate-bounce" />
-              <span className="font-medium">305-419-8379</span>
+              <Phone size={20} className="animate-pulse" />
+              <div className="flex flex-col">
+                <span className="font-orbitron font-bold">CALL NOW</span>
+                <span className="font-medium">305-419-8379</span>
+              </div>
             </a>
           </div>
         )}

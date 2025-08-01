@@ -6,9 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import FloatingCallButton from "@/components/FloatingCallButton";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +51,8 @@ const Index = () => {
 
   const galleryImages = ["/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png", "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png", "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png", "/lovable-uploads/a3ac9bd2-1140-4ce9-a38a-958b8c8a65d3.png", "/lovable-uploads/fb43b1a6-141d-4106-99ab-6e46d477f530.png", "/lovable-uploads/41c46b9a-b7d4-4186-bfbb-9a97be2bdfd3.png"];
 
-  return <>
+  return (
+    <>
       <SEOHead seoData={pageSEO.home} structuredData={generateStructuredData('home')} />
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -285,7 +286,8 @@ const Index = () => {
         <Footer />
         <FloatingCallButton />
       </div>
-    </>;
+    </>
+  );
 };
 
 export default Index;

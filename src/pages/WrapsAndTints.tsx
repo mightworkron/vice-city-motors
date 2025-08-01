@@ -1,9 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const WrapsAndTints = () => {
   const wrapServices = ["Full vehicle color change wraps", "Partial wraps and accent graphics", "Commercial and advertising wraps", "Textured and specialty finishes", "Custom design and artwork", "Wrap removal and restoration"];
