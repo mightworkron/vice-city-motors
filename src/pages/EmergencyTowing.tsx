@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Truck, Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const EmergencyTowing = () => {
   const services = [
@@ -281,6 +282,7 @@ const EmergencyTowing = () => {
         </main>
 
         <Footer />
+        <FloatingCallButton />
       </div>
     </>
   );
