@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -90,13 +89,7 @@ const Index = () => {
               we deliver excellence with every project.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-              <Link to="/exotic-rentals">
-                <Button size="lg" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 neon-border border-2 border-orange-400/50">
-                  <Car className="mr-2" size={20} />
-                  Rent Exotic Cars Now
-                </Button>
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <a href="tel:305-419-8379">
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                   <Phone className="mr-2" size={20} />
@@ -191,25 +184,6 @@ const Index = () => {
                       </div>
                     </Link>
                   </article>)}
-              </div>
-
-              {/* Exotic Rental CTA Section */}
-              <div className="mt-16 text-center">
-                <div className="bg-gradient-to-r from-orange-500/10 via-red-500/10 to-orange-500/10 rounded-lg p-8 border border-orange-400/30">
-                  <h3 className="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">
-                    Ready to Drive Your Dream Car?
-                  </h3>
-                  <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
-                    Experience Miami in style with our premium fleet of exotic and luxury vehicles. 
-                    From Lamborghinis to Ferraris, make every moment unforgettable.
-                  </p>
-                  <Link to="/exotic-rentals">
-                    <Button size="lg" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-10 py-4 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 neon-border border-2 border-orange-400/50">
-                      <Car className="mr-2" size={24} />
-                      Get Quote on Exotic Rentals
-                    </Button>
-                  </Link>
-                </div>
               </div>
             </div>
           </section>
