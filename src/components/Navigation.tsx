@@ -53,10 +53,10 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a
               href="tel:305-419-8379"
-              className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 px-4 py-2 rounded-lg border border-neon-cyan/30 hover:border-neon-pink/50 text-neon-cyan hover:text-neon-pink transition-all duration-300 hover:scale-105 neon-border"
+              className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-all duration-300"
               aria-label="Call Showroom Miami"
             >
-              <Phone size={20} className="animate-pulse" />
+              <Phone size={20} />
               <div className="flex flex-col">
                 <span className="font-orbitron font-bold text-sm">CALL NOW</span>
                 <span className="font-medium text-xs">305-419-8379</span>
@@ -92,10 +92,10 @@ const Navigation = () => {
             ))}
             <a
               href="tel:305-419-8379"
-              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 px-4 py-3 rounded-lg border border-neon-cyan/30 text-neon-cyan hover:text-neon-pink transition-all duration-300 mt-4"
+              className="flex items-center justify-center space-x-2 text-neon-cyan hover:text-neon-pink transition-all duration-300 mt-4"
               aria-label="Call Showroom Miami"
             >
-              <Phone size={20} className="animate-pulse" />
+              <Phone size={20} />
               <div className="flex flex-col">
                 <span className="font-orbitron font-bold">CALL NOW</span>
                 <span className="font-medium">305-419-8379</span>
