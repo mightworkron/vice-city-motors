@@ -53,13 +53,13 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a
               href="tel:305-419-8379"
-              className="hidden sm:flex items-center space-x-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:border-neon-pink/60 text-white hover:text-neon-pink transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-neon-pink/20"
+              className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 px-4 py-2 rounded-lg border border-neon-cyan/30 hover:border-neon-pink/50 text-neon-cyan hover:text-neon-pink transition-all duration-300 hover:scale-105 neon-border"
               aria-label="Call Showroom Miami"
             >
-              <Phone size={18} />
+              <Phone size={20} className="animate-pulse" />
               <div className="flex flex-col">
-                <span className="font-orbitron font-semibold text-sm">CALL NOW</span>
-                <span className="font-medium text-xs opacity-90">305-419-8379</span>
+                <span className="font-orbitron font-bold text-sm">CALL NOW</span>
+                <span className="font-medium text-xs">305-419-8379</span>
               </div>
             </a>
 
@@ -92,12 +92,12 @@ const Navigation = () => {
             ))}
             <a
               href="tel:305-419-8379"
-              className="flex items-center justify-center space-x-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-full border border-white/20 text-white hover:text-neon-pink transition-all duration-300 mt-4"
+              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 px-4 py-3 rounded-lg border border-neon-cyan/30 text-neon-cyan hover:text-neon-pink transition-all duration-300 mt-4"
               aria-label="Call Showroom Miami"
             >
-              <Phone size={18} />
+              <Phone size={20} className="animate-pulse" />
               <div className="flex flex-col">
-                <span className="font-orbitron font-semibold">CALL NOW</span>
+                <span className="font-orbitron font-bold">CALL NOW</span>
                 <span className="font-medium">305-419-8379</span>
               </div>
             </a>
