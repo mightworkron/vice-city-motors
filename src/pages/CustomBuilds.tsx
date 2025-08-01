@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -201,6 +202,7 @@ const CustomBuilds = () => {
         </main>
 
         <Footer />
+        <FloatingCallButton />
       </div>
     </>
   );

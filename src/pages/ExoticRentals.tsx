@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -250,6 +251,7 @@ const ExoticRentals = () => {
       </section>
 
       <Footer />
+      <FloatingCallButton />
     </div>
   );
 };

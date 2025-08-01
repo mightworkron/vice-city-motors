@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 
@@ -282,6 +283,7 @@ const Index = () => {
         </main>
 
         <Footer />
+        <FloatingCallButton />
       </div>
     </>;
 };

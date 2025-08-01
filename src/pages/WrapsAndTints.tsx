@@ -1,8 +1,10 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const WrapsAndTints = () => {
   const wrapServices = ["Full vehicle color change wraps", "Partial wraps and accent graphics", "Commercial and advertising wraps", "Textured and specialty finishes", "Custom design and artwork", "Wrap removal and restoration"];
   const tintServices = ["Automotive window tinting (all types)", "Ceramic and nano-ceramic films", "Security and safety window films", "Commercial building tinting", "Residential window solutions", "UV protection and glare reduction"];
@@ -261,6 +263,8 @@ const WrapsAndTints = () => {
       </section>
 
       <Footer />
+      <FloatingCallButton />
     </div>;
 };
+
 export default WrapsAndTints;

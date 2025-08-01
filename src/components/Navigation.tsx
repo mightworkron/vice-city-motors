@@ -53,9 +53,10 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a
               href="tel:305-419-8379"
-              className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300"
+              className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-pulse hover:animate-none hover:scale-105 group"
+              aria-label="Call The Showroom Miami"
             >
-              <Phone size={18} />
+              <Phone size={18} className="group-hover:animate-bounce" />
               <span className="font-medium">305-419-8379</span>
             </a>
 
@@ -88,9 +89,10 @@ const Navigation = () => {
             ))}
             <a
               href="tel:305-419-8379"
-              className="flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 pt-2 border-t border-neon-purple/30"
+              className="flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-colors duration-300 pt-2 border-t border-neon-purple/30 animate-pulse hover:animate-none group"
+              aria-label="Call The Showroom Miami"
             >
-              <Phone size={18} />
+              <Phone size={18} className="group-hover:animate-bounce" />
               <span className="font-medium">305-419-8379</span>
             </a>
           </div>
