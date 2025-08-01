@@ -96,9 +96,9 @@ const Index = () => {
                   Call Now
                 </Button>
               </a>
-              <Link to="/custom-builds">
+              <Link to="/exotic-rentals">
                 <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  Get Custom Build
+                  Rent Now
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
