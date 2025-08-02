@@ -15,7 +15,7 @@ import CTASection from "@/components/conversion/CTASection";
 const EmergencyTowing = () => {
   const benefits = [
     "15-minute average response time throughout Miami-Dade County",
-    "Ferrari-safe hydraulic flatbeds that won't damage your vehicle",
+    "Low car-safe hydraulic flatbeds that won't damage your vehicle",
     "24/7 availability including holidays and bad weather",
     "Insurance accepted - minimal out-of-pocket costs",
     "GPS tracking so you know exactly when we'll arrive",
@@ -45,6 +45,10 @@ const EmergencyTowing = () => {
 
   const faqs = [
     {
+      question: "What areas in Miami do you serve?",
+      answer: "We cover all of Miami-Dade County including South Beach, Brickell, Coral Gables, Aventura, Doral, Kendall, Homestead, and everywhere in between."
+    },
+    {
       question: "How quickly can you respond to my emergency?",
       answer: "Our average response time is 15-30 minutes throughout Miami-Dade County. We have strategically positioned trucks across the metro area for fastest possible response."
     },
@@ -55,18 +59,6 @@ const EmergencyTowing = () => {
     {
       question: "Do you provide 24/7 emergency towing service?",
       answer: "Yes, we operate 24 hours a day, 7 days a week, including holidays. Miami traffic doesn't stop, and neither do we."
-    },
-    {
-      question: "What areas in Miami do you serve?",
-      answer: "We cover all of Miami-Dade County including South Beach, Brickell, Coral Gables, Aventura, Doral, Kendall, Homestead, and everywhere in between."
-    },
-    {
-      question: "Will insurance cover my towing costs?",
-      answer: "Most insurance policies and roadside assistance programs cover emergency towing. We work with all major insurance companies and can bill them directly in many cases."
-    },
-    {
-      question: "Can you tow my car to any location I choose?",
-      answer: "Yes! We can tow your vehicle to any destination you prefer - your home, our shop, another repair facility, or dealership. Your choice, always."
     }
   ];
   
@@ -101,7 +93,7 @@ const EmergencyTowing = () => {
               <span className="neon-text">Emergency Towing</span>
             </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-6 max-w-3xl mx-auto">
-                15-minute response • Ferrari-safe equipment • No scratches guaranteed
+                15-minute response • Low car-safe equipment • No scratches guaranteed
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -121,13 +113,6 @@ const EmergencyTowing = () => {
         </header>
 
         <main>
-          {/* Solution Section */}
-          <SolutionSection 
-            title="Miami's Safest Emergency Towing"
-            subtitle="When you're stuck, you need professionals who understand luxury vehicles"
-            benefits={benefits}
-          />
-
           {/* Emergency Features */}
           <section className="py-16" aria-labelledby="emergency-features">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -181,10 +166,10 @@ const EmergencyTowing = () => {
                 
                 <article>
                   <h2 id="equipment-showcase" className="text-3xl font-orbitron font-bold mb-6">
-                    <span className="neon-text">Ferrari-Safe Equipment</span>
+                    <span className="neon-text">Low Car-Safe Equipment</span>
                   </h2>
                   <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    Our hydraulic flatbed tow trucks are specifically designed for high-value vehicles. 
+                    Our hydraulic flatbed tow trucks are specifically designed for low sitting vehicles. 
                     No wheel-lift or dolly systems that can damage suspension or scrape expensive bumpers.
                   </p>
                   <p className="text-lg text-gray-300 mb-8 leading-relaxed">
@@ -210,7 +195,7 @@ const EmergencyTowing = () => {
           {/* Mid-Page CTA */}
           <CTASection 
             title="Stuck? Don't Panic - Call Us!"
-            subtitle="15-minute average response time. Ferrari-safe equipment. Available 24/7."
+            subtitle="15-minute average response time. Low car-safe equipment. Available 24/7."
             phoneText="Emergency Towing - 305-419-8379"
           />
 
