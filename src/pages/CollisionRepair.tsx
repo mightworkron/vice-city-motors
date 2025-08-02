@@ -6,21 +6,11 @@ import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-r
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import TrustBadge from "@/components/conversion/TrustBadge";
-import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
 
 const CollisionRepair = () => {
-  const benefits = [
-    "Insurance accepted assistance - no upfront costs",
-    "OEM and aftermarket parts availability with warranty", 
-    "Advanced paint matching technology for perfect color blend",
-    "Frame straightening and alignment with precision equipment",
-    "Quality guarantee on all repairs backed by warranty",
-    "Rental car coordination while your car is being fixed"
-  ];
-
   const testimonials = [
     {
       name: "Carlos Martinez",
@@ -54,6 +44,19 @@ const CollisionRepair = () => {
     {
       question: "What if I'm not satisfied with the repair work?",
       answer: "We guarantee all our collision repair work. If you're not 100% satisfied, we'll make it right at no additional cost to you."
+    }
+  ];
+
+  const beforeAfterImages = [
+    {
+      before: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
+      after: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop",
+      description: "Front end collision repair - BMW 3 Series"
+    },
+    {
+      before: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop", 
+      after: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
+      description: "Side panel damage repair - Mercedes C-Class"
     }
   ];
   
@@ -109,13 +112,6 @@ const CollisionRepair = () => {
         </header>
 
         <main>
-          {/* Solution Section */}
-          <SolutionSection 
-            title="Here's How We Fix Everything"
-            subtitle="Insurance-approved collision repair that saves you time, money, and stress"
-            benefits={benefits}
-          />
-
           {/* Service Overview */}
           <section className="py-16" aria-labelledby="service-overview">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -191,6 +187,57 @@ const CollisionRepair = () => {
                     <p className="text-gray-300">{item.desc}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Before and After Pictures */}
+          <section className="py-16" aria-labelledby="before-after">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 id="before-after" className="text-3xl font-orbitron font-bold mb-4">
+                  <span className="neon-text">See Our Work in Action</span>
+                </h2>
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                  Real results from real customers. Every repair is restored to factory condition or better.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {beforeAfterImages.map((item, index) => (
+                  <div key={index} className="bg-card rounded-lg p-6 border border-neon-purple/30 neon-border">
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <h3 className="text-lg font-orbitron font-bold text-neon-pink mb-2">Before</h3>
+                        <img 
+                          src={item.before} 
+                          alt={`Before repair - ${item.description}`}
+                          className="w-full h-48 object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-orbitron font-bold text-neon-green mb-2">After</h3>
+                        <img 
+                          src={item.after} 
+                          alt={`After repair - ${item.description}`}
+                          className="w-full h-48 object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-gray-300 text-center font-medium">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center mt-8">
+                <a href="tel:305-419-8379">
+                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                    <Phone className="mr-2" size={20} />
+                    Get Your Free Estimate
+                  </Button>
+                </a>
               </div>
             </div>
           </section>
