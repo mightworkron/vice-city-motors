@@ -2,6 +2,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -93,12 +94,31 @@ const CustomBuilds = () => {
             </Link>
             
             <div className="text-center">
+              <div className="mb-6">
+                <TrustBadge className="mx-auto" />
+              </div>
+              
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
                 <span className="neon-text">Custom Builds</span>
               </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
                 Custom design • Performance upgrades • Miami's best craftsmanship
               </p>
+              
+              <div className="flex flex-col items-center">
+                <a href="tel:305-419-8379">
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
+                  >
+                    <Phone className="mr-2" size={20} />
+                    Schedule Consultation - 305-419-8379
+                  </Button>
+                </a>
+                <p className="text-sm text-neon-cyan mt-3 font-medium">
+                  Free consultation • Custom design mockups included
+                </p>
+              </div>
             </div>
           </div>
         </header>

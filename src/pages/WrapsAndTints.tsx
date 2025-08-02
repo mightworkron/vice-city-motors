@@ -1,9 +1,11 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { pageSEO, generateStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -16,7 +18,7 @@ const WrapsAndTints = () => {
 
   const solutionBenefits = [
     "Complete style transformation with premium vehicle wraps",
-    "Advanced paint protection that preserves your investment",
+    "Advanced paint protection that preserves your investment", 
     "Premium materials from industry-leading manufacturers",
     "Expert installation by certified professionals",
     "UV protection and enhanced privacy with window tinting",
@@ -31,14 +33,14 @@ const WrapsAndTints = () => {
       text: "The matte black wrap on my BMW looks incredible. The quality and attention to detail exceeded my expectations."
     },
     {
-      name: "Michelle Torres",
+      name: "Michelle Torres", 
       location: "Aventura",
       rating: 5,
       text: "PPF installation was flawless. You can't even tell it's there, but I have peace of mind knowing my paint is protected."
     },
     {
       name: "Antonio Silva",
-      location: "Miami Beach",
+      location: "Miami Beach", 
       rating: 5,
       text: "Ceramic tint made such a difference in comfort and privacy. Professional job from start to finish."
     }
@@ -63,275 +65,295 @@ const WrapsAndTints = () => {
     }
   ];
 
-  return <div className="min-h-screen bg-background">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        opacity: 0.2
-      }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70 z-10" />
+  return (
+    <>
+      <SEOHead 
+        seoData={pageSEO.wrapsAndTints}
+        structuredData={generateStructuredData('service', 'Wraps and Tints')}
+      />
+      <div className="min-h-screen bg-background">
+        <Navigation />
         
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="inline-flex items-center text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8">
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
+        {/* Hero Section */}
+        <section className="relative pt-24 pb-16 overflow-hidden">
+          <div className="absolute inset-0 z-0" style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.2
+        }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70 z-10" />
           
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
-              <span className="neon-text">Wraps & Tints</span>
-            </h1>
-            <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-              Premium Wraps, Tints & PPF in Miami
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Overview */}
-      <section className="py-16 miami-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-orbitron font-bold mb-6">
-                <span className="neon-text">Style Meets Protection</span>
-              </h2>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                Whether you want to completely transform your vehicle's appearance with a 
-                custom wrap, enhance privacy and comfort with premium window tinting, or 
-                protect your investment with paint protection film, we deliver results 
-                that exceed expectations.
-              </p>
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Our certified technicians use only premium materials from leading manufacturers, 
-                ensuring your investment provides lasting beauty and protection. From concept 
-                to completion, we handle every detail with precision and care.
+          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link to="/" className="inline-flex items-center text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8">
+              <ArrowLeft size={20} className="mr-2" />
+              Back to Home
+            </Link>
+            
+            <div className="text-center">
+              <div className="mb-6">
+                <TrustBadge className="mx-auto" />
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
+                <span className="neon-text">Wraps & Tints</span>
+              </h1>
+              <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
+                Premium Wraps, Tints & PPF in Miami
               </p>
               
+              <div className="flex flex-col items-center">
+                <a href="tel:305-419-8379">
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
+                  >
+                    <Phone className="mr-2" size={20} />
+                    Get Free Quote - 305-419-8379
+                  </Button>
+                </a>
+                <p className="text-sm text-neon-cyan mt-3 font-medium">
+                  Same-day estimates • Expert installation guaranteed
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Service Overview */}
+        <section className="py-16 miami-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-orbitron font-bold mb-6">
+                  <span className="neon-text">Style Meets Protection</span>
+                </h2>
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                  Whether you want to completely transform your vehicle's appearance with a 
+                  custom wrap, enhance privacy and comfort with premium window tinting, or 
+                  protect your investment with paint protection film, we deliver results 
+                  that exceed expectations.
+                </p>
+                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                  Our certified technicians use only premium materials from leading manufacturers, 
+                  ensuring your investment provides lasting beauty and protection. From concept 
+                  to completion, we handle every detail with precision and care.
+                </p>
+              </div>
+              
+              <div className="relative">
+                <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&h=400&fit=crop" alt="Vehicle Wrap and Tinting" className="rounded-lg neon-border" />
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
+                  <Palette className="text-white" size={32} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Solution Section */}
+        <SolutionSection 
+          title="Transform & Protect Your Vehicle"
+          subtitle="Comprehensive styling and protection services for your automotive investment"
+          benefits={solutionBenefits}
+        />
+
+        {/* Services Grid */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Vehicle Wraps */}
+              <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
+                <div className="flex items-center mb-6">
+                  <Palette className="text-neon-cyan mr-4" size={32} />
+                  <h3 className="text-2xl font-orbitron font-bold text-white">Vehicle Wraps</h3>
+                </div>
+                <p className="text-gray-300 mb-6">
+                  Complete color changes, custom graphics, and commercial wraps 
+                  that transform your vehicle's appearance.
+                </p>
+                <ul className="space-y-3">
+                  {wrapServices.map((service, index) => <li key={index} className="flex items-center text-gray-300">
+                      <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
+                      <span className="text-sm">{service}</span>
+                    </li>)}
+                </ul>
+              </div>
+
+              {/* Window Tinting */}
+              <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
+                <div className="flex items-center mb-6">
+                  <Shield className="text-neon-purple mr-4" size={32} />
+                  <h3 className="text-2xl font-orbitron font-bold text-white">Window Tinting</h3>
+                </div>
+                <p className="text-gray-300 mb-6">
+                  Premium window films for enhanced privacy, comfort, 
+                  and UV protection with professional installation.
+                </p>
+                <ul className="space-y-3">
+                  {tintServices.map((service, index) => <li key={index} className="flex items-center text-gray-300">
+                      <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
+                      <span className="text-sm">{service}</span>
+                    </li>)}
+                </ul>
+              </div>
+
+              {/* Paint Protection Film */}
+              <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
+                <div className="flex items-center mb-6">
+                  <Sparkles className="text-neon-pink mr-4" size={32} />
+                  <h3 className="text-2xl font-orbitron font-bold text-white">Paint Protection</h3>
+                </div>
+                <p className="text-gray-300 mb-6">
+                  Invisible protection film that preserves your vehicle's 
+                  paint while maintaining its original beauty.
+                </p>
+                <ul className="space-y-3">
+                  {ppfBenefits.map((benefit, index) => <li key={index} className="flex items-center text-gray-300">
+                      <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
+                      <span className="text-sm">{benefit}</span>
+                    </li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Material Brands */}
+        <section className="py-16 miami-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-orbitron font-bold mb-4">
+                <span className="neon-text">Premium Materials</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                We partner with industry-leading manufacturers to ensure the highest quality results
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[{
+                name: "3M",
+                category: "Wraps & PPF"
+              }, {
+                name: "Avery Dennison",
+                category: "Vehicle Wraps"
+              }, {
+                name: "XPEL",
+                category: "Paint Protection"
+              }, {
+                name: "SunTek",
+                category: "Window Films"
+              }].map((brand, index) => <div key={index} className="text-center">
+                  <div className="bg-gradient-to-r from-neon-pink/20 to-neon-purple/20 rounded-lg p-6 mb-3">
+                    <div className="text-xl font-orbitron font-bold text-white">{brand.name}</div>
+                  </div>
+                  <div className="text-sm text-gray-300">{brand.category}</div>
+                </div>)}
+            </div>
+          </div>
+        </section>
+
+        {/* Process & Timeline */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-orbitron font-bold mb-4">
+                <span className="neon-text">Our Process</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                From consultation to completion, we ensure every project meets our exacting standards
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[{
+                step: "01",
+                title: "Consultation",
+                desc: "Discuss your vision and requirements",
+                time: "30 min"
+              }, {
+                step: "02",
+                title: "Design & Quote",
+                desc: "Create custom design and provide detailed estimate",
+                time: "1-2 days"
+              }, {
+                step: "03",
+                title: "Preparation",
+                desc: "Vehicle prep and material ordering",
+                time: "1-3 days"
+              }, {
+                step: "04",
+                title: "Installation",
+                desc: "Professional installation and quality check",
+                time: "1-5 days"
+              }].map((item, index) => <div key={index} className="text-center">
+                  <div className="bg-gradient-to-r from-neon-pink to-neon-purple rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-orbitron font-bold">{item.step}</span>
+                  </div>
+                  <h3 className="text-lg font-orbitron font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-300 text-sm mb-2">{item.desc}</p>
+                  <div className="text-neon-cyan text-xs font-medium">{item.time}</div>
+                </div>)}
+            </div>
+          </div>
+        </section>
+
+        {/* Portfolio Showcase */}
+        <section className="py-16 miami-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-orbitron font-bold mb-4">
+                <span className="neon-text">Recent Projects</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                See how we've transformed vehicles with our wrapping, tinting, and protection services
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
+                  <img src={image} alt={`Project ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
+                </div>)}
+            </div>
+          </div>
+        </section>
+
+        {/* Social Proof */}
+        <SocialProof testimonials={testimonials} />
+
+        {/* FAQ Section */}
+        <FAQSection faqs={faqs} />
+
+        {/* CTA Section */}
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-orbitron font-bold mb-6">
+              <span className="neon-text">Ready to Transform Your Vehicle?</span>
+            </h2>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Contact us today for a free consultation and quote. Let's discuss how we can 
+              enhance your vehicle's style and protection with our premium services.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="tel:305-419-8379">
-                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
                   <Phone className="mr-2" size={20} />
-                  Get Free Quote
+                  Call 305-419-8379
                 </Button>
               </a>
             </div>
-            
-            <div className="relative">
-              <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&h=400&fit=crop" alt="Vehicle Wrap and Tinting" className="rounded-lg neon-border" />
-              <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
-                <Palette className="text-white" size={32} />
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Solution Section */}
-      <SolutionSection 
-        title="Transform & Protect Your Vehicle"
-        subtitle="Comprehensive styling and protection services for your automotive investment"
-        benefits={solutionBenefits}
-      />
-
-      {/* Services Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Vehicle Wraps */}
-            <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
-              <div className="flex items-center mb-6">
-                <Palette className="text-neon-cyan mr-4" size={32} />
-                <h3 className="text-2xl font-orbitron font-bold text-white">Vehicle Wraps</h3>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Complete color changes, custom graphics, and commercial wraps 
-                that transform your vehicle's appearance.
-              </p>
-              <ul className="space-y-3">
-                {wrapServices.map((service, index) => <li key={index} className="flex items-center text-gray-300">
-                    <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
-                    <span className="text-sm">{service}</span>
-                  </li>)}
-              </ul>
-            </div>
-
-            {/* Window Tinting */}
-            <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
-              <div className="flex items-center mb-6">
-                <Shield className="text-neon-purple mr-4" size={32} />
-                <h3 className="text-2xl font-orbitron font-bold text-white">Window Tinting</h3>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Premium window films for enhanced privacy, comfort, 
-                and UV protection with professional installation.
-              </p>
-              <ul className="space-y-3">
-                {tintServices.map((service, index) => <li key={index} className="flex items-center text-gray-300">
-                    <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
-                    <span className="text-sm">{service}</span>
-                  </li>)}
-              </ul>
-            </div>
-
-            {/* Paint Protection Film */}
-            <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
-              <div className="flex items-center mb-6">
-                <Sparkles className="text-neon-pink mr-4" size={32} />
-                <h3 className="text-2xl font-orbitron font-bold text-white">Paint Protection</h3>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Invisible protection film that preserves your vehicle's 
-                paint while maintaining its original beauty.
-              </p>
-              <ul className="space-y-3">
-                {ppfBenefits.map((benefit, index) => <li key={index} className="flex items-center text-gray-300">
-                    <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
-                    <span className="text-sm">{benefit}</span>
-                  </li>)}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Material Brands */}
-      <section className="py-16 miami-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-orbitron font-bold mb-4">
-              <span className="neon-text">Premium Materials</span>
-            </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              We partner with industry-leading manufacturers to ensure the highest quality results
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[{
-            name: "3M",
-            category: "Wraps & PPF"
-          }, {
-            name: "Avery Dennison",
-            category: "Vehicle Wraps"
-          }, {
-            name: "XPEL",
-            category: "Paint Protection"
-          }, {
-            name: "SunTek",
-            category: "Window Films"
-          }].map((brand, index) => <div key={index} className="text-center">
-                <div className="bg-gradient-to-r from-neon-pink/20 to-neon-purple/20 rounded-lg p-6 mb-3">
-                  <div className="text-xl font-orbitron font-bold text-white">{brand.name}</div>
-                </div>
-                <div className="text-sm text-gray-300">{brand.category}</div>
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Process & Timeline */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-orbitron font-bold mb-4">
-              <span className="neon-text">Our Process</span>
-            </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              From consultation to completion, we ensure every project meets our exacting standards
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[{
-            step: "01",
-            title: "Consultation",
-            desc: "Discuss your vision and requirements",
-            time: "30 min"
-          }, {
-            step: "02",
-            title: "Design & Quote",
-            desc: "Create custom design and provide detailed estimate",
-            time: "1-2 days"
-          }, {
-            step: "03",
-            title: "Preparation",
-            desc: "Vehicle prep and material ordering",
-            time: "1-3 days"
-          }, {
-            step: "04",
-            title: "Installation",
-            desc: "Professional installation and quality check",
-            time: "1-5 days"
-          }].map((item, index) => <div key={index} className="text-center">
-                <div className="bg-gradient-to-r from-neon-pink to-neon-purple rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-orbitron font-bold">{item.step}</span>
-                </div>
-                <h3 className="text-lg font-orbitron font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-300 text-sm mb-2">{item.desc}</p>
-                <div className="text-neon-cyan text-xs font-medium">{item.time}</div>
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Showcase */}
-      <section className="py-16 miami-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-orbitron font-bold mb-4">
-              <span className="neon-text">Recent Projects</span>
-            </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              See how we've transformed vehicles with our wrapping, tinting, and protection services
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
-                <img src={image} alt={`Project ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <SocialProof testimonials={testimonials} />
-
-      {/* FAQ Section */}
-      <FAQSection faqs={faqs} />
-
-      {/* CTA Section */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-orbitron font-bold mb-6">
-            <span className="neon-text">Ready to Transform Your Vehicle?</span>
-          </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and quote. Let's discuss how we can 
-            enhance your vehicle's style and protection with our premium services.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:305-419-8379">
-              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
-                <Phone className="mr-2" size={20} />
-                Call 305-419-8379
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-      <FloatingCallButton />
-    </div>;
+        <Footer />
+        <FloatingCallButton />
+      </div>
+    </>
+  );
 };
 
 export default WrapsAndTints;
