@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -6,7 +7,6 @@ import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-r
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import TrustBadge from "@/components/conversion/TrustBadge";
-import ProblemSection from "@/components/conversion/ProblemSection";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -14,21 +14,12 @@ import CTASection from "@/components/conversion/CTASection";
 
 const CollisionRepair = () => {
   const benefits = [
-    "Insurance claim assistance and direct billing - no upfront costs",
+    "Insurance accepted assistance - no upfront costs",
     "OEM and aftermarket parts availability with warranty",
     "Advanced paint matching technology for perfect color blend", 
     "Frame straightening and alignment with precision equipment",
     "Quality guarantee on all repairs backed by warranty",
     "Rental car coordination while your car is being fixed"
-  ];
-
-  const problems = [
-    "My insurance company is giving me the runaround on my claim",
-    "The body shop quoted me way more than my insurance covers",
-    "I'm worried they'll use cheap parts that don't match perfectly",
-    "Last repair job took 3 weeks and still didn't look right",
-    "I don't trust mechanics - they always try to upsell me",
-    "I need my car back fast but want quality work done"
   ];
 
   const testimonials = [
@@ -55,7 +46,7 @@ const CollisionRepair = () => {
   const faqs = [
     {
       question: "Do I have to pay anything upfront for collision repair?",
-      answer: "No! We work directly with your insurance company and handle direct billing. You only pay your deductible, and we take care of the rest."
+      answer: "No! We work with your insurance company and handle accepted billing. You only pay your deductible, and we take care of the rest."
     },
     {
       question: "How long does collision repair take in Miami?",
@@ -110,7 +101,7 @@ const CollisionRepair = () => {
                 <span className="neon-text">Collision Repair</span>
               </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-                Insurance-approved collision repair in Miami. Direct billing, same-day estimates, 
+                Insurance-approved collision repair in Miami. Same-day estimates, 
                 and your car restored to factory condition - guaranteed.
               </p>
               
@@ -124,19 +115,13 @@ const CollisionRepair = () => {
               </div>
               
               <p className="text-neon-cyan text-sm">
-                ⚡ 15-minute response • 🛡️ Insurance direct billing • ⭐ 2-5 day completion
+                ⚡ 15-minute response • 🛡️ Insurance accepted • ⭐ 2-5 day completion
               </p>
             </div>
           </div>
         </header>
 
         <main>
-          {/* Problem Section */}
-          <ProblemSection 
-            title="Sound Familiar?"
-            problems={problems}
-          />
-
           {/* Solution Section */}
           <SolutionSection 
             title="Here's How We Fix Everything"

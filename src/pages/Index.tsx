@@ -8,7 +8,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import TrustBadge from "@/components/conversion/TrustBadge";
-import ProblemSection from "@/components/conversion/ProblemSection";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -60,20 +59,9 @@ const Index = () => {
     }
   ];
 
-  const problems = [
-    "Insurance company giving you the runaround on your claim?",
-    "Stuck on I-95 with your Ferrari and scared it'll get scratched?",
-    "Need to impress clients but driving a boring rental?",
-    "Car looking faded from Miami's brutal sun and salt air?",
-    "Tired of shoddy repair work that shows?",
-    "Want a custom ride but don't trust just anyone with it?"
-  ];
-
   const solutions = [
-    "✓ Insurance direct billing - we handle the paperwork",
+    "✓ Insurance accepted - we handle the paperwork",
     "✓ 15-minute towing response with Ferrari-safe equipment",
-    "✓ Exotic cars delivered to your door in Miami-Dade",
-    "✓ Hurricane-rated PPF and ceramic tints",
     "✓ Factory-quality collision repair in 2-5 days",
     "✓ Custom builds that turn heads on Ocean Drive",
     "✓ Same-day estimates and transparent pricing",
@@ -108,7 +96,7 @@ const Index = () => {
     },
     {
       question: "Do you work directly with insurance companies?",
-      answer: "Yes! We handle direct billing with all major insurance companies. No upfront costs, no paperwork hassles for you."
+      answer: "Yes! We handle insurance accepted billing with all major insurance companies. No upfront costs, no paperwork hassles for you."
     },
     {
       question: "How long does collision repair take?",
@@ -121,10 +109,6 @@ const Index = () => {
     {
       question: "What areas in Miami do you serve?",
       answer: "We serve all of Miami-Dade County including Brickell, South Beach, Coral Gables, Aventura, Doral, Kendall, and everywhere in between."
-    },
-    {
-      question: "Do you guarantee your work?",
-      answer: "Yes! All collision repairs come with our quality guarantee. Wraps and PPF include manufacturer warranties up to 10 years."
     }
   ];
 
@@ -198,12 +182,6 @@ const Index = () => {
         </header>
 
         <main>
-          {/* Problem Section */}
-          <ProblemSection 
-            title="Sound Familiar?"
-            problems={problems}
-          />
-
           {/* Solution Section */}
           <SolutionSection 
             title="We Solve These Problems Daily"
