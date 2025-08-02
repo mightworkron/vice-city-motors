@@ -1,9 +1,13 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import SolutionSection from "@/components/conversion/SolutionSection";
+import SocialProof from "@/components/conversion/SocialProof";
+import FAQSection from "@/components/conversion/FAQSection";
 
 const ExoticRentals = () => {
   const features = ["Curated fleet of exotic and luxury vehicles", "Flexible rental periods from hourly to monthly", "White-glove delivery and pickup service", "Comprehensive insurance coverage included", "24/7 concierge support during rental", "Special event and wedding packages"];
@@ -20,6 +24,55 @@ const ExoticRentals = () => {
     examples: ["Porsche 911 Cabriolet", "BMW i8 Roadster", "Audi R8 Spyder"],
     image: "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=400&h=250&fit=crop"
   }];
+
+  const solutionBenefits = [
+    "Access to Miami's most exclusive exotic vehicle fleet",
+    "Concierge delivery service to your preferred location",
+    "White-glove support throughout your rental experience",
+    "Comprehensive insurance coverage for peace of mind",
+    "Flexible rental periods from hours to extended trips",
+    "24/7 customer support for any needs during rental"
+  ];
+
+  const testimonials = [
+    {
+      name: "Marcus Rivera",
+      location: "South Beach",
+      rating: 5,
+      text: "The Lamborghini Huracán made my wedding day absolutely perfect. The delivery was seamless and the car was immaculate."
+    },
+    {
+      name: "Jennifer Collins",
+      location: "Brickell",
+      rating: 5,
+      text: "Impressed my clients with the Bentley Flying Spur. Professional service from start to finish."
+    },
+    {
+      name: "David Martinez",
+      location: "Coral Gables",
+      rating: 5,
+      text: "The concierge service was incredible. They handled everything so I could just enjoy driving the McLaren."
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "What are the requirements to rent an exotic vehicle?",
+      answer: "You must be 25 or older with a clean driving record and valid driver's license. A security deposit and comprehensive insurance verification are required."
+    },
+    {
+      question: "How do I check vehicle availability?",
+      answer: "Call us at 305-419-8379 or visit our showroom. We'll check real-time availability and help you select the perfect vehicle for your dates."
+    },
+    {
+      question: "Is insurance coverage included?",
+      answer: "Yes, comprehensive insurance coverage is included with every rental. We also offer additional coverage options for extra peace of mind."
+    },
+    {
+      question: "How far in advance should I book?",
+      answer: "For best availability, especially for special events, we recommend booking 1-2 weeks in advance. However, we often accommodate last-minute requests."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -43,13 +96,10 @@ const ExoticRentals = () => {
           
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
-              <span className="neon-text">Exotic & Luxury</span>
-              <br />
-              <span className="text-white">Car Rentals</span>
+              <span className="neon-text">Exotic Rentals</span>
             </h1>
             <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-              Experience Miami in style with our premium fleet of exotic and luxury vehicles. 
-              Perfect for special occasions, business needs, and unforgettable experiences.
+              Concierge delivery service • All paperwork handled • Insurance included
             </p>
           </div>
         </div>
@@ -127,6 +177,13 @@ const ExoticRentals = () => {
           </div>
         </div>
       </section>
+
+      {/* Solution Section */}
+      <SolutionSection 
+        title="Premium Rental Experience"
+        subtitle="Experience luxury with our comprehensive exotic rental services"
+        benefits={solutionBenefits}
+      />
 
       {/* Features and Benefits */}
       <section className="py-16 miami-bg">
@@ -227,6 +284,12 @@ const ExoticRentals = () => {
           </div>
         </div>
       </section>
+
+      {/* Social Proof */}
+      <SocialProof testimonials={testimonials} />
+
+      {/* FAQ Section */}
+      <FAQSection faqs={faqs} />
 
       {/* CTA Section */}
       <section className="py-16">

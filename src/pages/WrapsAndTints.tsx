@@ -1,14 +1,68 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import SolutionSection from "@/components/conversion/SolutionSection";
+import SocialProof from "@/components/conversion/SocialProof";
+import FAQSection from "@/components/conversion/FAQSection";
 
 const WrapsAndTints = () => {
   const wrapServices = ["Full vehicle color change wraps", "Partial wraps and accent graphics", "Commercial and advertising wraps", "Textured and specialty finishes", "Custom design and artwork", "Wrap removal and restoration"];
   const tintServices = ["Automotive window tinting (all types)", "Ceramic and nano-ceramic films", "Security and safety window films", "Commercial building tinting", "Residential window solutions", "UV protection and glare reduction"];
   const ppfBenefits = ["Paint protection from rock chips", "Self-healing technology", "UV and chemical resistance", "Maintains vehicle resale value", "Crystal clear, invisible protection", "10-year manufacturer warranty"];
+
+  const solutionBenefits = [
+    "Complete style transformation with premium vehicle wraps",
+    "Advanced paint protection that preserves your investment",
+    "Premium materials from industry-leading manufacturers",
+    "Expert installation by certified professionals",
+    "UV protection and enhanced privacy with window tinting",
+    "Long-lasting results with comprehensive warranties"
+  ];
+
+  const testimonials = [
+    {
+      name: "Carlos Rodriguez",
+      location: "Wynwood",
+      rating: 5,
+      text: "The matte black wrap on my BMW looks incredible. The quality and attention to detail exceeded my expectations."
+    },
+    {
+      name: "Michelle Torres",
+      location: "Aventura",
+      rating: 5,
+      text: "PPF installation was flawless. You can't even tell it's there, but I have peace of mind knowing my paint is protected."
+    },
+    {
+      name: "Antonio Silva",
+      location: "Miami Beach",
+      rating: 5,
+      text: "Ceramic tint made such a difference in comfort and privacy. Professional job from start to finish."
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How long will my vehicle wrap or tint last?",
+      answer: "High-quality wraps typically last 5-7 years with proper care. Window tints can last 10+ years, and PPF comes with a 10-year warranty. Longevity depends on maintenance and environmental factors."
+    },
+    {
+      question: "What maintenance is required after installation?",
+      answer: "Avoid harsh chemicals and pressure washing for the first week. Use pH-neutral soaps for cleaning. We provide detailed care instructions to maximize the lifespan of your investment."
+    },
+    {
+      question: "Can I choose custom colors and designs?",
+      answer: "Absolutely! We offer unlimited color options, custom graphics, and unique finishes. Our design team can create completely custom looks or help refine your vision."
+    },
+    {
+      question: "What's your design and installation process?",
+      answer: "We start with a consultation to understand your vision, create design mockups, provide detailed quotes, then schedule professional installation in our climate-controlled facility."
+    }
+  ];
+
   return <div className="min-h-screen bg-background">
       <Navigation />
       
@@ -30,13 +84,10 @@ const WrapsAndTints = () => {
           
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
-              <span className="neon-text">Wraps, Tints</span>
-              <br />
-              <span className="text-white">& PPF</span>
+              <span className="neon-text">Wraps & Tints</span>
             </h1>
             <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-              Transform and protect your vehicle with professional wraps, window tinting, 
-              and paint protection film installation by certified specialists.
+              Premium Wraps, Tints & PPF in Miami
             </p>
           </div>
         </div>
@@ -62,10 +113,12 @@ const WrapsAndTints = () => {
                 to completion, we handle every detail with precision and care.
               </p>
               
-              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
-                <Phone className="mr-2" size={20} />
-                Get Free Quote
-              </Button>
+              <a href="tel:305-419-8379">
+                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                  <Phone className="mr-2" size={20} />
+                  Get Free Quote
+                </Button>
+              </a>
             </div>
             
             <div className="relative">
@@ -77,6 +130,13 @@ const WrapsAndTints = () => {
           </div>
         </div>
       </section>
+
+      {/* Solution Section */}
+      <SolutionSection 
+        title="Transform & Protect Your Vehicle"
+        subtitle="Comprehensive styling and protection services for your automotive investment"
+        benefits={solutionBenefits}
+      />
 
       {/* Services Grid */}
       <section className="py-16">
@@ -241,6 +301,12 @@ const WrapsAndTints = () => {
         </div>
       </section>
 
+      {/* Social Proof */}
+      <SocialProof testimonials={testimonials} />
+
+      {/* FAQ Section */}
+      <FAQSection faqs={faqs} />
+
       {/* CTA Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -253,11 +319,12 @@ const WrapsAndTints = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
-              <Phone className="mr-2" size={20} />
-              Call 305-419-8379
-            </Button>
-            
+            <a href="tel:305-419-8379">
+              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                <Phone className="mr-2" size={20} />
+                Call 305-419-8379
+              </Button>
+            </a>
           </div>
         </div>
       </section>

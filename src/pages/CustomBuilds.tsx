@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -6,9 +7,61 @@ import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import SolutionSection from "@/components/conversion/SolutionSection";
+import SocialProof from "@/components/conversion/SocialProof";
+import FAQSection from "@/components/conversion/FAQSection";
 
 const CustomBuilds = () => {
   const customFeatures = ["Performance upgrades and modifications", "Luxury interior customization", "Custom paint and graphic work", "Suspension and handling upgrades", "Audio system integration", "Body kit installation"];
+
+  const solutionBenefits = [
+    "Custom styling that makes your vehicle truly one-of-a-kind",
+    "Performance enhancements for improved power and handling",
+    "Standout builds that turn heads and reflect your personality",
+    "Expert craftsmanship with attention to every detail",
+    "High-quality components from trusted manufacturers",
+    "Comprehensive consultation throughout the build process"
+  ];
+
+  const testimonials = [
+    {
+      name: "Alex Rodriguez",
+      location: "Design District",
+      rating: 5,
+      text: "My custom Mustang build exceeded every expectation. The performance gains and unique styling make it a true masterpiece."
+    },
+    {
+      name: "Samantha Lee",
+      location: "Brickell",
+      rating: 5,
+      text: "The interior customization work was phenomenal. Every detail reflects my vision perfectly. Absolutely love my custom BMW."
+    },
+    {
+      name: "Miguel Santos",
+      location: "Little Havana",
+      rating: 5,
+      text: "From concept to completion, the team delivered a show-stopping custom truck. The craftsmanship is top-tier."
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "What's the typical timeline for a custom build project?",
+      answer: "Timeline varies based on complexity, typically ranging from 4-12 weeks. We provide detailed project timelines during consultation and keep you updated throughout the build process."
+    },
+    {
+      question: "What's the cost range for custom builds?",
+      answer: "Custom builds range from $5,000 to $50,000+ depending on scope. We provide detailed quotes after understanding your vision and requirements during the consultation."
+    },
+    {
+      question: "What warranties do you provide on custom work?",
+      answer: "We offer comprehensive warranties on all custom work, typically 1-2 years on labor and pass through manufacturer warranties on parts. Specific coverage depends on the components used."
+    },
+    {
+      question: "How does the design process work?",
+      answer: "We start with a detailed consultation to understand your vision, create design mockups and specifications, provide a comprehensive quote, then execute the build with regular progress updates."
+    }
+  ];
 
   return (
     <>
@@ -42,12 +95,9 @@ const CustomBuilds = () => {
             <div className="text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
                 <span className="neon-text">Custom Builds</span>
-                <br />
-                <span className="text-white">& Modifications</span>
               </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-                Transform your vehicle with bespoke automotive customization 
-                that reflects your style and enhances performance to your exact specifications.
+                Custom design • Performance upgrades • Miami's best craftsmanship
               </p>
             </div>
           </div>
@@ -97,6 +147,13 @@ const CustomBuilds = () => {
               </div>
             </div>
           </section>
+
+          {/* Solution Section */}
+          <SolutionSection 
+            title="Bring Your Vision to Life"
+            subtitle="Transform your vehicle with custom modifications that reflect your unique style and performance needs"
+            benefits={solutionBenefits}
+          />
 
           {/* Custom Features */}
           <section className="py-16">
@@ -177,6 +234,12 @@ const CustomBuilds = () => {
               </div>
             </div>
           </section>
+
+          {/* Social Proof */}
+          <SocialProof testimonials={testimonials} />
+
+          {/* FAQ Section */}
+          <FAQSection faqs={faqs} />
 
           {/* CTA Section */}
           <section className="py-16">
