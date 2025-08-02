@@ -49,14 +49,12 @@ const CollisionRepair = () => {
 
   const beforeAfterImages = [
     {
-      before: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
-      after: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop",
-      description: "Front end collision repair - BMW 3 Series"
+      before: "/lovable-uploads/63d8f550-35e4-4513-a546-74c55336fe71.png",
+      after: "/lovable-uploads/568abe98-3049-4156-aa98-0ad95c8ab3b3.png"
     },
     {
-      before: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop",
-      after: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
-      description: "Side panel damage repair - Mercedes C-Class"
+      before: "/lovable-uploads/143dfe8f-6dfd-4e9e-8a4c-2d3634c3f810.png",
+      after: "/lovable-uploads/338062c0-8060-410f-8bca-453aff16d5dc.png"
     }
   ];
   
@@ -169,12 +167,12 @@ const CollisionRepair = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {beforeAfterImages.map((item, index) => (
                   <div key={index} className="bg-card rounded-lg p-6 border border-neon-purple/30 neon-border">
-                    <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="grid grid-cols-2 gap-4">
                       <div>
                         <h3 className="text-lg font-orbitron font-bold text-neon-pink mb-2">Before</h3>
                         <img 
                           src={item.before} 
-                          alt={`Before repair - ${item.description}`}
+                          alt="Vehicle before collision repair"
                           className="w-full h-48 object-cover rounded-lg"
                           loading="lazy"
                         />
@@ -183,13 +181,12 @@ const CollisionRepair = () => {
                         <h3 className="text-lg font-orbitron font-bold text-neon-green mb-2">After</h3>
                         <img 
                           src={item.after} 
-                          alt={`After repair - ${item.description}`}
+                          alt="Vehicle after collision repair"
                           className="w-full h-48 object-cover rounded-lg"
                           loading="lazy"
                         />
                       </div>
                     </div>
-                    <p className="text-gray-300 text-center font-medium">{item.description}</p>
                   </div>
                 ))}
               </div>
