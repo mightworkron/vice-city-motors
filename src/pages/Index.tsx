@@ -32,7 +32,7 @@ const Index = () => {
     {
       icon: Wrench,
       title: "Collision Repair & Custom Builds",
-      description: "Insurance approved collision repair with same-day estimates. Custom builds that turn heads on Ocean Drive.",
+      description: "Insurance accepted collision repair with same-day estimates. Custom builds that turn heads on Ocean Drive.",
       link: "/collision-repair",
       gradient: "from-neon-pink to-neon-purple"
     },
@@ -95,8 +95,8 @@ const Index = () => {
       answer: "Average 15-30 minutes throughout Miami-Dade County. We have Ferrari-safe hydraulic flatbeds positioned strategically across the city."
     },
     {
-      question: "Do you work directly with insurance companies?",
-      answer: "Yes! We handle insurance accepted billing with all major insurance companies. No upfront costs, no paperwork hassles for you."
+      question: "Do you accept insurance?",
+      answer: "Yes. We accept most major auto insurance plans. Whether you've been in a collision or need towing services, we'll help you navigate the claims process and ensure everything is properly documented. Just bring your claim number, and we'll handle the rest."
     },
     {
       question: "How long does collision repair take?",
