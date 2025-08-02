@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -153,7 +152,7 @@ const CustomBuilds = () => {
                 
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop" 
+                    src="/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png" 
                     alt="Custom automotive build workspace at Showroom Miami showcasing precision craftsmanship and bespoke modifications"
                     className="rounded-lg neon-border"
                     loading="eager"
