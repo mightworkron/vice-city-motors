@@ -9,6 +9,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const CollisionRepair = () => {
   const testimonials = [
@@ -283,6 +284,7 @@ const CollisionRepair = () => {
         </main>
 
         <Footer />
+        <FloatingCallButton />
       </div>
     </>
   );

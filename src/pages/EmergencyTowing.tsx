@@ -10,6 +10,7 @@ import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const EmergencyTowing = () => {
   const benefits = [
@@ -239,6 +240,7 @@ const EmergencyTowing = () => {
         </main>
 
         <Footer />
+        <FloatingCallButton />
       </div>
     </>
   );
