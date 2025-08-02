@@ -59,20 +59,8 @@ const ExoticRentals = () => {
 
   const faqs = [
     {
-      question: "What are the requirements to rent an exotic vehicle?",
-      answer: "You must be 25 or older with a clean driving record and valid driver's license. A security deposit and comprehensive insurance verification are required."
-    },
-    {
       question: "How do I check vehicle availability?",
       answer: "Call us at 305-419-8379 or visit our showroom. We'll check real-time availability and help you select the perfect vehicle for your dates."
-    },
-    {
-      question: "Is insurance coverage included?",
-      answer: "Yes, comprehensive insurance coverage is included with every rental. We also offer additional coverage options for extra peace of mind."
-    },
-    {
-      question: "How far in advance should I book?",
-      answer: "For best availability, especially for special events, we recommend booking 1-2 weeks in advance. However, we often accommodate last-minute requests."
     }
   ];
 
@@ -124,7 +112,7 @@ const ExoticRentals = () => {
                   </Button>
                 </a>
                 <p className="text-sm text-neon-cyan mt-3 font-medium">
-                  15-minute response • Same-day delivery available
+                  Same-day delivery available
                 </p>
               </div>
             </div>
