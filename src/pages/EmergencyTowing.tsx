@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -71,7 +70,7 @@ const EmergencyTowing = () => {
         {/* Hero Section */}
         <header className="relative pt-24 pb-16 overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=1920&h=1080&fit=crop')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.2
@@ -158,7 +157,7 @@ const EmergencyTowing = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600&h=400&fit=crop" alt="Professional hydraulic flatbed tow truck designed for luxury and exotic vehicles in Miami" className="rounded-lg neon-border" loading="eager" width="600" height="400" />
+                  <img src="https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=600&h=400&fit=crop" alt="Professional hydraulic flatbed tow truck designed for luxury and exotic vehicles in Miami" className="rounded-lg neon-border" loading="eager" width="600" height="400" />
                   <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
                     <Truck className="text-white" size={32} />
                   </div>
