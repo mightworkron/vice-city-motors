@@ -114,7 +114,7 @@ const EmergencyTowing = () => {
               </div>
               
               <p className="text-neon-cyan text-sm">
-                🚛 Hydraulic flatbeds • ⚡ 24/7 availability • 🏎️ Exotic car specialists
+                Hydraulic flatbeds • 24/7 availability • Exotic car specialists
               </p>
             </div>
           </div>
