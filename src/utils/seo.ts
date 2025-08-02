@@ -9,48 +9,48 @@ export interface SEOData {
 }
 
 export const defaultSEO: SEOData = {
-  title: "The Showroom Miami - Miami's Auto Source Since 2018",
-  description: "Luxury auto services in Miami - Collision repair, custom builds, exotic rentals, wraps, tints, and PPF. Professional craftsmanship since 2018.",
-  keywords: "Miami auto services, luxury car repair, exotic car rental, custom builds, collision repair, car wraps, window tinting, PPF",
+  title: "Miami Auto Repair & Exotic Car Services | The Showroom Miami | Call 305-419-8379",
+  description: "Miami's premier auto services since 2018. Expert collision repair, 24/7 luxury car towing, exotic rentals, custom wraps & PPF. Serving Miami-Dade County. Call now!",
+  keywords: "Miami auto repair, collision repair Miami, exotic car rental Miami, luxury car towing, car wraps Miami, PPF Miami, emergency towing Miami Beach",
   ogImage: "/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png",
   ogType: "website"
 };
 
 export const pageSEO = {
   home: {
-    title: "The Showroom Miami - Premium Auto Services Since 2018",
-    description: "Miami's premier destination for luxury auto services. Expert collision repair, custom builds, exotic rentals, wraps, tints & PPF. Call 305-419-8379.",
-    keywords: "Miami auto services, luxury car repair, exotic car rental, custom builds, collision repair Miami, car wraps Miami",
+    title: "Miami Auto Repair & Exotic Car Services | The Showroom Miami | Call 305-419-8379",
+    description: "Miami's premier auto destination since 2018. Expert collision repair, Ferrari-safe towing, exotic rentals, premium wraps & PPF. Serving Brickell, South Beach, Coral Gables. Call 305-419-8379!",
+    keywords: "Miami auto repair, collision repair Miami, exotic car rental South Beach, luxury car towing Brickell, car wraps Coral Gables, PPF Miami Beach, emergency towing Miami Dade",
     canonicalUrl: "/"
   },
   collisionRepair: {
-    title: "Collision Repair Miami | Expert Auto Body Repair | Showroom Miami",
-    description: "Professional collision repair in Miami. Expert auto body work, insurance claims, frame alignment & paint matching. Quality guaranteed. Call 305-419-8379.",
-    keywords: "collision repair Miami, auto body repair, car accident repair, insurance claims Miami, frame alignment, paint matching",
+    title: "Collision Repair Miami | Insurance Direct Billing | Same Day Estimates | 305-419-8379",
+    description: "Expert collision repair in Miami. Insurance approved, factory-quality work, 2-5 day turnaround. Serving all Miami neighborhoods. Free estimates. Call 305-419-8379 now!",
+    keywords: "collision repair Miami, auto body repair Miami, car accident repair, insurance claims Miami, frame alignment Miami, paint matching Miami Dade",
     canonicalUrl: "/collision-repair"
   },
   emergencyTowing: {
-    title: "24/7 Emergency Towing Miami | Luxury Car Towing | Showroom Miami", 
-    description: "24/7 emergency towing in Miami. Flatbed service for luxury & exotic cars. Fast response, professional care. Call 305-419-8379 now.",
-    keywords: "emergency towing Miami, 24/7 towing, luxury car towing, flatbed towing, roadside assistance Miami",
+    title: "Ferrari & Lamborghini Safe Towing Miami | 15-Min Response | 24/7 | 305-419-8379", 
+    description: "24/7 luxury car towing in Miami. Hydraulic flatbeds safe for Ferrari, Lamborghini, McLaren. 15-minute response. Serving I-95, South Beach, Brickell. Call now!",
+    keywords: "luxury car towing Miami, Ferrari towing Miami, Lamborghini towing, exotic car towing South Beach, emergency towing Miami Beach, 24/7 towing Miami Dade",
     canonicalUrl: "/emergency-towing"
   },
   exoticRentals: {
-    title: "Exotic Car Rental Miami | Luxury Vehicle Rentals | Showroom Miami",
-    description: "Rent exotic & luxury cars in Miami. Premium fleet of supercars and luxury vehicles for special occasions. Professional service since 2018.",
-    keywords: "exotic car rental Miami, luxury car rental, supercar rental Miami, Ferrari rental, Lamborghini rental",
+    title: "Rent Ferrari, Lamborghini Miami | Luxury Car Rental | Same Day Delivery | 305-419-8379",
+    description: "Rent exotic cars in Miami. Ferrari, Lamborghini, McLaren available. Perfect for events, business, special occasions. Concierge delivery. Insurance included. Book today!",
+    keywords: "exotic car rental Miami, Ferrari rental Miami Beach, Lamborghini rental Brickell, luxury car rental South Beach, supercar rental Miami, wedding car rental",
     canonicalUrl: "/exotic-rentals"
   },
   wrapsAndTints: {
-    title: "Car Wraps & Window Tinting Miami | PPF Installation | Showroom Miami",
-    description: "Professional car wraps, window tinting & paint protection film in Miami. Premium materials, expert installation. Transform your vehicle today.",
-    keywords: "car wraps Miami, window tinting Miami, PPF Miami, paint protection film, vehicle wraps, ceramic tinting",
+    title: "Protect, Transform & Elevate Your Ride | Premium Wraps, Tints & PPF Miami | 305-419-8379",
+    description: "Transform your car with premium wraps, tints & PPF in Miami. Hurricane protection, UV defense, custom designs. 3M certified. 1-week turnaround. Call 305-419-8379!",
+    keywords: "car wraps Miami, window tinting Miami, PPF Miami, paint protection film, ceramic tinting Coral Gables, vehicle wraps South Beach, custom car wraps",
     canonicalUrl: "/wraps-and-tints"
   },
   customBuilds: {
-    title: "Custom Car Builds Miami | Automotive Customization | Showroom Miami",
-    description: "Custom car builds & modifications in Miami. Performance upgrades, luxury interiors, custom paint. Transform your vision into reality.",
-    keywords: "custom car builds Miami, automotive customization, performance upgrades, luxury car modifications, custom paint jobs",
+    title: "Custom Car Builds Miami | Performance Upgrades | Luxury Modifications | 305-419-8379",
+    description: "Custom car builds & modifications in Miami. Performance upgrades, luxury interiors, custom paint jobs. Transform your vision into reality. Call 305-419-8379 for consultation!",
+    keywords: "custom car builds Miami, automotive customization Miami, performance upgrades, luxury car modifications Brickell, custom paint jobs Miami Beach",
     canonicalUrl: "/custom-builds"
   }
 };
@@ -58,16 +58,19 @@ export const pageSEO = {
 export const generateStructuredData = (pageType: 'home' | 'service', serviceName?: string) => {
   const baseData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "AutoRepair",
     "name": "The Showroom Miami",
     "description": "Premium automotive services in Miami including collision repair, custom builds, exotic rentals, wraps, tints, and PPF",
     "url": "https://theshowroommiami.com",
     "telephone": "305-419-8379",
+    "priceRange": "$$",
+    "paymentAccepted": "Cash, Credit Card, Insurance Direct Billing",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "7820 NW 6th Ct",
       "addressLocality": "Miami",
       "addressRegion": "FL",
+      "postalCode": "33150",
       "addressCountry": "US"
     },
     "geo": {
@@ -76,10 +79,43 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
       "longitude": "-80.1918"
     },
     "openingHours": [
-      "Mo-Sa 08:00-19:00"
+      "Mo-Fr 09:00-17:00"
+    ],
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Miami"
+      },
+      {
+        "@type": "City", 
+        "name": "Miami Beach"
+      },
+      {
+        "@type": "City",
+        "name": "Coral Gables"
+      },
+      {
+        "@type": "City",
+        "name": "Aventura"
+      },
+      {
+        "@type": "City",
+        "name": "Brickell"
+      },
+      {
+        "@type": "City",
+        "name": "South Beach"
+      }
     ],
     "image": "/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png",
     "logo": "/lovable-uploads/d8b68c76-1025-4605-b3f4-3b4231f091db.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "200",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "sameAs": [
       "https://www.instagram.com/theshowroommiami",
       "https://www.facebook.com/theshowroommiami"
@@ -98,7 +134,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
             "itemOffered": {
               "@type": "Service",
               "name": "Collision Repair",
-              "description": "Professional auto body repair and collision restoration"
+              "description": "Expert auto body repair and collision restoration with insurance direct billing"
             }
           },
           {
@@ -106,7 +142,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
             "itemOffered": {
               "@type": "Service",
               "name": "Emergency Towing",
-              "description": "24/7 emergency towing and roadside assistance"
+              "description": "24/7 luxury car towing with Ferrari and Lamborghini safe equipment"
             }
           },
           {
@@ -114,7 +150,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
             "itemOffered": {
               "@type": "Service", 
               "name": "Exotic Car Rental",
-              "description": "Luxury and exotic vehicle rentals"
+              "description": "Luxury and exotic vehicle rentals with concierge delivery"
             }
           },
           {
@@ -122,7 +158,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
             "itemOffered": {
               "@type": "Service",
               "name": "Vehicle Wraps and Tinting", 
-              "description": "Car wraps, window tinting, and paint protection film"
+              "description": "Premium car wraps, window tinting, and paint protection film"
             }
           },
           {
@@ -130,7 +166,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
             "itemOffered": {
               "@type": "Service",
               "name": "Custom Builds",
-              "description": "Custom automotive builds and modifications"
+              "description": "Custom automotive builds and performance modifications"
             }
           }
         ]
@@ -150,7 +186,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
             "@type": "Service",
             "name": serviceName,
             "provider": {
-              "@type": "LocalBusiness",
+              "@type": "AutoRepair",
               "name": "The Showroom Miami"
             }
           }

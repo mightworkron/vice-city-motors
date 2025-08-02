@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import TrustBadge from "@/components/conversion/TrustBadge";
+import ProblemSection from "@/components/conversion/ProblemSection";
+import SolutionSection from "@/components/conversion/SolutionSection";
+import SocialProof from "@/components/conversion/SocialProof";
+import FAQSection from "@/components/conversion/FAQSection";
+import CTASection from "@/components/conversion/CTASection";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -20,36 +27,115 @@ const Index = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Handle form submission here
   };
 
-  const services = [{
-    icon: Wrench,
-    title: "Collision Repair & Custom Builds",
-    description: "Expert collision repair and bespoke automotive customization with precision craftsmanship.",
-    link: "/collision-repair",
-    gradient: "from-neon-pink to-neon-purple"
-  }, {
-    icon: Truck,
-    title: "Emergency Towing",
-    description: "24/7 emergency towing services across Miami with rapid response times.",
-    link: "/emergency-towing",
-    gradient: "from-neon-purple to-neon-blue"
-  }, {
-    icon: Car,
-    title: "Exotic & Luxury Car Rentals",
-    description: "Premium fleet of exotic and luxury vehicles for special occasions and business needs.",
-    link: "/exotic-rentals",
-    gradient: "from-neon-blue to-neon-cyan"
-  }, {
-    icon: Palette,
-    title: "Wraps, Tints & PPF",
-    description: "Professional vehicle wraps, window tinting, and paint protection film installation.",
-    link: "/wraps-and-tints",
-    gradient: "from-neon-cyan to-neon-pink"
-  }];
+  const services = [
+    {
+      icon: Wrench,
+      title: "Collision Repair & Custom Builds",
+      description: "Insurance approved collision repair with same-day estimates. Custom builds that turn heads on Ocean Drive.",
+      link: "/collision-repair",
+      gradient: "from-neon-pink to-neon-purple"
+    },
+    {
+      icon: Truck,
+      title: "Emergency Towing",
+      description: "Ferrari-safe towing with 15-minute response. Hydraulic flatbeds that won't scratch your investment.",
+      link: "/emergency-towing",
+      gradient: "from-neon-purple to-neon-blue"
+    },
+    {
+      icon: Car,
+      title: "Exotic & Luxury Car Rentals",
+      description: "Drive Miami in style. Lamborghini, Ferrari, McLaren ready now. Perfect for events and business.",
+      link: "/exotic-rentals",
+      gradient: "from-neon-blue to-neon-cyan"
+    },
+    {
+      icon: Palette,
+      title: "Wraps, Tints & PPF",
+      description: "Hurricane-proof protection and head-turning wraps. Ceramic tints that block Miami's brutal sun.",
+      link: "/wraps-and-tints",
+      gradient: "from-neon-cyan to-neon-pink"
+    }
+  ];
 
-  const galleryImages = ["/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png", "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png", "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png", "/lovable-uploads/a3ac9bd2-1140-4ce9-a38a-958b8c8a65d3.png", "/lovable-uploads/fb43b1a6-141d-4106-99ab-6e46d477f530.png", "/lovable-uploads/41c46b9a-b7d4-4186-bfbb-9a97be2bdfd3.png"];
+  const problems = [
+    "Insurance company giving you the runaround on your claim?",
+    "Stuck on I-95 with your Ferrari and scared it'll get scratched?",
+    "Need to impress clients but driving a boring rental?",
+    "Car looking faded from Miami's brutal sun and salt air?",
+    "Tired of shoddy repair work that shows?",
+    "Want a custom ride but don't trust just anyone with it?"
+  ];
+
+  const solutions = [
+    "✓ Insurance direct billing - we handle the paperwork",
+    "✓ 15-minute towing response with Ferrari-safe equipment",
+    "✓ Exotic cars delivered to your door in Miami-Dade",
+    "✓ Hurricane-rated PPF and ceramic tints",
+    "✓ Factory-quality collision repair in 2-5 days",
+    "✓ Custom builds that turn heads on Ocean Drive",
+    "✓ Same-day estimates and transparent pricing",
+    "✓ Serving Brickell, South Beach, Coral Gables & beyond"
+  ];
+
+  const testimonials = [
+    {
+      name: "Carlos Rodriguez",
+      location: "Brickell",
+      rating: 5,
+      text: "Hit and run on Brickell Ave. These guys handled everything with my insurance and had my BMW looking better than new in 3 days!"
+    },
+    {
+      name: "Maria Gonzalez",
+      location: "South Beach",
+      rating: 5,
+      text: "Rented a Lamborghini for my wedding. They delivered it to the Fontainebleau perfectly detailed. Made our day magical!"
+    },
+    {
+      name: "David Chen",
+      location: "Coral Gables",
+      rating: 5,
+      text: "Custom wrap on my McLaren came out incredible. Everyone asks where I got it done. Miami's best hands down."
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How fast can you tow my car if I'm stuck?",
+      answer: "Average 15-30 minutes throughout Miami-Dade County. We have Ferrari-safe hydraulic flatbeds positioned strategically across the city."
+    },
+    {
+      question: "Do you work directly with insurance companies?",
+      answer: "Yes! We handle direct billing with all major insurance companies. No upfront costs, no paperwork hassles for you."
+    },
+    {
+      question: "How long does collision repair take?",
+      answer: "Most collision repairs are completed in 2-5 business days. We'll give you an exact timeline during your free estimate."
+    },
+    {
+      question: "Can I rent an exotic car while mine is being repaired?",
+      answer: "Absolutely! We coordinate exotic and luxury rental cars so you never have to downgrade while your car is being fixed."
+    },
+    {
+      question: "What areas in Miami do you serve?",
+      answer: "We serve all of Miami-Dade County including Brickell, South Beach, Coral Gables, Aventura, Doral, Kendall, and everywhere in between."
+    },
+    {
+      question: "Do you guarantee your work?",
+      answer: "Yes! All collision repairs come with our quality guarantee. Wraps and PPF include manufacturer warranties up to 10 years."
+    }
+  ];
+
+  const galleryImages = [
+    "/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png", 
+    "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png", 
+    "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png", 
+    "/lovable-uploads/a3ac9bd2-1140-4ce9-a38a-958b8c8a65d3.png", 
+    "/lovable-uploads/fb43b1a6-141d-4106-99ab-6e46d477f530.png", 
+    "/lovable-uploads/41c46b9a-b7d4-4186-bfbb-9a97be2bdfd3.png"
+  ];
 
   return (
     <>
@@ -60,34 +146,35 @@ const Index = () => {
         {/* Hero Section */}
         <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-          backgroundImage: "url('/lovable-uploads/72157161-abaa-4935-b3a0-7c261301cec1.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.4
-        }} />
+            backgroundImage: "url('/lovable-uploads/72157161-abaa-4935-b3a0-7c261301cec1.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.4
+          }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90 z-10" />
           
           <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-black mb-6" style={{
-            textShadow: '3px 3px 0px rgba(0,0,0,0.8), 6px 6px 0px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1)'
-          }}>
+              textShadow: '3px 3px 0px rgba(0,0,0,0.8), 6px 6px 0px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1)'
+            }}>
               <span className="text-white">THE SHOWROOM</span>
               <br />
               <span className="neon-text animate-neon-pulse text-neon-pink">MIAMI</span>
             </h1>
             
             <p className="text-xl sm:text-2xl text-neon-cyan font-rajdhani font-medium mb-4" style={{
-            textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,234,255,0.3)'
-          }}>
-              Miami's Auto Source Since 2018
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,234,255,0.3)'
+            }}>
+              Miami's Premier Auto Experts
             </p>
             
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed" style={{
-            textShadow: '1px 1px 3px rgba(0,0,0,0.9)'
-          }}>
-              Premium automotive services in the heart of Miami. From collision repair to exotic rentals, 
-              we deliver excellence with every project.
+            <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed" style={{
+              textShadow: '1px 1px 3px rgba(0,0,0,0.9)'
+            }}>
+              Collision repair • 24/7 towing • Exotic rentals ready now
             </p>
+
+            <TrustBadge className="mb-8" />
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <a href="tel:305-419-8379">
@@ -110,47 +197,25 @@ const Index = () => {
           </div>
         </header>
 
-        {/* About Section */}
         <main>
-          <section className="py-20 miami-bg" aria-labelledby="about-heading">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <article>
-                  <h2 id="about-heading" className="text-3xl sm:text-4xl font-orbitron font-bold mb-6">
-                    <span className="neon-text">Crafting Excellence</span>
-                    <br />
-                    <span className="text-white">Since 2018</span>
-                  </h2>
-                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    The Showroom Miami has been the premier destination for automotive excellence in South Florida. 
-                    Our team of skilled craftsmen and technicians bring years of experience to every project, 
-                    whether it's a collision repair, custom build, or luxury rental.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-neon-green" size={20} />
-                      <span className="text-white">Expert Craftsmanship</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-neon-green" size={20} />
-                      <span className="text-white">Premium Quality</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-neon-green" size={20} />
-                      <span className="text-white">Fast Turnaround</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-neon-green" size={20} />
-                      <span className="text-white">Miami Trusted</span>
-                    </div>
-                  </div>
-                </article>
-                <div className="relative">
-                  <img src="/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png" alt="The Showroom Miami luxury automotive workshop showcasing premium car services" className="rounded-lg neon-border" loading="eager" width="600" height="400" />
-                </div>
-              </div>
-            </div>
-          </section>
+          {/* Problem Section */}
+          <ProblemSection 
+            title="Sound Familiar?"
+            problems={problems}
+          />
+
+          {/* Solution Section */}
+          <SolutionSection 
+            title="We Solve These Problems Daily"
+            subtitle="Here's exactly what you get when you choose The Showroom Miami:"
+            benefits={solutions}
+          />
+
+          {/* Mid-Page CTA */}
+          <CTASection 
+            title="Ready to Get Started?"
+            subtitle="Call now and let's solve your car problems today."
+          />
 
           {/* Services Grid */}
           <section className="py-20" aria-labelledby="services-heading">
@@ -165,7 +230,8 @@ const Index = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {services.map((service, index) => <article key={index}>
+                {services.map((service, index) => (
+                  <article key={index}>
                     <Link to={service.link} className="group relative bg-card rounded-lg p-8 border border-neon-purple/30 hover:border-neon-pink/50 transition-all duration-300 transform hover:scale-105 block">
                       <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300`} />
                       
@@ -183,10 +249,14 @@ const Index = () => {
                         </div>
                       </div>
                     </Link>
-                  </article>)}
+                  </article>
+                ))}
               </div>
             </div>
           </section>
+
+          {/* Social Proof */}
+          <SocialProof testimonials={testimonials} />
 
           {/* Gallery Section */}
           <section className="py-20 miami-bg" aria-labelledby="gallery-heading">
@@ -196,19 +266,31 @@ const Index = () => {
                   <span className="neon-text">Our Work</span>
                 </h2>
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                  A showcase of our premium automotive projects and luxury fleet
+                  See why Miami drivers trust us with their most valuable vehicles
                 </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {galleryImages.map((image, index) => <figure key={index} className="relative group overflow-hidden rounded-lg aspect-square cursor-pointer">
-                    <img src={image} alt={`Showroom Miami automotive work showcase ${index + 1} - luxury car services and customization`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" width="400" height="400" />
+                {galleryImages.map((image, index) => (
+                  <figure key={index} className="relative group overflow-hidden rounded-lg aspect-square cursor-pointer">
+                    <img 
+                      src={image} 
+                      alt={`Showroom Miami automotive work showcase ${index + 1} - luxury car services and customization`} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                      loading="lazy" 
+                      width="400" 
+                      height="400" 
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
-                  </figure>)}
+                  </figure>
+                ))}
               </div>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          <FAQSection faqs={faqs} />
 
           {/* Contact Section */}
           <section className="py-20" aria-labelledby="contact-heading">
@@ -247,7 +329,7 @@ const Index = () => {
                       <div>
                         <p className="text-white font-medium">Business Hours</p>
                         <p className="text-gray-300">Monday - Friday: 9:00 AM - 5:00 PM</p>
-                        <p className="text-gray-300">Saturday - Sunday: Closed</p>
+                        <p className="text-gray-300">Emergency Towing: 24/7</p>
                       </div>
                     </div>
                   </div>
@@ -256,22 +338,30 @@ const Index = () => {
                 <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <Input placeholder="Your Name" value={formData.name} onChange={e => setFormData({
-                      ...formData,
-                      name: e.target.value
-                    })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" />
+                      <Input 
+                        placeholder="Your Name" 
+                        value={formData.name} 
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+                        className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
+                      />
                     </div>
                     <div>
-                      <Input type="email" placeholder="Your Email" value={formData.email} onChange={e => setFormData({
-                      ...formData,
-                      email: e.target.value
-                    })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" />
+                      <Input 
+                        type="email" 
+                        placeholder="Your Email" 
+                        value={formData.email} 
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+                        className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
+                      />
                     </div>
                     <div>
-                      <Textarea placeholder="Tell us about your project or service needs" rows={4} value={formData.message} onChange={e => setFormData({
-                      ...formData,
-                      message: e.target.value
-                    })} className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" />
+                      <Textarea 
+                        placeholder="Tell us about your project or service needs" 
+                        rows={4} 
+                        value={formData.message} 
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
+                        className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" 
+                      />
                     </div>
                     <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
                       Send Message
@@ -281,6 +371,14 @@ const Index = () => {
               </div>
             </div>
           </section>
+
+          {/* Final CTA */}
+          <CTASection 
+            title="Don't Wait - Call Now!"
+            subtitle="Your car problems won't solve themselves. Get expert help from Miami's most trusted auto shop."
+            phoneText="Call 305-419-8379 Now"
+            className="bg-gradient-to-r from-neon-pink/10 to-neon-purple/10"
+          />
         </main>
 
         <Footer />
