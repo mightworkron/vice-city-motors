@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -7,70 +6,9 @@ import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
-import ProblemSection from "@/components/conversion/ProblemSection";
-import SolutionSection from "@/components/conversion/SolutionSection";
-import SocialProof from "@/components/conversion/SocialProof";
-import FAQSection from "@/components/conversion/FAQSection";
-import CTASection from "@/components/conversion/CTASection";
 
 const CustomBuilds = () => {
-  const problems = [
-    "Stock car not cutting it for your performance needs?",
-    "Want something completely unique that no one else has?",
-    "Current performance not matching your driving ambitions?",
-    "Need modifications but don't know where to start?",
-    "Want to stand out from the crowd with custom styling?",
-    "Dreaming of that perfect build but need expert guidance?"
-  ];
-
-  const benefits = [
-    "Complete custom design and engineering consultation",
-    "Performance upgrades that deliver real power gains",
-    "Luxury interior customization to match your style",
-    "Expert installation with precision craftsmanship",
-    "Quality materials and components from trusted brands",
-    "Comprehensive testing and tuning for optimal performance"
-  ];
-
-  const testimonials = [
-    {
-      name: "Miguel Santos",
-      location: "Brickell, Miami",
-      rating: 5,
-      text: "Transformed my Mustang into a 600hp beast! The custom work is flawless and the performance gains are incredible. Worth every penny!"
-    },
-    {
-      name: "Jennifer Lee",
-      location: "Aventura, FL",
-      rating: 5,
-      text: "The interior customization exceeded my expectations. They turned my luxury sedan into a mobile office that's both functional and beautiful."
-    },
-    {
-      name: "Antonio Rodriguez",
-      location: "South Beach, FL", 
-      rating: 5,
-      text: "My custom build project took 3 months but the result is a one-of-a-kind machine. The attention to detail is unmatched in Miami."
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "How long does a custom build take?",
-      answer: "Timeline varies based on complexity. Simple modifications take 1-2 weeks, while complete custom builds can take 2-4 months. We provide detailed timelines during consultation and keep you updated throughout the process."
-    },
-    {
-      question: "Can you provide cost estimates upfront?",
-      answer: "We provide detailed estimates after consultation. Costs vary greatly based on modifications desired. We work with various budgets and can phase projects to spread costs over time."
-    },
-    {
-      question: "What's included in the design process?",
-      answer: "Our design process includes initial consultation, 3D renderings when applicable, parts sourcing, timeline planning, and regular progress updates. We ensure your vision becomes reality."
-    },
-    {
-      question: "Do you offer warranties on custom work?",
-      answer: "Yes! We warranty all our workmanship and most aftermarket parts come with manufacturer warranties. We stand behind our builds and provide ongoing support after completion."
-    }
-  ];
+  const customFeatures = ["Performance upgrades and modifications", "Luxury interior customization", "Custom paint and graphic work", "Suspension and handling upgrades", "Audio system integration", "Body kit installation"];
 
   return (
     <>
@@ -107,27 +45,91 @@ const CustomBuilds = () => {
                 <br />
                 <span className="text-white">& Modifications</span>
               </h1>
-              <p className="text-2xl text-neon-cyan font-rajdhani font-bold mb-4">
-                Build Your Dream Machine
-              </p>
-              <p className="text-lg text-gray-300 font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-                Custom design • Performance upgrades • Miami's best craftsmanship
+              <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
+                Transform your vehicle with bespoke automotive customization 
+                that reflects your style and enhances performance to your exact specifications.
               </p>
             </div>
           </div>
         </header>
 
         <main>
-          <ProblemSection 
-            title="Ready for Something Extraordinary?"
-            problems={problems}
-          />
+          {/* Service Overview */}
+          <section className="py-16 miami-bg" aria-labelledby="service-overview">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <article>
+                  <h2 id="service-overview" className="text-3xl font-orbitron font-bold mb-6">
+                    <span className="neon-text">Vision to Reality</span>
+                  </h2>
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                    Our custom build services transform your vision into reality, whether you're 
+                    looking for performance upgrades, aesthetic modifications, or complete vehicle 
+                    transformations that turn heads on Miami streets.
+                  </p>
+                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                    From luxury interior customizations to high-performance engine modifications, 
+                    we combine artistry with engineering excellence to create automotive masterpieces 
+                    that are truly one-of-a-kind.
+                  </p>
+                  
+                  <a href="tel:305-419-8379">
+                    <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
+                      <Phone className="mr-2" size={20} />
+                      Schedule Consultation
+                    </Button>
+                  </a>
+                </article>
+                
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop" 
+                    alt="Custom automotive build workspace at Showroom Miami showcasing precision craftsmanship and bespoke modifications"
+                    className="rounded-lg neon-border"
+                    loading="eager"
+                    width="600"
+                    height="400"
+                  />
+                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
+                    <Wrench className="text-white" size={32} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
-          <SolutionSection 
-            title="Your Vision, Our Expertise"
-            subtitle="From performance modifications to complete custom builds, we transform ordinary vehicles into extraordinary machines tailored to your exact specifications."
-            benefits={benefits}
-          />
+          {/* Custom Features */}
+          <section className="py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-orbitron font-bold mb-4">
+                  <span className="neon-text">Our Specialties</span>
+                </h2>
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                  Comprehensive customization services tailored to your unique vision and requirements
+                </p>
+              </div>
+
+              <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
+                <div className="flex items-center mb-6">
+                  <Wrench className="text-neon-pink mr-4" size={32} />
+                  <h3 className="text-2xl font-orbitron font-bold text-white">Custom Build Services</h3>
+                </div>
+                <p className="text-gray-300 mb-6">
+                  Transform your vehicle with custom modifications that reflect your style 
+                  and enhance performance to your exact specifications.
+                </p>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {customFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-300">
+                      <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
 
           {/* Process Timeline */}
           <section className="py-16 miami-bg">
@@ -176,14 +178,27 @@ const CustomBuilds = () => {
             </div>
           </section>
 
-          <SocialProof testimonials={testimonials} />
-
-          <FAQSection faqs={faqs} />
-
-          <CTASection 
-            title="Ready to Build Your Dream?"
-            subtitle="Contact us today for a consultation on your custom build project. Let's transform your vision into the ultimate automotive masterpiece."
-          />
+          {/* CTA Section */}
+          <section className="py-16">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl font-orbitron font-bold mb-6">
+                <span className="neon-text">Ready to Build Your Dream?</span>
+              </h2>
+              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                Contact us today for a consultation on your custom build project. 
+                Let's transform your vision into the ultimate automotive masterpiece.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:305-419-8379">
+                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                    <Phone className="mr-2" size={20} />
+                    Call 305-419-8379
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </section>
         </main>
 
         <Footer />
