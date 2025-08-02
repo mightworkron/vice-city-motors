@@ -19,8 +19,8 @@ const CollisionRepair = () => {
       text: "Hit-and-run damaged my BMW. Showroom Miami handled everything with insurance and had it looking brand new in 4 days. Incredible work!"
     },
     {
-      name: "Sofia Rodriguez",
-      location: "South Beach, Miami", 
+      name: "Sofia Rodriguez", 
+      location: "South Beach, Miami",
       rating: 5,
       text: "Rear-ended on I-95. They picked up my car, dealt with State Farm directly, and delivered it back perfect. No hassle, no upfront costs."
     },
@@ -54,7 +54,7 @@ const CollisionRepair = () => {
       description: "Front end collision repair - BMW 3 Series"
     },
     {
-      before: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop", 
+      before: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop",
       after: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
       description: "Side panel damage repair - Mercedes C-Class"
     }
@@ -112,43 +112,6 @@ const CollisionRepair = () => {
         </header>
 
         <main>
-          {/* Service Overview */}
-          <section className="py-16" aria-labelledby="service-overview">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <article>
-                  <h2 id="service-overview" className="text-3xl font-orbitron font-bold mb-6">
-                    <span className="neon-text">Precision Restoration</span>
-                  </h2>
-                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    From minor scratches to major collision damage, our certified technicians 
-                    restore your vehicle to factory specifications or better. We use state-of-the-art 
-                    equipment and premium materials to ensure every repair meets the highest standards.
-                  </p>
-                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                    Serving Miami-Dade County since 2018, we've helped over 1,000 drivers get back 
-                    on the road with confidence. Our comprehensive collision repair services include 
-                    everything from paintwork and bodywork to structural repairs and frame alignment.
-                  </p>
-                  
-                  <a href="tel:305-419-8379">
-                    <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
-                      <Phone className="mr-2" size={20} />
-                      Call 305-419-8379 Now
-                    </Button>
-                  </a>
-                </article>
-                
-                <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop" alt="Professional collision repair workshop at Showroom Miami with advanced equipment and certified technicians" className="rounded-lg neon-border" loading="eager" width="600" height="400" />
-                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
-                    <Shield className="text-white" size={32} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Process Timeline */}
           <section className="py-16 miami-bg" aria-labelledby="process-timeline">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
