@@ -134,7 +134,7 @@ const EmergencyTowing = () => {
             
             <div className="text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
-                <span className="neon-text">Stuck? We're Coming</span>
+                <span className="neon-text">Emergency Towing</span>
               </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-6 max-w-3xl mx-auto">
                 15-minute response • Ferrari-safe equipment • No scratches guaranteed

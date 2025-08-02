@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -108,9 +107,7 @@ const CollisionRepair = () => {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
-                <span className="neon-text">Got Into an Accident?</span>
-                <br />
-                <span className="text-white">We'll Make It Like New</span>
+                <span className="neon-text">Collision Repair</span>
               </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
                 Insurance-approved collision repair in Miami. Direct billing, same-day estimates, 
