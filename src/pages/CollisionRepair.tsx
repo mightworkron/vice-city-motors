@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -15,8 +14,8 @@ import CTASection from "@/components/conversion/CTASection";
 const CollisionRepair = () => {
   const benefits = [
     "Insurance accepted assistance - no upfront costs",
-    "OEM and aftermarket parts availability with warranty",
-    "Advanced paint matching technology for perfect color blend", 
+    "OEM and aftermarket parts availability with warranty", 
+    "Advanced paint matching technology for perfect color blend",
     "Frame straightening and alignment with precision equipment",
     "Quality guarantee on all repairs backed by warranty",
     "Rental car coordination while your car is being fixed"
@@ -30,14 +29,14 @@ const CollisionRepair = () => {
       text: "Hit-and-run damaged my BMW. Showroom Miami handled everything with insurance and had it looking brand new in 4 days. Incredible work!"
     },
     {
-      name: "Sofia Rodriguez", 
-      location: "South Beach, Miami",
+      name: "Sofia Rodriguez",
+      location: "South Beach, Miami", 
       rating: 5,
       text: "Rear-ended on I-95. They picked up my car, dealt with State Farm directly, and delivered it back perfect. No hassle, no upfront costs."
     },
     {
       name: "Michael Chen",
-      location: "Coral Gables, Miami", 
+      location: "Coral Gables, Miami",
       rating: 5,
       text: "Frame damage from parking garage accident. Their work exceeded factory quality. You can't even tell where the damage was."
     }
@@ -115,7 +114,7 @@ const CollisionRepair = () => {
               </div>
               
               <p className="text-neon-cyan text-sm">
-                ⚡ 15-minute response • 🛡️ Insurance accepted • ⭐ 2-5 day completion
+                Same day estimate • Insurance accepted • 2-5 day completion
               </p>
             </div>
           </div>
