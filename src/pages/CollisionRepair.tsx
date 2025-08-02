@@ -44,28 +44,16 @@ const CollisionRepair = () => {
 
   const faqs = [
     {
-      question: "Do I have to pay anything upfront for collision repair?",
-      answer: "No! We work with your insurance company and handle accepted billing. You only pay your deductible, and we take care of the rest."
+      question: "Do you accept insurance?",
+      answer: "Yes. We accept most major auto insurance plans. Whether you've been in a collision or need towing services, we'll help you navigate the claims process and ensure everything is properly documented. Just bring your claim number, and we'll handle the rest."
     },
     {
       question: "How long does collision repair take in Miami?",
       answer: "Most collision repairs take 2-5 business days depending on damage extent and parts availability. We provide accurate timelines after our free assessment."
     },
     {
-      question: "Will you use original manufacturer parts?",
-      answer: "Yes, we use OEM parts whenever possible and available. We'll discuss all options with you and your insurance company to ensure the best repair quality."
-    },
-    {
       question: "What if I'm not satisfied with the repair work?",
       answer: "We guarantee all our collision repair work. If you're not 100% satisfied, we'll make it right at no additional cost to you."
-    },
-    {
-      question: "Can you help with rental car arrangements?",
-      answer: "Absolutely! We coordinate with your insurance company for rental car coverage and can arrange pickup/delivery to minimize your inconvenience."
-    },
-    {
-      question: "Do you work with all insurance companies in Miami?",
-      answer: "Yes, we're approved by all major insurance companies including State Farm, Geico, Progressive, Allstate, and more. We handle the paperwork for you."
     }
   ];
   
