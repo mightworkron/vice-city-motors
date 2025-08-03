@@ -132,13 +132,14 @@ const ExoticRentals = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
               {fleetImages.map((image, index) => (
                 <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
-                  <div className="relative overflow-hidden aspect-[4/3]">
+                  <div className="relative overflow-hidden aspect-[3/2]">
                     <img 
                       src={image} 
                       alt={`Luxury vehicle ${index + 1}`} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                       decoding="async"
+                      style={{ imageRendering: 'high-quality' }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -191,13 +192,14 @@ const ExoticRentals = () => {
               </div>
               
               <div className="relative">
-                <div className="aspect-[4/3] overflow-hidden rounded-lg neon-border">
+                <div className="aspect-[3/2] overflow-hidden rounded-lg neon-border">
                   <img 
                     src="/lovable-uploads/0dfdb54e-36c0-4c12-84fa-6dcfa554dfc8.png" 
                     alt="Luxury Car Rental" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                     loading="lazy"
                     decoding="async"
+                    style={{ imageRendering: 'high-quality' }}
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
