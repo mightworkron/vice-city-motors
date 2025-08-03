@@ -71,7 +71,7 @@ const ExoticRentals = () => {
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=1920&h=1080&fit=crop')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.2
@@ -129,17 +129,19 @@ const ExoticRentals = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
               {fleetImages.map((image, index) => (
                 <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden aspect-[4/3]">
                     <img 
                       src={image} 
                       alt={`Luxury vehicle ${index + 1}`} 
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" 
+                      className="w-full h-full object-contain bg-gray-900 group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <p className="text-white font-medium text-sm">Call for availability</p>
                     </div>
                   </div>
@@ -189,11 +191,15 @@ const ExoticRentals = () => {
               </div>
               
               <div className="relative">
-                <img 
-                  src="/lovable-uploads/0dfdb54e-36c0-4c12-84fa-6dcfa554dfc8.png" 
-                  alt="Luxury Car Rental" 
-                  className="rounded-lg neon-border" 
-                />
+                <div className="aspect-[4/3] overflow-hidden rounded-lg neon-border">
+                  <img 
+                    src="/lovable-uploads/0dfdb54e-36c0-4c12-84fa-6dcfa554dfc8.png" 
+                    alt="Luxury Car Rental" 
+                    className="w-full h-full object-contain bg-gray-900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
                 <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
                   <Car className="text-white" size={32} />
                 </div>
