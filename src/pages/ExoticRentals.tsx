@@ -139,7 +139,6 @@ const ExoticRentals = () => {
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                       decoding="async"
-                      style={{ imageRendering: 'smooth' }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -199,7 +198,6 @@ const ExoticRentals = () => {
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                     decoding="async"
-                    style={{ imageRendering: 'smooth' }}
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
