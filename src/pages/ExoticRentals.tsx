@@ -260,45 +260,6 @@ const ExoticRentals = () => {
           </div>
         </section>
 
-        {/* Special Packages */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-orbitron font-bold mb-4">
-                <span className="neon-text">Special Packages</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Tailored rental packages for your unique occasions and needs
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[{
-                title: "Wedding Package",
-                desc: "Make your special day unforgettable with luxury transportation",
-                features: ["Decorated vehicle", "Professional chauffeur", "Red carpet service"]
-              }, {
-                title: "Business Package",
-                desc: "Impress clients and partners with executive-level transportation",
-                features: ["Airport transfers", "Corporate rates", "Flexible scheduling"]
-              }, {
-                title: "Weekend Getaway",
-                desc: "Extended rental packages for Miami Beach adventures",
-                features: ["Multi-day discounts", "Concierge recommendations", "Route planning"]
-              }].map((pkg, index) => <div key={index} className="bg-card rounded-lg p-6 border border-neon-purple/30 text-center">
-                    <h3 className="text-xl font-orbitron font-bold text-white mb-3">{pkg.title}</h3>
-                    <p className="text-gray-300 mb-4">{pkg.desc}</p>
-                    <ul className="space-y-2 mb-6">
-                      {pkg.features.map((feature, idx) => <li key={idx} className="text-sm text-gray-300 flex items-center justify-center">
-                          <CheckCircle className="text-neon-green mr-2" size={14} />
-                          {feature}
-                        </li>)}
-                    </ul>
-                  </div>)}
-            </div>
-          </div>
-        </section>
-
         {/* Social Proof */}
         <SocialProof testimonials={testimonials} />
 
