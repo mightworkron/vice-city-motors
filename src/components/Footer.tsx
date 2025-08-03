@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Phone, MapPin, Clock, Instagram, Mail, Facebook } from "lucide-react";
 const Footer = () => {
@@ -101,9 +102,19 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-neon-purple/30 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} The Showroom Miami. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-6">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} The Showroom Miami. All rights reserved.
+            </p>
+            <a 
+              href="https://www.instagram.com/ron_sitess/?utm_source=ig_web_button_share_sheet" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300 mt-2 sm:mt-0"
+            >
+              Website powered by Ron_Sitess
+            </a>
+          </div>
           <div className="flex space-x-6 mt-4 sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300">
               Privacy Policy
