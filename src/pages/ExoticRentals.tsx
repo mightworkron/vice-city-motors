@@ -140,8 +140,9 @@ const ExoticRentals = () => {
                       loading="lazy"
                       decoding="async"
                     />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-white font-medium text-sm bg-black/50 px-3 py-1 rounded backdrop-blur-sm">Call for availability</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white font-medium text-sm">Call for availability</p>
                     </div>
                   </div>
                 </div>
