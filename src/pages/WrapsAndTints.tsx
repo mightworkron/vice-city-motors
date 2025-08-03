@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -133,7 +134,7 @@ const WrapsAndTints = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {["/lovable-uploads/a85546a3-3d0a-4663-991a-3de68d71c84d.png", "/lovable-uploads/5ef72346-a4a5-478f-b766-e113fecbe233.png", "/lovable-uploads/515ee12e-ebf1-4dde-af1a-4268ce33e406.png"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
+              {["/lovable-uploads/a85546a3-3d0a-4663-991a-3de68d71c84d.png", "/lovable-uploads/3c99dc24-8dcc-4261-bd81-b61015ff9811.png", "/lovable-uploads/f947f100-f196-4616-92de-808f6020466a.png"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
                   <img src={image} alt={`Project ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
