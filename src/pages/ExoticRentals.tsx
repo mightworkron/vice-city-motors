@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -20,12 +19,13 @@ const ExoticRentals = () => {
     "/lovable-uploads/c9ac9d07-62c2-43ce-b8d8-25e304519f9a.png",
     "/lovable-uploads/020cb843-2b47-46cc-905f-501ac607aadc.png",
     "/lovable-uploads/d2d65044-5601-49ed-b87a-d55d3d313e1a.png",
-    "/lovable-uploads/e7a9408a-1a87-4ff1-b603-3237b3ae5c72.png"
+    "/lovable-uploads/e7a9408a-1a87-4ff1-b603-3237b3ae5c72.png",
+    "/lovable-uploads/5bd61f19-d49e-4fbd-979f-554982abaff4.png"
   ];
 
   const solutionBenefits = [
     "Access to Miami's most exclusive exotic vehicle fleet",
-    "White-glove support throughout your rental experience",
+    "White-glove support throughout your rental experience", 
     "Comprehensive insurance coverage for peace of mind",
     "Flexible rental periods from hours to extended trips",
     "24/7 customer support for any needs during rental"
@@ -136,7 +136,7 @@ const ExoticRentals = () => {
                     <img 
                       src={image} 
                       alt={`Luxury vehicle ${index + 1}`} 
-                      className="w-full h-full object-contain bg-gray-900 group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                       decoding="async"
                     />
@@ -195,7 +195,7 @@ const ExoticRentals = () => {
                   <img 
                     src="/lovable-uploads/0dfdb54e-36c0-4c12-84fa-6dcfa554dfc8.png" 
                     alt="Luxury Car Rental" 
-                    className="w-full h-full object-contain bg-gray-900"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
                   />
