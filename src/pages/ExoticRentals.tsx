@@ -75,7 +75,7 @@ const ExoticRentals = () => {
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=1920&h=1080&fit=crop')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.2
