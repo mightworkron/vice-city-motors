@@ -120,33 +120,24 @@ const WrapsAndTints = () => {
           </div>
         </section>
 
-        {/* Service Overview */}
+        {/* Portfolio Showcase */}
         <section className="py-16 miami-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-orbitron font-bold mb-6">
-                  <span className="neon-text">Style Meets Protection</span>
-                </h2>
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  Whether you want to completely transform your vehicle's appearance with a 
-                  custom wrap, enhance privacy and comfort with premium window tinting, or 
-                  protect your investment with paint protection film, we deliver results 
-                  that exceed expectations.
-                </p>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                  Our certified technicians use only premium materials from leading manufacturers, 
-                  ensuring your investment provides lasting beauty and protection. From concept 
-                  to completion, we handle every detail with precision and care.
-                </p>
-              </div>
-              
-              <div className="relative">
-                <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&h=400&fit=crop" alt="Vehicle Wrap and Tinting" className="rounded-lg neon-border" />
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
-                  <Palette className="text-white" size={32} />
-                </div>
-              </div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-orbitron font-bold mb-4">
+                <span className="neon-text">Recent Projects</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                See how we've transformed vehicles with our wrapping, tinting, and protection services
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
+                  <img src={image} alt={`Project ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
+                </div>)}
             </div>
           </div>
         </section>
@@ -219,41 +210,6 @@ const WrapsAndTints = () => {
           </div>
         </section>
 
-        {/* Material Brands */}
-        <section className="py-16 miami-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-orbitron font-bold mb-4">
-                <span className="neon-text">Premium Materials</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                We partner with industry-leading manufacturers to ensure the highest quality results
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[{
-                name: "3M",
-                category: "Wraps & PPF"
-              }, {
-                name: "Avery Dennison",
-                category: "Vehicle Wraps"
-              }, {
-                name: "XPEL",
-                category: "Paint Protection"
-              }, {
-                name: "SunTek",
-                category: "Window Films"
-              }].map((brand, index) => <div key={index} className="text-center">
-                  <div className="bg-gradient-to-r from-neon-pink/20 to-neon-purple/20 rounded-lg p-6 mb-3">
-                    <div className="text-xl font-orbitron font-bold text-white">{brand.name}</div>
-                  </div>
-                  <div className="text-sm text-gray-300">{brand.category}</div>
-                </div>)}
-            </div>
-          </div>
-        </section>
-
         {/* Process & Timeline */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -294,28 +250,6 @@ const WrapsAndTints = () => {
                   <h3 className="text-lg font-orbitron font-bold text-white mb-2">{item.title}</h3>
                   <p className="text-gray-300 text-sm mb-2">{item.desc}</p>
                   <div className="text-neon-cyan text-xs font-medium">{item.time}</div>
-                </div>)}
-            </div>
-          </div>
-        </section>
-
-        {/* Portfolio Showcase */}
-        <section className="py-16 miami-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-orbitron font-bold mb-4">
-                <span className="neon-text">Recent Projects</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                See how we've transformed vehicles with our wrapping, tinting, and protection services
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {["https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&h=300&fit=crop"].map((image, index) => <div key={index} className="relative group overflow-hidden rounded-lg">
-                  <img src={image} alt={`Project ${index + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
                 </div>)}
             </div>
           </div>
