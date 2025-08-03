@@ -15,7 +15,7 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 const EmergencyTowing = () => {
   const benefits = [
     "15-minute average response time throughout Miami-Dade County",
-    "Low car-safe hydraulic flatbeds that won't damage your vehicle",
+    "Low car-safe hydraulic flatbeds that won't damage your vehicle", 
     "24/7 availability including holidays and bad weather",
     "Insurance accepted - minimal out-of-pocket costs",
     "GPS tracking so you know exactly when we'll arrive",
@@ -158,7 +158,7 @@ const EmergencyTowing = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=600&h=400&fit=crop" alt="Professional hydraulic flatbed tow truck designed for luxury and exotic vehicles in Miami" className="rounded-lg neon-border" loading="eager" width="600" height="400" />
+                  <img src="/lovable-uploads/e7771961-42ae-4e8d-811f-084d9b13f8db.png" alt="The Showroom Miami professional hydraulic flatbed tow truck transporting a luxury Mercedes-AMG vehicle in Miami" className="rounded-lg neon-border" loading="eager" width="600" height="400" />
                   <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
                     <Truck className="text-white" size={32} />
                   </div>
