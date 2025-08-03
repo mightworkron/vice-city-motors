@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -63,6 +64,24 @@ const CustomBuilds = () => {
     }
   ];
 
+  const recentProjects = [
+    {
+      image: "/lovable-uploads/052fa390-28f4-403d-829a-4dd224ff64d2.png",
+      title: "Custom Suspension Build",
+      description: "Performance suspension upgrade with custom powder coating"
+    },
+    {
+      image: "/lovable-uploads/cc1a09e4-9816-41ae-9fc6-c36e9a55cdae.png", 
+      title: "Off-Road Beast",
+      description: "Complete custom off-road transformation with aggressive styling"
+    },
+    {
+      image: "/lovable-uploads/398713b3-eca5-4d68-bcb6-2342646c7d3a.png",
+      title: "Custom Jeep Build",
+      description: "Full custom build with performance upgrades and unique design"
+    }
+  ];
+
   return (
     <>
       <SEOHead 
@@ -123,6 +142,43 @@ const CustomBuilds = () => {
         </header>
 
         <main>
+          {/* Recent Projects Section */}
+          <section className="py-16 bg-card/30">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-orbitron font-bold mb-4">
+                  <span className="neon-text">Recent Projects</span>
+                </h2>
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                  Check out some of our latest custom build masterpieces showcasing our craftsmanship and attention to detail
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {recentProjects.map((project, index) => (
+                  <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 hover:border-neon-pink/50 transition-colors duration-300">
+                    <div className="aspect-w-16 aspect-h-12 relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-orbitron font-bold text-white mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Service Overview */}
           <section className="py-16 miami-bg" aria-labelledby="service-overview">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
