@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -13,19 +14,14 @@ import FAQSection from "@/components/conversion/FAQSection";
 
 const ExoticRentals = () => {
   const features = ["Curated fleet of exotic and luxury vehicles", "Flexible rental periods from hourly to monthly", "White-glove delivery and pickup service", "Comprehensive insurance coverage included", "24/7 concierge support during rental", "Special event and wedding packages"];
-  const vehicles = [{
-    category: "Supercars",
-    examples: ["Lamborghini Huracán", "Ferrari 488", "McLaren 570S"],
-    image: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=400&h=250&fit=crop"
-  }, {
-    category: "Luxury Sedans", 
-    examples: ["Rolls-Royce Ghost", "Bentley Flying Spur", "Mercedes S-Class"],
-    image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop"
-  }, {
-    category: "Convertibles",
-    examples: ["Porsche 911 Cabriolet", "BMW i8 Roadster", "Audi R8 Spyder"],
-    image: "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?w=400&h=250&fit=crop"
-  }];
+  
+  const fleetImages = [
+    "/lovable-uploads/42f30985-52ee-41f5-8c54-cf99f800acb4.png",
+    "/lovable-uploads/c9ac9d07-62c2-43ce-b8d8-25e304519f9a.png",
+    "/lovable-uploads/020cb843-2b47-46cc-905f-501ac607aadc.png",
+    "/lovable-uploads/d2d65044-5601-49ed-b87a-d55d3d313e1a.png",
+    "/lovable-uploads/e7a9408a-1a87-4ff1-b603-3237b3ae5c72.png"
+  ];
 
   const solutionBenefits = [
     "Access to Miami's most exclusive exotic vehicle fleet",
@@ -107,49 +103,57 @@ const ExoticRentals = () => {
                     className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
                   >
                     <Phone className="mr-2" size={20} />
-                    Reserve Your Dream Car - 305-419-8379
+                    Call to Check Fleet Availability - 305-419-8379
                   </Button>
                 </a>
                 <p className="text-sm text-neon-cyan mt-3 font-medium">
-                  Same-day delivery available
+                  Fleet changes daily - Call for current availability
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Vehicle Categories */}
+        {/* Our Fleet */}
         <section className="py-16 miami-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-orbitron font-bold mb-4">
                 <span className="neon-text">Our Fleet</span>
               </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Choose from our carefully curated collection of the world's most desirable vehicles
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-6">
+                Showcase of vehicles that may be available in our exclusive collection
+              </p>
+              <p className="text-neon-cyan font-medium">
+                Call 305-419-8379 to check current availability and see what's in our fleet today
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {vehicles.map((category, index) => <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {fleetImages.map((image, index) => (
+                <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
                   <div className="relative overflow-hidden">
-                    <img src={category.image} alt={category.category} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                    <img 
+                      src={image} 
+                      alt={`Luxury vehicle ${index + 1}`} 
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" 
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-white font-medium text-sm">Call for availability</p>
+                    </div>
                   </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-pink transition-colors duration-300">
-                      {category.category}
-                    </h3>
-                    
-                    <ul className="space-y-2">
-                      {category.examples.map((vehicle, idx) => <li key={idx} className="flex items-center text-gray-300">
-                          <Star className="text-neon-cyan mr-2 flex-shrink-0" size={14} />
-                          <span className="text-sm">{vehicle}</span>
-                        </li>)}
-                    </ul>
-                  </div>
-                </div>)}
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <a href="tel:305-419-8379">
+                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                  <Phone className="mr-2" size={20} />
+                  Call to See Current Fleet
+                </Button>
+              </a>
             </div>
           </div>
         </section>
@@ -167,22 +171,29 @@ const ExoticRentals = () => {
                   want to experience the thrill of driving a supercar through Miami's iconic 
                   streets, our exotic rental fleet delivers unforgettable experiences.
                 </p>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                   Each vehicle in our collection is meticulously maintained and detailed to 
                   perfection. From delivery to return, we provide concierge-level service 
                   that ensures your luxury experience is seamless from start to finish.
+                </p>
+                <p className="text-neon-cyan font-medium mb-8">
+                  Our fleet changes regularly - call to see what luxury vehicles we currently have available.
                 </p>
                 
                 <a href="tel:305-419-8379">
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
                     <Phone className="mr-2" size={20} />
-                    Reserve Your Dream Car
+                    Check Current Availability
                   </Button>
                 </a>
               </div>
               
               <div className="relative">
-                <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=600&h=400&fit=crop" alt="Luxury Car Rental" className="rounded-lg neon-border" />
+                <img 
+                  src="/lovable-uploads/0dfdb54e-36c0-4c12-84fa-6dcfa554dfc8.png" 
+                  alt="Luxury Car Rental" 
+                  className="rounded-lg neon-border" 
+                />
                 <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-neon-pink to-neon-purple p-4 rounded-lg">
                   <Car className="text-white" size={32} />
                 </div>
@@ -213,10 +224,12 @@ const ExoticRentals = () => {
                   suite of premium rental services and support.
                 </p>
                 <ul className="space-y-3">
-                  {features.map((feature, index) => <li key={index} className="flex items-center text-gray-300">
+                  {features.map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-300">
                       <CheckCircle className="text-neon-green mr-3 flex-shrink-0" size={16} />
                       {feature}
-                    </li>)}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -228,31 +241,38 @@ const ExoticRentals = () => {
                 </div>
                 
                 <div className="space-y-6">
-                  {[{
-                    step: "1",
-                    title: "Choose Your Vehicle",
-                    desc: "Browse our fleet and select your dream car"
-                  }, {
-                    step: "2",
-                    title: "Book & Confirm",
-                    desc: "Secure your rental with easy online booking"
-                  }, {
-                    step: "3",
-                    title: "Delivery Setup",
-                    desc: "Schedule convenient delivery to your location"
-                  }, {
-                    step: "4",
-                    title: "Drive & Enjoy",
-                    desc: "Experience luxury with 24/7 concierge support"
-                  }].map((item, index) => <div key={index} className="flex items-start space-x-4">
-                        <div className="bg-gradient-to-r from-neon-pink to-neon-purple rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
-                          <span className="text-white font-bold text-sm">{item.step}</span>
-                        </div>
-                        <div>
-                          <h4 className="text-white font-medium mb-1">{item.title}</h4>
-                          <p className="text-gray-300 text-sm">{item.desc}</p>
-                        </div>
-                      </div>)}
+                  {[
+                    {
+                      step: "1",
+                      title: "Call for Availability",
+                      desc: "Check our current fleet and vehicle availability"
+                    },
+                    {
+                      step: "2",
+                      title: "Book & Confirm",
+                      desc: "Secure your rental with easy booking process"
+                    },
+                    {
+                      step: "3",
+                      title: "Delivery Setup",
+                      desc: "Schedule convenient delivery to your location"
+                    },
+                    {
+                      step: "4",
+                      title: "Drive & Enjoy",
+                      desc: "Experience luxury with 24/7 concierge support"
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="bg-gradient-to-r from-neon-pink to-neon-purple rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-sm">{item.step}</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">{item.title}</h4>
+                        <p className="text-gray-300 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -272,7 +292,7 @@ const ExoticRentals = () => {
               <span className="neon-text">Ready for the Ultimate Drive?</span>
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Book your exotic rental today and experience Miami like never before. 
+              Call today to check our current fleet availability and experience Miami like never before. 
               Our team is ready to help you select the perfect vehicle for your needs.
             </p>
             
@@ -280,7 +300,7 @@ const ExoticRentals = () => {
               <a href="tel:305-419-8379">
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
                   <Phone className="mr-2" size={20} />
-                  Call 305-419-8379
+                  Call 305-419-8379 for Availability
                 </Button>
               </a>
             </div>
