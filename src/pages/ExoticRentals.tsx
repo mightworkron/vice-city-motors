@@ -29,7 +29,6 @@ const ExoticRentals = () => {
 
   const solutionBenefits = [
     "Access to Miami's most exclusive exotic vehicle fleet",
-    "Concierge delivery service to your preferred location", 
     "White-glove support throughout your rental experience",
     "Comprehensive insurance coverage for peace of mind",
     "Flexible rental periods from hours to extended trips",
@@ -119,8 +118,44 @@ const ExoticRentals = () => {
           </div>
         </section>
 
-        {/* Service Overview */}
+        {/* Vehicle Categories */}
         <section className="py-16 miami-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-orbitron font-bold mb-4">
+                <span className="neon-text">Our Fleet</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Choose from our carefully curated collection of the world's most desirable vehicles
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {vehicles.map((category, index) => <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
+                  <div className="relative overflow-hidden">
+                    <img src={category.image} alt={category.category} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-pink transition-colors duration-300">
+                      {category.category}
+                    </h3>
+                    
+                    <ul className="space-y-2">
+                      {category.examples.map((vehicle, idx) => <li key={idx} className="flex items-center text-gray-300">
+                          <Star className="text-neon-cyan mr-2 flex-shrink-0" size={14} />
+                          <span className="text-sm">{vehicle}</span>
+                        </li>)}
+                    </ul>
+                  </div>
+                </div>)}
+            </div>
+          </div>
+        </section>
+
+        {/* Service Overview */}
+        <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -152,42 +187,6 @@ const ExoticRentals = () => {
                   <Car className="text-white" size={32} />
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Vehicle Categories */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-orbitron font-bold mb-4">
-                <span className="neon-text">Our Fleet</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Choose from our carefully curated collection of the world's most desirable vehicles
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {vehicles.map((category, index) => <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
-                  <div className="relative overflow-hidden">
-                    <img src={category.image} alt={category.category} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-pink transition-colors duration-300">
-                      {category.category}
-                    </h3>
-                    
-                    <ul className="space-y-2">
-                      {category.examples.map((vehicle, idx) => <li key={idx} className="flex items-center text-gray-300">
-                          <Star className="text-neon-cyan mr-2 flex-shrink-0" size={14} />
-                          <span className="text-sm">{vehicle}</span>
-                        </li>)}
-                    </ul>
-                  </div>
-                </div>)}
             </div>
           </div>
         </section>
