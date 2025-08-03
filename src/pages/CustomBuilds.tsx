@@ -16,7 +16,7 @@ const CustomBuilds = () => {
 
   const solutionBenefits = [
     "Custom styling that makes your vehicle truly one-of-a-kind",
-    "Performance enhancements for improved power and handling",
+    "Performance enhancements for improved power and handling", 
     "Standout builds that turn heads and reflect your personality",
     "Expert craftsmanship with attention to every detail",
     "High-quality components from trusted manufacturers",
@@ -31,14 +31,14 @@ const CustomBuilds = () => {
       text: "My custom Mustang build exceeded every expectation. The performance gains and unique styling make it a true masterpiece."
     },
     {
-      name: "Samantha Lee",
+      name: "Samantha Lee", 
       location: "Brickell",
       rating: 5,
       text: "The interior customization work was phenomenal. Every detail reflects my vision perfectly. Absolutely love my custom BMW."
     },
     {
       name: "Miguel Santos",
-      location: "Little Havana",
+      location: "Little Havana", 
       rating: 5,
       text: "From concept to completion, the team delivered a show-stopping custom truck. The craftsmanship is top-tier."
     }
@@ -152,7 +152,7 @@ const CustomBuilds = () => {
                 
                 <div className="relative">
                   <img 
-                    src="/lovable-uploads/f260f9a0-77a3-475c-bb91-dc64817f6217.png" 
+                    src="/lovable-uploads/703ad203-a160-4b28-977b-8226419a3191.png" 
                     alt="Custom automotive build workspace at Showroom Miami showcasing precision craftsmanship and bespoke modifications"
                     className="rounded-lg neon-border"
                     loading="eager"
