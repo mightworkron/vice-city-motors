@@ -16,14 +16,14 @@ const InsuranceLogosSlider = () => {
   ];
 
   return (
-    <section className="py-12" aria-label="Insurance Partners">
+    <section className="py-12" aria-label="Insurance We Accept">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-orbitron font-bold mb-4">
-            <span className="neon-text">Trusted by All Major Insurance Companies</span>
+            <span className="neon-text">Insurance We Accept</span>
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            We work directly with your insurance provider to handle all paperwork and ensure a smooth claims process
+            We accept claims from all major insurance providers. Bring us your claim number and we'll handle all the paperwork and coordination with your insurance company.
           </p>
         </div>
         
@@ -34,11 +34,11 @@ const InsuranceLogosSlider = () => {
           className="w-full"
         >
           {logos.map((logo, index) => (
-            <div key={index} className="flex items-center justify-center bg-white rounded-lg p-4 h-20 min-w-[160px] shadow-lg">
+            <div key={index} className="flex items-center justify-center p-4 h-20 min-w-[160px]">
               <img 
                 src={logo.src} 
                 alt={logo.alt}
-                className="max-h-12 w-auto object-contain"
+                className="w-32 h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
                 loading="lazy"
               />
             </div>
