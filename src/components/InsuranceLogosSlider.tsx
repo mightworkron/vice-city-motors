@@ -35,14 +35,12 @@ const InsuranceLogosSlider = () => {
         >
           {logos.map((logo, index) => (
             <div key={index} className="flex items-center justify-center p-4 h-20 min-w-[160px]">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="w-32 h-16 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  loading="lazy"
-                />
-              </div>
+              <img 
+                src={logo.src} 
+                alt={logo.alt}
+                className="w-32 h-16 object-contain opacity-80 hover:opacity-100 transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)]"
+                loading="lazy"
+              />
             </div>
           ))}
         </InfiniteSlider>
