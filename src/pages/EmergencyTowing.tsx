@@ -85,13 +85,9 @@ const EmergencyTowing = () => {
             </Link>
             
             <div className="text-center">
-              <div className="flex justify-center mb-6">
-                <TrustBadge />
-              </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
-              <span className="neon-text">Emergency Towing</span>
-            </h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
+                <span className="neon-text">Emergency Towing</span>
+              </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-6 max-w-3xl mx-auto">
                 15-minute response • Low car-safe equipment • No scratches guaranteed
               </p>
@@ -105,9 +101,14 @@ const EmergencyTowing = () => {
                 </a>
               </div>
               
-              <p className="text-neon-cyan text-sm">
+              <p className="text-neon-cyan text-sm mb-8">
                 Hydraulic flatbeds • 24/7 availability • Exotic car specialists
               </p>
+              
+              {/* Trust Badge at bottom of hero */}
+              <div className="mt-8">
+                <TrustBadge className="mx-auto" />
+              </div>
             </div>
           </div>
         </header>

@@ -85,10 +85,6 @@ const ExoticRentals = () => {
             </Link>
             
             <div className="text-center">
-              <div className="mb-6">
-                <TrustBadge className="mx-auto" />
-              </div>
-              
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
                 <span className="neon-text">Exotic Rentals</span>
               </h1>
@@ -109,6 +105,11 @@ const ExoticRentals = () => {
                 <p className="text-sm text-neon-cyan mt-3 font-medium">
                   Fleet changes daily - Call for current availability
                 </p>
+              </div>
+              
+              {/* Trust Badge at bottom of hero */}
+              <div className="mt-12">
+                <TrustBadge className="mx-auto" />
               </div>
             </div>
           </div>
