@@ -237,15 +237,10 @@ const CollisionRepair = () => {
               </div>
 
               <div className="bg-card rounded-lg p-4 sm:p-6 border border-neon-purple/30 neon-border">
-                <div className="w-full overflow-hidden">
+                <div className="w-full overflow-auto">
                   <iframe
                     id="JotFormIFrame-252064962124050"
                     title="Legally Binding Repair Authorization and Consent"
-                    onLoad={() => {
-                      if (typeof window !== 'undefined' && window.parent) {
-                        window.parent.scrollTo(0, 0);
-                      }
-                    }}
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
                     src="https://form.jotform.com/252064962124050"
@@ -254,10 +249,10 @@ const CollisionRepair = () => {
                     style={{
                       minWidth: "100%",
                       width: "100%",
-                      height: "539px",
+                      height: "800px",
                       border: "none"
                     }}
-                    scrolling="no"
+                    scrolling="auto"
                   />
                 </div>
               </div>
