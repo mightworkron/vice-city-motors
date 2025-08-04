@@ -10,6 +10,7 @@ import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 
 const CollisionRepair = () => {
   const testimonials = [
@@ -202,6 +203,9 @@ const CollisionRepair = () => {
               </div>
             </div>
           </section>
+
+          {/* Insurance Logos Slider */}
+          <InsuranceLogosSlider />
 
           {/* Social Proof */}
           <SocialProof testimonials={testimonials} />
