@@ -151,7 +151,7 @@ const CollisionRepair = () => {
         </header>
 
         <main>
-          {/* Before and After Pictures */}
+          {/* See Our Work in Action - Before and After Pictures */}
           <section className="py-16" aria-labelledby="before-after">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
@@ -266,6 +266,10 @@ const CollisionRepair = () => {
                       alt={`${insurance.name} insurance accepted`}
                       className="h-12 w-auto object-contain"
                       loading="lazy"
+                      onError={(e) => {
+                        console.log(`Failed to load image: ${insurance.logo}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
                     />
                   </div>
                 ))}
@@ -313,11 +317,6 @@ const CollisionRepair = () => {
                   <iframe
                     id="JotFormIFrame-252064962124050"
                     title="Legally Binding Repair Authorization and Consent"
-                    onLoad={() => {
-                      if (typeof window !== 'undefined' && window.parent) {
-                        window.parent.scrollTo(0, 0);
-                      }
-                    }}
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
                     src="https://form.jotform.com/252064962124050"
