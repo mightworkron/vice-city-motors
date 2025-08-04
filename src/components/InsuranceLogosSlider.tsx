@@ -1,3 +1,4 @@
+
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const InsuranceLogosSlider = () => {
@@ -41,7 +42,7 @@ const InsuranceLogosSlider = () => {
               <img 
                 src={logo.src} 
                 alt={logo.alt}
-                className={`object-contain opacity-80 hover:opacity-100 transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)] ${
+                className={`object-contain opacity-85 hover:opacity-100 transition-all duration-300 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)] ${
                   getBiggerLogos(logo.alt) ? 'w-44 h-24' : 'w-32 h-16'
                 }`}
                 loading="lazy"
