@@ -15,6 +15,10 @@ const InsuranceLogosSlider = () => {
     { src: "/lovable-uploads/8201c160-eee2-4912-92e1-6c299ef1de3f.png", alt: "USAA" },
   ];
 
+  const getBiggerLogos = (alt: string) => {
+    return alt === "Progressive" || alt === "Allstate" || alt === "Liberty Mutual";
+  };
+
   return (
     <section className="py-12" aria-label="Insurance We Accept">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +42,9 @@ const InsuranceLogosSlider = () => {
               <img 
                 src={logo.src} 
                 alt={logo.alt}
-                className="w-32 h-16 object-contain opacity-80 hover:opacity-100 transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)]"
+                className={`object-contain opacity-80 hover:opacity-100 transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)] ${
+                  getBiggerLogos(logo.alt) ? 'w-40 h-20' : 'w-32 h-16'
+                }`}
                 loading="lazy"
               />
             </div>
