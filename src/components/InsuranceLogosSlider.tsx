@@ -1,4 +1,3 @@
-
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const InsuranceLogosSlider = () => {
@@ -38,7 +37,7 @@ const InsuranceLogosSlider = () => {
               <img 
                 src={logo.src} 
                 alt={logo.alt}
-                className="w-32 h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="w-32 h-16 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                 loading="lazy"
               />
             </div>
