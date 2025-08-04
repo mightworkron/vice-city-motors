@@ -10,7 +10,6 @@ import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
 import FloatingCallButton from "@/components/FloatingCallButton";
-import { Marquee } from "@/components/ui/marquee";
 
 const CollisionRepair = () => {
   const testimonials = [
@@ -57,49 +56,6 @@ const CollisionRepair = () => {
     {
       before: "/lovable-uploads/143dfe8f-6dfd-4e9e-8a4c-2d3634c3f810.png",
       after: "/lovable-uploads/338062c0-8060-410f-8bca-453aff16d5dc.png"
-    }
-  ];
-
-  const insuranceLogos = [
-    {
-      name: "State Farm",
-      logo: "/lovable-uploads/39fd2c02-3136-480d-83be-be64eb3c2e24.png"
-    },
-    {
-      name: "AAA",
-      logo: "/lovable-uploads/7b9738ac-524a-4020-bf9a-8422f6e2929b.png"
-    },
-    {
-      name: "Allstate",
-      logo: "/lovable-uploads/eeb2aad1-29e4-44e3-a373-f616b917f204.png"
-    },
-    {
-      name: "Liberty Mutual",
-      logo: "/lovable-uploads/d46461e2-e174-4560-9842-8ee0882b0eb3.png"
-    },
-    {
-      name: "Esurance",
-      logo: "/lovable-uploads/880f7d52-6740-40e9-b837-131fa59435e6.png"
-    },
-    {
-      name: "Farmers Insurance",
-      logo: "/lovable-uploads/43e47194-bea9-4ec1-b958-c88a5cade45c.png"
-    },
-    {
-      name: "Nationwide",
-      logo: "/lovable-uploads/8eaf816e-4fd0-4696-9386-7cbcf0f32ba2.png"
-    },
-    {
-      name: "MetLife",
-      logo: "/lovable-uploads/d613e930-c771-467e-9373-05172e907c78.png"
-    },
-    {
-      name: "Progressive",
-      logo: "/lovable-uploads/773f39a2-fb73-46f1-81f7-624812d37069.png"
-    },
-    {
-      name: "21st Century Insurance",
-      logo: "/lovable-uploads/32f46066-4b37-4b7a-87f3-da0f7ba67698.png"
     }
   ];
   
@@ -155,7 +111,7 @@ const CollisionRepair = () => {
         </header>
 
         <main>
-          {/* See Our Work in Action - Before and After Pictures */}
+          {/* Before and After Pictures */}
           <section className="py-16" aria-labelledby="before-after">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
@@ -247,42 +203,6 @@ const CollisionRepair = () => {
             </div>
           </section>
 
-          {/* Insurance We Accept */}
-          <section className="py-16" aria-labelledby="insurance-accepted">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 id="insurance-accepted" className="text-3xl font-orbitron font-bold mb-4">
-                  <span className="neon-text">Insurance We Accept</span>
-                </h2>
-                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                  We work with all major insurance providers to make your collision repair process seamless and hassle-free
-                </p>
-              </div>
-
-              <Marquee pauseOnHover={true} speed={25} className="mt-8">
-                {insuranceLogos.map((insurance, index) => (
-                  <div
-                    key={index}
-                    className="relative h-20 w-fit mx-8 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:bg-white"
-                  >
-                    <img 
-                      src={insurance.logo} 
-                      alt={`${insurance.name} insurance accepted`}
-                      className="h-12 w-auto object-contain max-w-[140px]"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </Marquee>
-
-              <div className="text-center mt-8">
-                <p className="text-cyan-400 text-sm">
-                  Don't see your insurance? Call us - we work with most providers!
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* Social Proof */}
           <SocialProof testimonials={testimonials} />
 
@@ -317,6 +237,11 @@ const CollisionRepair = () => {
                   <iframe
                     id="JotFormIFrame-252064962124050"
                     title="Legally Binding Repair Authorization and Consent"
+                    onLoad={() => {
+                      if (typeof window !== 'undefined' && window.parent) {
+                        window.parent.scrollTo(0, 0);
+                      }
+                    }}
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
                     src="https://form.jotform.com/252064962124050"

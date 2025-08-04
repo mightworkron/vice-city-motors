@@ -112,9 +112,6 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
-				},
-				'marquee': {
-					'to': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -122,8 +119,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
 				'gradient-shift': 'gradient-shift 3s ease infinite',
-				'float': 'float 3s ease-in-out infinite',
-				'marquee': 'marquee var(--duration, 30s) linear infinite'
+				'float': 'float 3s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'miami-gradient': 'linear-gradient(135deg, #ff0080, #8000ff, #0080ff)',
