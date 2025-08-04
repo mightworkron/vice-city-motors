@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import TrustBadge from "@/components/conversion/TrustBadge";
+import ReviewStars from "@/components/conversion/ReviewStars";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -160,17 +161,25 @@ const Index = () => {
             <TrustBadge className="mb-8" />
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
-                Get Free Quote
-              </Button>
-              <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
-                Get Free Quote
-              </Button>
+              <a href="tel:305-419-8379">
+                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
+                  Get Quote
+                </Button>
+              </a>
+              <Link to="/exotic-rentals">
+                <Button variant="outline" size="lg" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                  Get Quote
+                  <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </Link>
             </div>
 
-            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float">
+            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float block mb-8">
               305-419-8379
             </a>
+
+            {/* Review Stars at bottom of hero */}
+            <ReviewStars />
           </div>
         </header>
 
@@ -186,6 +195,7 @@ const Index = () => {
           <CTASection 
             title="Ready to Get Started?"
             subtitle="Call now and let's solve your car problems today."
+            phoneText="Get Quote"
           />
 
           {/* Services Grid */}
@@ -335,7 +345,7 @@ const Index = () => {
                       />
                     </div>
                     <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
-                      Send Message
+                      Get Quote
                     </Button>
                   </form>
                 </div>
@@ -345,9 +355,9 @@ const Index = () => {
 
           {/* Final CTA */}
           <CTASection 
-            title="Don't Wait - Call Now!"
+            title="Don't Wait - Get Your Quote Now!"
             subtitle="Your car problems won't solve themselves. Get expert help from Miami's most trusted auto shop."
-            phoneText="Call 305-419-8379 Now"
+            phoneText="Get Quote Now"
             className="bg-gradient-to-r from-neon-pink/10 to-neon-purple/10"
           />
         </main>

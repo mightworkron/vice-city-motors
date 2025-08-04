@@ -9,7 +9,7 @@ interface CTASectionProps {
   className?: string;
 }
 
-const CTASection = ({ title, subtitle, phoneText = "Call 305-419-8379", className = "" }: CTASectionProps) => {
+const CTASection = ({ title, subtitle, phoneText = "Get Quote", className = "" }: CTASectionProps) => {
   return (
     <section className={`py-16 ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -22,7 +22,6 @@ const CTASection = ({ title, subtitle, phoneText = "Call 305-419-8379", classNam
         
         <a href="tel:305-419-8379">
           <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-            <Phone className="mr-2" size={20} />
             {phoneText}
           </Button>
         </a>
