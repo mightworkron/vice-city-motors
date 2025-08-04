@@ -1,4 +1,5 @@
 
+
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const InsuranceLogosSlider = () => {
@@ -16,7 +17,7 @@ const InsuranceLogosSlider = () => {
   ];
 
   return (
-    <section className="py-12" aria-label="Insurance We Accept">
+    <section className="py-12 miami-bg" aria-label="Insurance We Accept">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-orbitron font-bold mb-4">
@@ -35,14 +36,12 @@ const InsuranceLogosSlider = () => {
         >
           {logos.map((logo, index) => (
             <div key={index} className="flex items-center justify-center p-4 h-20 min-w-[160px]">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="w-32 h-16 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  loading="lazy"
-                />
-              </div>
+              <img 
+                src={logo.src} 
+                alt={logo.alt}
+                className="w-32 h-16 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                loading="lazy"
+              />
             </div>
           ))}
         </InfiniteSlider>
@@ -52,3 +51,4 @@ const InsuranceLogosSlider = () => {
 };
 
 export default InsuranceLogosSlider;
+
