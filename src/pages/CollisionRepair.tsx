@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -264,22 +263,13 @@ const CollisionRepair = () => {
                 {insuranceLogos.map((insurance, index) => (
                   <div
                     key={index}
-                    className="relative h-20 w-fit mx-8 flex items-center justify-center p-4 transition-all duration-300 hover:scale-105"
+                    className="relative h-20 w-fit mx-8 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 hover:scale-105 hover:bg-white"
                   >
                     <img 
                       src={insurance.logo} 
                       alt={`${insurance.name} insurance accepted`}
                       className="h-12 w-auto object-contain max-w-[140px]"
                       loading="lazy"
-                      onError={(e) => {
-                        console.log(`Failed to load image: ${insurance.logo}`);
-                        const target = e.currentTarget;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          parent.innerHTML = `<span class="text-sm font-orbitron font-bold text-cyan-400">${insurance.name}</span>`;
-                        }
-                      }}
                     />
                   </div>
                 ))}
