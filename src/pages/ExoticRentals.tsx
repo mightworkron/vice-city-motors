@@ -142,7 +142,15 @@ const ExoticRentals = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <p className="text-white font-medium text-sm">Call for availability</p>
+                      <a href="tel:305-419-8379">
+                        <Button 
+                          size="sm" 
+                          className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold transition-all duration-300"
+                        >
+                          <Phone className="mr-2" size={16} />
+                          Book Now
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
