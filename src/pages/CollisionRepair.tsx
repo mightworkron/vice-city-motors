@@ -260,12 +260,12 @@ const CollisionRepair = () => {
                 {insuranceLogos.map((insurance, index) => (
                   <div
                     key={index}
-                    className="relative h-20 w-fit mx-8 flex items-center justify-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-neon-purple/20 hover:border-neon-purple/40 transition-all duration-300 hover:shadow-lg hover:shadow-neon-purple/10"
+                    className="relative h-20 w-fit mx-8 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
                   >
                     <img 
                       src={insurance.logo} 
                       alt={`${insurance.name} insurance accepted`}
-                      className="h-12 w-auto object-contain filter brightness-0 invert"
+                      className="h-12 w-auto object-contain max-w-[120px]"
                       loading="lazy"
                       onError={(e) => {
                         console.log(`Failed to load image: ${insurance.logo}`);
@@ -274,7 +274,7 @@ const CollisionRepair = () => {
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent) {
-                          parent.innerHTML = `<span class="text-sm font-orbitron font-bold text-neon-cyan">${insurance.name}</span>`;
+                          parent.innerHTML = `<span class="text-sm font-orbitron font-bold text-cyan-400">${insurance.name}</span>`;
                         }
                       }}
                     />
@@ -283,7 +283,7 @@ const CollisionRepair = () => {
               </Marquee>
 
               <div className="text-center mt-8">
-                <p className="text-neon-cyan text-sm">
+                <p className="text-cyan-400 text-sm">
                   Don't see your insurance? Call us - we work with most providers!
                 </p>
               </div>
