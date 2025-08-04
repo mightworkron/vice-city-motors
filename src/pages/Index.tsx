@@ -172,7 +172,7 @@ const Index = () => {
               </Link>
             </div>
 
-            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float mb-8 block">
+            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block">
               305-419-8379
             </a>
 
