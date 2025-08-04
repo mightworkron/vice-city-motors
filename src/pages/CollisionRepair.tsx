@@ -237,10 +237,11 @@ const CollisionRepair = () => {
               </div>
 
               <div className="bg-card rounded-lg p-4 sm:p-6 border border-neon-purple/30 neon-border">
-                <script 
-                  type="text/javascript" 
-                  src="https://form.jotform.com/jsform/252064962124050"
-                ></script>
+                <div 
+                  dangerouslySetInnerHTML={{
+                    __html: '<script type="text/javascript" src="https://form.jotform.com/jsform/252064962124050"></script>'
+                  }}
+                />
               </div>
             </div>
           </section>
