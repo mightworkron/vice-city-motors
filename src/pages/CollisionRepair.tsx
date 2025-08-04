@@ -237,29 +237,39 @@ const CollisionRepair = () => {
               </div>
 
               <div className="bg-card rounded-lg p-4 sm:p-6 border border-neon-purple/30 neon-border">
-                <iframe
-                  id="JotFormIFrame-252064962124050"
-                  title="Legally Binding Repair Authorization and Consent"
-                  onLoad={() => window.parent.scrollTo(0,0)}
-                  allowTransparency={true}
-                  allow="geolocation; microphone; camera; fullscreen; payment"
-                  src="https://form.jotform.com/252064962124050"
-                  frameBorder="0"
-                  style={{
-                    minWidth: '100%',
-                    maxWidth: '100%',
-                    height: '539px',
-                    border: 'none'
-                  }}
-                  scrolling="no"
-                />
-                <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-                <script
-                  dangerouslySetInnerHTML={{
-                    __html: `window.jotformEmbedHandler("iframe[id='JotFormIFrame-252064962124050']", "https://form.jotform.com/")`
-                  }}
-                />
+                <div className="w-full overflow-hidden">
+                  <iframe
+                    id="JotFormIFrame-252064962124050"
+                    title="Legally Binding Repair Authorization and Consent"
+                    onLoad={() => {
+                      if (typeof window !== 'undefined' && window.parent) {
+                        window.parent.scrollTo(0, 0);
+                      }
+                    }}
+                    allowTransparency={true}
+                    allow="geolocation; microphone; camera; fullscreen; payment"
+                    src="https://form.jotform.com/252064962124050"
+                    frameBorder="0"
+                    className="w-full rounded-lg border-0"
+                    style={{
+                      minWidth: "100%",
+                      width: "100%",
+                      height: "539px",
+                      border: "none"
+                    }}
+                    scrolling="no"
+                  />
+                </div>
               </div>
+              
+              <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+              <script dangerouslySetInnerHTML={{
+                __html: `
+                  if (typeof window !== 'undefined' && window.jotformEmbedHandler) {
+                    window.jotformEmbedHandler("iframe[id='JotFormIFrame-252064962124050']", "https://form.jotform.com/");
+                  }
+                `
+              }} />
             </div>
           </section>
 
