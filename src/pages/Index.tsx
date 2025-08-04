@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -193,6 +192,7 @@ const Index = () => {
           <CTASection 
             title="Ready to Get Started?"
             subtitle="Call now and let's solve your car problems today."
+            phoneText="Get Free Quote"
           />
 
           {/* Services Grid */}
@@ -354,7 +354,7 @@ const Index = () => {
           <CTASection 
             title="Don't Wait - Call Now!"
             subtitle="Your car problems won't solve themselves. Get expert help from Miami's most trusted auto shop."
-            phoneText="Call 305-419-8379 Now"
+            phoneText="Get Free Quote"
             className="bg-gradient-to-r from-neon-pink/10 to-neon-purple/10"
           />
         </main>
