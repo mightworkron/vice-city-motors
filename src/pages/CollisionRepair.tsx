@@ -241,7 +241,7 @@ const CollisionRepair = () => {
                   id="JotFormIFrame-252064962124050"
                   title="Legally Binding Repair Authorization and Consent"
                   onLoad={() => window.parent.scrollTo(0,0)}
-                  allowTransparency="true"
+                  allowTransparency={true}
                   allow="geolocation; microphone; camera; fullscreen; payment"
                   src="https://form.jotform.com/252064962124050"
                   frameBorder="0"
