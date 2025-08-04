@@ -64,39 +64,43 @@ const CollisionRepair = () => {
   const insuranceLogos = [
     {
       name: "State Farm",
-      logo: "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png"
+      logo: "/lovable-uploads/39fd2c02-3136-480d-83be-be64eb3c2e24.png"
     },
     {
-      name: "Progressive",
-      logo: "/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png"
-    },
-    {
-      name: "Geico",
-      logo: "/lovable-uploads/99218314-d54c-4177-abfb-9f888952a5ef.png"
+      name: "AAA",
+      logo: "/lovable-uploads/7b9738ac-524a-4020-bf9a-8422f6e2929b.png"
     },
     {
       name: "Allstate",
-      logo: "/lovable-uploads/d8b68c76-1025-4605-b3f4-3b4231f091db.png"
-    },
-    {
-      name: "Farmers",
-      logo: "/lovable-uploads/e7771961-42ae-4e8d-811f-084d9b13f8db.png"
+      logo: "/lovable-uploads/eeb2aad1-29e4-44e3-a373-f616b917f204.png"
     },
     {
       name: "Liberty Mutual",
-      logo: "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png"
+      logo: "/lovable-uploads/d46461e2-e174-4560-9842-8ee0882b0eb3.png"
+    },
+    {
+      name: "Esurance",
+      logo: "/lovable-uploads/880f7d52-6740-40e9-b837-131fa59435e6.png"
+    },
+    {
+      name: "Farmers Insurance",
+      logo: "/lovable-uploads/43e47194-bea9-4ec1-b958-c88a5cade45c.png"
     },
     {
       name: "Nationwide",
-      logo: "/lovable-uploads/f947f100-f196-4616-92de-808f6020466a.png"
+      logo: "/lovable-uploads/8eaf816e-4fd0-4696-9386-7cbcf0f32ba2.png"
     },
     {
-      name: "Mercury Insurance",
-      logo: "/lovable-uploads/c965372d-347f-41a6-a716-2896ec4902c9.png"
+      name: "MetLife",
+      logo: "/lovable-uploads/d613e930-c771-467e-9373-05172e907c78.png"
     },
     {
-      name: "USAA",
-      logo: "/lovable-uploads/dac205d9-938f-4abf-8f2e-f1a430102570.png"
+      name: "Progressive",
+      logo: "/lovable-uploads/773f39a2-fb73-46f1-81f7-624812d37069.png"
+    },
+    {
+      name: "21st Century Insurance",
+      logo: "/lovable-uploads/32f46066-4b37-4b7a-87f3-da0f7ba67698.png"
     }
   ];
   
@@ -260,16 +264,15 @@ const CollisionRepair = () => {
                 {insuranceLogos.map((insurance, index) => (
                   <div
                     key={index}
-                    className="relative h-20 w-fit mx-8 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+                    className="relative h-20 w-fit mx-8 flex items-center justify-center p-4 transition-all duration-300 hover:scale-105"
                   >
                     <img 
                       src={insurance.logo} 
                       alt={`${insurance.name} insurance accepted`}
-                      className="h-12 w-auto object-contain max-w-[120px]"
+                      className="h-12 w-auto object-contain max-w-[140px]"
                       loading="lazy"
                       onError={(e) => {
                         console.log(`Failed to load image: ${insurance.logo}`);
-                        // Replace with text fallback instead of hiding
                         const target = e.currentTarget;
                         target.style.display = 'none';
                         const parent = target.parentElement;
