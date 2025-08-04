@@ -284,17 +284,13 @@ const Index = () => {
                   </p>
 
                   <div className="space-y-6">
-                    <div className="flex items-center space-x-4 relative">
+                    <div className="flex items-center space-x-4">
                       <Phone className="text-neon-cyan" size={24} />
                       <div>
                         <p className="text-white font-medium">Call Us</p>
                         <a href="tel:305-419-8379" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300">
                           305-419-8379
                         </a>
-                      </div>
-                      {/* Best Method Sticker */}
-                      <div className="absolute -top-2 -right-2 bg-gradient-to-r from-neon-pink to-neon-purple px-2 py-1 rounded-full text-xs font-bold text-white animate-float">
-                        ⭐ BEST
                       </div>
                     </div>
 
