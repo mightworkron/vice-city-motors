@@ -131,21 +131,31 @@ const ExoticRentals = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
               {fleetImages.map((image, index) => (
-                <div key={index} className="bg-card rounded-lg overflow-hidden border border-neon-purple/30 group hover:border-neon-pink/50 transition-all duration-300">
-                  <div className="relative overflow-hidden aspect-[3/2]">
-                    <img 
-                      src={image} 
-                      alt={`Luxury vehicle ${index + 1}`} 
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <a href="tel:305-419-8379">
+                <div key={index} className="group">
+                  <div className="bg-gradient-to-br from-card via-card to-card/80 rounded-xl p-4 border-2 border-neon-purple/30 hover:border-neon-pink/60 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl neon-border">
+                    <div className="relative overflow-hidden aspect-[4/3] rounded-lg bg-gradient-to-br from-gray-900 to-black">
+                      <img 
+                        src={image} 
+                        alt={`Luxury vehicle ${index + 1}`} 
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                      
+                      {/* Decorative corner accents */}
+                      <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-neon-cyan opacity-60"></div>
+                      <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-neon-cyan opacity-60"></div>
+                      <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-neon-cyan opacity-60"></div>
+                      <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-neon-cyan opacity-60"></div>
+                    </div>
+                    
+                    {/* Button container with improved styling */}
+                    <div className="mt-4">
+                      <a href="tel:305-419-8379" className="block">
                         <Button 
                           size="sm" 
-                          className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold transition-all duration-300"
+                          className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-neon-pink/25"
                         >
                           <Phone className="mr-2" size={16} />
                           Book Now
