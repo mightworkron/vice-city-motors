@@ -83,10 +83,6 @@ const CollisionRepair = () => {
             </Link>
             
             <div className="text-center">
-              <div className="flex justify-center mb-6">
-                <TrustBadge />
-              </div>
-              
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
                 <span className="neon-text">Collision Repair</span>
               </h1>
@@ -104,9 +100,14 @@ const CollisionRepair = () => {
                 </a>
               </div>
               
-              <p className="text-neon-cyan text-sm">
+              <p className="text-neon-cyan text-sm mb-8">
                 Same day estimate • Insurance accepted • 2-5 day completion
               </p>
+              
+              {/* Trust Badge at bottom of hero */}
+              <div className="mt-8">
+                <TrustBadge className="mx-auto" />
+              </div>
             </div>
           </div>
         </header>

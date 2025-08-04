@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -92,10 +91,6 @@ const WrapsAndTints = () => {
             </Link>
             
             <div className="text-center">
-              <div className="mb-6">
-                <TrustBadge className="mx-auto" />
-              </div>
-              
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
                 <span className="neon-text">Wraps & Tints</span>
               </h1>
@@ -113,9 +108,14 @@ const WrapsAndTints = () => {
                     Get Free Quote - 305-419-8379
                   </Button>
                 </a>
-                <p className="text-sm text-neon-cyan mt-3 font-medium">
+                <p className="text-sm text-neon-cyan mt-3 font-medium mb-8">
                   Same-day estimates • Expert installation guaranteed
                 </p>
+              </div>
+              
+              {/* Trust Badge at bottom of hero */}
+              <div className="mt-8">
+                <TrustBadge className="mx-auto" />
               </div>
             </div>
           </div>

@@ -111,10 +111,6 @@ const CustomBuilds = () => {
             </Link>
             
             <div className="text-center">
-              <div className="mb-6">
-                <TrustBadge className="mx-auto" />
-              </div>
-              
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold mb-6">
                 <span className="neon-text">Custom Builds</span>
               </h1>
@@ -132,9 +128,14 @@ const CustomBuilds = () => {
                     Schedule Consultation - 305-419-8379
                   </Button>
                 </a>
-                <p className="text-sm text-neon-cyan mt-3 font-medium">
+                <p className="text-sm text-neon-cyan mt-3 font-medium mb-8">
                   Free consultation • Custom design mockups included
                 </p>
+              </div>
+              
+              {/* Trust Badge at bottom of hero */}
+              <div className="mt-8">
+                <TrustBadge className="mx-auto" />
               </div>
             </div>
           </div>
