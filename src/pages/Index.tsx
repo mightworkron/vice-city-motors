@@ -164,7 +164,7 @@ const Index = () => {
               <a href="tel:305-419-8379">
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                   <Phone className="mr-2" size={20} />
-                  Call Now
+                  Get Quote
                 </Button>
               </a>
               <Link to="/exotic-rentals">
@@ -175,9 +175,24 @@ const Index = () => {
               </Link>
             </div>
 
-            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float">
+            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float mb-8 block">
               305-419-8379
             </a>
+
+            {/* Review Stars at bottom of hero */}
+            <div className="flex items-center justify-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="text-neon-cyan" size={20} fill="currentColor" />
+                  ))}
+                </div>
+                <span className="text-white font-medium text-lg">4.9/5</span>
+              </div>
+              <div className="text-neon-cyan text-lg font-medium">
+                1000+ Miami drivers served since 2018
+              </div>
+            </div>
           </div>
         </header>
 
