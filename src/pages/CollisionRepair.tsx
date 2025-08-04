@@ -10,6 +10,7 @@ import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import { Marquee } from "@/components/ui/marquee";
 
 const CollisionRepair = () => {
   const testimonials = [
@@ -56,6 +57,45 @@ const CollisionRepair = () => {
     {
       before: "/lovable-uploads/143dfe8f-6dfd-4e9e-8a4c-2d3634c3f810.png",
       after: "/lovable-uploads/338062c0-8060-410f-8bca-453aff16d5dc.png"
+    }
+  ];
+
+  const insuranceLogos = [
+    {
+      name: "State Farm",
+      logo: "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png"
+    },
+    {
+      name: "Progressive",
+      logo: "/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png"
+    },
+    {
+      name: "Geico",
+      logo: "/lovable-uploads/99218314-d54c-4177-abfb-9f888952a5ef.png"
+    },
+    {
+      name: "Allstate",
+      logo: "/lovable-uploads/d8b68c76-1025-4605-b3f4-3b4231f091db.png"
+    },
+    {
+      name: "Farmers",
+      logo: "/lovable-uploads/e7771961-42ae-4e8d-811f-084d9b13f8db.png"
+    },
+    {
+      name: "Liberty Mutual",
+      logo: "/lovable-uploads/f8d6d552-5a0c-4893-96d7-22d0aaef55b6.png"
+    },
+    {
+      name: "Nationwide",
+      logo: "/lovable-uploads/f947f100-f196-4616-92de-808f6020466a.png"
+    },
+    {
+      name: "Mercury Insurance",
+      logo: "/lovable-uploads/c965372d-347f-41a6-a716-2896ec4902c9.png"
+    },
+    {
+      name: "USAA",
+      logo: "/lovable-uploads/dac205d9-938f-4abf-8f2e-f1a430102570.png"
     }
   ];
   
@@ -199,6 +239,42 @@ const CollisionRepair = () => {
                     <p className="text-gray-300">{item.desc}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Insurance We Accept */}
+          <section className="py-16" aria-labelledby="insurance-accepted">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 id="insurance-accepted" className="text-3xl font-orbitron font-bold mb-4">
+                  <span className="neon-text">Insurance We Accept</span>
+                </h2>
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                  We work with all major insurance providers to make your collision repair process seamless and hassle-free
+                </p>
+              </div>
+
+              <Marquee pauseOnHover={true} speed={25} className="mt-8">
+                {insuranceLogos.map((insurance, index) => (
+                  <div
+                    key={index}
+                    className="relative h-full w-fit mx-8 flex items-center justify-center bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  >
+                    <img 
+                      src={insurance.logo} 
+                      alt={`${insurance.name} insurance accepted`}
+                      className="h-12 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </Marquee>
+
+              <div className="text-center mt-8">
+                <p className="text-neon-cyan text-sm">
+                  Don't see your insurance? Call us - we work with most providers!
+                </p>
               </div>
             </div>
           </section>
