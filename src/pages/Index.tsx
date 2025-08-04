@@ -157,8 +157,6 @@ const Index = () => {
               Collision repair • 24/7 towing • Exotic rentals ready now
             </p>
 
-            <TrustBadge className="mb-8" />
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <a href="tel:305-419-8379">
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
@@ -174,9 +172,11 @@ const Index = () => {
               </Link>
             </div>
 
-            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float">
+            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 animate-float mb-8 block">
               305-419-8379
             </a>
+
+            <TrustBadge />
           </div>
         </header>
 
