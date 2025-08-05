@@ -14,7 +14,8 @@ const Navigation = () => {
     { name: "Emergency Towing", path: "/emergency-towing" },
     { name: "Exotic Rentals", path: "/exotic-rentals" },
     { name: "Wraps & Tints", path: "/wraps-and-tints" },
-    { name: "Custom Builds", path: "/custom-builds" }
+    { name: "Custom Builds", path: "/custom-builds" },
+    { name: "Sales", path: "/sales" }
   ];
 
   const isActive = (path: string) => location.pathname === path;
