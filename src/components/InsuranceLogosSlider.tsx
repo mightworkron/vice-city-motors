@@ -24,10 +24,11 @@ const InsuranceLogosSlider = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-orbitron font-bold mb-4">
-            <span className="neon-text">Insurance We Accept</span>
+            <span className="neon-text">We Accept ALL Insurance Providers</span>
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            We accept claims from all major insurance providers. Bring us your claim number and we'll handle all the paperwork and coordination with your insurance company.
+            Don't see your insurance company listed? No problem! We work with ALL insurance providers in Miami. 
+            Bring us your claim number and we'll handle all the paperwork and coordination directly with your insurance company - no matter who you're with.
           </p>
         </div>
         
