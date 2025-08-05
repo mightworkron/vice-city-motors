@@ -29,42 +29,42 @@ const Sales = () => {
       name: "Marcus Rodriguez",
       location: "Brickell, Miami",
       rating: 5,
-      text: "Got approved for financing on my McLaren 720S in under 30 minutes! The team made everything so easy and the rates were better than my bank."
+      text: "The Showroom Miami made financing my McLaren 720S incredibly easy! Got approved in under 30 minutes with better rates than my bank offered."
     },
     {
       name: "Isabella Chen",
       location: "South Beach",
       rating: 5,
-      text: "Even with my credit challenges, they found me great financing options. Now I'm driving my dream Lamborghini Huracán!"
+      text: "Even with my credit challenges, The Showroom Miami's financing team found me great options. Now I'm driving my dream Lamborghini Huracán!"
     },
     {
       name: "David Thompson",
       location: "Coral Gables",
       rating: 5,
-      text: "The financing team was incredible. They walked me through every step and got me the best deal possible on my Ferrari 488."
+      text: "The financing specialists at The Showroom Miami were incredible. They walked me through every step and got me the best deal on my Ferrari 488."
     }
   ];
 
   const faqs = [
     {
-      question: "What credit score do I need to qualify for financing?",
+      question: "What credit score do I need to qualify for financing at The Showroom Miami?",
       answer: "We work with all credit types! Whether you have excellent credit (750+) or challenges with your credit history, our network of lenders can find financing solutions tailored to your situation."
     },
     {
-      question: "How quickly can I get approved?",
-      answer: "Most applications receive preliminary approval within minutes. Final approval typically takes 24-48 hours once we receive all required documentation."
+      question: "How quickly can I get approved through your online credit approval process?",
+      answer: "Most applications receive preliminary approval within minutes through our online system. Final approval typically takes 24-48 hours once we receive all required documentation."
     },
     {
-      question: "What documents do I need to apply?",
-      answer: "You'll need a valid driver's license, proof of income (pay stubs or bank statements), proof of residence, and proof of insurance. We'll help gather everything needed."
+      question: "What documents do I need for the online credit application?",
+      answer: "You'll need a valid driver's license, proof of income (pay stubs or bank statements), proof of residence, and proof of insurance. Our online form will guide you through exactly what's needed."
     },
     {
-      question: "Can I trade in my current vehicle?",
+      question: "Can I trade in my current vehicle through your financing process?",
       answer: "Absolutely! We'll provide a fair market appraisal of your trade-in and apply the equity directly to your new purchase, reducing your loan amount."
     },
     {
-      question: "Do you offer extended warranties?",
-      answer: "Yes, we offer comprehensive extended warranty options to protect your investment beyond the manufacturer warranty period."
+      question: "Do you offer extended warranties with your financing?",
+      answer: "Yes, we offer comprehensive extended warranty options to protect your investment beyond the manufacturer warranty period, and these can be rolled into your financing."
     },
     {
       question: "What happens if I want to pay off my loan early?",
@@ -102,8 +102,8 @@ const Sales = () => {
                 <span className="neon-text">Finance Your Dream Car</span>
               </h1>
               <p className="text-xl text-neon-cyan font-rajdhani font-medium mb-8 max-w-3xl mx-auto">
-                Get behind the wheel of your dream exotic car today with our flexible financing options. 
-                Quick approvals, competitive rates, and personalized service in Miami.
+                Get behind the wheel of your dream exotic car today with The Showroom Miami's flexible financing options. 
+                Quick online credit approval, competitive rates, and personalized service in Miami, Florida.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -133,10 +133,10 @@ const Sales = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
                 <h2 id="financing-benefits" className="text-3xl font-orbitron font-bold mb-4">
-                  <span className="neon-text">Why Choose Our Financing?</span>
+                  <span className="neon-text">Why Choose The Showroom Miami for Financing?</span>
                 </h2>
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                  We make luxury car ownership accessible with flexible financing solutions tailored to your needs
+                  We make luxury car ownership accessible with flexible financing solutions and convenient online credit approval
                 </p>
               </div>
 
@@ -158,12 +158,11 @@ const Sales = () => {
                 <div className="flex items-center justify-center mb-6">
                   <CreditCard className="text-neon-cyan mr-4" size={40} />
                   <h2 id="credit-application" className="text-3xl font-orbitron font-bold">
-                    <span className="neon-text">Apply for Financing</span>
+                    <span className="neon-text">Get Online Pre-Approval for Financing in Miami, Florida</span>
                   </h2>
                 </div>
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                  Complete our secure online application and get pre-approved in minutes. 
-                  Our financing specialists will contact you within 1 hour.
+                  At The Showroom Miami, we offer a convenient online credit approval process to streamline your experience. Our secure and user-friendly online form allows you to apply for credit from home. Simply provide the necessary information, and our finance experts will review your application promptly. Take the first step toward owning the luxury car of your dreams by completing our online credit approval form today.
                 </p>
               </div>
 
@@ -191,7 +190,7 @@ const Sales = () => {
                 
                 <div className="mt-6 text-center">
                   <p className="text-gray-400 text-sm mb-4">
-                    Need help with your application? Our financing experts are standing by.
+                    Need help with your application? Our financing experts at The Showroom Miami are standing by.
                   </p>
                   <a href="tel:305-419-8379">
                     <Button className="bg-gradient-to-r from-neon-cyan to-neon-blue hover:from-neon-blue hover:to-neon-purple text-black font-bold">
@@ -212,22 +211,22 @@ const Sales = () => {
 
           {/* Mid-Page CTA */}
           <CTASection
-            title="Ready to Drive Your Dream Car?"
-            subtitle="Don't wait - luxury cars move fast in Miami. Call now to secure your financing and drive home today!"
+            title="Ready to Finance Your Dream Car in Miami?"
+            subtitle="Don't wait - luxury cars move fast in Miami. Get pre-approved online now and drive home your dream car today with The Showroom Miami!"
             phoneText="Get Pre-Approved: 305-419-8379"
             className="bg-gradient-to-b from-black/60 to-black/80"
           />
 
           {/* FAQ Section */}
           <FAQSection 
-            title="Financing Questions & Answers"
+            title="Financing & Credit Approval Questions"
             faqs={faqs}
           />
 
           {/* Final CTA */}
           <CTASection
-            title="Don't Let High Rates Stop You"
-            subtitle="Call now for competitive rates and flexible terms. Our financing experts are standing by to help you drive home your dream car today."
+            title="Start Your Online Credit Approval Today"
+            subtitle="Call now for competitive rates and flexible terms, or complete our online application above. The Showroom Miami's financing experts are standing by to help you drive home your dream car today."
             phoneText="Call 305-419-8379 Now"
           />
         </main>
