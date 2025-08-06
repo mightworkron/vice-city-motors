@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -159,9 +158,9 @@ const Sales = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <TrustBadge className="mb-6 justify-center" />
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
-            <span className="neon-text">Miami's Premier</span>
+            <span className="neon-text">Showroom Miami's Premier</span>
             <br />
-            <span className="text-white">Luxury Car Collection</span>
+            <span className="text-white">Car Collection</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Discover exceptional pre-owned luxury and exotic vehicles. Our curated inventory is coming soon with 
