@@ -77,11 +77,11 @@ const WrapsAndTints = () => {
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=1920&h=1080&fit=crop')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.2
-        }} />
+            backgroundImage: "url('/lovable-uploads/a85546a3-3d0a-4663-991a-3de68d71c84d.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.2
+          }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70 z-10" />
           
           <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

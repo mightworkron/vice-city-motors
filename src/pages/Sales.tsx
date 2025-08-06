@@ -67,8 +67,16 @@ const Sales = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 miami-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div className="absolute inset-0 z-0" style={{
+          backgroundImage: "url('/lovable-uploads/72157161-abaa-4935-b3a0-7c261301cec1.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.2
+        }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70 z-10" />
+        
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
             <span className="neon-text">Showroom Miami's Premier</span>
             <br />

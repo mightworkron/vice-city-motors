@@ -71,7 +71,7 @@ const EmergencyTowing = () => {
         {/* Hero Section */}
         <header className="relative pt-24 pb-16 overflow-hidden">
           <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1544717342-6bb3ee1ed5d4?w=1920&h=1080&fit=crop')",
+            backgroundImage: "url('/lovable-uploads/e7771961-42ae-4e8d-811f-084d9b13f8db.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.2
