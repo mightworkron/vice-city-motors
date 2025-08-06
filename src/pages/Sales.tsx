@@ -14,8 +14,8 @@ import { useState } from "react";
 
 interface Car {
   id: number;
-  make: string;
-  model: string;
+  category: string;
+  title: string;
   year: number;
   price: number;
   mileage: string;
@@ -28,87 +28,87 @@ interface Car {
 
 const Sales = () => {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
-  const [filterMake, setFilterMake] = useState<string>("All");
+  const [filterCategory, setFilterCategory] = useState<string>("All");
 
-  // Sample car data using existing image uploads
+  // Placeholder car data organized by category
   const cars: Car[] = [
     {
       id: 1,
-      make: "Ferrari",
-      model: "488 GTB",
+      category: "Supercar",
+      title: "Exotic Supercar",
       year: 2020,
       price: 285000,
-      mileage: "8,500 miles",
+      mileage: "Low mileage",
       condition: "Excellent",
-      description: "Pristine Ferrari 488 GTB with full service history. This stunning supercar delivers breathtaking performance.",
-      features: ["Carbon Fiber Package", "Premium Sound", "Navigation", "Ceramic Brakes"],
+      description: "Premium exotic supercar with exceptional performance capabilities. Full service history and pristine condition.",
+      features: ["Carbon Fiber Package", "Premium Sound", "Track Package", "Ceramic Brakes"],
       image: "/lovable-uploads/691fc0a9-5766-4035-89da-b291de39e7da.png",
-      status: "Available"
+      status: "Coming Soon"
     },
     {
       id: 2,
-      make: "Lamborghini",
-      model: "Huracán EVO",
+      category: "Supercar", 
+      title: "Luxury Supercar",
       year: 2021,
       price: 265000,
-      mileage: "5,200 miles",
+      mileage: "Very low miles",
       condition: "Like New",
-      description: "Immaculate Lamborghini Huracán EVO with aggressive styling and incredible performance capabilities.",
+      description: "Stunning luxury supercar with aggressive styling and incredible performance. Meticulously maintained.",
       features: ["Sport Package", "Leather Interior", "Carbon Accents", "Performance Exhaust"],
       image: "/lovable-uploads/398713b3-eca5-4d68-bcb6-2342646c7d3a.png",
-      status: "Available"
+      status: "Coming Soon"
     },
     {
       id: 3,
-      make: "McLaren",
-      model: "570S",
+      category: "Sports",
+      title: "High-Performance Sports Car",
       year: 2019,
       price: 195000,
-      mileage: "12,300 miles",
+      mileage: "Well maintained",
       condition: "Excellent",
-      description: "McLaren 570S with stunning aerodynamics and track-focused performance in pristine condition.",
-      features: ["Track Package", "Premium Audio", "Carbon Fiber Trim", "Alcantara Seats"],
+      description: "Track-focused sports car with stunning aerodynamics and precision engineering. Perfect for enthusiasts.",
+      features: ["Track Package", "Premium Audio", "Carbon Fiber Trim", "Sport Seats"],
       image: "/lovable-uploads/73854ee6-3fd6-4f6d-8be2-840793c8b2a0.png",
-      status: "Available"
+      status: "Coming Soon"
     },
     {
       id: 4,
-      make: "Porsche",
-      model: "911 Turbo S",
+      category: "Sports",
+      title: "Premium Sports Coupe",
       year: 2022,
       price: 225000,
-      mileage: "3,800 miles",
+      mileage: "Nearly new",
       condition: "Like New",
-      description: "Nearly new Porsche 911 Turbo S with incredible acceleration and luxury appointments.",
+      description: "Nearly new premium sports coupe with incredible acceleration and luxury appointments throughout.",
       features: ["Sport Chrono", "PASM", "Premium Interior", "Ceramic Brakes"],
       image: "/lovable-uploads/338062c0-8060-410f-8bca-453aff16d5dc.png",
-      status: "Available"
+      status: "Coming Soon"
     },
     {
       id: 5,
-      make: "Aston Martin",
-      model: "DB11",
+      category: "Luxury",
+      title: "Luxury Grand Tourer",
       year: 2020,
       price: 175000,
-      mileage: "9,600 miles",
+      mileage: "Excellent condition",
       condition: "Excellent",
-      description: "Elegant Aston Martin DB11 combining luxury and performance in perfect harmony.",
-      features: ["Premium Package", "Bang & Olufsen Audio", "Heated Seats", "Navigation"],
+      description: "Elegant luxury grand tourer combining sophistication and performance in perfect harmony.",
+      features: ["Premium Package", "Premium Audio System", "Heated Seats", "Navigation"],
       image: "/lovable-uploads/2b1adf65-d49e-44e7-9d03-1c5a06f21c63.png",
-      status: "Available"
+      status: "Coming Soon"
     },
     {
       id: 6,
-      make: "Bentley",
-      model: "Continental GT",
+      category: "Luxury",
+      title: "Premium Luxury Coupe",
       year: 2021,
       price: 195000,
-      mileage: "6,700 miles",
+      mileage: "Low mileage",
       condition: "Excellent",
-      description: "Luxurious Bentley Continental GT offering unmatched comfort and sophisticated performance.",
-      features: ["Mulliner Package", "Diamond Quilting", "Naim Audio", "Massage Seats"],
+      description: "Luxurious premium coupe offering unmatched comfort and sophisticated performance capabilities.",
+      features: ["Luxury Package", "Premium Quilting", "Premium Audio", "Massage Seats"],
       image: "/lovable-uploads/143dfe8f-6dfd-4e9e-8a4c-2d3634c3f810.png",
-      status: "Available"
+      status: "Coming Soon"
     }
   ];
 
@@ -117,24 +117,24 @@ const Sales = () => {
       name: "Marcus Rodriguez",
       location: "Brickell, Miami",
       rating: 5,
-      text: "Bought my Ferrari from The Showroom Miami - incredible selection and transparent process. They handled everything from financing to delivery."
+      text: "Amazing selection of premium vehicles at The Showroom Miami. Professional team made the entire process seamless from start to finish."
     },
     {
       name: "Sarah Chen",
       location: "South Beach, FL",
       rating: 5,
-      text: "Professional team, fair prices, and amazing inventory. Found my dream Porsche here and couldn't be happier with the experience."
+      text: "Exceptional service and quality vehicles. They helped me find exactly what I was looking for with great financing options."
     },
     {
       name: "David Martinez",
       location: "Coral Gables, FL",
       rating: 5,
-      text: "The Showroom Miami made buying a luxury car stress-free. Great financing options and they delivered exactly what they promised."
+      text: "The Showroom Miami exceeded my expectations. Transparent pricing and professional service throughout the entire experience."
     }
   ];
 
-  const uniqueMakes = ["All", ...new Set(cars.map(car => car.make))];
-  const filteredCars = filterMake === "All" ? cars : cars.filter(car => car.make === filterMake);
+  const categories = ["All", "Luxury", "Sports", "Supercar"];
+  const filteredCars = filterCategory === "All" ? cars : cars.filter(car => car.category === filterCategory);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -164,8 +164,8 @@ const Sales = () => {
             <span className="text-white">Luxury Car Collection</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Discover exceptional pre-owned luxury and exotic vehicles. Every car is thoroughly inspected, 
-            serviced, and backed by our Miami expertise since 2018.
+            Discover exceptional pre-owned luxury and exotic vehicles. Our curated inventory is coming soon with 
+            thoroughly inspected vehicles backed by our Miami expertise since 2018.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:305-419-8379">
@@ -177,7 +177,7 @@ const Sales = () => {
             <a href="/finance">
               <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10">
                 <DollarSign className="mr-2" size={20} />
-                Get Financing
+                Get Pre-Approved
               </Button>
             </a>
           </div>
@@ -188,18 +188,18 @@ const Sales = () => {
       <section className="py-8 border-b border-neon-purple/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2 justify-center">
-            {uniqueMakes.map((make) => (
+            {categories.map((category) => (
               <Button
-                key={make}
-                variant={filterMake === make ? "default" : "outline"}
+                key={category}
+                variant={filterCategory === category ? "default" : "outline"}
                 size="sm"
-                onClick={() => setFilterMake(make)}
-                className={filterMake === make 
+                onClick={() => setFilterCategory(category)}
+                className={filterCategory === category 
                   ? "bg-gradient-to-r from-neon-pink to-neon-purple text-white" 
                   : "border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10"
                 }
               >
-                {make}
+                {category}
               </Button>
             ))}
           </div>
@@ -209,13 +209,22 @@ const Sales = () => {
       {/* Car Listings Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-orbitron font-bold mb-4">
+              <span className="neon-text">Premium Inventory Coming Soon</span>
+            </h2>
+            <p className="text-gray-300 text-lg">
+              We're curating an exceptional collection of luxury vehicles. Call us to discuss your specific needs.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCars.map((car) => (
               <Card key={car.id} className="bg-card border-neon-purple/30 overflow-hidden group hover:neon-border transition-all duration-300 transform hover:scale-105">
                 <div className="relative">
                   <img 
                     src={car.image} 
-                    alt={`${car.year} ${car.make} ${car.model}`}
+                    alt={`${car.category} - ${car.title}`}
                     className="w-full h-64 object-cover"
                   />
                   <div className="absolute top-4 left-4 bg-gradient-to-r from-neon-pink to-neon-purple px-3 py-1 rounded-full">
@@ -224,20 +233,21 @@ const Sales = () => {
                   <div className="absolute top-4 right-4 bg-black/80 px-3 py-1 rounded-full">
                     <span className="text-neon-cyan font-bold">{formatPrice(car.price)}</span>
                   </div>
+                  <div className="absolute bottom-4 left-4 bg-neon-purple/80 px-3 py-1 rounded-full">
+                    <span className="text-white font-bold text-sm">{car.category}</span>
+                  </div>
                 </div>
                 
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-orbitron font-bold text-white">
-                      {car.year} {car.make}
+                      {car.year} {car.title}
                     </h3>
                     <div className="flex items-center text-neon-cyan text-sm">
                       <Star size={16} fill="currentColor" />
                       <span className="ml-1">{car.condition}</span>
                     </div>
                   </div>
-                  
-                  <p className="text-neon-pink font-bold text-lg mb-2">{car.model}</p>
                   
                   <div className="flex items-center space-x-4 text-gray-300 text-sm mb-4">
                     <div className="flex items-center">
@@ -296,7 +306,7 @@ const Sales = () => {
             <div className="relative">
               <img 
                 src={selectedCar.image} 
-                alt={`${selectedCar.year} ${selectedCar.make} ${selectedCar.model}`}
+                alt={`${selectedCar.category} - ${selectedCar.title}`}
                 className="w-full h-64 object-cover rounded-t-lg"
               />
               <button 
@@ -311,9 +321,12 @@ const Sales = () => {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h2 className="text-2xl font-orbitron font-bold text-white mb-1">
-                    {selectedCar.year} {selectedCar.make} {selectedCar.model}
+                    {selectedCar.year} {selectedCar.title}
                   </h2>
                   <p className="text-neon-cyan text-xl font-bold">{formatPrice(selectedCar.price)}</p>
+                  <span className="inline-block bg-neon-purple/20 text-neon-cyan px-3 py-1 rounded-full text-sm mt-2">
+                    {selectedCar.category}
+                  </span>
                 </div>
                 <span className="bg-gradient-to-r from-neon-pink to-neon-purple px-3 py-1 rounded-full text-white font-bold">
                   {selectedCar.status}
@@ -366,8 +379,8 @@ const Sales = () => {
 
       {/* Final CTA Section */}
       <CTASection 
-        title="Ready to Drive Your Dream Car?"
-        subtitle="Browse our premium collection or speak with our Miami luxury car experts today. Financing available with competitive rates and flexible terms."
+        title="Ready to Find Your Perfect Car?"
+        subtitle="Our premium inventory is being carefully curated. Call us to discuss your specific requirements and get notified when matching vehicles arrive."
         phoneText="Call 305-419-8379 Now"
         className="bg-gradient-to-r from-neon-purple/10 to-neon-blue/10"
       />
