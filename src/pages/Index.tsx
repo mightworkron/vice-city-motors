@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -234,10 +233,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
-
-          {/* Gallery Section */}
+          {/* Gallery Section - moved above Social Proof */}
           <section className="py-20 miami-bg" aria-labelledby="gallery-heading">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
@@ -267,6 +263,9 @@ const Index = () => {
               </div>
             </div>
           </section>
+
+          {/* Social Proof - now appears after Our Work */}
+          <SocialProof testimonials={testimonials} />
 
           {/* FAQ Section */}
           <FAQSection faqs={faqs} />
