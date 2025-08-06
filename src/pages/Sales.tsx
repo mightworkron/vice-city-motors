@@ -156,7 +156,6 @@ const Sales = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 miami-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <TrustBadge className="mb-6 justify-center" />
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
             <span className="neon-text">Showroom Miami's Premier</span>
             <br />
@@ -166,7 +165,7 @@ const Sales = () => {
             Discover exceptional pre-owned luxury and exotic vehicles. Our curated inventory is coming soon with 
             thoroughly inspected vehicles backed by our Miami expertise since 2018.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a href="tel:305-419-8379">
               <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4">
                 <Phone className="mr-2" size={20} />
@@ -180,6 +179,7 @@ const Sales = () => {
               </Button>
             </a>
           </div>
+          <TrustBadge className="justify-center" />
         </div>
       </section>
 
