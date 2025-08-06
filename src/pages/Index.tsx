@@ -11,6 +11,9 @@ import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
+import OptimizedImage from "@/components/ui/optimized-image";
+import ImageSkeleton from "@/components/ui/image-skeleton";
+import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle, Mail } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -126,14 +129,17 @@ const Index = () => {
       <div className="min-h-screen bg-background">
         <Navigation />
 
-        {/* Hero Section */}
+        {/* Hero Section with Optimized Background */}
         <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0" style={{
-            backgroundImage: "url('/lovable-uploads/72157161-abaa-4935-b3a0-7c261301cec1.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.4
-          }} />
+          {/* Optimized Hero Background */}
+          <div className="absolute inset-0 z-0">
+            <OptimizedImage
+              src="/lovable-uploads/72157161-abaa-4935-b3a0-7c261301cec1.png"
+              alt="Showroom Miami luxury automotive background"
+              priority={true}
+              className="w-full h-full object-cover opacity-40"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90 z-10" />
           
           <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
@@ -188,6 +194,9 @@ const Index = () => {
             benefits={solutions}
           />
 
+          {/* Insurance Logos Slider */}
+          <InsuranceLogosSlider />
+
           {/* Mid-Page CTA */}
           <CTASection 
             title="Ready to Get Started?"
@@ -233,7 +242,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Gallery Section - moved above Social Proof */}
+          {/* Optimized Gallery Section */}
           <section className="py-20 miami-bg" aria-labelledby="gallery-heading">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
@@ -247,14 +256,13 @@ const Index = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {galleryImages.map((image, index) => (
-                  <figure key={index} className="relative group overflow-hidden rounded-lg aspect-[4/3] cursor-pointer bg-gradient-to-br from-card/50 to-background/30">
-                    <img 
-                      src={image} 
-                      alt={`Showroom Miami automotive work showcase ${index + 1} - luxury car services and customization`} 
-                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" 
-                      loading="lazy" 
-                      width="400" 
-                      height="300" 
+                  <figure key={index} className="relative group overflow-hidden rounded-lg aspect-[4/3] cursor-pointer">
+                    <OptimizedImage
+                      src={image}
+                      alt={`Showroom Miami automotive work showcase ${index + 1} - luxury car services and customization`}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      containerClassName="bg-gradient-to-br from-card/50 to-background/30"
+                      priority={index < 2} // Prioritize first 2 images
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-neon-pink/50 rounded-lg transition-colors duration-300" />
@@ -264,7 +272,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Social Proof - now appears after Our Work */}
+          {/* Social Proof */}
           <SocialProof testimonials={testimonials} />
 
           {/* FAQ Section */}

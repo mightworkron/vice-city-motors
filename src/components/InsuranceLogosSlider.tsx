@@ -1,5 +1,6 @@
 
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import OptimizedImage from "@/components/ui/optimized-image";
 
 const InsuranceLogosSlider = () => {
   const logos = [
@@ -40,13 +41,15 @@ const InsuranceLogosSlider = () => {
         >
           {logos.map((logo, index) => (
             <div key={index} className="flex items-center justify-center p-4 h-20 min-w-[160px]">
-              <img 
-                src={logo.src} 
+              <OptimizedImage
+                src={logo.src}
                 alt={logo.alt}
                 className={`object-contain opacity-85 hover:opacity-100 transition-all duration-300 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)] ${
                   getBiggerLogos(logo.alt) ? 'w-44 h-24' : 'w-32 h-16'
                 }`}
-                loading="lazy"
+                containerClassName="w-full h-full"
+                showLoader={false}
+                priority={index < 3} // Prioritize first 3 logos
               />
             </div>
           ))}
