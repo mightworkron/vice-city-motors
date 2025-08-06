@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -181,7 +180,7 @@ const Finance = () => {
                     id="JotFormIFrame-252174317048051"
                     title="CREDIT APPLICATION"
                     onLoad={() => window.parent.scrollTo(0,0)}
-                    allowTransparency="true"
+                    allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
                     src="https://form.jotform.com/252174317048051"
                     frameBorder="0"
