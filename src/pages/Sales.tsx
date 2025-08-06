@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Eye, DollarSign, Calendar, Gauge, Star } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import { useState } from "react";
+
 interface Car {
   id: number;
   category: string;
@@ -23,6 +24,7 @@ interface Car {
   image: string;
   status: "Available" | "Sold" | "Coming Soon";
 }
+
 const Sales = () => {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [filterCategory, setFilterCategory] = useState<string>("All");
@@ -101,6 +103,7 @@ const Sales = () => {
     image: "/lovable-uploads/143dfe8f-6dfd-4e9e-8a4c-2d3634c3f810.png",
     status: "Coming Soon"
   }];
+
   const testimonials = [{
     name: "Marcus Rodriguez",
     location: "Brickell, Miami",
@@ -117,8 +120,10 @@ const Sales = () => {
     rating: 5,
     text: "The Showroom Miami exceeded my expectations. Transparent pricing and professional service throughout the entire experience."
   }];
-  const categories = ["All", "Luxury", "Sports", "Supercar"];
+
+  const categories = ["All", "Economy", "Luxury", "Sports", "Supercar", "SUV"];
   const filteredCars = filterCategory === "All" ? cars : cars.filter(car => car.category === filterCategory);
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -127,6 +132,7 @@ const Sales = () => {
       maximumFractionDigits: 0
     }).format(price);
   };
+
   return <div className="min-h-screen bg-background">
       <SEOHead seoData={pageSEO.sales} structuredData={generateStructuredData('service', 'Luxury Car Sales')} />
       
@@ -327,4 +333,5 @@ const Sales = () => {
       <FloatingCallButton />
     </div>;
 };
+
 export default Sales;
