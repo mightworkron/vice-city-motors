@@ -12,7 +12,7 @@ import { Phone, Star, CreditCard, Clock, Shield, Users, CheckCircle, ArrowLeft }
 import { Link } from "react-router-dom";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 
-const Sales = () => {
+const Finance = () => {
   const financingBenefits = [
     "Competitive interest rates as low as 2.9% APR",
     "Quick approval process - get approved in minutes",
@@ -75,7 +75,7 @@ const Sales = () => {
   return (
     <>
       <SEOHead 
-        seoData={pageSEO.sales}
+        seoData={pageSEO.finance}
         structuredData={generateStructuredData('service', 'Auto Financing')}
       />
       <div className="min-h-screen bg-background">
@@ -178,12 +178,15 @@ const Sales = () => {
                 
                 <div className="w-full overflow-auto">
                   <iframe
-                    src="https://form.jotform.com/embed/242949482389170"
-                    width="100%"
-                    height="800"
+                    id="JotFormIFrame-252174317048051"
+                    title="CREDIT APPLICATION"
+                    onLoad={() => window.parent.scrollTo(0,0)}
+                    allowTransparency="true"
+                    allow="geolocation; microphone; camera; fullscreen; payment"
+                    src="https://form.jotform.com/252174317048051"
                     frameBorder="0"
-                    style={{ border: 'none' }}
-                    title="Auto Financing Application"
+                    style={{ minWidth: '100%', maxWidth: '100%', height: '539px', border: 'none' }}
+                    scrolling="no"
                     className="rounded-lg"
                   />
                 </div>
@@ -234,8 +237,13 @@ const Sales = () => {
         <Footer />
         <FloatingCallButton />
       </div>
+      
+      <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+      <script dangerouslySetInnerHTML={{
+        __html: `window.jotformEmbedHandler("iframe[id='JotFormIFrame-252174317048051']", "https://form.jotform.com/")`
+      }} />
     </>
   );
 };
 
-export default Sales;
+export default Finance;

@@ -53,11 +53,11 @@ export const pageSEO = {
     keywords: "custom car builds Miami, automotive customization Miami, performance upgrades, luxury car modifications Brickell, custom paint jobs Miami Beach",
     canonicalUrl: "/custom-builds"
   },
-  sales: {
+  finance: {
     title: "Exotic Car Financing Miami | Auto Loans | Bad Credit OK | Same Day Approval | 305-419-8379",
     description: "Finance your dream car in Miami! Competitive rates from 2.9% APR, quick approval, all credit types welcome. Ferrari, Lamborghini, McLaren financing available. Apply today!",
     keywords: "auto financing Miami, car loans Miami, exotic car financing, Ferrari financing Miami, Lamborghini loans, bad credit auto loans Miami, luxury car financing South Beach",
-    canonicalUrl: "/sales"
+    canonicalUrl: "/finance"
   }
 };
 
