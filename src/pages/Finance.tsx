@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -5,7 +6,6 @@ import SEOHead from "@/components/SEOHead";
 import TrustBadge from "@/components/conversion/TrustBadge";
 import CTASection from "@/components/conversion/CTASection";
 import SocialProof from "@/components/conversion/SocialProof";
-import FAQSection from "@/components/conversion/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Phone, Star, CreditCard, Clock, Shield, Users, CheckCircle, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -41,33 +41,6 @@ const Finance = () => {
       location: "Coral Gables",
       rating: 5,
       text: "The financing specialists at The Showroom Miami were incredible. They walked me through every step and got me the best deal on my Ferrari 488."
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "What credit score do I need to qualify for financing at The Showroom Miami?",
-      answer: "We work with all credit types! Whether you have excellent credit (750+) or challenges with your credit history, our network of lenders can find financing solutions tailored to your situation."
-    },
-    {
-      question: "How quickly can I get approved through your online credit approval process?",
-      answer: "Most applications receive preliminary approval within minutes through our online system. Final approval typically takes 24-48 hours once we receive all required documentation."
-    },
-    {
-      question: "What documents do I need for the online credit application?",
-      answer: "You'll need a valid driver's license, proof of income (pay stubs or bank statements), proof of residence, and proof of insurance. Our online form will guide you through exactly what's needed."
-    },
-    {
-      question: "Can I trade in my current vehicle through your financing process?",
-      answer: "Absolutely! We'll provide a fair market appraisal of your trade-in and apply the equity directly to your new purchase, reducing your loan amount."
-    },
-    {
-      question: "Do you offer extended warranties with your financing?",
-      answer: "Yes, we offer comprehensive extended warranty options to protect your investment beyond the manufacturer warranty period, and these can be rolled into your financing."
-    },
-    {
-      question: "What happens if I want to pay off my loan early?",
-      answer: "Great news - there are no prepayment penalties! You can pay off your loan early without any additional fees, saving you interest over time."
     }
   ];
 
@@ -217,12 +190,6 @@ const Finance = () => {
             subtitle="Don't wait - luxury cars move fast in Miami. Get pre-approved online now and drive home your dream car today with The Showroom Miami!"
             phoneText="Get Pre-Approved: 305-419-8379"
             className="bg-gradient-to-b from-black/60 to-black/80"
-          />
-
-          {/* FAQ Section */}
-          <FAQSection 
-            title="Financing & Credit Approval Questions"
-            faqs={faqs}
           />
 
           {/* Final CTA */}
