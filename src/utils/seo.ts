@@ -53,6 +53,12 @@ export const pageSEO = {
     keywords: "custom car builds Miami, automotive customization Miami, performance upgrades, luxury car modifications Brickell, custom paint jobs Miami Beach",
     canonicalUrl: "/custom-builds"
   },
+  sales: {
+    title: "Luxury Cars for Sale Miami | Ferrari, Lamborghini, McLaren | Pre-Owned Exotics | 305-419-8379",
+    description: "Browse Miami's finest collection of pre-owned luxury and exotic cars. Ferrari, Lamborghini, McLaren, Porsche, Aston Martin. Financing available. Inspected & serviced. Call now!",
+    keywords: "luxury cars for sale Miami, Ferrari for sale Miami Beach, Lamborghini dealer Miami, exotic cars Miami, pre-owned supercars South Beach, luxury auto dealer Brickell",
+    canonicalUrl: "/sales"
+  },
   finance: {
     title: "Exotic Car Financing Miami | Auto Loans | Bad Credit OK | Same Day Approval | 305-419-8379",
     description: "Finance your dream car in Miami! Competitive rates from 2.9% APR, quick approval, all credit types welcome. Ferrari, Lamborghini, McLaren financing available. Apply today!",

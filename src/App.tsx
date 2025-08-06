@@ -11,6 +11,7 @@ import EmergencyTowing from "./pages/EmergencyTowing";
 import ExoticRentals from "./pages/ExoticRentals";
 import WrapsAndTints from "./pages/WrapsAndTints";
 import CustomBuilds from "./pages/CustomBuilds";
+import Sales from "./pages/Sales";
 import Finance from "./pages/Finance";
 import NotFound from "./pages/NotFound";
 
@@ -29,6 +30,7 @@ const App = () => (
         <Route path="/exotic-rentals" element={<ExoticRentals />} />
         <Route path="/wraps-and-tints" element={<WrapsAndTints />} />
         <Route path="/custom-builds" element={<CustomBuilds />} />
+        <Route path="/sales" element={<Sales />} />
         <Route path="/finance" element={<Finance />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
