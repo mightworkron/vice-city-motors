@@ -15,7 +15,7 @@ const Finance = () => {
   const financingBenefits = [
     "Competitive interest rates as low as 2.9% APR",
     "Quick approval process - get approved in minutes",
-    "Flexible payment terms up to 84 months",
+    "Flexible payment terms up to 84 months", 
     "No prepayment penalties - pay off early without fees",
     "Bad credit? No problem - we work with all credit types",
     "Trade-in your current vehicle for instant equity",
@@ -184,9 +184,9 @@ const Finance = () => {
                     allow="geolocation; microphone; camera; fullscreen; payment"
                     src="https://form.jotform.com/252174317048051"
                     frameBorder="0"
-                    style={{ minWidth: '100%', maxWidth: '100%', height: '539px', border: 'none' }}
-                    scrolling="no"
-                    className="rounded-lg"
+                    style={{ minWidth: "100%", width: "100%", height: "539px", border: "none" }}
+                    scrolling="auto"
+                    className="w-full rounded-lg border-0"
                   />
                 </div>
                 
