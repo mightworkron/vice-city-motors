@@ -10,8 +10,12 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
+import ExoticRentalBookingForm from "@/components/ExoticRentalBookingForm";
+import { useState } from "react";
 
 const ExoticRentals = () => {
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+
   const features = ["Curated fleet of exotic and luxury vehicles", "Flexible rental periods from hourly to monthly", "White-glove delivery and pickup service", "Comprehensive insurance coverage included", "24/7 concierge support during rental", "Special event and wedding packages"];
   
   const fleetImages = [
@@ -55,7 +59,7 @@ const ExoticRentals = () => {
   const faqs = [
     {
       question: "How do I check vehicle availability?",
-      answer: "Call us at 305-419-8379 or visit our showroom. We'll check real-time availability and help you select the perfect vehicle for your dates."
+      answer: "Use our booking form to submit your rental request, or call us at 305-419-8379. We'll check real-time availability and help you select the perfect vehicle for your dates."
     }
   ];
 
@@ -93,17 +97,16 @@ const ExoticRentals = () => {
               </p>
               
               <div className="flex flex-col items-center">
-                <a href="tel:305-419-8379">
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
-                  >
-                    <Phone className="mr-2" size={20} />
-                    Call to Check Fleet Availability - 305-419-8379
-                  </Button>
-                </a>
+                <Button 
+                  size="lg" 
+                  onClick={() => setIsBookingFormOpen(true)}
+                  className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
+                >
+                  <Car className="mr-2" size={20} />
+                  Book Your Exotic Rental
+                </Button>
                 <p className="text-sm text-neon-cyan mt-3 font-medium">
-                  Fleet changes daily - Call for current availability
+                  Or call 305-419-8379 for immediate assistance
                 </p>
               </div>
               
@@ -126,7 +129,7 @@ const ExoticRentals = () => {
                 Showcase of vehicles that may be available in our exclusive collection
               </p>
               <p className="text-neon-cyan font-medium">
-                Call 305-419-8379 to check current availability and see what's in our fleet today
+                Submit a booking request to check current availability
               </p>
             </div>
 
@@ -153,15 +156,14 @@ const ExoticRentals = () => {
                     
                     {/* Button container with improved styling */}
                     <div className="mt-4">
-                      <a href="tel:305-419-8379" className="block">
-                        <Button 
-                          size="sm" 
-                          className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-neon-pink/25"
-                        >
-                          <Phone className="mr-2" size={16} />
-                          Book Now
-                        </Button>
-                      </a>
+                      <Button 
+                        size="sm" 
+                        onClick={() => setIsBookingFormOpen(true)}
+                        className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-neon-pink/25"
+                      >
+                        <Car className="mr-2" size={16} />
+                        Book Now
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -169,10 +171,18 @@ const ExoticRentals = () => {
             </div>
 
             <div className="text-center">
+              <Button 
+                size="lg" 
+                onClick={() => setIsBookingFormOpen(true)}
+                className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 mr-4"
+              >
+                <Car className="mr-2" size={20} />
+                Request Booking
+              </Button>
               <a href="tel:305-419-8379">
-                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/20">
                   <Phone className="mr-2" size={20} />
-                  Call to See Current Fleet
+                  Call for Immediate Assistance
                 </Button>
               </a>
             </div>
@@ -198,15 +208,17 @@ const ExoticRentals = () => {
                   that ensures your luxury experience is seamless from start to finish.
                 </p>
                 <p className="text-neon-cyan font-medium mb-8">
-                  Our fleet changes regularly - call to see what luxury vehicles we currently have available.
+                  Our fleet changes regularly - submit a booking request to see what luxury vehicles we currently have available.
                 </p>
                 
-                <a href="tel:305-419-8379">
-                  <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
-                    <Phone className="mr-2" size={20} />
-                    Check Current Availability
-                  </Button>
-                </a>
+                <Button 
+                  size="lg" 
+                  onClick={() => setIsBookingFormOpen(true)}
+                  className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300"
+                >
+                  <Car className="mr-2" size={20} />
+                  Check Current Availability
+                </Button>
               </div>
               
               <div className="relative">
@@ -269,13 +281,13 @@ const ExoticRentals = () => {
                   {[
                     {
                       step: "1",
-                      title: "Call for Availability",
-                      desc: "Check our current fleet and vehicle availability"
+                      title: "Submit Booking Request",
+                      desc: "Fill out our booking form or call to check availability"
                     },
                     {
                       step: "2",
-                      title: "Book & Confirm",
-                      desc: "Secure your rental with easy booking process"
+                      title: "Confirmation & Booking",
+                      desc: "We'll confirm availability and secure your rental"
                     },
                     {
                       step: "3",
@@ -317,15 +329,23 @@ const ExoticRentals = () => {
               <span className="neon-text">Ready for the Ultimate Drive?</span>
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Call today to check our current fleet availability and experience Miami like never before. 
+              Submit your booking request today to check our current fleet availability and experience Miami like never before. 
               Our team is ready to help you select the perfect vehicle for your needs.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                onClick={() => setIsBookingFormOpen(true)}
+                className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
+              >
+                <Car className="mr-2" size={20} />
+                Book Your Rental Now
+              </Button>
               <a href="tel:305-419-8379">
-                <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
+                <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/20">
                   <Phone className="mr-2" size={20} />
-                  Call 305-419-8379 for Availability
+                  Call 305-419-8379
                 </Button>
               </a>
             </div>
@@ -334,6 +354,12 @@ const ExoticRentals = () => {
 
         <Footer />
         <FloatingCallButton />
+        
+        {/* Booking Form Modal */}
+        <ExoticRentalBookingForm 
+          isOpen={isBookingFormOpen} 
+          onClose={() => setIsBookingFormOpen(false)} 
+        />
       </div>
     </>
   );
