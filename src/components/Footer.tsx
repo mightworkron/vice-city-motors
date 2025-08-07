@@ -1,9 +1,12 @@
 
 import { Link } from "react-router-dom";
 import { Phone, MapPin, Clock, Instagram, Mail, Facebook } from "lucide-react";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-black/90 border-t border-neon-purple/30 py-12">
+
+  return (
+    <footer className="bg-black/90 border-t border-neon-purple/30 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Google Maps Section */}
         <div className="mb-12">
@@ -110,7 +113,7 @@ const Footer = () => {
               href="https://www.instagram.com/ron_sitess/?utm_source=ig_web_button_share_sheet" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300 mt-2 sm:mt-0"
+              className="text-sky-400 hover:text-neon-pink text-sm transition-colors duration-300 mt-2 sm:mt-0"
             >
               Website powered by Ron_Sitess
             </a>
@@ -125,6 +128,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
