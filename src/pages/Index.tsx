@@ -17,6 +17,8 @@ import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle, Mail } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -24,10 +26,32 @@ const Index = () => {
     email: "",
     message: ""
   });
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    console.log("Submitting contact form:", formData);
+
+    const { name, email, message } = formData;
+    const { error } = await supabase.functions.invoke("send-contact-email", {
+      body: { name, email, message, page: window.location.pathname },
+    });
+
+    if (error) {
+      console.error("send-contact-email error:", error);
+      toast({
+        title: "Something went wrong",
+        description: "We couldn't send your message. Please try again or call us.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    toast({
+      title: "Message sent!",
+      description: "Thanks for contacting us. We'll get back to you shortly.",
+    });
+    setFormData({ name: "", email: "", message: "" });
   };
 
   const services = [
