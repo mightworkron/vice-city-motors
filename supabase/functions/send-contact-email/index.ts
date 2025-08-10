@@ -49,7 +49,7 @@ Deno.serve(async (req) => {
     const resend = new Resend(apiKey);
 
     const subject = `New Website Inquiry from ${name}`;
-    const ownerEmail = "info@showroommiami.com"; // destination for submissions
+    const ownerEmail = "mightworkmedia@gmail.com"; // Updated recipient email
     const submittedAt = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
 
     const html = `
