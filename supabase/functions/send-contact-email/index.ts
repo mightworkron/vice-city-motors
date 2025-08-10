@@ -17,6 +17,17 @@ interface ContactFormRequest {
   form?: string;
 }
 
+// Helper function to parse multiple email recipients
+const parseRecipients = (recipientString: string): string[] => {
+  if (!recipientString) return [];
+  
+  // Split by comma or semicolon and clean up whitespace
+  return recipientString
+    .split(/[,;]/)
+    .map(email => email.trim())
+    .filter(email => email.length > 0);
+};
+
 Deno.serve(async (req) => {
   // Handle CORS preflight
   if (req.method === "OPTIONS") {
@@ -33,7 +44,7 @@ Deno.serve(async (req) => {
   try {
     const apiKey = Deno.env.get("RESEND_API_KEY");
     const fromEmail = Deno.env.get("RESEND_FROM_EMAIL");
-    const recipientEmail = Deno.env.get("CONTACT_RECIPIENT_EMAIL");
+    const recipientEmailString = Deno.env.get("CONTACT_RECIPIENT_EMAIL");
 
     if (!apiKey) {
       console.error("RESEND_API_KEY is missing");
@@ -51,13 +62,26 @@ Deno.serve(async (req) => {
       });
     }
 
-    if (!recipientEmail) {
+    if (!recipientEmailString) {
       console.error("CONTACT_RECIPIENT_EMAIL is missing");
       return new Response(JSON.stringify({ error: "Server not configured - missing recipient email" }), {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
     }
+
+    // Parse multiple recipients
+    const recipientEmails = parseRecipients(recipientEmailString);
+    
+    if (recipientEmails.length === 0) {
+      console.error("No valid recipient emails found");
+      return new Response(JSON.stringify({ error: "Server not configured - no valid recipient emails" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    console.log("Parsed recipient emails:", recipientEmails);
 
     const { name, email, message, form }: ContactFormRequest = await req.json();
 
@@ -99,12 +123,12 @@ ${message}
 
     console.log("Sending email via Resend");
     console.log("From:", fromEmail);
-    console.log("To:", recipientEmail);
+    console.log("To:", recipientEmails);
     console.log("Subject:", subject);
 
     const response = await resend.emails.send({
       from: fromEmail,
-      to: [recipientEmail],
+      to: recipientEmails,
       subject,
       html,
       text,

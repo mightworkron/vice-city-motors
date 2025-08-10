@@ -27,6 +27,17 @@ interface RentalBookingRequest {
   form: string;
 }
 
+// Helper function to parse multiple email recipients
+const parseRecipients = (recipientString: string): string[] => {
+  if (!recipientString) return [];
+  
+  // Split by comma or semicolon and clean up whitespace
+  return recipientString
+    .split(/[,;]/)
+    .map(email => email.trim())
+    .filter(email => email.length > 0);
+};
+
 const handler = async (req: Request): Promise<Response> => {
   console.log("Rental booking email function called");
 
@@ -58,6 +69,17 @@ const handler = async (req: Request): Promise<Response> => {
         );
       }
     }
+
+    // Parse multiple recipients
+    const recipientEmailString = Deno.env.get("CONTACT_RECIPIENT_EMAIL") || "admin@example.com";
+    const recipientEmails = parseRecipients(recipientEmailString);
+    
+    if (recipientEmails.length === 0) {
+      console.error("No valid recipient emails found, using fallback");
+      recipientEmails.push("admin@example.com");
+    }
+
+    console.log("Parsed recipient emails:", recipientEmails);
 
     // Create formatted timestamp in EST
     const submittedAt = new Date().toLocaleString("en-US", {
@@ -95,7 +117,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send the email
     const emailResponse = await resend.emails.send({
       from: Deno.env.get("RESEND_FROM_EMAIL") || "noreply@example.com",
-      to: [Deno.env.get("CONTACT_RECIPIENT_EMAIL") || "admin@example.com"],
+      to: recipientEmails,
       replyTo: requestData.email,
       subject: `New Exotic Rental Booking Request from ${requestData.firstName} ${requestData.lastName}`,
       html: html,
