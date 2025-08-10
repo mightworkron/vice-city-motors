@@ -29,9 +29,28 @@ Deno.serve(async (req) => {
 
   try {
     const apiKey = Deno.env.get("RESEND_API_KEY");
+    const fromEmail = Deno.env.get("RESEND_FROM_EMAIL");
+    const recipientEmail = Deno.env.get("CONTACT_RECIPIENT_EMAIL");
+
     if (!apiKey) {
       console.error("RESEND_API_KEY is missing");
-      return new Response(JSON.stringify({ error: "Server not configured" }), {
+      return new Response(JSON.stringify({ error: "Server not configured - missing API key" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    if (!fromEmail) {
+      console.error("RESEND_FROM_EMAIL is missing");
+      return new Response(JSON.stringify({ error: "Server not configured - missing sender email" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    if (!recipientEmail) {
+      console.error("CONTACT_RECIPIENT_EMAIL is missing");
+      return new Response(JSON.stringify({ error: "Server not configured - missing recipient email" }), {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
@@ -49,7 +68,6 @@ Deno.serve(async (req) => {
     const resend = new Resend(apiKey);
 
     const subject = `New Website Inquiry from ${name}`;
-    const ownerEmail = "mightworkmedia@gmail.com"; // Updated recipient email
     const submittedAt = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
 
     const html = `
@@ -82,18 +100,32 @@ Message:
 ${message}
     `.trim();
 
-    console.log("Sending email via Resend to:", ownerEmail, "subject:", subject);
+    console.log("Sending email via Resend");
+    console.log("From:", fromEmail);
+    console.log("To:", recipientEmail);
+    console.log("Subject:", subject);
 
     const response = await resend.emails.send({
-      from: "The Showroom Miami <onboarding@resend.dev>",
-      to: [ownerEmail],
+      from: fromEmail,
+      to: [recipientEmail],
       subject,
       html,
       text,
       reply_to: email,
     });
 
-    console.log("Resend response:", response);
+    if (response.error) {
+      console.error("Resend error:", response.error);
+      return new Response(JSON.stringify({ 
+        error: "Failed to send email", 
+        details: response.error.message || "Unknown error from email service"
+      }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    console.log("Email sent successfully:", response);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
@@ -101,7 +133,10 @@ ${message}
     });
   } catch (error) {
     console.error("send-contact-email error:", error);
-    return new Response(JSON.stringify({ error: "Failed to send email" }), {
+    return new Response(JSON.stringify({ 
+      error: "Failed to send email", 
+      details: error.message || "Unknown server error"
+    }), {
       status: 500,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
