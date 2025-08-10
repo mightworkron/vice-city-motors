@@ -16,10 +16,6 @@ const InsuranceLogosSlider = () => {
     { src: "/lovable-uploads/8201c160-eee2-4912-92e1-6c299ef1de3f.png", alt: "USAA" },
   ];
 
-  const getBiggerLogos = (alt: string) => {
-    return alt === "Progressive" || alt === "Allstate" || alt === "Liberty Mutual";
-  };
-
   return (
     <section className="py-12" aria-label="Insurance We Accept">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,16 +36,14 @@ const InsuranceLogosSlider = () => {
           className="w-full"
         >
           {logos.map((logo, index) => (
-            <div key={index} className="flex items-center justify-center p-4 h-20 min-w-[160px]">
+            <div key={index} className="flex items-center justify-center h-20 min-w-[160px] bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
               <OptimizedImage
                 src={logo.src}
                 alt={logo.alt}
-                className={`object-contain opacity-85 hover:opacity-100 transition-all duration-300 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)] ${
-                  getBiggerLogos(logo.alt) ? 'w-44 h-24' : 'w-32 h-16'
-                }`}
-                containerClassName="w-full h-full"
+                className="h-full w-auto max-w-[140px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
+                containerClassName="h-full flex items-center justify-center"
                 showLoader={false}
-                priority={index < 3} // Prioritize first 3 logos
+                priority={index < 3}
               />
             </div>
           ))}
