@@ -395,16 +395,9 @@ const Index = () => {
                       <h3 className="text-xl font-orbitron font-bold text-white mb-2">
                         Message Sent Successfully!
                       </h3>
-                      <p className="text-gray-300 mb-6">
+                      <p className="text-gray-300">
                         Thanks for contacting us. We'll get back to you shortly.
                       </p>
-                      <Button 
-                        onClick={() => setIsSubmitted(false)} 
-                        variant="outline" 
-                        className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black"
-                      >
-                        Send Another Message
-                      </Button>
                     </div>
                   )}
                 </div>
