@@ -5,8 +5,6 @@ import {
   Head,
   Heading,
   Html,
-  Img,
-  Link,
   Preview,
   Section,
   Text,
@@ -19,7 +17,6 @@ interface ContactEmailProps {
   message: string
   form: string
   submittedAt: string
-  logoUrl: string
 }
 
 export const ContactEmail = ({
@@ -28,23 +25,12 @@ export const ContactEmail = ({
   message,
   form,
   submittedAt,
-  logoUrl,
 }: ContactEmailProps) => (
   <Html>
     <Head />
     <Preview>New {form} submission from {name}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Section style={header}>
-          <Img
-            src={logoUrl}
-            width="200"
-            height="auto"
-            alt="The Showroom Miami"
-            style={logo}
-          />
-        </Section>
-        
         <Section style={content}>
           <Heading style={h1}>New {form} Submission</Heading>
           
@@ -94,16 +80,6 @@ const container = {
   padding: '0',
   maxWidth: '600px',
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-}
-
-const header = {
-  backgroundColor: '#000000',
-  padding: '20px',
-  textAlign: 'center' as const,
-}
-
-const logo = {
-  margin: '0 auto',
 }
 
 const content = {

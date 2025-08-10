@@ -26,6 +26,7 @@ const Index = () => {
     email: "",
     message: ""
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +35,7 @@ const Index = () => {
 
     const { name, email, message } = formData;
     const { error } = await supabase.functions.invoke("send-contact-email", {
-      body: { name, email, message, page: window.location.pathname },
+      body: { name, email, message, form: "Contact Form" },
     });
 
     if (error) {
@@ -47,10 +48,7 @@ const Index = () => {
       return;
     }
 
-    toast({
-      title: "Message sent!",
-      description: "Thanks for contacting us. We'll get back to you shortly.",
-    });
+    setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -356,37 +354,59 @@ const Index = () => {
                 </div>
 
                 <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <Input 
-                        placeholder="Your Name" 
-                        value={formData.name} 
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
-                        className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
-                      />
+                  {!isSubmitted ? (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div>
+                        <Input 
+                          placeholder="Your Name" 
+                          value={formData.name} 
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+                          className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input 
+                          type="email" 
+                          placeholder="Your Email" 
+                          value={formData.email} 
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+                          className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Textarea 
+                          placeholder="Tell us about your project or service needs" 
+                          rows={4} 
+                          value={formData.message} 
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
+                          className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" 
+                          required
+                        />
+                      </div>
+                      <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
+                        Send Message
+                      </Button>
+                    </form>
+                  ) : (
+                    <div className="text-center py-8">
+                      <CheckCircle className="text-neon-cyan mx-auto mb-4" size={48} />
+                      <h3 className="text-xl font-orbitron font-bold text-white mb-2">
+                        Message Sent Successfully!
+                      </h3>
+                      <p className="text-gray-300 mb-6">
+                        Thanks for contacting us. We'll get back to you shortly.
+                      </p>
+                      <Button 
+                        onClick={() => setIsSubmitted(false)} 
+                        variant="outline" 
+                        className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black"
+                      >
+                        Send Another Message
+                      </Button>
                     </div>
-                    <div>
-                      <Input 
-                        type="email" 
-                        placeholder="Your Email" 
-                        value={formData.email} 
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
-                        className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
-                      />
-                    </div>
-                    <div>
-                      <Textarea 
-                        placeholder="Tell us about your project or service needs" 
-                        rows={4} 
-                        value={formData.message} 
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
-                        className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" 
-                      />
-                    </div>
-                    <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
-                      Send Message
-                    </Button>
-                  </form>
+                  )}
                 </div>
               </div>
             </div>

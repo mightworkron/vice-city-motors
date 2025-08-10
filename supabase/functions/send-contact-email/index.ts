@@ -34,7 +34,6 @@ Deno.serve(async (req) => {
     const apiKey = Deno.env.get("RESEND_API_KEY");
     const fromEmail = Deno.env.get("RESEND_FROM_EMAIL");
     const recipientEmail = Deno.env.get("CONTACT_RECIPIENT_EMAIL");
-    const logoUrl = Deno.env.get("LOGO_URL") || "https://showroommiami.com/lovable-uploads/d8b68c76-1025-4605-b3f4-3b4231f091db.png";
 
     if (!apiKey) {
       console.error("RESEND_API_KEY is missing");
@@ -83,7 +82,6 @@ Deno.serve(async (req) => {
         message,
         form: formType,
         submittedAt,
-        logoUrl,
       })
     );
 
