@@ -3,3 +3,6 @@ project_id = "utbpwymlqioxwsarqeut"
 
 [functions.send-contact-email]
 verify_jwt = false
+
+[functions.send-rental-booking-email]
+verify_jwt = false

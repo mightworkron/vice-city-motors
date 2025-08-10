@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Calendar, Car, Phone, Mail, User, MapPin, Clock, Shield } from "lucide-react";
+import { Calendar, Car, Phone, Mail, User, MapPin, Shield } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -24,6 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const rentalFormSchema = z.object({
   // Personal Information
@@ -43,7 +44,6 @@ const rentalFormSchema = z.object({
   licenseState: z.string().min(2, "Please enter your license state"),
   
   // Additional Services
-  needsDelivery: z.boolean().default(false),
   specialRequests: z.string().optional(),
 });
 
@@ -56,6 +56,7 @@ interface ExoticRentalBookingFormProps {
 
 const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<RentalFormData>({
@@ -71,7 +72,6 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
       pickupLocation: "",
       licenseNumber: "",
       licenseState: "",
-      needsDelivery: false,
       specialRequests: "",
     },
   });
@@ -80,47 +80,34 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
     setIsSubmitting(true);
     
     try {
-      // Since we don't have a backend, we'll create a mailto link with the form data
-      const subject = encodeURIComponent("Exotic Rental Booking Request");
-      const body = encodeURIComponent(`
-New Exotic Rental Booking Request:
-
-PERSONAL INFORMATION:
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-Phone: ${data.phone}
-
-RENTAL DETAILS:
-Vehicle Preference: ${data.vehiclePreference}
-Start Date: ${data.startDate}
-End Date: ${data.endDate}
-Pickup Location: ${data.pickupLocation}
-
-DRIVER'S LICENSE:
-License Number: ${data.licenseNumber}
-License State: ${data.licenseState}
-
-ADDITIONAL SERVICES:
-Delivery Service: ${data.needsDelivery ? "Yes" : "No"}
-Special Requests: ${data.specialRequests || "None"}
-
-Please contact me to confirm availability and finalize the booking.
-      `);
+      console.log("Submitting rental booking form:", data);
       
-      const mailtoLink = `mailto:info@showroommiami.com?subject=${subject}&body=${body}`;
-      window.open(mailtoLink, '_blank');
+      const { data: response, error } = await supabase.functions.invoke('send-rental-booking-email', {
+        body: {
+          ...data,
+          form: "Exotic Rental Booking Form"
+        }
+      });
+
+      if (error) {
+        console.error("Error submitting booking:", error);
+        throw error;
+      }
+
+      console.log("Booking submitted successfully:", response);
       
       toast({
         title: "Booking Request Submitted!",
-        description: "Your booking request has been prepared. Please check your email client to send it.",
+        description: "We'll contact you to confirm availability and finalize your booking.",
       });
       
+      setIsSubmitted(true);
       form.reset();
-      onClose();
     } catch (error) {
+      console.error("Error submitting booking:", error);
       toast({
         title: "Error",
-        description: "There was an issue with your booking request. Please call us directly.",
+        description: "There was an issue with your booking request. Please call us directly at 305-419-8379.",
         variant: "destructive",
       });
     } finally {
@@ -128,8 +115,13 @@ Please contact me to confirm availability and finalize the booking.
     }
   };
 
+  const handleClose = () => {
+    setIsSubmitted(false);
+    onClose();
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-card border border-neon-purple/30">
         <DialogHeader>
           <DialogTitle className="text-2xl font-orbitron font-bold text-white flex items-center gap-2">
@@ -141,305 +133,301 @@ Please contact me to confirm availability and finalize the booking.
           </DialogDescription>
         </DialogHeader>
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Personal Information Section */}
-            <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
-              <h3 className="text-lg font-orbitron font-semibold text-neon-cyan mb-4 flex items-center gap-2">
-                <User size={18} />
-                Personal Information
+        {isSubmitted ? (
+          <div className="text-center py-8">
+            <div className="mb-6">
+              <div className="w-16 h-16 bg-neon-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Car className="text-neon-green" size={32} />
+              </div>
+              <h3 className="text-xl font-orbitron font-bold text-white mb-2">
+                Request Sent Successfully!
               </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">First Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          placeholder="Enter your first name"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Last Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          placeholder="Enter your last name"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white flex items-center gap-2">
-                        <Mail size={16} />
-                        Email Address
-                      </FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          type="email"
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          placeholder="your@email.com"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white flex items-center gap-2">
-                        <Phone size={16} />
-                        Phone Number
-                      </FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          placeholder="(305) 123-4567"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+              <p className="text-gray-300">
+                We'll contact you to confirm availability and finalize your booking.
+              </p>
             </div>
+            <Button 
+              onClick={handleClose}
+              className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold"
+            >
+              Close
+            </Button>
+          </div>
+        ) : (
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* Personal Information Section */}
+              <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
+                <h3 className="text-lg font-orbitron font-semibold text-neon-cyan mb-4 flex items-center gap-2">
+                  <User size={18} />
+                  Personal Information
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">First Name</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            placeholder="Enter your first name"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">Last Name</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            placeholder="Enter your last name"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
-            {/* Rental Details Section */}
-            <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
-              <h3 className="text-lg font-orbitron font-semibold text-neon-pink mb-4 flex items-center gap-2">
-                <Calendar size={18} />
-                Rental Details
-              </h3>
-              
-              <FormField
-                control={form.control}
-                name="vehiclePreference"
-                render={({ field }) => (
-                  <FormItem className="mb-4">
-                    <FormLabel className="text-white">Vehicle Preference</FormLabel>
-                    <FormControl>
-                      <Input 
-                        {...field} 
-                        className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                        placeholder="e.g., Lamborghini, Ferrari, McLaren, or any luxury sports car"
-                      />
-                    </FormControl>
-                    <FormDescription className="text-gray-400">
-                      Let us know your preferred vehicle type or specific model
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white flex items-center gap-2">
+                          <Mail size={16} />
+                          Email Address
+                        </FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            type="email"
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            placeholder="your@email.com"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white flex items-center gap-2">
+                          <Phone size={16} />
+                          Phone Number
+                        </FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            placeholder="(305) 123-4567"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="startDate"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Start Date</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          type="date"
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          min={new Date().toISOString().split('T')[0]}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              {/* Rental Details Section */}
+              <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
+                <h3 className="text-lg font-orbitron font-semibold text-neon-pink mb-4 flex items-center gap-2">
+                  <Calendar size={18} />
+                  Rental Details
+                </h3>
                 
                 <FormField
                   control={form.control}
-                  name="endDate"
+                  name="vehiclePreference"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">End Date</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          type="date"
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          min={new Date().toISOString().split('T')[0]}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <FormField
-                control={form.control}
-                name="pickupLocation"
-                render={({ field }) => (
-                  <FormItem className="mt-4">
-                    <FormLabel className="text-white flex items-center gap-2">
-                      <MapPin size={16} />
-                      Pickup Location
-                    </FormLabel>
-                    <FormControl>
-                      <Input 
-                        {...field} 
-                        className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                        placeholder="Miami Beach, Downtown Miami, Airport, etc."
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            {/* Driver's License Section */}
-            <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
-              <h3 className="text-lg font-orbitron font-semibold text-neon-purple mb-4 flex items-center gap-2">
-                <Shield size={18} />
-                Driver's License Information
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="licenseNumber"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">License Number</FormLabel>
+                    <FormItem className="mb-4">
+                      <FormLabel className="text-white">Vehicle Preference</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
                           className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          placeholder="Your driver's license number"
+                          placeholder="e.g., Lamborghini, Ferrari, McLaren, or any luxury sports car"
                         />
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="licenseState"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">License State/Country</FormLabel>
-                      <FormControl>
-                        <Input 
-                          {...field} 
-                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
-                          placeholder="FL, NY, CA, etc."
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-            </div>
-
-            {/* Additional Services Section */}
-            <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
-              <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-4 flex items-center gap-2">
-                <Clock size={18} />
-                Additional Services
-              </h3>
-              
-              <FormField
-                control={form.control}
-                name="needsDelivery"
-                render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 mb-4">
-                    <FormControl>
-                      <input
-                        type="checkbox"
-                        checked={field.value}
-                        onChange={field.onChange}
-                        className="mt-1 accent-neon-cyan"
-                      />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel className="text-white">
-                        White-glove delivery and pickup service
-                      </FormLabel>
                       <FormDescription className="text-gray-400">
-                        We'll deliver the vehicle to your location and pick it up when you're done
+                        Let us know your preferred vehicle type or specific model
                       </FormDescription>
-                    </div>
-                  </FormItem>
-                )}
-              />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name="specialRequests"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-white">Special Requests</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        {...field} 
-                        className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan min-h-[100px]"
-                        placeholder="Any special requests or additional information..."
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="startDate"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">Start Date</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            type="date"
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            min={new Date().toISOString().split('T')[0]}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="endDate"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">End Date</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            type="date"
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            min={new Date().toISOString().split('T')[0]}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
-            <div className="flex gap-4 pt-4">
-              <Button 
-                type="button" 
-                variant="outline" 
-                onClick={onClose}
-                className="flex-1 border-neon-purple/30 text-white hover:bg-neon-purple/20"
-              >
-                Cancel
-              </Button>
-              <Button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="flex-1 bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold"
-              >
-                {isSubmitting ? "Submitting..." : "Submit Booking Request"}
-              </Button>
-            </div>
-          </form>
-        </Form>
+                <FormField
+                  control={form.control}
+                  name="pickupLocation"
+                  render={({ field }) => (
+                    <FormItem className="mt-4">
+                      <FormLabel className="text-white flex items-center gap-2">
+                        <MapPin size={16} />
+                        Pickup Location
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          {...field} 
+                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                          placeholder="Miami Beach, Downtown Miami, Airport, etc."
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Driver's License Section */}
+              <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
+                <h3 className="text-lg font-orbitron font-semibold text-neon-purple mb-4 flex items-center gap-2">
+                  <Shield size={18} />
+                  Driver's License Information
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="licenseNumber"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">License Number</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            placeholder="Your driver's license number"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="licenseState"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">License State/Country</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                            placeholder="FL, NY, CA, etc."
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+
+              {/* Special Requests Section */}
+              <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
+                <h3 className="text-lg font-orbitron font-semibold text-neon-green mb-4">
+                  Special Requests
+                </h3>
+                
+                <FormField
+                  control={form.control}
+                  name="specialRequests"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white">Special Requests</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          {...field} 
+                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan min-h-[100px]"
+                          placeholder="Any special requests or additional information..."
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={handleClose}
+                  className="flex-1 border-neon-purple/30 text-white hover:bg-neon-purple/20"
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="flex-1 bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold"
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Booking Request"}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        )}
       </DialogContent>
     </Dialog>
   );
