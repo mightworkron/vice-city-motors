@@ -36,11 +36,14 @@ const InsuranceLogosSlider = () => {
           className="w-full"
         >
           {logos.map((logo, index) => (
-            <div key={index} className="flex items-center justify-center h-20 min-w-[160px] bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
+            <div key={index} className="relative flex items-center justify-center h-20 min-w-[160px] bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
+              {/* Glow effect behind the logo */}
+              <div className="absolute inset-0 bg-white/10 rounded-lg blur-sm"></div>
+              
               <OptimizedImage
                 src={logo.src}
                 alt={logo.alt}
-                className="h-full w-auto max-w-[140px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
+                className="relative z-10 h-full w-auto max-w-[140px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
                 containerClassName="h-full flex items-center justify-center"
                 showLoader={false}
                 priority={index < 3}
