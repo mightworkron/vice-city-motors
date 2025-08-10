@@ -1,5 +1,8 @@
 
 import { Resend } from "npm:resend@2.0.0";
+import { renderAsync } from 'npm:@react-email/components@0.0.22'
+import React from 'npm:react@18.3.1'
+import { ContactEmail } from './_templates/contact-email.tsx'
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,7 +14,7 @@ interface ContactFormRequest {
   name: string;
   email: string;
   message: string;
-  page?: string;
+  form?: string;
 }
 
 Deno.serve(async (req) => {
@@ -31,6 +34,7 @@ Deno.serve(async (req) => {
     const apiKey = Deno.env.get("RESEND_API_KEY");
     const fromEmail = Deno.env.get("RESEND_FROM_EMAIL");
     const recipientEmail = Deno.env.get("CONTACT_RECIPIENT_EMAIL");
+    const logoUrl = Deno.env.get("LOGO_URL") || "https://showroommiami.com/lovable-uploads/d8b68c76-1025-4605-b3f4-3b4231f091db.png";
 
     if (!apiKey) {
       console.error("RESEND_API_KEY is missing");
@@ -56,7 +60,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const { name, email, message, page }: ContactFormRequest = await req.json();
+    const { name, email, message, form }: ContactFormRequest = await req.json();
 
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -67,33 +71,28 @@ Deno.serve(async (req) => {
 
     const resend = new Resend(apiKey);
 
-    const subject = `New Website Inquiry from ${name}`;
+    const formType = form || "Contact Form";
+    const subject = `New ${formType} Inquiry from ${name}`;
     const submittedAt = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
 
-    const html = `
-      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
-        <h2 style="margin: 0 0 12px;">New Contact Form Submission</h2>
-        <p style="margin: 0 0 16px; color: #555;">The Showroom Miami</p>
-        <hr style="border: none; border-top: 1px solid #eee; margin: 16px 0;" />
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        ${page ? `<p><strong>Page:</strong> ${page}</p>` : ""}
-        <p><strong>Submitted At:</strong> ${submittedAt}</p>
-        <p><strong>Message:</strong></p>
-        <div style="white-space: pre-wrap; background: #f8f8f8; padding: 12px; border-radius: 6px; border: 1px solid #eee;">
-          ${String(message).replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-        </div>
-        <hr style="border: none; border-top: 1px solid #eee; margin: 16px 0;" />
-        <p style="font-size: 12px; color: #888;">Reply directly to this email to respond to the sender.</p>
-      </div>
-    `;
+    console.log("Rendering React Email template");
+    const html = await renderAsync(
+      React.createElement(ContactEmail, {
+        name,
+        email,
+        message,
+        form: formType,
+        submittedAt,
+        logoUrl,
+      })
+    );
 
     const text = `
-New Contact Form Submission - The Showroom Miami
+New ${formType} Submission - The Showroom Miami
 
 Name: ${name}
 Email: ${email}
-${page ? `Page: ${page}` : ""}
+Form: ${formType}
 Submitted At: ${submittedAt}
 
 Message:
