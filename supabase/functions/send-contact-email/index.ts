@@ -8,6 +8,10 @@ const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-XSS-Protection": "1; mode=block",
 };
 
 interface ContactFormRequest {
@@ -15,13 +19,57 @@ interface ContactFormRequest {
   email: string;
   message: string;
   form?: string;
+  website?: string; // Honeypot field
 }
+
+// Input validation functions
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email) && email.length <= 100;
+};
+
+const isValidName = (name: string): boolean => {
+  return name.length >= 2 && name.length <= 100;
+};
+
+const sanitizeInput = (input: string): string => {
+  if (!input) return '';
+  return input
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<[^>]*>/g, '')
+    .trim();
+};
+
+// Simple rate limiting storage
+const rateLimitMap = new Map<string, number>();
+
+const isRateLimited = (identifier: string, windowMs: number = 60000): boolean => {
+  const now = Date.now();
+  const lastRequest = rateLimitMap.get(identifier);
+  
+  if (lastRequest && now - lastRequest < windowMs) {
+    return true;
+  }
+  
+  rateLimitMap.set(identifier, now);
+  
+  // Clean up old entries
+  if (rateLimitMap.size > 1000) {
+    const cutoff = now - windowMs * 2;
+    for (const [key, timestamp] of rateLimitMap.entries()) {
+      if (timestamp < cutoff) {
+        rateLimitMap.delete(key);
+      }
+    }
+  }
+  
+  return false;
+};
 
 // Helper function to parse multiple email recipients
 const parseRecipients = (recipientString: string): string[] => {
   if (!recipientString) return [];
   
-  // Split by comma or semicolon and clean up whitespace
   return recipientString
     .split(/[,;]/)
     .map(email => email.trim())
@@ -70,6 +118,53 @@ Deno.serve(async (req) => {
       });
     }
 
+    const requestData: ContactFormRequest = await req.json();
+    const { name, email, message, form, website } = requestData;
+
+    // Honeypot check
+    if (website && website.trim() !== '') {
+      console.log("Bot submission detected via honeypot");
+      return new Response(JSON.stringify({ error: "Invalid submission" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Rate limiting check
+    const rateLimitKey = `contact-${email}`;
+    if (isRateLimited(rateLimitKey)) {
+      console.log("Rate limit exceeded for:", email);
+      return new Response(JSON.stringify({ error: "Rate limit exceeded. Please try again later." }), {
+        status: 429,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Enhanced validation
+    const validationErrors: string[] = [];
+
+    if (!name || !isValidName(name)) {
+      validationErrors.push("Invalid name");
+    }
+    if (!email || !isValidEmail(email)) {
+      validationErrors.push("Invalid email address");
+    }
+    if (!message || message.length < 10 || message.length > 2000) {
+      validationErrors.push("Message must be between 10 and 2000 characters");
+    }
+
+    if (validationErrors.length > 0) {
+      console.error("Validation errors:", validationErrors);
+      return new Response(JSON.stringify({ error: "Validation failed", details: validationErrors }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Sanitize inputs
+    const sanitizedName = sanitizeInput(name);
+    const sanitizedMessage = sanitizeInput(message);
+
     // Parse multiple recipients
     const recipientEmails = parseRecipients(recipientEmailString);
     
@@ -83,27 +178,18 @@ Deno.serve(async (req) => {
 
     console.log("Parsed recipient emails:", recipientEmails);
 
-    const { name, email, message, form }: ContactFormRequest = await req.json();
-
-    if (!name || !email || !message) {
-      return new Response(JSON.stringify({ error: "Missing required fields" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
-    }
-
     const resend = new Resend(apiKey);
 
     const formType = form || "Contact Form";
-    const subject = `New ${formType} Inquiry from ${name}`;
+    const subject = `New ${formType} Inquiry from ${sanitizedName}`;
     const submittedAt = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
 
     console.log("Rendering React Email template");
     const html = await renderAsync(
       React.createElement(ContactEmail, {
-        name,
+        name: sanitizedName,
         email,
-        message,
+        message: sanitizedMessage,
         form: formType,
         submittedAt,
       })
@@ -112,13 +198,13 @@ Deno.serve(async (req) => {
     const text = `
 New ${formType} Submission - The Showroom Miami
 
-Name: ${name}
+Name: ${sanitizedName}
 Email: ${email}
 Form: ${formType}
 Submitted At: ${submittedAt}
 
 Message:
-${message}
+${sanitizedMessage}
     `.trim();
 
     console.log("Sending email via Resend");
@@ -139,7 +225,7 @@ ${message}
       console.error("Resend error:", response.error);
       return new Response(JSON.stringify({ 
         error: "Failed to send email", 
-        details: response.error.message || "Unknown error from email service"
+        details: "Email service error"
       }), {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -156,7 +242,7 @@ ${message}
     console.error("send-contact-email error:", error);
     return new Response(JSON.stringify({ 
       error: "Failed to send email", 
-      details: error.message || "Unknown server error"
+      details: "Internal server error"
     }), {
       status: 500,
       headers: { "Content-Type": "application/json", ...corsHeaders },

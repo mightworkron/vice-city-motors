@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,26 +24,53 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { sanitizeInput, validateEmail, validatePhoneNumber, isRateLimited } from "@/utils/security";
 
 const rentalFormSchema = z.object({
-  // Personal Information
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
+  // Personal Information with enhanced validation
+  firstName: z.string()
+    .min(2, "First name must be at least 2 characters")
+    .max(50, "First name must be less than 50 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "First name can only contain letters, spaces, hyphens, and apostrophes"),
+  lastName: z.string()
+    .min(2, "Last name must be at least 2 characters")
+    .max(50, "Last name must be less than 50 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "Last name can only contain letters, spaces, hyphens, and apostrophes"),
+  email: z.string()
+    .email("Please enter a valid email address")
+    .max(100, "Email must be less than 100 characters")
+    .refine(validateEmail, "Please enter a valid email format"),
+  phone: z.string()
+    .min(10, "Please enter a valid phone number")
+    .max(20, "Phone number is too long")
+    .refine(validatePhoneNumber, "Please enter a valid US phone number"),
   
-  // Rental Details
-  vehiclePreference: z.string().min(1, "Please specify your vehicle preference"),
+  // Rental Details with enhanced validation
+  vehiclePreference: z.string()
+    .min(1, "Please specify your vehicle preference")
+    .max(200, "Vehicle preference must be less than 200 characters"),
   startDate: z.string().min(1, "Please select a start date"),
   endDate: z.string().min(1, "Please select an end date"),
-  pickupLocation: z.string().min(1, "Please specify pickup location"),
+  pickupLocation: z.string()
+    .min(1, "Please specify pickup location")
+    .max(200, "Pickup location must be less than 200 characters"),
   
-  // Driver's License
-  licenseNumber: z.string().min(5, "Please enter your driver's license number"),
-  licenseState: z.string().min(2, "Please enter your license state"),
+  // Driver's License with enhanced validation
+  licenseNumber: z.string()
+    .min(5, "Please enter your driver's license number")
+    .max(20, "License number is too long")
+    .regex(/^[a-zA-Z0-9]+$/, "License number can only contain letters and numbers"),
+  licenseState: z.string()
+    .min(2, "Please enter your license state")
+    .max(20, "License state is too long"),
   
   // Additional Services
-  specialRequests: z.string().optional(),
+  specialRequests: z.string()
+    .max(1000, "Special requests must be less than 1000 characters")
+    .optional(),
+    
+  // Honeypot field for bot detection
+  website: z.string().max(0, "This field should be empty").optional(),
 });
 
 type RentalFormData = z.infer<typeof rentalFormSchema>;
@@ -73,18 +99,52 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
       licenseNumber: "",
       licenseState: "",
       specialRequests: "",
+      website: "", // Honeypot field
     },
   });
 
   const onSubmit = async (data: RentalFormData) => {
+    // Check for bot submissions (honeypot)
+    if (data.website) {
+      toast({
+        title: "Error",
+        description: "Invalid submission detected.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Rate limiting check
+    const rateLimitKey = `rental-${data.email}`;
+    if (isRateLimited(rateLimitKey, 60000)) { // 1 minute rate limit
+      toast({
+        title: "Please wait",
+        description: "You can only submit one booking request per minute. Please try again later.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
       console.log("Submitting rental booking form:", data);
       
+      // Sanitize all text inputs
+      const sanitizedData = {
+        ...data,
+        firstName: sanitizeInput(data.firstName),
+        lastName: sanitizeInput(data.lastName),
+        vehiclePreference: sanitizeInput(data.vehiclePreference),
+        pickupLocation: sanitizeInput(data.pickupLocation),
+        licenseNumber: sanitizeInput(data.licenseNumber),
+        licenseState: sanitizeInput(data.licenseState),
+        specialRequests: data.specialRequests ? sanitizeInput(data.specialRequests) : undefined,
+      };
+
       const { data: response, error } = await supabase.functions.invoke('send-rental-booking-email', {
         body: {
-          ...data,
+          ...sanitizedData,
           form: "Exotic Rental Booking Form"
         }
       });
@@ -156,6 +216,22 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
         ) : (
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* Honeypot field - hidden from users */}
+              <div className="hidden">
+                <FormField
+                  control={form.control}
+                  name="website"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Website (leave blank)</FormLabel>
+                      <FormControl>
+                        <Input {...field} tabIndex={-1} autoComplete="off" />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               {/* Personal Information Section */}
               <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
                 <h3 className="text-lg font-orbitron font-semibold text-neon-cyan mb-4 flex items-center gap-2">
@@ -175,6 +251,7 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
                             {...field} 
                             className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
                             placeholder="Enter your first name"
+                            maxLength={50}
                           />
                         </FormControl>
                         <FormMessage />
@@ -193,6 +270,7 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
                             {...field} 
                             className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
                             placeholder="Enter your last name"
+                            maxLength={50}
                           />
                         </FormControl>
                         <FormMessage />
@@ -217,6 +295,7 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
                             type="email"
                             className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
                             placeholder="your@email.com"
+                            maxLength={100}
                           />
                         </FormControl>
                         <FormMessage />
@@ -238,6 +317,7 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
                             {...field} 
                             className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
                             placeholder="(305) 123-4567"
+                            maxLength={20}
                           />
                         </FormControl>
                         <FormMessage />
