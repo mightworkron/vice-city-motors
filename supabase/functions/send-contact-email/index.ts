@@ -1,4 +1,3 @@
-
 import { Resend } from "npm:resend@2.0.0";
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
 import React from 'npm:react@18.3.1'
@@ -12,6 +11,8 @@ const corsHeaders = {
   "X-Frame-Options": "DENY",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "X-XSS-Protection": "1; mode=block",
+  "Content-Security-Policy": "default-src 'self'; script-src 'none'; object-src 'none'; style-src 'unsafe-inline'",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
 };
 
 interface ContactFormRequest {
@@ -121,9 +122,11 @@ Deno.serve(async (req) => {
     const requestData: ContactFormRequest = await req.json();
     const { name, email, message, form, website } = requestData;
 
+    console.log("Processing contact form submission for:", email);
+
     // Honeypot check
     if (website && website.trim() !== '') {
-      console.log("Bot submission detected via honeypot");
+      console.log("Bot submission detected via honeypot for:", email);
       return new Response(JSON.stringify({ error: "Invalid submission" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -154,7 +157,7 @@ Deno.serve(async (req) => {
     }
 
     if (validationErrors.length > 0) {
-      console.error("Validation errors:", validationErrors);
+      console.error("Validation errors for", email, ":", validationErrors);
       return new Response(JSON.stringify({ error: "Validation failed", details: validationErrors }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },

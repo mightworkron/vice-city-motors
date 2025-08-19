@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import ImageSkeleton from "@/components/ui/image-skeleton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle, Mail } from "lucide-react";
 import { pageSEO, generateStructuredData } from "@/utils/seo";
+import { sanitizeInput, validateEmail, isRateLimited } from "@/utils/security";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -24,19 +26,83 @@ const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    website: "" // Honeypot field
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitting contact form:", formData);
+    
+    // Prevent double submission
+    if (isSubmitting) return;
+    
+    console.log("Submitting contact form:", { ...formData, website: "[REDACTED]" });
 
-    const { name, email, message } = formData;
+    // Honeypot check - if website field is filled, it's likely a bot
+    if (formData.website && formData.website.trim() !== '') {
+      console.log("Bot submission detected via honeypot");
+      toast({
+        title: "Invalid submission",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Rate limiting check
+    const rateLimitKey = `contact-${formData.email}`;
+    if (isRateLimited(rateLimitKey)) {
+      toast({
+        title: "Please wait",
+        description: "You're submitting too quickly. Please wait a moment before trying again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Client-side validation
+    const validationErrors: string[] = [];
+    
+    if (!formData.name || formData.name.trim().length < 2 || formData.name.trim().length > 100) {
+      validationErrors.push("Name must be between 2 and 100 characters");
+    }
+    
+    if (!formData.email || !validateEmail(formData.email)) {
+      validationErrors.push("Please enter a valid email address");
+    }
+    
+    if (!formData.message || formData.message.trim().length < 10 || formData.message.trim().length > 2000) {
+      validationErrors.push("Message must be between 10 and 2000 characters");
+    }
+
+    if (validationErrors.length > 0) {
+      toast({
+        title: "Please check your input",
+        description: validationErrors[0],
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Sanitize inputs before sending
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: formData.email.trim().toLowerCase(),
+      message: sanitizeInput(formData.message),
+      form: "Contact Form",
+      website: formData.website // Include honeypot for server validation
+    };
+
     const { error } = await supabase.functions.invoke("send-contact-email", {
-      body: { name, email, message, form: "Contact Form" },
+      body: sanitizedData,
     });
+
+    setIsSubmitting(false);
 
     if (error) {
       console.error("send-contact-email error:", error);
@@ -49,7 +115,7 @@ const Index = () => {
     }
 
     setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", message: "", website: "" });
   };
 
   const services = [
@@ -356,6 +422,19 @@ const Index = () => {
                 <div className="bg-card rounded-lg p-8 border border-neon-purple/30">
                   {!isSubmitted ? (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Honeypot field - hidden from users */}
+                      <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}>
+                        <Input 
+                          type="text"
+                          name="website"
+                          placeholder="Website"
+                          value={formData.website} 
+                          onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                          tabIndex={-1}
+                          autoComplete="off"
+                        />
+                      </div>
+                      
                       <div>
                         <Input 
                           placeholder="Your Name" 
@@ -363,6 +442,8 @@ const Index = () => {
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
                           className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
                           required
+                          maxLength={100}
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -373,6 +454,8 @@ const Index = () => {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
                           className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink" 
                           required
+                          maxLength={100}
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -383,10 +466,16 @@ const Index = () => {
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
                           className="bg-background border-neon-purple/30 text-white placeholder-gray-400 focus:border-neon-pink resize-none" 
                           required
+                          maxLength={2000}
+                          disabled={isSubmitting}
                         />
                       </div>
-                      <Button type="submit" className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300">
-                        Send Message
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold py-3 rounded-lg transition-all duration-300"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
                       </Button>
                     </form>
                   ) : (

@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@4.0.0";
 import { renderAsync } from "npm:@react-email/components@0.0.22";
@@ -14,6 +13,8 @@ const corsHeaders = {
   "X-Frame-Options": "DENY",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "X-XSS-Protection": "1; mode=block",
+  "Content-Security-Policy": "default-src 'self'; script-src 'none'; object-src 'none'; style-src 'unsafe-inline'",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
 };
 
 interface RentalBookingRequest {
@@ -105,7 +106,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Honeypot check - if website field is filled, it's likely a bot
     if (requestData.website && requestData.website.trim() !== '') {
-      console.log("Bot submission detected via honeypot");
+      console.log("Bot submission detected via honeypot for:", requestData.email);
       return new Response(
         JSON.stringify({ error: "Invalid submission" }),
         {
@@ -169,7 +170,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     if (validationErrors.length > 0) {
-      console.error("Validation errors:", validationErrors);
+      console.error("Validation errors for", requestData.email, ":", validationErrors);
       return new Response(
         JSON.stringify({ error: "Validation failed", details: validationErrors }),
         {
