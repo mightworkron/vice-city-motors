@@ -1,7 +1,7 @@
 
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
-import { FloatingCallButton } from "@/components/FloatingCallButton";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import SEOHead from "@/components/SEOHead";
 import { pageSEO } from "@/utils/seo";
 
