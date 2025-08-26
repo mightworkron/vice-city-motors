@@ -64,6 +64,18 @@ export const pageSEO = {
     description: "Finance your dream car in Miami! Competitive rates from 2.9% APR, quick approval, all credit types welcome. Ferrari, Lamborghini, McLaren financing available. Apply today!",
     keywords: "auto financing Miami, car loans Miami, exotic car financing, Ferrari financing Miami, Lamborghini loans, bad credit auto loans Miami, luxury car financing South Beach",
     canonicalUrl: "/finance"
+  },
+  privacyPolicy: {
+    title: "Privacy Policy | The Showroom Miami | Data Protection & Security",
+    description: "Learn how The Showroom Miami protects your personal information. Our comprehensive privacy policy covers data collection, usage, and your rights.",
+    keywords: "privacy policy, data protection, Showroom Miami privacy, personal information security, Miami auto shop privacy",
+    canonicalUrl: "/privacy-policy"
+  },
+  termsOfService: {
+    title: "Terms of Service | The Showroom Miami | Service Agreement",
+    description: "Read The Showroom Miami's terms of service covering our automotive services, rental policies, and service agreements in Miami, Florida.",
+    keywords: "terms of service, service agreement, Showroom Miami terms, auto repair terms, exotic car rental terms Miami",
+    canonicalUrl: "/termsofservice"
   }
 };
 

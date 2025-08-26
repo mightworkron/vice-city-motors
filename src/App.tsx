@@ -13,6 +13,8 @@ import WrapsAndTints from "./pages/WrapsAndTints";
 import CustomBuilds from "./pages/CustomBuilds";
 import Sales from "./pages/Sales";
 import Finance from "./pages/Finance";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
         <Route path="/custom-builds" element={<CustomBuilds />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/finance" element={<Finance />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/termsofservice" element={<TermsOfService />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </TooltipProvider>
