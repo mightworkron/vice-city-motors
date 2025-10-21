@@ -20,7 +20,13 @@ const CTASection = ({ title, subtitle, phoneText = "Call 305-419-8379", classNam
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">{subtitle}</p>
         )}
         
-        <a href="tel:305-419-8379">
+        <a href="tel:305-419-8379" onClick={() => {
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'conversion', {
+              'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
+            });
+          }
+        }}>
           <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
             <Phone className="mr-2" size={20} />
             {phoneText}

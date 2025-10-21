@@ -156,6 +156,15 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
 
       console.log("Booking submitted successfully:", response);
       
+      // Track Google Ads conversion
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17422213105/RENTAL_BOOKING_LABEL',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      }
+
       toast({
         title: "Booking Request Submitted!",
         description: "We'll contact you to confirm availability and finalize your booking.",

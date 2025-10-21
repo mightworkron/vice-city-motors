@@ -114,6 +114,15 @@ const Index = () => {
       return;
     }
 
+    // Track Google Ads conversion
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-17422213105/CONTACT_FORM_LABEL',
+        'value': 1.0,
+        'currency': 'USD'
+      });
+    }
+
     setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "", website: "" });
   };
@@ -252,7 +261,13 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <a href="tel:305-419-8379">
+              <a href="tel:305-419-8379" onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'conversion', {
+                    'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
+                  });
+                }
+              }}>
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                   <Phone className="mr-2" size={20} />
                   Call Now
@@ -266,7 +281,13 @@ const Index = () => {
               </Link>
             </div>
 
-            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block">
+            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block" onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).gtag) {
+                (window as any).gtag('event', 'conversion', {
+                  'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
+                });
+              }
+            }}>
               305-419-8379
             </a>
 
@@ -384,7 +405,13 @@ const Index = () => {
                       <Phone className="text-neon-cyan" size={24} />
                       <div>
                         <p className="text-white font-medium">Call Us</p>
-                        <a href="tel:305-419-8379" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300">
+                        <a href="tel:305-419-8379" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" onClick={() => {
+                          if (typeof window !== 'undefined' && (window as any).gtag) {
+                            (window as any).gtag('event', 'conversion', {
+                              'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
+                            });
+                          }
+                        }}>
                           305-419-8379
                         </a>
                       </div>
@@ -394,7 +421,13 @@ const Index = () => {
                       <Mail className="text-neon-cyan" size={24} />
                       <div>
                         <p className="text-white font-medium">Email Us</p>
-                        <a href="mailto:info@showroommiami.com" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300">
+                        <a href="mailto:info@showroommiami.com" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" onClick={() => {
+                          if (typeof window !== 'undefined' && (window as any).gtag) {
+                            (window as any).gtag('event', 'conversion', {
+                              'send_to': 'AW-17422213105/EMAIL_CLICK_LABEL'
+                            });
+                          }
+                        }}>
                           info@showroommiami.com
                         </a>
                       </div>
