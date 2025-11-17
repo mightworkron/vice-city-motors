@@ -109,23 +109,23 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © {currentYear} The Showroom Miami. All rights reserved.
             </p>
-            <a 
-              href="https://www.instagram.com/ron_sitess/?utm_source=ig_web_button_share_sheet" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-sky-400 hover:text-neon-pink text-sm transition-colors duration-300 mt-2 sm:mt-0"
-            >
-              Website powered by Ron_Sitess
-            </a>
+            <div className="flex space-x-6 mt-2 sm:mt-0">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300">
+                Privacy Policy
+              </Link>
+              <Link to="/termsofservice" className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300">
+                Terms of Service
+              </Link>
+            </div>
           </div>
-          <div className="flex space-x-6 mt-4 sm:mt-0">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300">
-              Privacy Policy
-            </Link>
-            <Link to="/termsofservice" className="text-gray-400 hover:text-neon-pink text-sm transition-colors duration-300">
-              Terms of Service
-            </Link>
-          </div>
+          <a 
+            href="https://www.instagram.com/ron_sitess/?utm_source=ig_web_button_share_sheet" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-sky-400 hover:text-neon-pink text-sm transition-colors duration-300 mt-4 sm:mt-0"
+          >
+            Website powered by Ron_Sitess
+          </a>
         </div>
       </div>
     </footer>
