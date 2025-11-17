@@ -191,8 +191,11 @@ const TermsOfService = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-xl font-bold text-neon-pink mb-3">1. SMS Consent Communication</h3>
+                    <p className="mb-4">
+                      Mobile opt-in or phone numbers for the purpose of SMS are not being shared with any third party and affiliate company for marketing purposes.
+                    </p>
                     <p>
-                      The phone numbers collected as part of our SMS consent process will not be shared with third parties for marketing purposes. Your information will be used solely for operational communication related to The Showroom Miami services.
+                      Your information will be used solely for operational communication related to The Showroom Miami services.
                     </p>
                   </div>
 
