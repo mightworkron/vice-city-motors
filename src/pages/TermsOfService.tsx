@@ -29,7 +29,7 @@ const TermsOfService = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-black/50 backdrop-blur-sm border border-neon-purple/30 rounded-lg p-8 neon-border">
             <p className="text-sm text-neon-cyan mb-8 font-medium">
-              Last Updated: January 1, 2025
+              Last Updated: November 17, 2025
             </p>
 
             <div className="space-y-8 text-gray-300 leading-relaxed">
@@ -172,20 +172,153 @@ const TermsOfService = () => {
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
                   6. Forms, Contact, and Database Use
                 </h2>
-                <ul className="list-disc list-inside space-y-2 ml-4 mb-4">
+                <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>Client authorizes contact via phone, SMS, WhatsApp, email.</li>
                   <li>Data stored in our CRM.</li>
                   <li>We do not sell personal data.</li>
                   <li>Database remains exclusive property of The Showroom Miami.</li>
                 </ul>
-                <p>
-                  Mobile opt-in or phone numbers for the purpose of SMS are not being shared with any third party and affiliate company for marketing purposes.
-                </p>
               </div>
 
               <div>
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
-                  7. Third-Party Links
+                  7. SMS Terms & Conditions
+                </h2>
+                <p className="mb-6">
+                  By providing your phone number to The Showroom Miami, you consent to receive SMS communications related to our services, including collision assistance, rental updates, towing coordination, insurance updates, and customer service information. Message frequency varies. Message and data rates may apply.
+                </p>
+
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">1. SMS Consent Communication</h3>
+                    <p>
+                      The phone numbers collected as part of our SMS consent process will not be shared with third parties for marketing purposes. Your information will be used solely for operational communication related to The Showroom Miami services.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">2. Types of SMS Communications</h3>
+                    <p className="mb-3">If you consent to receive SMS messages, you may receive communications such as:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4 mb-4">
+                      <li>Appointment reminders</li>
+                      <li>Vehicle inspection updates</li>
+                      <li>Insurance claim updates</li>
+                      <li>Follow-up messages</li>
+                      <li>Billing or estimate information</li>
+                      <li>Service confirmations</li>
+                      <li>Promotions or offers (if applicable)</li>
+                    </ul>
+                    <p className="italic text-gray-400">
+                      Example: "Hello, this is a reminder of your upcoming appointment with The Showroom Miami. Reply STOP to opt-out at any time."
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">3. Message Frequency</h3>
+                    <p className="mb-3">
+                      Message frequency may vary depending on the type of communication. For example, you may receive up to 2–5 messages per week depending on your active service with us.
+                    </p>
+                    <p className="italic text-gray-400">
+                      Example: "You may receive up to 2 SMS messages per week regarding your appointment or account status."
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">4. Potential Fees for SMS Messaging</h3>
+                    <p>
+                      Standard message and data rates may apply depending on your mobile carrier and plan. Fees may vary for domestic or international messaging.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">5. Opt-In Methods</h3>
+                    <p className="mb-3">Customers may opt in to receive SMS by:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Providing verbal consent during a conversation</li>
+                      <li>Submitting an online form</li>
+                      <li>Requesting information via text or phone</li>
+                      <li>Calling The Showroom Miami and confirming their opt-in</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">6. Opt-Out Instructions</h3>
+                    <p className="mb-3">
+                      You may opt out of SMS messages at any time by replying <strong className="text-white">STOP</strong> to any message.
+                      To receive help, reply <strong className="text-white">HELP</strong>.
+                    </p>
+                    <p>
+                      You may also contact us directly at{" "}
+                      <a href="mailto:info@showroommiami.com" className="text-neon-pink hover:text-neon-cyan transition-colors">
+                        info@showroommiami.com
+                      </a>{" "}
+                      to request removal from our messaging list.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">7. Sample SMS Messages</h3>
+                    <p className="mb-4">
+                      Below are examples of typical SMS messages our team sends. Each message includes opt-out language as required by carriers.
+                    </p>
+                    <div className="space-y-4 ml-4">
+                      <div className="border-l-2 border-neon-cyan/50 pl-4">
+                        <p className="font-semibold text-neon-cyan mb-2">Example #1</p>
+                        <p className="italic text-gray-400">
+                          "What time will you be coming to inspect the vehicle? —The Showroom Miami. Reply STOP to opt-out."
+                        </p>
+                      </div>
+                      <div className="border-l-2 border-neon-cyan/50 pl-4">
+                        <p className="font-semibold text-neon-cyan mb-2">Example #2</p>
+                        <p className="italic text-gray-400">
+                          "Thank you for calling, we are unable to answer right now. Can I help you via chat? If not, please await a return call. —The Showroom Miami. Reply STOP to opt-out."
+                        </p>
+                      </div>
+                      <div className="border-l-2 border-neon-cyan/50 pl-4">
+                        <p className="font-semibold text-neon-cyan mb-2">Example #3</p>
+                        <p className="italic text-gray-400">
+                          "This is Jon with The Showroom Miami, we are awaiting a response from insurance. We will call shortly to confirm approvals. —The Showroom Miami. Reply STOP to opt-out."
+                        </p>
+                      </div>
+                      <div className="border-l-2 border-neon-cyan/50 pl-4">
+                        <p className="font-semibold text-neon-cyan mb-2">Example #4</p>
+                        <p className="italic text-gray-400">
+                          "Your vehicle estimate is now ready. Please reply YES to confirm or call us at 305-419-8379. —The Showroom Miami. Reply STOP to opt-out."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">8. Privacy and Data Handling</h3>
+                    <p>
+                      All SMS data is handled in accordance with our{" "}
+                      <a href="/privacy-policy" className="text-neon-pink hover:text-neon-cyan transition-colors">
+                        Privacy Policy
+                      </a>{" "}
+                      and applicable federal and state regulations. Your information is stored securely and used only for communication regarding services provided by The Showroom Miami.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">9. Contact</h3>
+                    <p className="mb-2">If you have questions regarding SMS compliance or need support, please contact us at:</p>
+                    <div className="ml-4 space-y-2">
+                      <p>
+                        📧 Email:{" "}
+                        <a href="mailto:info@showroommiami.com" className="text-neon-pink hover:text-neon-cyan transition-colors">
+                          info@showroommiami.com
+                        </a>
+                      </p>
+                      <p>📍 Address: 7820 NW 6th Ct, Miami, FL 33150, United States</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
+                  8. Third-Party Links
                 </h2>
                 <p>
                   The Showroom Miami is not responsible for external site content or privacy practices.
@@ -194,7 +327,7 @@ const TermsOfService = () => {
 
               <div>
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
-                  8. Limitation of Liability
+                  9. Limitation of Liability
                 </h2>
                 <p>
                   Not liable for indirect damages, website interruptions, misuse of services, or outdated information.
@@ -203,7 +336,7 @@ const TermsOfService = () => {
 
               <div>
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
-                  9. Modifications
+                  10. Modifications
                 </h2>
                 <p>
                   Terms may be updated at any time.
@@ -212,7 +345,7 @@ const TermsOfService = () => {
 
               <div>
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
-                  10. Governing Law
+                  11. Governing Law
                 </h2>
                 <p>
                   Governed by the laws of Florida. Disputes handled in Miami-Dade or Broward County.
@@ -221,7 +354,7 @@ const TermsOfService = () => {
 
               <div className="pt-8 border-t border-neon-purple/30">
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
-                  11. Legal Contact
+                  12. Legal Contact
                 </h2>
                 <p className="mb-4">
                   For questions about these Terms, please contact:
