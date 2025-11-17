@@ -16,7 +16,7 @@ const TermsOfService = () => {
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
-            <span className="neon-text">Terms of Service</span>
+            <span className="neon-text">Terms and Conditions</span>
           </h1>
           <p className="text-xl text-gray-300 font-rajdhani">
             Please read these terms carefully before using our services.
@@ -172,12 +172,15 @@ const TermsOfService = () => {
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
                   6. Forms, Contact, and Database Use
                 </h2>
-                <ul className="list-disc list-inside space-y-2 ml-4">
+                <ul className="list-disc list-inside space-y-2 ml-4 mb-4">
                   <li>Client authorizes contact via phone, SMS, WhatsApp, email.</li>
                   <li>Data stored in our CRM.</li>
                   <li>We do not sell personal data.</li>
                   <li>Database remains exclusive property of The Showroom Miami.</li>
                 </ul>
+                <p>
+                  Mobile opt-in or phone numbers for the purpose of SMS are not being shared with any third party and affiliate company for marketing purposes.
+                </p>
               </div>
 
               <div>
