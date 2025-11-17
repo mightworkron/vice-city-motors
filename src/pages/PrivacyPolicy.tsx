@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-black/50 backdrop-blur-sm border border-neon-purple/30 rounded-lg p-8 neon-border">
             <p className="text-sm text-neon-cyan mb-8 font-medium">
-              Effective Date: July 31, 2025
+              Last updated on 11/17/2025
             </p>
 
             <div className="space-y-8 text-gray-300 leading-relaxed">
