@@ -71,6 +71,15 @@ const PrivacyPolicy = () => {
 
               <div>
                 <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
+                  SMS and Mobile Communication
+                </h2>
+                <p>
+                  Mobile opt-in or phone numbers for the purpose of SMS are not being shared with any third party and affiliate company for marketing purposes.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-orbitron font-bold text-white mb-4 neon-text">
                   Data Security
                 </h2>
                 <p>
