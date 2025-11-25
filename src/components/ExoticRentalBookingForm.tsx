@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Calendar, Car, Phone, Mail, User, MapPin, Shield } from "lucide-react";
+import { Calendar, Car, Phone, Mail, User, MapPin, Shield, MessageSquare } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -22,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { sanitizeInput, validateEmail, validatePhoneNumber, isRateLimited } from "@/utils/security";
@@ -69,6 +70,16 @@ const rentalFormSchema = z.object({
     .max(1000, "Special requests must be less than 1000 characters")
     .optional(),
     
+  // SMS Compliance and Optional Marketing Fields
+  smsConsent: z.boolean().optional().default(false),
+  emailOptional: z.string()
+    .email("Please enter a valid email address")
+    .max(100, "Email must be less than 100 characters")
+    .optional()
+    .or(z.literal("")),
+  offersOptIn: z.boolean().optional().default(false),
+  newsletterOptIn: z.boolean().optional().default(false),
+    
   // Honeypot field for bot detection
   website: z.string().max(0, "This field should be empty").optional(),
 });
@@ -99,6 +110,10 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
       licenseNumber: "",
       licenseState: "",
       specialRequests: "",
+      smsConsent: false,
+      emailOptional: "",
+      offersOptIn: false,
+      newsletterOptIn: false,
       website: "", // Honeypot field
     },
   });
@@ -140,6 +155,10 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
         licenseNumber: sanitizeInput(data.licenseNumber),
         licenseState: sanitizeInput(data.licenseState),
         specialRequests: data.specialRequests ? sanitizeInput(data.specialRequests) : undefined,
+        smsConsent: data.smsConsent || false,
+        emailOptional: data.emailOptional || "",
+        offersOptIn: data.offersOptIn || false,
+        newsletterOptIn: data.newsletterOptIn || false,
       };
 
       const { data: response, error } = await supabase.functions.invoke('send-rental-booking-email', {
@@ -492,6 +511,123 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
                         />
                       </FormControl>
                       <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* SMS Compliance & Marketing Preferences */}
+              <div className="bg-card/50 rounded-lg p-4 border border-neon-purple/20">
+                <h3 className="text-lg font-orbitron font-semibold text-neon-blue mb-4 flex items-center gap-2">
+                  <MessageSquare size={18} />
+                  Communication Preferences
+                </h3>
+                
+                {/* Optional Email Field */}
+                <FormField
+                  control={form.control}
+                  name="emailOptional"
+                  render={({ field }) => (
+                    <FormItem className="mb-4">
+                      <FormLabel className="text-white flex items-center gap-2">
+                        <Mail size={16} />
+                        Alternative Email (Optional)
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          {...field} 
+                          type="email"
+                          className="bg-background border-neon-purple/30 text-white focus:border-neon-cyan"
+                          placeholder="alternative@email.com"
+                          maxLength={100}
+                        />
+                      </FormControl>
+                      <FormDescription className="text-gray-400">
+                        Provide an alternative email for updates
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* SMS Consent Checkbox */}
+                <FormField
+                  control={form.control}
+                  name="smsConsent"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 mb-4 pb-4 border-b border-neon-purple/20">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel className="text-white font-normal text-sm">
+                          By checking this box, I agree to receive text messages from The Showroom Miami regarding appointment reminders, vehicle inspection updates, insurance claim updates, billing information or estimates, service confirmations, promotions, or offers to the phone number provided above. SMS frequency may vary. Data charges may apply. For assistance, reply HELP. Reply STOP to stop receiving text messages. Please review our{" "}
+                          <a 
+                            href="/privacy-policy" 
+                            target="_blank" 
+                            className="text-neon-cyan hover:text-neon-pink underline"
+                          >
+                            Privacy Policy
+                          </a>
+                          {" "}and{" "}
+                          <a 
+                            href="/terms-of-service" 
+                            target="_blank" 
+                            className="text-neon-cyan hover:text-neon-pink underline"
+                          >
+                            Terms and Conditions
+                          </a>
+                          .
+                        </FormLabel>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+
+                {/* Offers Opt-In Checkbox */}
+                <FormField
+                  control={form.control}
+                  name="offersOptIn"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 mb-3">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel className="text-white font-normal">
+                          I would like to receive special offers and promotions (Optional)
+                        </FormLabel>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+
+                {/* Newsletter Opt-In Checkbox */}
+                <FormField
+                  control={form.control}
+                  name="newsletterOptIn"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormControl>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <FormLabel className="text-white font-normal">
+                          Subscribe to our newsletter for updates and news (Optional)
+                        </FormLabel>
+                        <FormMessage />
+                      </div>
                     </FormItem>
                   )}
                 />
