@@ -249,7 +249,38 @@ const TermsOfService = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-neon-pink mb-3">7. Sample SMS Messages</h3>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">7. Help</h3>
+                    <p className="mb-3">
+                      For any issues, reply with the keyword <strong className="text-white">HELP</strong>. Alternatively, help can be obtained directly from us at{" "}
+                      <a href="mailto:info@showroommiami.com" className="text-neon-pink hover:text-neon-cyan transition-colors">
+                        info@showroommiami.com
+                      </a>
+                    </p>
+                    <p className="font-semibold text-neon-cyan mb-2">Additional Options:</p>
+                    <p>If SMS messages are not desired, the SMS consent box on forms can be left unchecked.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">8. Standard Messaging Disclosures</h3>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Message and data rates may apply.</li>
+                      <li>Opt out at any time by texting "STOP."</li>
+                      <li>For assistance, text "HELP" or visit our{" "}
+                        <a href="/privacy-policy" className="text-neon-pink hover:text-neon-cyan transition-colors">
+                          Privacy Policy
+                        </a>
+                        {" "}and{" "}
+                        <a href="/terms-of-service" className="text-neon-pink hover:text-neon-cyan transition-colors">
+                          Terms and Conditions
+                        </a>
+                        {" "}pages.
+                      </li>
+                      <li>Message frequency may vary.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">9. Sample SMS Messages</h3>
                     <p className="mb-4">
                       Below are examples of typical SMS messages our team sends. Each message includes opt-out language as required by carriers.
                     </p>
@@ -282,7 +313,7 @@ const TermsOfService = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-neon-pink mb-3">8. Privacy and Data Handling</h3>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">10. Privacy and Data Handling</h3>
                     <p>
                       All SMS data is handled in accordance with our{" "}
                       <a href="/privacy-policy" className="text-neon-pink hover:text-neon-cyan transition-colors">
@@ -293,7 +324,7 @@ const TermsOfService = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-neon-pink mb-3">9. Contact</h3>
+                    <h3 className="text-xl font-bold text-neon-pink mb-3">11. Contact</h3>
                     <p className="mb-2">If you have questions regarding SMS compliance or need support, please contact us at:</p>
                     <div className="ml-4 space-y-2">
                       <p>

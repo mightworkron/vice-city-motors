@@ -564,7 +564,7 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-white font-normal text-sm">
-                          By checking this box, I agree to receive text messages from The Showroom Miami regarding appointment reminders, vehicle inspection updates, insurance claim updates, billing information or estimates, service confirmations, promotions, or offers to the phone number provided above. SMS frequency may vary. Data charges may apply. For assistance, reply HELP. Reply STOP to stop receiving text messages. Please review our{" "}
+                          By checking this box, I agree to receive text messages from The Showroom Miami regarding appointment reminders and follow-up messages to the phone number provided above. SMS frequency may vary. Data charges may apply. For assistance, reply HELP. Reply STOP to stop receiving text messages. Please review our{" "}
                           <a 
                             href="/privacy-policy" 
                             target="_blank" 
