@@ -204,7 +204,8 @@ const TermsOfService = () => {
                     <p className="mb-3">If you consent to receive SMS messages, you may receive communications such as:</p>
                     <ul className="list-disc list-inside space-y-2 ml-4 mb-4">
                       <li>Appointment reminders</li>
-                      <li>Follow-up messages</li>
+                      <li>Vehicle inspection updates</li>
+                      <li>Service confirmations</li>
                     </ul>
                     <p className="italic text-gray-400">
                       Example: "Hello, this is a reminder of your upcoming appointment with The Showroom Miami. Reply STOP to opt-out at any time."
