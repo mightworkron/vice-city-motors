@@ -43,11 +43,22 @@ const ensureDirectoryExists = (filePath) => {
   }
 }
 
+const BASE_URL = 'https://theshowroommiami.com'
+
 ;(async () => {
   for (const url of routesToPrerender) {
     try {
       const appHtml = render(url)
-      const html = template.replace(`<!--app-html-->`, appHtml)
+      
+      // Generate the canonical URL for this specific page
+      const canonicalUrl = url === '/' ? `${BASE_URL}/` : `${BASE_URL}${url}`
+      
+      // Replace app HTML and update canonical URL for each page
+      let html = template.replace(`<!--app-html-->`, appHtml)
+      html = html.replace(
+        /<link rel="canonical" href="[^"]*" \/>/,
+        `<link rel="canonical" href="${canonicalUrl}" />`
+      )
 
       // Handle file path generation
       let filePath
@@ -64,7 +75,7 @@ const ensureDirectoryExists = (filePath) => {
       ensureDirectoryExists(absoluteFilePath)
       
       fs.writeFileSync(absoluteFilePath, html)
-      console.log('Pre-rendered:', filePath)
+      console.log('Pre-rendered:', filePath, '| Canonical:', canonicalUrl)
     } catch (error) {
       console.error(`Error pre-rendering ${url}:`, error.message)
     }
