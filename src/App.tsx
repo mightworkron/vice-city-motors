@@ -37,7 +37,7 @@ const App = () => (
         <Route path="/sales" element={<Sales />} />
         <Route path="/finance" element={<Finance />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/termsofservice" element={<TermsOfService />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </TooltipProvider>
