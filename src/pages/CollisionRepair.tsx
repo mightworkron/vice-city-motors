@@ -262,7 +262,7 @@ const CollisionRepair = () => {
               <script dangerouslySetInnerHTML={{
                 __html: `
                   if (typeof window !== 'undefined' && window.jotformEmbedHandler) {
-                    window.jotformEmbedHandler("iframe[id='JotFormIFrame-252064962124050']", "https://form.jotform.com/");
+                    window.jotformEmbedHandler("iframe[id='JotFormIFrame-legally-binding-repair-authorizatio']", "https://form.jotform.com/");
                   }
                 `
               }} />
