@@ -240,11 +240,11 @@ const CollisionRepair = () => {
               <div className="bg-card rounded-lg p-4 sm:p-6 border border-neon-purple/30 neon-border">
                 <div className="w-full overflow-auto">
                   <iframe
-                    id="JotFormIFrame-252064962124050"
+                    id="JotFormIFrame-legally-binding-repair-authorizatio"
                     title="Legally Binding Repair Authorization and Consent"
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
-                    src="https://form.jotform.com/252064962124050"
+                    src="https://form.jotform.com/showroommiami/legally-binding-repair-authorizatio"
                     frameBorder="0"
                     className="w-full rounded-lg border-0"
                     style={{
@@ -262,7 +262,7 @@ const CollisionRepair = () => {
               <script dangerouslySetInnerHTML={{
                 __html: `
                   if (typeof window !== 'undefined' && window.jotformEmbedHandler) {
-                    window.jotformEmbedHandler("iframe[id='JotFormIFrame-252064962124050']", "https://form.jotform.com/");
+                    window.jotformEmbedHandler("iframe[id='JotFormIFrame-legally-binding-repair-authorizatio']", "https://form.jotform.com/");
                   }
                 `
               }} />
