@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData } from "@/utils/seo";
+import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
 import TrustBadge from "@/components/conversion/TrustBadge";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -62,7 +62,7 @@ const CollisionRepair = () => {
   
   return (
     <>
-      <SEOHead seoData={pageSEO.collisionRepair} structuredData={generateStructuredData('service', 'Collision Repair')} />
+      <SEOHead seoData={pageSEO.collisionRepair} structuredData={[generateStructuredData('service', 'Collision Repair'), generateFAQStructuredData(faqs)]} />
       <div className="min-h-screen bg-background">
         <Navigation />
         

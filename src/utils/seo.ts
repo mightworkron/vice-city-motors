@@ -219,3 +219,28 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
     }
   };
 };
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export const generateFAQStructuredData = (faqs: FAQItem[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+
+export const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Showroom Miami",
+  "url": "https://showroommiami.com"
+};

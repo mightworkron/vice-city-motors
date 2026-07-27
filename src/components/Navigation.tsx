@@ -68,6 +68,8 @@ const Navigation = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
               className="md:hidden text-white hover:text-neon-pink transition-colors duration-300"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}

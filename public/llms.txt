@@ -1,0 +1,22 @@
+# The Showroom Miami
+
+> The Showroom Miami (YOUR CAR. OUR OBSESSION.) is a Miami, FL automotive services business
+> offering collision repair, emergency towing, exotic/luxury car rentals, custom builds, vehicle
+> wraps & tints, and luxury car sales. Based at 7820 NW 6th Ct, Miami, FL 33150. Serves Miami-Dade
+> County, including Brickell, South Beach, Coral Gables, Aventura, Doral, and Kendall.
+> Phone: 305-419-8379.
+
+## Business Lines
+
+- [Collision Repair](https://showroommiami.com/collision-repair): Insurance-approved auto body repair and collision restoration, with same-day estimates and factory-quality work.
+- [Emergency Towing](https://showroommiami.com/emergency-towing): 24/7 towing with hydraulic flatbeds safe for Ferrari, Lamborghini, McLaren, and other exotic/luxury vehicles.
+- [Exotic & Luxury Car Rentals](https://showroommiami.com/exotic-rentals): Rentals of exotic and luxury vehicles (Ferrari, Lamborghini, McLaren) with concierge delivery.
+- [Custom Builds](https://showroommiami.com/custom-builds): Custom automotive builds, performance upgrades, and luxury interior/paint modifications.
+- [Wraps, Tints & PPF](https://showroommiami.com/wraps-and-tints): Vehicle wraps, window tinting, and paint protection film installation.
+- [Luxury Car Sales](https://showroommiami.com/sales): Pre-owned luxury and exotic vehicle sales, with [financing options](https://showroommiami.com/finance) available.
+
+## Other Pages
+
+- [Home](https://showroommiami.com/): Overview of all services and company introduction.
+- [Privacy Policy](https://showroommiami.com/privacy-policy)
+- [Terms of Service](https://showroommiami.com/terms-of-service)
