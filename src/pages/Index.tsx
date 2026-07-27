@@ -16,7 +16,7 @@ import OptimizedImage from "@/components/ui/optimized-image";
 import ImageSkeleton from "@/components/ui/image-skeleton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle, Mail } from "lucide-react";
-import { pageSEO, generateStructuredData, generateFAQStructuredData, websiteStructuredData } from "@/utils/seo";
+import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
 import { sanitizeInput, validateEmail, isRateLimited } from "@/utils/security";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { useToast } from "@/hooks/use-toast";
@@ -188,28 +188,7 @@ const Index = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "How fast can you tow my car if I'm stuck?",
-      answer: "Average 15-30 minutes throughout Miami-Dade County. We have Ferrari-safe hydraulic flatbeds positioned strategically across the city."
-    },
-    {
-      question: "Do you accept insurance?",
-      answer: "Yes. We accept most major auto insurance plans. Whether you've been in a collision or need towing services, we'll help you navigate the claims process and ensure everything is properly documented. Just bring your claim number, and we'll handle the rest."
-    },
-    {
-      question: "How long does collision repair take?",
-      answer: "Most collision repairs are completed in 2-5 business days. We'll give you an exact timeline during your free estimate."
-    },
-    {
-      question: "Can I rent an exotic car while mine is being repaired?",
-      answer: "Absolutely! We coordinate exotic and luxury rental cars so you never have to downgrade while your car is being fixed."
-    },
-    {
-      question: "What areas in Miami do you serve?",
-      answer: "We serve all of Miami-Dade County including Brickell, South Beach, Coral Gables, Aventura, Doral, Kendall, and everywhere in between."
-    }
-  ];
+  const faqs = pageFAQs.home;
 
   const galleryImages = [
     "/lovable-uploads/078e1f89-841f-43b0-a20c-89555e1a8b71.png",
@@ -222,7 +201,7 @@ const Index = () => {
 
   return (
     <>
-      <SEOHead seoData={pageSEO.home} structuredData={[generateStructuredData('home'), generateFAQStructuredData(faqs), websiteStructuredData]} />
+      <SEOHead seoData={pageSEO.home} structuredData={getPageStructuredData('home')} />
       <div className="min-h-screen bg-background">
         <Navigation />
 

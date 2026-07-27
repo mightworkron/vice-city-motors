@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
+import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
 import TrustBadge from "@/components/conversion/TrustBadge";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -34,20 +34,7 @@ const CollisionRepair = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "Do you accept insurance?",
-      answer: "Yes. We accept most major auto insurance plans. Whether you've been in a collision or need towing services, we'll help you navigate the claims process and ensure everything is properly documented. Just bring your claim number, and we'll handle the rest."
-    },
-    {
-      question: "How long does collision repair take in Miami?",
-      answer: "Most collision repairs take 2-5 business days depending on damage extent and parts availability. We provide accurate timelines after our free assessment."
-    },
-    {
-      question: "What if I'm not satisfied with the repair work?",
-      answer: "We guarantee all our collision repair work. If you're not 100% satisfied, we'll make it right at no additional cost to you."
-    }
-  ];
+  const faqs = pageFAQs.collisionRepair;
 
   const beforeAfterImages = [
     {
@@ -62,7 +49,7 @@ const CollisionRepair = () => {
   
   return (
     <>
-      <SEOHead seoData={pageSEO.collisionRepair} structuredData={[generateStructuredData('service', 'Collision Repair'), generateFAQStructuredData(faqs)]} />
+      <SEOHead seoData={pageSEO.collisionRepair} structuredData={getPageStructuredData('collisionRepair')} />
       <div className="min-h-screen bg-background">
         <Navigation />
         

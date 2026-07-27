@@ -5,7 +5,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
+import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -46,30 +46,13 @@ const WrapsAndTints = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "How long will my vehicle wrap or tint last?",
-      answer: "High-quality wraps typically last 5-7 years with proper care. Window tints can last 10+ years, and PPF comes with a 10-year warranty. Longevity depends on maintenance and environmental factors."
-    },
-    {
-      question: "What maintenance is required after installation?",
-      answer: "Avoid harsh chemicals and pressure washing for the first week. Use pH-neutral soaps for cleaning. We provide detailed care instructions to maximize the lifespan of your investment."
-    },
-    {
-      question: "Can I choose custom colors and designs?",
-      answer: "Absolutely! We offer unlimited color options, custom graphics, and unique finishes. Our design team can create completely custom looks or help refine your vision."
-    },
-    {
-      question: "What's your design and installation process?",
-      answer: "We start with a consultation to understand your vision, create design mockups, provide detailed quotes, then schedule professional installation in our climate-controlled facility."
-    }
-  ];
+  const faqs = pageFAQs.wrapsAndTints;
 
   return (
     <>
       <SEOHead 
         seoData={pageSEO.wrapsAndTints}
-        structuredData={[generateStructuredData('service', 'Wraps and Tints'), generateFAQStructuredData(faqs)]}
+        structuredData={getPageStructuredData('wrapsAndTints')}
       />
       <div className="min-h-screen bg-background">
         <Navigation />

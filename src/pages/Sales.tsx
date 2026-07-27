@@ -8,7 +8,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Eye, DollarSign, Calendar, Gauge, Star } from "lucide-react";
-import { pageSEO, generateStructuredData } from "@/utils/seo";
+import { pageSEO, getPageStructuredData } from "@/utils/seo";
 import { useState } from "react";
 
 interface Car {
@@ -62,7 +62,7 @@ const Sales = () => {
   };
 
   return <div className="min-h-screen bg-background">
-      <SEOHead seoData={pageSEO.sales} structuredData={generateStructuredData('service', 'Luxury Car Sales')} />
+      <SEOHead seoData={pageSEO.sales} structuredData={getPageStructuredData('sales')} />
       
       <Navigation />
       

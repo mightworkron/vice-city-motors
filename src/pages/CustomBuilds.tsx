@@ -5,7 +5,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
+import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -44,24 +44,7 @@ const CustomBuilds = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "What's the typical timeline for a custom build project?",
-      answer: "Timeline varies based on complexity, typically ranging from 4-12 weeks. We provide detailed project timelines during consultation and keep you updated throughout the build process."
-    },
-    {
-      question: "What's the cost range for custom builds?",
-      answer: "Custom builds range from $5,000 to $50,000+ depending on scope. We provide detailed quotes after understanding your vision and requirements during the consultation."
-    },
-    {
-      question: "What warranties do you provide on custom work?",
-      answer: "We offer comprehensive warranties on all custom work, typically 1-2 years on labor and pass through manufacturer warranties on parts. Specific coverage depends on the components used."
-    },
-    {
-      question: "How does the design process work?",
-      answer: "We start with a detailed consultation to understand your vision, create design mockups and specifications, provide a comprehensive quote, then execute the build with regular progress updates."
-    }
-  ];
+  const faqs = pageFAQs.customBuilds;
 
   const recentProjects = [
     {
@@ -85,7 +68,7 @@ const CustomBuilds = () => {
     <>
       <SEOHead 
         seoData={pageSEO.customBuilds}
-        structuredData={[generateStructuredData('service', 'Custom Builds'), generateFAQStructuredData(faqs)]}
+        structuredData={getPageStructuredData('customBuilds')}
       />
       <div className="min-h-screen bg-background">
         <Navigation />

@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, AlertTriangle, CheckCircle, Shield, Clock, Truck, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
+import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
 import TrustBadge from "@/components/conversion/TrustBadge";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -43,28 +43,11 @@ const EmergencyTowing = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "What areas in Miami do you serve?",
-      answer: "We cover all of Miami-Dade County including South Beach, Brickell, Coral Gables, Aventura, Doral, Kendall, Homestead, and everywhere in between."
-    },
-    {
-      question: "How quickly can you respond to my emergency?",
-      answer: "Our average response time is 15-30 minutes throughout Miami-Dade County. We have strategically positioned trucks across the metro area for fastest possible response."
-    },
-    {
-      question: "Are your tow trucks safe for luxury and exotic cars?",
-      answer: "Absolutely! We use hydraulic flatbed tow trucks specifically designed for high-end vehicles. Your Ferrari, Lamborghini, or other exotic car will be completely protected."
-    },
-    {
-      question: "Do you provide 24/7 emergency towing service?",
-      answer: "Yes, we operate 24 hours a day, 7 days a week, including holidays. Miami traffic doesn't stop, and neither do we."
-    }
-  ];
+  const faqs = pageFAQs.emergencyTowing;
   
   return (
     <>
-      <SEOHead seoData={pageSEO.emergencyTowing} structuredData={[generateStructuredData('service', 'Emergency Towing'), generateFAQStructuredData(faqs)]} />
+      <SEOHead seoData={pageSEO.emergencyTowing} structuredData={getPageStructuredData('emergencyTowing')} />
       <div className="min-h-screen bg-background">
         <Navigation />
         
