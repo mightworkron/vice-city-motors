@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://theshowroommiami.com/sitemap.xml
+Sitemap: https://showroommiami.com/sitemap.xml
 
 # Crawl-delay for courtesy
 Crawl-delay: 1

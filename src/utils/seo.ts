@@ -85,7 +85,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
     "@type": "AutoRepair",
     "name": "The Showroom Miami",
     "description": "Premium automotive services in Miami including collision repair, custom builds, exotic rentals, wraps, tints, and PPF",
-    "url": "https://theshowroommiami.com",
+    "url": "https://showroommiami.com",
     "telephone": "305-419-8379",
     "priceRange": "$$",
     "paymentAccepted": "Cash, Credit Card, Insurance Direct Billing",

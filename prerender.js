@@ -43,7 +43,7 @@ const ensureDirectoryExists = (filePath) => {
   }
 }
 
-const BASE_URL = 'https://theshowroommiami.com'
+const BASE_URL = 'https://showroommiami.com'
 
 ;(async () => {
   for (const url of routesToPrerender) {
