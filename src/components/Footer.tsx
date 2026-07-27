@@ -27,7 +27,7 @@ const Footer = () => {
               THE SHOWROOM MIAMI
             </div>
             <p className="text-neon-cyan text-lg font-medium mb-4">
-              Miami's Auto Source Since 2018
+              YOUR CAR. OUR OBSESSION.
             </p>
             <p className="text-gray-300 leading-relaxed">
               Premium automotive services in the heart of Miami. From custom builds to exotic rentals, 

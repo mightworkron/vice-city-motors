@@ -10,7 +10,7 @@ export interface SEOData {
 
 export const defaultSEO: SEOData = {
   title: "Miami Auto Repair & Exotic Car Services | The Showroom Miami",
-  description: "Miami's premier auto services since 2018. Expert collision repair, 24/7 luxury car towing, exotic rentals, custom wraps & PPF. Call now!",
+  description: "Miami's premier auto services. Expert collision repair, 24/7 luxury car towing, exotic rentals, custom wraps & PPF. YOUR CAR. OUR OBSESSION.",
   keywords: "Miami auto repair, collision repair Miami, exotic car rental Miami, luxury car towing, car wraps Miami, PPF Miami, emergency towing Miami Beach",
   ogImage: "https://showroommiami.com/lovable-uploads/78babb5c-82a3-4ae9-a2d6-dd90d8054e66.png",
   ogType: "website"
@@ -19,7 +19,7 @@ export const defaultSEO: SEOData = {
 export const pageSEO = {
   home: {
     title: "Miami Auto Repair & Exotic Car Services | The Showroom Miami",
-    description: "Miami's premier auto destination since 2018. Expert collision repair, Ferrari-safe towing, exotic rentals, premium wraps & PPF. Call 305-419-8379!",
+    description: "Miami's premier auto destination. Expert collision repair, Ferrari-safe towing, exotic rentals, premium wraps & PPF. YOUR CAR. OUR OBSESSION.",
     keywords: "Miami auto repair, collision repair Miami, exotic car rental South Beach, luxury car towing Brickell, car wraps Coral Gables, PPF Miami Beach, emergency towing Miami Dade",
     canonicalUrl: "/"
   },
