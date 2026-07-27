@@ -167,7 +167,7 @@ const Sales = () => {
           <div className="bg-card rounded-lg border border-neon-purple/30 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
               <img src={selectedCar.image} alt={`${selectedCar.category} - ${selectedCar.title}`} className="w-full h-64 object-cover rounded-t-lg" />
-              <button onClick={() => setSelectedCar(null)} className="absolute top-4 right-4 bg-black/80 text-white p-2 rounded-full hover:bg-black">
+              <button onClick={() => setSelectedCar(null)} aria-label="Close vehicle details" className="absolute top-4 right-4 bg-black/80 text-white p-2 rounded-full hover:bg-black">
                 ✕
               </button>
             </div>

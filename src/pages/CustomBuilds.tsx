@@ -5,7 +5,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData } from "@/utils/seo";
+import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -85,7 +85,7 @@ const CustomBuilds = () => {
     <>
       <SEOHead 
         seoData={pageSEO.customBuilds}
-        structuredData={generateStructuredData('service', 'Custom Builds')}
+        structuredData={[generateStructuredData('service', 'Custom Builds'), generateFAQStructuredData(faqs)]}
       />
       <div className="min-h-screen bg-background">
         <Navigation />

@@ -16,7 +16,7 @@ import OptimizedImage from "@/components/ui/optimized-image";
 import ImageSkeleton from "@/components/ui/image-skeleton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 import { Phone, Star, Wrench, Truck, Car, Palette, ArrowRight, MapPin, Clock, CheckCircle, Mail } from "lucide-react";
-import { pageSEO, generateStructuredData } from "@/utils/seo";
+import { pageSEO, generateStructuredData, generateFAQStructuredData, websiteStructuredData } from "@/utils/seo";
 import { sanitizeInput, validateEmail, isRateLimited } from "@/utils/security";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { useToast } from "@/hooks/use-toast";
@@ -222,7 +222,7 @@ const Index = () => {
 
   return (
     <>
-      <SEOHead seoData={pageSEO.home} structuredData={generateStructuredData('home')} />
+      <SEOHead seoData={pageSEO.home} structuredData={[generateStructuredData('home'), generateFAQStructuredData(faqs), websiteStructuredData]} />
       <div className="min-h-screen bg-background">
         <Navigation />
 
@@ -340,7 +340,7 @@ const Index = () => {
                           {service.description}
                         </p>
                         <div className="flex items-center text-neon-cyan group-hover:text-neon-pink transition-colors duration-300">
-                          <span className="font-medium">Learn More</span>
+                          <span className="font-medium">Learn more about {service.title}</span>
                           <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform duration-300" size={16} />
                         </div>
                       </div>

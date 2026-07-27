@@ -4,7 +4,7 @@ import { SEOData, defaultSEO } from '@/utils/seo';
 
 interface SEOHeadProps {
   seoData?: Partial<SEOData>;
-  structuredData?: object;
+  structuredData?: object | object[];
 }
 
 const SEOHead = ({ seoData = {}, structuredData }: SEOHeadProps) => {
