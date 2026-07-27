@@ -75,7 +75,7 @@ export const pageSEO = {
     title: "Terms and Conditions | The Showroom Miami | Service Agreement",
     description: "Read The Showroom Miami's terms and conditions covering our automotive services, rental policies, and service agreements in Miami, Florida.",
     keywords: "terms and conditions, service agreement, Showroom Miami terms, auto repair terms, exotic car rental terms Miami",
-    canonicalUrl: "/termsofservice"
+    canonicalUrl: "/terms-of-service"
   }
 };
 
