@@ -9,7 +9,7 @@ import SocialProof from "@/components/conversion/SocialProof";
 import { Button } from "@/components/ui/button";
 import { Phone, Star, CreditCard, Clock, Shield, Users, CheckCircle, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData } from "@/utils/seo";
+import { pageSEO, getPageStructuredData } from "@/utils/seo";
 
 const Finance = () => {
   const financingBenefits = [
@@ -48,7 +48,7 @@ const Finance = () => {
     <>
       <SEOHead 
         seoData={pageSEO.finance}
-        structuredData={generateStructuredData('service', 'Auto Financing')}
+        structuredData={getPageStructuredData('finance')}
       />
       <div className="min-h-screen bg-background">
         <Navigation />

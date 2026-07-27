@@ -5,7 +5,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
-import { pageSEO, generateStructuredData, generateFAQStructuredData } from "@/utils/seo";
+import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -56,18 +56,13 @@ const ExoticRentals = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "How do I check vehicle availability?",
-      answer: "Use our booking form to submit your rental request, or call us at 305-419-8379. We'll check real-time availability and help you select the perfect vehicle for your dates."
-    }
-  ];
+  const faqs = pageFAQs.exoticRentals;
 
   return (
     <>
-      <SEOHead 
+      <SEOHead
         seoData={pageSEO.exoticRentals}
-        structuredData={[generateStructuredData('service', 'Exotic Rentals'), generateFAQStructuredData(faqs)]}
+        structuredData={getPageStructuredData('exoticRentals')}
       />
       <div className="min-h-screen bg-background">
         <Navigation />
