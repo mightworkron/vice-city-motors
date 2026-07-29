@@ -3,8 +3,6 @@
  * Rendered by SocialProof.tsx and reused on every page — single source of truth, same
  * pattern as src/config/business.ts. Do not invent or edit the wording: these must match
  * the reviewer's name, star rating, and text exactly as published on Google.
- *
- * Replace each REPLACE_WITH_... placeholder before merging.
  */
 
 export interface GoogleReview {
@@ -14,9 +12,9 @@ export interface GoogleReview {
 }
 
 export const GOOGLE_REVIEWS: GoogleReview[] = [
-  { author: "REPLACE_WITH_REVIEWER_1_NAME", rating: 5, text: "REPLACE_WITH_REVIEW_1_TEXT" },
-  { author: "REPLACE_WITH_REVIEWER_2_NAME", rating: 5, text: "REPLACE_WITH_REVIEW_2_TEXT" },
-  { author: "REPLACE_WITH_REVIEWER_3_NAME", rating: 5, text: "REPLACE_WITH_REVIEW_3_TEXT" },
-  { author: "REPLACE_WITH_REVIEWER_4_NAME", rating: 5, text: "REPLACE_WITH_REVIEW_4_TEXT" },
-  { author: "REPLACE_WITH_REVIEWER_5_NAME", rating: 5, text: "REPLACE_WITH_REVIEW_5_TEXT" }
+  { author: "Lisa Washington", rating: 5, text: "He is the best in the world. Jon saved me. Thank you" },
+  { author: "sara naranjo", rating: 5, text: "Love this shop" },
+  { author: "Breslev Learning Center", rating: 5, text: "Perfect work and great people" },
+  { author: "itay -p-s-i", rating: 5, text: "No shortcuts clean high end work" },
+  { author: "Sophie Sotelo", rating: 5, text: "The repairs invincible looks factory" }
 ];
