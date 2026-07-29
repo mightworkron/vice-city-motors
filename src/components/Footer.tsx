@@ -1,8 +1,10 @@
 
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Clock, Instagram, Mail, Facebook } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, Mail, Facebook, Star } from "lucide-react";
+import { GBP_PLACE_ID, GBP_PROFILE_URL, GBP_RATING, GBP_REVIEW_COUNT } from "@/config/business";
 
 const Footer = () => {
+  const hasGbpStats = GBP_RATING !== null && GBP_REVIEW_COUNT !== null;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,10 +16,30 @@ const Footer = () => {
             <span className="neon-text">Find Us</span>
           </h3>
           <div className="relative rounded-lg overflow-hidden neon-border">
-            <iframe title="Google Maps location of The Showroom Miami, 7820 NW 6th Ct, Miami, FL" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.8234567890123!2d-80.2234567890123!3d25.8234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s7820%20NW%206th%20Ct%2C%20Miami%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" width="100%" height="300" style={{
+            <iframe title="Google Maps location of The Showroom Miami, 7820 NW 6th Ct, Miami, FL" src={`https://maps.google.com/maps?q=place_id:${GBP_PLACE_ID}&output=embed`} width="100%" height="300" style={{
             border: 0
           }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full" />
           </div>
+          <a
+            href={GBP_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View The Showroom Miami's Google Business Profile and reviews"
+            className="mt-4 inline-flex items-center gap-2 text-gray-300 hover:text-neon-pink transition-colors duration-300"
+          >
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="text-neon-cyan" size={14} fill="currentColor" />
+              ))}
+            </div>
+            {hasGbpStats ? (
+              <span className="text-sm">
+                {GBP_RATING!.toFixed(1)} ({GBP_REVIEW_COUNT} reviews) on Google
+              </span>
+            ) : (
+              <span className="text-sm">See our reviews on Google</span>
+            )}
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

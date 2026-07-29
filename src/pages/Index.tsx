@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -271,6 +272,7 @@ const Index = () => {
             </a>
 
             <TrustBadge />
+            <GoogleReviewBadge variant="hero" className="mt-4" />
           </div>
         </header>
 

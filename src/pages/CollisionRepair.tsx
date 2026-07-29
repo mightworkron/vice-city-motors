@@ -9,6 +9,7 @@ import TrustBadge from "@/components/conversion/TrustBadge";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 
@@ -268,6 +269,10 @@ const CollisionRepair = () => {
             subtitle="Call now for immediate assistance. We handle everything - from paperwork to final delivery. Your car will look better than before the accident, guaranteed."
             phoneText="Call 305-419-8379 Now"
           />
+
+          <div className="text-center pb-12">
+            <GoogleReviewBadge variant="discreet" />
+          </div>
         </main>
 
         <Footer />
