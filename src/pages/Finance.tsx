@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SEOHead from "@/components/SEOHead";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import CTASection from "@/components/conversion/CTASection";
 import SocialProof from "@/components/conversion/SocialProof";
 import { Button } from "@/components/ui/button";
@@ -91,9 +91,9 @@ const Finance = () => {
                 Get approved in minutes • All Credit Types • Rates as low as 2.9% APR
               </p>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-8">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>

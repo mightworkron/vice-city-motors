@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
-import TrustBadge from "@/components/conversion/TrustBadge";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
@@ -92,9 +91,9 @@ const CollisionRepair = () => {
                 Same day estimate • Insurance accepted • 2-5 day completion
               </p>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-8">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>

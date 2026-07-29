@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import TrustBadge from "@/components/conversion/TrustBadge";
 import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
@@ -271,8 +270,7 @@ const Index = () => {
               305-419-8379
             </a>
 
-            <TrustBadge />
-            <GoogleReviewBadge variant="hero" className="mt-4" />
+            <GoogleReviewBadge variant="hero" className="mt-6" />
           </div>
         </header>
 

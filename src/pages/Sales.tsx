@@ -4,7 +4,7 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import SEOHead from "@/components/SEOHead";
 import SocialProof from "@/components/conversion/SocialProof";
 import CTASection from "@/components/conversion/CTASection";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Eye, DollarSign, Calendar, Gauge, Star } from "lucide-react";
@@ -100,7 +100,7 @@ const Sales = () => {
               </Button>
             </a>
           </div>
-          <TrustBadge className="justify-center" />
+          <GoogleReviewBadge variant="hero" className="mx-auto" />
         </div>
       </section>
 

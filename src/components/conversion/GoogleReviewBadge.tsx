@@ -30,6 +30,7 @@ const GoogleReviewBadge = ({ variant = "hero", className = "" }: GoogleReviewBad
     <div className={`inline-flex flex-col sm:flex-row items-center gap-3 ${className}`}>
       {hasStats && (
         <div className="inline-flex items-center gap-2 bg-gradient-to-r from-neon-purple/20 to-neon-blue/20 rounded-lg px-4 py-2">
+          <span className="text-white font-medium text-sm">Google Reviews</span>
           <div className="flex">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="text-neon-cyan" size={16} fill="currentColor" />

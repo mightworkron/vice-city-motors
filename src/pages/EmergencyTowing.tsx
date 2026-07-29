@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, AlertTriangle, CheckCircle, Shield, Clock, Truck, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
@@ -88,9 +88,9 @@ const EmergencyTowing = () => {
                 Hydraulic flatbeds • 24/7 availability • Exotic car specialists
               </p>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-8">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>

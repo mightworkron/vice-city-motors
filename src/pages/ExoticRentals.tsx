@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -105,9 +105,9 @@ const ExoticRentals = () => {
                 </p>
               </div>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-12">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>
