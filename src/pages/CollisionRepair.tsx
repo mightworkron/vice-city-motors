@@ -13,26 +13,6 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 
 const CollisionRepair = () => {
-  const testimonials = [
-    {
-      name: "Carlos Martinez",
-      location: "Brickell, Miami",
-      rating: 5,
-      text: "Hit-and-run damaged my BMW. Showroom Miami handled everything with insurance and had it looking brand new in 4 days. Incredible work!"
-    },
-    {
-      name: "Sofia Rodriguez", 
-      location: "South Beach, Miami",
-      rating: 5,
-      text: "Rear-ended on I-95. They picked up my car, dealt with State Farm directly, and delivered it back perfect. No hassle, no upfront costs."
-    },
-    {
-      name: "Michael Chen",
-      location: "Coral Gables, Miami",
-      rating: 5,
-      text: "Frame damage from parking garage accident. Their work exceeded factory quality. You can't even tell where the damage was."
-    }
-  ];
 
   const faqs = pageFAQs.collisionRepair;
 
@@ -196,7 +176,7 @@ const CollisionRepair = () => {
           <InsuranceLogosSlider />
 
           {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
+          <SocialProof />
 
           {/* Mid-Page CTA */}
           <CTASection 

@@ -23,26 +23,6 @@ const Finance = () => {
     "Gap insurance protection included"
   ];
 
-  const testimonials = [
-    {
-      name: "Marcus Rodriguez",
-      location: "Brickell, Miami",
-      rating: 5,
-      text: "The Showroom Miami made financing my McLaren 720S incredibly easy! Got approved in under 30 minutes with better rates than my bank offered."
-    },
-    {
-      name: "Isabella Chen",
-      location: "South Beach",
-      rating: 5,
-      text: "Even with my credit challenges, The Showroom Miami's financing team found me great options. Now I'm driving my dream Lamborghini Huracán!"
-    },
-    {
-      name: "David Thompson",
-      location: "Coral Gables",
-      rating: 5,
-      text: "The financing specialists at The Showroom Miami were incredible. They walked me through every step and got me the best deal on my Ferrari 488."
-    }
-  ];
 
   return (
     <>
@@ -179,10 +159,7 @@ const Finance = () => {
           </section>
 
           {/* Social Proof */}
-          <SocialProof 
-            testimonials={testimonials}
-            className="bg-black/40"
-          />
+          <SocialProof className="bg-black/40" />
 
           {/* Mid-Page CTA */}
           <CTASection

@@ -167,26 +167,6 @@ const Index = () => {
     "✓ Serving Brickell, South Beach, Coral Gables & beyond"
   ];
 
-  const testimonials = [
-    {
-      name: "Carlos Rodriguez",
-      location: "Brickell",
-      rating: 5,
-      text: "Hit and run on Brickell Ave. These guys handled everything with my insurance and had my BMW looking better than new in 3 days!"
-    },
-    {
-      name: "Maria Gonzalez",
-      location: "South Beach",
-      rating: 5,
-      text: "Rented a Lamborghini for my wedding. They delivered it to the Fontainebleau perfectly detailed. Made our day magical!"
-    },
-    {
-      name: "David Chen",
-      location: "Coral Gables",
-      rating: 5,
-      text: "Custom wrap on my McLaren came out incredible. Everyone asks where I got it done. Miami's best hands down."
-    }
-  ];
 
   const faqs = pageFAQs.home;
 
@@ -361,7 +341,7 @@ const Index = () => {
           </section>
 
           {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
+          <SocialProof />
 
           {/* FAQ Section */}
           <FAQSection faqs={faqs} />

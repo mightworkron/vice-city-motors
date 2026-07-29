@@ -23,26 +23,6 @@ const CustomBuilds = () => {
     "Comprehensive consultation throughout the build process"
   ];
 
-  const testimonials = [
-    {
-      name: "Alex Rodriguez",
-      location: "Design District",
-      rating: 5,
-      text: "My custom Mustang build exceeded every expectation. The performance gains and unique styling make it a true masterpiece."
-    },
-    {
-      name: "Samantha Lee", 
-      location: "Brickell",
-      rating: 5,
-      text: "The interior customization work was phenomenal. Every detail reflects my vision perfectly. Absolutely love my custom BMW."
-    },
-    {
-      name: "Miguel Santos",
-      location: "Little Havana", 
-      rating: 5,
-      text: "From concept to completion, the team delivered a show-stopping custom truck. The craftsmanship is top-tier."
-    }
-  ];
 
   const faqs = pageFAQs.customBuilds;
 
@@ -294,7 +274,7 @@ const CustomBuilds = () => {
           </section>
 
           {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
+          <SocialProof />
 
           {/* FAQ Section */}
           <FAQSection faqs={faqs} />

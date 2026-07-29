@@ -22,26 +22,6 @@ const EmergencyTowing = () => {
     "Professional drivers trained in luxury vehicle handling"
   ];
 
-  const testimonials = [
-    {
-      name: "Alexandra Martinez",
-      location: "South Beach, Miami", 
-      rating: 5,
-      text: "Broke down on Collins Ave at midnight. They arrived in 12 minutes with the perfect equipment for my McLaren. No damage whatsoever!"
-    },
-    {
-      name: "Roberto Silva",
-      location: "Brickell, Miami",
-      rating: 5,
-      text: "Battery died in downtown Miami. Called these guys and they were there in 20 minutes. Professional service and fair pricing."
-    },
-    {
-      name: "Jennifer Chen",
-      location: "Coral Gables, Miami",
-      rating: 5,
-      text: "Flat tire on my Lamborghini on I-95. Their hydraulic flatbed was perfect - my car arrived at the shop without a single scratch."
-    }
-  ];
 
   const faqs = pageFAQs.emergencyTowing;
   
@@ -174,7 +154,7 @@ const EmergencyTowing = () => {
           </section>
 
           {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
+          <SocialProof />
 
           {/* Mid-Page CTA */}
           <CTASection 
