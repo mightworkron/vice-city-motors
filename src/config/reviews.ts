@@ -16,5 +16,6 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
   { author: "sara naranjo", rating: 5, text: "Love this shop" },
   { author: "Breslev Learning Center", rating: 5, text: "Perfect work and great people" },
   { author: "itay -p-s-i", rating: 5, text: "No shortcuts clean high end work" },
-  { author: "Sophie Sotelo", rating: 5, text: "The repairs invincible looks factory" }
+  { author: "Sophie Sotelo", rating: 5, text: "The repairs invincible looks factory" },
+  { author: "Facundo Martinez", rating: 5, text: "They took a stressful situation and made it manageable. They explained each step, provided updates, and delivered..." }
 ];
