@@ -1,3 +1,4 @@
+import { GBP_PROFILE_URL } from "@/config/business";
 
 export interface SEOData {
   title: string;
@@ -151,7 +152,8 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
     },
     "sameAs": [
       "https://www.instagram.com/theshowroommiami",
-      "https://www.facebook.com/theshowroommiami"
+      "https://www.facebook.com/theshowroommiami",
+      GBP_PROFILE_URL
     ]
   };
 

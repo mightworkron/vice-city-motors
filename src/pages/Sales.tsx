@@ -4,7 +4,7 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import SEOHead from "@/components/SEOHead";
 import SocialProof from "@/components/conversion/SocialProof";
 import CTASection from "@/components/conversion/CTASection";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Eye, DollarSign, Calendar, Gauge, Star } from "lucide-react";
@@ -32,22 +32,6 @@ const Sales = () => {
   // Empty car inventory - ready for future additions
   const cars: Car[] = [];
 
-  const testimonials = [{
-    name: "Marcus Rodriguez",
-    location: "Brickell, Miami",
-    rating: 5,
-    text: "Amazing selection of premium vehicles at The Showroom Miami. Professional team made the entire process seamless from start to finish."
-  }, {
-    name: "Sarah Chen",
-    location: "South Beach, FL",
-    rating: 5,
-    text: "Exceptional service and quality vehicles. They helped me find exactly what I was looking for with great financing options."
-  }, {
-    name: "David Martinez",
-    location: "Coral Gables, FL",
-    rating: 5,
-    text: "The Showroom Miami exceeded my expectations. Transparent pricing and professional service throughout the entire experience."
-  }];
 
   const categories = ["All", "Economy", "Luxury", "Sports", "Supercar", "SUV"];
   const filteredCars = filterCategory === "All" ? cars : cars.filter(car => car.category === filterCategory);
@@ -100,7 +84,7 @@ const Sales = () => {
               </Button>
             </a>
           </div>
-          <TrustBadge className="justify-center" />
+          <GoogleReviewBadge variant="hero" className="mx-auto" />
         </div>
       </section>
 
@@ -227,7 +211,7 @@ const Sales = () => {
         </div>}
 
       {/* Social Proof Section */}
-      <SocialProof testimonials={testimonials} className="bg-black/50" />
+      <SocialProof className="bg-black/50" />
 
       {/* Final CTA Section */}
       <CTASection title="Ready to Find Your Perfect Car?" subtitle="Our premium inventory is being carefully curated. Call us to discuss your specific requirements and get notified when matching vehicles arrive." phoneText="Call 305-419-8379 Now" className="bg-gradient-to-r from-neon-purple/10 to-neon-blue/10" />

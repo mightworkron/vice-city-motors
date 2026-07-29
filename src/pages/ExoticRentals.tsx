@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Car, Star, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -35,26 +35,6 @@ const ExoticRentals = () => {
     "24/7 customer support for any needs during rental"
   ];
 
-  const testimonials = [
-    {
-      name: "Marcus Rivera",
-      location: "South Beach",
-      rating: 5,
-      text: "The Lamborghini Huracán made my wedding day absolutely perfect. The delivery was seamless and the car was immaculate."
-    },
-    {
-      name: "Jennifer Collins", 
-      location: "Brickell",
-      rating: 5,
-      text: "Impressed my clients with the Bentley Flying Spur. Professional service from start to finish."
-    },
-    {
-      name: "David Martinez",
-      location: "Coral Gables", 
-      rating: 5,
-      text: "The concierge service was incredible. They handled everything so I could just enjoy driving the McLaren."
-    }
-  ];
 
   const faqs = pageFAQs.exoticRentals;
 
@@ -105,9 +85,9 @@ const ExoticRentals = () => {
                 </p>
               </div>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-12">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>
@@ -312,7 +292,7 @@ const ExoticRentals = () => {
         </section>
 
         {/* Social Proof */}
-        <SocialProof testimonials={testimonials} />
+        <SocialProof />
 
         {/* FAQ Section */}
         <FAQSection faqs={faqs} />

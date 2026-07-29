@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Palette, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -25,26 +25,6 @@ const WrapsAndTints = () => {
     "Long-lasting results with comprehensive warranties"
   ];
 
-  const testimonials = [
-    {
-      name: "Carlos Rodriguez",
-      location: "Wynwood",
-      rating: 5,
-      text: "The matte black wrap on my BMW looks incredible. The quality and attention to detail exceeded my expectations."
-    },
-    {
-      name: "Michelle Torres", 
-      location: "Aventura",
-      rating: 5,
-      text: "PPF installation was flawless. You can't even tell it's there, but I have peace of mind knowing my paint is protected."
-    },
-    {
-      name: "Antonio Silva",
-      location: "Miami Beach", 
-      rating: 5,
-      text: "Ceramic tint made such a difference in comfort and privacy. Professional job from start to finish."
-    }
-  ];
 
   const faqs = pageFAQs.wrapsAndTints;
 
@@ -96,9 +76,9 @@ const WrapsAndTints = () => {
                 </p>
               </div>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-8">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>
@@ -240,7 +220,7 @@ const WrapsAndTints = () => {
         </section>
 
         {/* Social Proof */}
-        <SocialProof testimonials={testimonials} />
+        <SocialProof />
 
         {/* FAQ Section */}
         <FAQSection faqs={faqs} />

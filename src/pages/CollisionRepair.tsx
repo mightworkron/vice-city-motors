@@ -5,34 +5,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Shield, Clock, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, pageFAQs, getPageStructuredData } from "@/utils/seo";
-import TrustBadge from "@/components/conversion/TrustBadge";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
 
 const CollisionRepair = () => {
-  const testimonials = [
-    {
-      name: "Carlos Martinez",
-      location: "Brickell, Miami",
-      rating: 5,
-      text: "Hit-and-run damaged my BMW. Showroom Miami handled everything with insurance and had it looking brand new in 4 days. Incredible work!"
-    },
-    {
-      name: "Sofia Rodriguez", 
-      location: "South Beach, Miami",
-      rating: 5,
-      text: "Rear-ended on I-95. They picked up my car, dealt with State Farm directly, and delivered it back perfect. No hassle, no upfront costs."
-    },
-    {
-      name: "Michael Chen",
-      location: "Coral Gables, Miami",
-      rating: 5,
-      text: "Frame damage from parking garage accident. Their work exceeded factory quality. You can't even tell where the damage was."
-    }
-  ];
 
   const faqs = pageFAQs.collisionRepair;
 
@@ -91,9 +71,9 @@ const CollisionRepair = () => {
                 Same day estimate • Insurance accepted • 2-5 day completion
               </p>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-8">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>
@@ -196,7 +176,7 @@ const CollisionRepair = () => {
           <InsuranceLogosSlider />
 
           {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
+          <SocialProof />
 
           {/* Mid-Page CTA */}
           <CTASection 
@@ -268,6 +248,10 @@ const CollisionRepair = () => {
             subtitle="Call now for immediate assistance. We handle everything - from paperwork to final delivery. Your car will look better than before the accident, guaranteed."
             phoneText="Call 305-419-8379 Now"
           />
+
+          <div className="text-center pb-12">
+            <GoogleReviewBadge variant="discreet" />
+          </div>
         </main>
 
         <Footer />

@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import TrustBadge from "@/components/conversion/TrustBadge";
+import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Phone, CheckCircle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -23,26 +23,6 @@ const CustomBuilds = () => {
     "Comprehensive consultation throughout the build process"
   ];
 
-  const testimonials = [
-    {
-      name: "Alex Rodriguez",
-      location: "Design District",
-      rating: 5,
-      text: "My custom Mustang build exceeded every expectation. The performance gains and unique styling make it a true masterpiece."
-    },
-    {
-      name: "Samantha Lee", 
-      location: "Brickell",
-      rating: 5,
-      text: "The interior customization work was phenomenal. Every detail reflects my vision perfectly. Absolutely love my custom BMW."
-    },
-    {
-      name: "Miguel Santos",
-      location: "Little Havana", 
-      rating: 5,
-      text: "From concept to completion, the team delivered a show-stopping custom truck. The craftsmanship is top-tier."
-    }
-  ];
 
   const faqs = pageFAQs.customBuilds;
 
@@ -116,9 +96,9 @@ const CustomBuilds = () => {
                 </p>
               </div>
               
-              {/* Trust Badge at bottom of hero */}
+              {/* Google Reviews badge at bottom of hero */}
               <div className="mt-8">
-                <TrustBadge className="mx-auto" />
+                <GoogleReviewBadge variant="hero" className="mx-auto" />
               </div>
             </div>
           </div>
@@ -294,7 +274,7 @@ const CustomBuilds = () => {
           </section>
 
           {/* Social Proof */}
-          <SocialProof testimonials={testimonials} />
+          <SocialProof />
 
           {/* FAQ Section */}
           <FAQSection faqs={faqs} />
