@@ -1,11 +1,17 @@
 
 import { Link } from "react-router-dom";
 import { Phone, MapPin, Clock, Instagram, Mail, Facebook, Star } from "lucide-react";
-import { GBP_PLACE_ID, GBP_PROFILE_URL, GBP_RATING, GBP_REVIEW_COUNT } from "@/config/business";
+import { BUSINESS_ADDRESS, GBP_PROFILE_URL, GBP_RATING, GBP_REVIEW_COUNT } from "@/config/business";
 
 const Footer = () => {
   const hasGbpStats = GBP_RATING !== null && GBP_REVIEW_COUNT !== null;
   const currentYear = new Date().getFullYear();
+  // The keyless `q=place_id:` embed doesn't reliably resolve to the pin/zoom level -
+  // it can fall back to a whole-world view. Querying by the formatted address zooms
+  // straight to the business instead, still with no API key required.
+  const mapQuery = encodeURIComponent(
+    `The Showroom Miami, ${BUSINESS_ADDRESS.streetAddress}, ${BUSINESS_ADDRESS.addressLocality}, ${BUSINESS_ADDRESS.addressRegion} ${BUSINESS_ADDRESS.postalCode}`
+  );
 
   return (
     <footer className="bg-black/90 border-t border-neon-purple/30 py-12">
@@ -16,7 +22,7 @@ const Footer = () => {
             <span className="neon-text">Find Us</span>
           </h3>
           <div className="relative rounded-lg overflow-hidden neon-border">
-            <iframe title="Google Maps location of The Showroom Miami, 7820 NW 6th Ct, Miami, FL" src={`https://maps.google.com/maps?q=place_id:${GBP_PLACE_ID}&output=embed`} width="100%" height="300" style={{
+            <iframe title="Google Maps location of The Showroom Miami, 7820 NW 6th Ct, Miami, FL" src={`https://maps.google.com/maps?q=${mapQuery}&z=15&output=embed`} width="100%" height="300" style={{
             border: 0
           }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full" />
           </div>
