@@ -1,0 +1,123 @@
+proyecto: "The Showroom Miami — Blog"
+ultima_actualizacion: "2026-09-09"
+contexto: >
+  Restructuracion de lineas de negocio de 6 a 7 (1 sep 2026). Ver handoff.md
+  para el contexto narrativo completo y el historial de decisiones.
+
+ubicacion_repo: "/docs/proyectos/blog/workplan.yml"
+
+fuente_de_verdad:
+  - "Este archivo (workplan.yml) es el tracker de fases tecnicas — estado y bloqueos."
+  - "handoff.md (misma carpeta) es el estado narrativo completo, para retomar el proyecto en cualquier chat nuevo."
+  - "decisiones.md (misma carpeta) es la bitacora de decisiones tomadas, categorizadas por tipo (ARQ-DAT-PRO-PRC-INF)."
+  - "El instructivo del proyecto (system prompt / Project Instructions) contiene las reglas estables — no se reescribe por cada avance de fase."
+  - "En caso de conflicto entre estos archivos y la memoria automatica de Claude, estos archivos ganan."
+  - "El workstream de Sitio Web tiene su propia terna equivalente en /docs/proyectos/web/."
+
+fases:
+  - id: 0
+    nombre: "Ratificacion de decision de tratamiento (lineas complementarias)"
+    estado: "en_progreso"
+    dueño: "Hikashi"
+    bloquea: []
+    descripcion: >
+      Reportar al eje de control la decision tomada en el chat de Blog (9 sep 2026):
+      exotic_rentals, financial y sales se tratan como referido/partner, nunca como
+      servicio directo de TSRM, con verificacion y complemento manual de todo el contenido.
+    entregable: "Confirmacion del eje de control (mensaje o decision formal registrada)."
+    riesgo: >
+      Si el eje de control rechaza o modifica esta decision, revertir cualquier
+      contenido ya generado bajo esta regla antes de publicar.
+
+  - id: 1
+    nombre: "Confirmar nombre real del enum de linea principal"
+    estado: "pendiente"
+    dueño: "Claude Code"
+    bloquea: [2, 3, 4, 5]
+    descripcion: >
+      Consultar directamente en Supabase (staging y produccion) los valores
+      actuales del enum linea_negocio. No asumir collision_repair ni
+      collision_repair_insurance — traer el valor real tal cual existe hoy.
+    entregable: "Lista exacta de los 6 valores vigentes del enum, confirmando cual es el de la linea principal."
+
+  - id: 2
+    nombre: "Migracion de enum linea_negocio (6 a 7 valores)"
+    estado: "bloqueada"
+    bloqueada_por: [1]
+    dueño: "Claude Code"
+    bloquea: [3, 4, 5]
+    descripcion: >
+      Agregar financial y sales como valores nuevos, separados de sales_finance.
+      Verificar si existen posts insertados con sales_finance y decidir su
+      reasignacion antes de deprecar el valor viejo. Corregir el nombre de la
+      linea principal si aplica segun resultado de fase 1.
+    orden_ejecucion: "staging primero, validar, luego replicar a produccion"
+
+  - id: 3
+    nombre: "Actualizar plantillas de prompt (6 a 7 lineas)"
+    estado: "bloqueada"
+    bloqueada_por: [2]
+    dueño: "Hikashi (con apoyo de este chat)"
+    bloquea: [5]
+    descripcion: >
+      Crear plantilla nueva para Financial. Separar Sales de la plantilla
+      combinada anterior (sales_finance). Incorporar el guardrail de
+      referido/partner + nota de verificacion manual en las 3 plantillas
+      complementarias (exotic_rentals, financial, sales).
+
+  - id: 4
+    nombre: "Actualizar checklist editorial y validaciones"
+    estado: "bloqueada"
+    bloqueada_por: [2]
+    dueño: "Hikashi"
+    bloquea: [5]
+    descripcion: >
+      Validar el campo linea_negocio contra el enum real ya migrado, no contra
+      un valor supuesto. Reforzar la casilla de "linea complementaria = referido
+      /partner + verificacion manual obligatoria" en el checklist editorial.
+
+  - id: 5
+    nombre: "Reanudar produccion de contenido"
+    estado: "bloqueada"
+    bloqueada_por: [2, 3, 4]
+    dueño: "Hikashi + Liza"
+    bloquea: []
+    descripcion: >
+      Retomar Post #1 (Collision Repair) con el nombre de enum ya confirmado.
+      Evaluar el primer post piloto de una linea complementaria bajo el nuevo
+      criterio de referido, una vez cerradas las fases 2 a 4.
+
+lineas_de_negocio:
+  core:
+    - id: "collision_repair_insurance"
+      nota_id: "NOMBRE DE ENUM SIN CONFIRMAR — ver fase 1, posible alternativa: collision_repair"
+      nombre_display: "Insurance, Collision & Repair"
+      estado_contenido: "activa"
+      regla_especial: "segmentar siempre audiencia gama alta/exotica vs. gama media-estandar"
+    - id: "towing"
+      nombre_display: "Towing"
+      estado_contenido: "activa"
+      restriccion: "nunca afirmar cobertura de autopistas (highway)"
+    - id: "custom_builds"
+      nombre_display: "Custom Builds"
+      estado_contenido: "bloqueada"
+      motivo_bloqueo: "faltan 2-3 casos reales documentados con fotos (Liza)"
+    - id: "wrap_ppf_tint"
+      nombre_display: "PPF - Wrap & Tint"
+      estado_contenido: "activa"
+  complementarias:
+    - id: "exotic_rentals"
+      nombre_display: "Rental Exotic Cars"
+      estado_contenido: "bloqueada"
+      motivo_bloqueo: "enum sin migrar; tratamiento definido (referido/partner) pendiente de ratificar con eje de control"
+      tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
+    - id: "financial"
+      nombre_display: "Financial"
+      estado_contenido: "bloqueada"
+      motivo_bloqueo: "enum nuevo sin migrar; falta documentacion de Liza; tratamiento pendiente de ratificar"
+      tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
+    - id: "sales"
+      nombre_display: "Sales"
+      estado_contenido: "bloqueada"
+      motivo_bloqueo: "enum nuevo sin migrar; falta documentacion de Liza; tratamiento pendiente de ratificar"
+      tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
