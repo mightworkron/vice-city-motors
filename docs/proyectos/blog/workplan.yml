@@ -1,5 +1,5 @@
 proyecto: "The Showroom Miami — Blog"
-ultima_actualizacion: "2026-09-09"
+ultima_actualizacion: "2026-09-10"
 contexto: >
   Restructuracion de lineas de negocio de 6 a 7 (1 sep 2026). Ver handoff.md
   para el contexto narrativo completo y el historial de decisiones.
@@ -13,6 +13,7 @@ fuente_de_verdad:
   - "El instructivo del proyecto (system prompt / Project Instructions) contiene las reglas estables — no se reescribe por cada avance de fase."
   - "En caso de conflicto entre estos archivos y la memoria automatica de Claude, estos archivos ganan."
   - "El workstream de Sitio Web tiene su propia terna equivalente en /docs/proyectos/web/."
+  - "Decisiones que cruzan satelites (ej. acceso MCP a Supabase) viven en docs/decisiones-transversales.md del repo theshowroommiami/erp — ver DT-002."
 
 fases:
   - id: 0
@@ -21,9 +22,13 @@ fases:
     dueño: "Hikashi"
     bloquea: []
     descripcion: >
-      Reportar al eje de control la decision tomada en el chat de Blog (9 sep 2026):
-      exotic_rentals, financial y sales se tratan como referido/partner, nunca como
-      servicio directo de TSRM, con verificacion y complemento manual de todo el contenido.
+      Reportar al eje de control: (a) la decision de tratamiento de lineas
+      complementarias tomada en el chat de Blog (9 sep 2026) — exotic_rentals,
+      financial y sales se tratan como referido/partner, nunca como servicio
+      directo de TSRM, con verificacion y complemento manual de todo el
+      contenido; (b) los hallazgos de nomenclatura real de schema (fase 1);
+      (c) DT-002, acceso MCP de Claude Code a Supabase, registrada en
+      docs/decisiones-transversales.md del repo theshowroommiami/erp.
     entregable: "Confirmacion del eje de control (mensaje o decision formal registrada)."
     riesgo: >
       Si el eje de control rechaza o modifica esta decision, revertir cualquier
@@ -31,32 +36,43 @@ fases:
 
   - id: 1
     nombre: "Confirmar nombre real del enum de linea principal"
-    estado: "pendiente"
+    estado: "completada"
     dueño: "Claude Code"
     bloquea: [2, 3, 4, 5]
     descripcion: >
       Consultar directamente en Supabase (staging y produccion) los valores
-      actuales del enum linea_negocio. No asumir collision_repair ni
-      collision_repair_insurance — traer el valor real tal cual existe hoy.
-    entregable: "Lista exacta de los 6 valores vigentes del enum, confirmando cual es el de la linea principal."
+      actuales del enum de linea de negocio.
+    hallazgo_real: >
+      El enum NO se llama linea_negocio — se llama post_linea_negocio. La
+      columna en la tabla posts tampoco se llama linea_negocio — se llama
+      linea. El valor de la linea principal era collision_repair_insurance
+      (confirmado, no collision_repair como se especulaba). Staging y
+      produccion coincidian entre si en este estado de partida.
+    entregable: "Lista exacta de los 6 valores vigentes del enum, confirmando cual es el de la linea principal — CUMPLIDO."
 
   - id: 2
-    nombre: "Migracion de enum linea_negocio (6 a 7 valores)"
-    estado: "bloqueada"
-    bloqueada_por: [1]
+    nombre: "Migracion de enum post_linea_negocio (6 a 7 valores)"
+    estado: "completada"
+    bloqueada_por: []
     dueño: "Claude Code"
-    bloquea: [3, 4, 5]
+    bloquea: []
     descripcion: >
-      Agregar financial y sales como valores nuevos, separados de sales_finance.
-      Verificar si existen posts insertados con sales_finance y decidir su
-      reasignacion antes de deprecar el valor viejo. Corregir el nombre de la
-      linea principal si aplica segun resultado de fase 1.
-    orden_ejecucion: "staging primero, validar, luego replicar a produccion"
+      Renombrar collision_repair_insurance a collision_repair. Agregar
+      financial y sales como valores nuevos. Eliminar sales_finance por
+      completo (decision de Hikashi: financial y sales quedan como lineas
+      totalmente separadas, no coexistiendo con el valor legado combinado).
+    diferencia_con_plan_original: >
+      El plan original preveia mantener sales_finance como valor legado
+      conviviendo con financial/sales. Se decidio eliminarlo, lo cual
+      requirio recrear el tipo enum completo (Postgres no soporta DROP
+      VALUE directo) en vez de solo agregar valores nuevos.
+    orden_ejecucion: "staging primero (validado), luego produccion (validado) — ambos entornos confirmados identicos: {collision_repair, towing, wrap_ppf_tint, exotic_rentals, custom_builds, financial, sales}"
+    verificacion_no_dato_perdido: "count(*) de filas con valores antiguos = 0 en ambos entornos antes de migrar columna (blog partia de cero, sin posts insertados)."
 
   - id: 3
     nombre: "Actualizar plantillas de prompt (6 a 7 lineas)"
-    estado: "bloqueada"
-    bloqueada_por: [2]
+    estado: "pendiente"
+    bloqueada_por: []
     dueño: "Hikashi (con apoyo de este chat)"
     bloquea: [5]
     descripcion: >
@@ -67,31 +83,32 @@ fases:
 
   - id: 4
     nombre: "Actualizar checklist editorial y validaciones"
-    estado: "bloqueada"
-    bloqueada_por: [2]
+    estado: "pendiente"
+    bloqueada_por: []
     dueño: "Hikashi"
     bloquea: [5]
     descripcion: >
-      Validar el campo linea_negocio contra el enum real ya migrado, no contra
-      un valor supuesto. Reforzar la casilla de "linea complementaria = referido
-      /partner + verificacion manual obligatoria" en el checklist editorial.
+      Validar el campo linea (columna real — no linea_negocio) contra el
+      enum post_linea_negocio ya migrado. Reforzar la casilla de "linea
+      complementaria = referido/partner + verificacion manual obligatoria"
+      en el checklist editorial.
 
   - id: 5
     nombre: "Reanudar produccion de contenido"
     estado: "bloqueada"
-    bloqueada_por: [2, 3, 4]
+    bloqueada_por: [3, 4]
     dueño: "Hikashi + Liza"
     bloquea: []
     descripcion: >
-      Retomar Post #1 (Collision Repair) con el nombre de enum ya confirmado.
-      Evaluar el primer post piloto de una linea complementaria bajo el nuevo
-      criterio de referido, una vez cerradas las fases 2 a 4.
+      Retomar Post #1 (Collision Repair) con el nombre de enum ya confirmado
+      (collision_repair, columna linea). Evaluar el primer post piloto de una
+      linea complementaria bajo el nuevo criterio de referido, una vez
+      cerradas las fases 3 y 4.
 
 lineas_de_negocio:
   core:
-    - id: "collision_repair_insurance"
-      nota_id: "NOMBRE DE ENUM SIN CONFIRMAR — ver fase 1, posible alternativa: collision_repair"
-      nombre_display: "Insurance, Collision & Repair"
+    - id: "collision_repair"
+      nombre_display: "Luxury Collision Repair"
       estado_contenido: "activa"
       regla_especial: "segmentar siempre audiencia gama alta/exotica vs. gama media-estandar"
     - id: "towing"
@@ -109,15 +126,15 @@ lineas_de_negocio:
     - id: "exotic_rentals"
       nombre_display: "Rental Exotic Cars"
       estado_contenido: "bloqueada"
-      motivo_bloqueo: "enum sin migrar; tratamiento definido (referido/partner) pendiente de ratificar con eje de control"
+      motivo_bloqueo: "tratamiento (referido/partner) pendiente de ratificar con eje de control — ver fase 0. Enum ya migrado, ya no es motivo de bloqueo."
       tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
     - id: "financial"
       nombre_display: "Financial"
       estado_contenido: "bloqueada"
-      motivo_bloqueo: "enum nuevo sin migrar; falta documentacion de Liza; tratamiento pendiente de ratificar"
+      motivo_bloqueo: "falta documentacion de Liza; tratamiento pendiente de ratificar. Enum ya migrado, ya no es motivo de bloqueo."
       tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
     - id: "sales"
       nombre_display: "Sales"
       estado_contenido: "bloqueada"
-      motivo_bloqueo: "enum nuevo sin migrar; falta documentacion de Liza; tratamiento pendiente de ratificar"
+      motivo_bloqueo: "falta documentacion de Liza; tratamiento pendiente de ratificar. Enum ya migrado, ya no es motivo de bloqueo."
       tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
