@@ -17,22 +17,26 @@ fuente_de_verdad:
 
 fases:
   - id: 0
-    nombre: "Ratificacion de decision de tratamiento (lineas complementarias)"
+    nombre: "Comunicado de cierre al Eje de Control"
     estado: "en_progreso"
     dueño: "Hikashi"
     bloquea: []
     descripcion: >
-      Reportar al eje de control: (a) la decision de tratamiento de lineas
-      complementarias tomada en el chat de Blog (9 sep 2026) — exotic_rentals,
-      financial y sales se tratan como referido/partner, nunca como servicio
-      directo de TSRM, con verificacion y complemento manual de todo el
-      contenido; (b) los hallazgos de nomenclatura real de schema (fase 1);
-      (c) DT-002, acceso MCP de Claude Code a Supabase, registrada en
+      Comunicado unidireccional al Eje de Control, no una ratificacion
+      pendiente: el satelite Blog reporta tres cosas ya resueltas localmente.
+      (a) El satelite Blog opera bajo DT-001 en todo el flujo editorial — voz
+      partner/directa/hibrida como norma de marca transversal, no como
+      decision editorial propia del Blog; (b) los hallazgos de fase 1 sobre
+      nomenclatura real de schema, documentados en DAT-002; (c) toma de nota
+      de DT-002 (acceso MCP de Claude Code a Supabase), registrada en
       docs/decisiones-transversales.md del repo theshowroommiami/gobernanza-tsm.
-    entregable: "Confirmacion del eje de control (mensaje o decision formal registrada)."
+    entregable: "Mensaje enviado al chat del Eje de Control confirmando el envio del comunicado."
     riesgo: >
-      Si el eje de control rechaza o modifica esta decision, revertir cualquier
-      contenido ya generado bajo esta regla antes de publicar.
+      Probabilidad baja de que el Eje objete la aplicacion de DT-001 en el
+      satelite Blog, dado que la decision es transversal y ya esta cerrada
+      (10 sep 2026). Si ocurriera, requeriria revisar las plantillas de
+      prompt de fase 3 antes de generar contenido en fase 5. No es bloqueante
+      para fase 3 ni fase 4.
 
   - id: 1
     nombre: "Confirmar nombre real del enum de linea principal"
@@ -176,5 +180,26 @@ bloques_emergentes:
         --read-only por defecto con escritura bajo demanda puntual.
       prioridad: "baja"
       estado: "abierta"
+
+    - id: "TD-04"
+      titulo: "Ausencia de artefacto tecnico de la migracion del enum en el repo"
+      descripcion: >
+        La migracion del enum post_linea_negocio de 6 a 7 valores en staging
+        y produccion (fases 1 y 2, 10 sep 2026) no dejo artefacto tecnico en
+        el repo — no hay carpeta supabase/migrations con el SQL versionado,
+        no hay log de salida del CLI commiteado, y
+        src/integrations/supabase/types.ts sigue con Enums vacio (relacionado
+        con TD-01). Toda la evidencia del estado real del enum es narrativa
+        de handoff.md, workplan.yml y decisiones.md, no verificable
+        independientemente desde el repo.
+      prioridad: "media"
+      estado: "abierta"
+      accion_requerida: >
+        Verificacion independiente contra Supabase (staging y produccion)
+        que confirme los 7 valores del enum y quede registrada en
+        handoff.md con fecha y query ejecutada. Requerida antes de F5
+        (arranque de produccion de contenido). Complementaria a TD-01
+        (regeneracion de tipos) — TD-04 verifica el estado real de la base;
+        TD-01 sincroniza el codigo con ese estado.
 
   preguntas_rfc: []

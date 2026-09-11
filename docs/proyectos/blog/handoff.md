@@ -102,14 +102,18 @@
 
 ## 8. Próxima acción concreta
 
-**F0 — Ratificación con el eje de control** sigue abierta y es la única fase
-bloqueante activa. Incluye tres cosas a reportar: (a) la decisión de
-tratamiento de líneas complementarias como referido/partner; (b) los
-hallazgos de nomenclatura real de schema (F1); (c) DT-002 (acceso MCP a
+**F0 — Comunicado de cierre pendiente de envío al Eje de Control, no
+bloqueante.** Ya no es una ratificación abierta: DT-001 cerró
+transversalmente la decisión de tratamiento el 10 sep 2026, así que F0 pasó
+a ser un reporte de cierre, no un ítem a ratificar. El comunicado cubre tres
+cosas ya resueltas localmente: (a) que el satélite Blog opera bajo DT-001 en
+todo el flujo editorial (voz partner/directa/híbrida como norma de marca
+transversal); (b) los hallazgos de nomenclatura real de schema (F1,
+documentados en DAT-002); (c) toma de nota de DT-002 (acceso MCP a
 Supabase). Responsable: Hikashi.
 
-En paralelo, **F3 (plantillas de prompt)** y **F4 (checklist editorial)** ya
-están desbloqueadas y pueden avanzar sin esperar a F0.
+**F0, F3 (plantillas de prompt) y F4 (checklist editorial) avanzan en
+paralelo, sin dependencia entre sí.**
 
 Pendiente transversal (no de este satélite): ver
 `docs/decisiones-transversales.md` del repo `theshowroommiami/gobernanza-tsm`

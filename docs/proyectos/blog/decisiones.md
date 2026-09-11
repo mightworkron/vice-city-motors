@@ -22,10 +22,10 @@
 
 ### DAT-001 — Restructuración de líneas de negocio (6 → 7)
 - **Fecha:** 1 sep 2026
-- **Estado:** Ratificada (esquema en sí); implementación técnica pendiente (ver workplan fase 1–2)
+- **Estado:** Ratificada. Implementación técnica completada en staging y producción el 10 sep 2026 (fases 1–2 del workplan). Nomenclatura real de schema documentada en DAT-002; eliminación de `sales_finance` (en vez de conservarlo como legado) documentada en ARQ-003.
 - **Alcance:** Blog + Sitio Web (ambos deben reflejar el mismo esquema)
 - **Descripción:** Se reemplaza el esquema de 6 líneas por 7: 4 core (TSRM presta directo) + 3 complementarias (solo referido/partner). Separa `sales_finance` en `financial` y `sales`.
-- **Pendiente derivado:** confirmar nombre real del enum de la línea principal en Supabase (`collision_repair` vs. `collision_repair_insurance`).
+- **Pendiente derivado:** Resuelto en fase 1 (10 sep 2026): el nombre real del enum es `post_linea_negocio` y el valor original de la línea principal era `collision_repair_insurance`, renombrado a `collision_repair` en la migración de fase 2. Ver DAT-002.
 
 ### PRO-001 — Tratamiento editorial de las 3 líneas complementarias
 - **Fecha:** 9 sep 2026
