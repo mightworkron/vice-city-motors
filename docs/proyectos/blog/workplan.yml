@@ -18,7 +18,7 @@ fuente_de_verdad:
 fases:
   - id: 0
     nombre: "Comunicado de cierre al Eje de Control"
-    estado: "en_progreso"
+    estado: "listo_para_envio"
     dueño: "Hikashi"
     bloquea: []
     descripcion: >
@@ -76,6 +76,7 @@ fases:
   - id: 3
     nombre: "Actualizar plantillas de prompt (6 a 7 lineas)"
     estado: "pendiente"
+    nota: "esperando revision de Liza sobre los 9 archivos disenados en sesion 2 del chat Claude.ai"
     bloqueada_por: []
     dueño: "Hikashi (con apoyo de este chat)"
     bloquea: [5]
@@ -87,7 +88,7 @@ fases:
 
   - id: 4
     nombre: "Actualizar checklist editorial y validaciones"
-    estado: "pendiente"
+    estado: "completada"
     bloqueada_por: []
     dueño: "Hikashi"
     bloquea: [5]
@@ -96,18 +97,19 @@ fases:
       enum post_linea_negocio ya migrado. Reforzar la casilla de "linea
       complementaria = referido/partner + verificacion manual obligatoria"
       en el checklist editorial.
+    entregable: "docs/proyectos/blog/checklist-editorial.md, commit f41cff8 en main."
 
   - id: 5
     nombre: "Reanudar produccion de contenido"
     estado: "bloqueada"
-    bloqueada_por: [3, 4]
+    bloqueada_por: [3]
     dueño: "Hikashi + Liza"
     bloquea: []
     descripcion: >
       Retomar Post #1 (Collision Repair) con el nombre de enum ya confirmado
       (collision_repair, columna linea). Evaluar el primer post piloto de una
       linea complementaria bajo el nuevo criterio de referido, una vez
-      cerradas las fases 3 y 4.
+      cerrada la fase 3.
 
 lineas_de_negocio:
   core:

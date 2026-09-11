@@ -17,6 +17,16 @@
 
 ## 1. Qué cambió recientemente (lo más importante primero)
 
+- **10 sep 2026 — Cierre de sesión (F0 redactada, F4 cerrada, F3 en pausa).**
+  F0 (comunicado al Eje de Control) quedó redactado y listo para pegar,
+  esperando el envío por Hikashi al chat del Master TSM. F4 (checklist
+  editorial) quedó cerrada y mergeada a `main` en el commit `f41cff8`. F3
+  (banco de prompts) está en pausa esperando revisión de Liza: 9 archivos
+  diseñados (README + Instructions + 7 plantillas) pero **no commiteados
+  todavía** — viven solo en el chat de Claude.ai hasta que Liza apruebe.
+  DT-003 también está diseñada pero no commiteada, por el mismo motivo.
+  TD-04 (verificación independiente del enum contra Supabase) sigue abierta,
+  no ejecutada.
 - **10 sep 2026 — F1 y F2 completadas.** Se consultó directamente Supabase
   (staging y producción) en vez de asumir nombres de la documentación previa.
   Hallazgos reales: el enum **no** se llama `linea_negocio`, se llama
@@ -66,12 +76,12 @@
 
 ## 3. Plan de fases (ver `workplan.yml` para el detalle machine-readable)
 
-0. Ratificar con el eje de control la decisión de tratamiento de líneas complementarias + hallazgos de schema (F1) + DT-002 — **en progreso, única fase bloqueante activa**
+0. Comunicado de cierre al Eje de Control (DT-001, hallazgos F1, DT-002) — **redactado, listo para envío por Hikashi**
 1. Confirmar nombre real del enum de línea principal en Supabase — **completada**
 2. Migrar enum `post_linea_negocio` de 6 a 7 valores (staging → prod) — **completada**
-3. Actualizar plantillas de prompt (crear Financial, separar Sales) — **pendiente, ya desbloqueada**
-4. Actualizar checklist editorial y validaciones — **pendiente, ya desbloqueada**
-5. Reanudar producción de contenido (Post #1 y primer piloto de línea complementaria) — **bloqueada por fases 3–4**
+3. Actualizar plantillas de prompt (crear Financial, separar Sales) — **en pausa, esperando revisión de Liza (9 archivos diseñados, sin commitear)**
+4. Actualizar checklist editorial y validaciones — **completada**
+5. Reanudar producción de contenido (Post #1 y primer piloto de línea complementaria) — **bloqueada por fase 3**
 
 ## 4. Infraestructura (estado estable salvo lo indicado)
 
@@ -102,18 +112,28 @@
 
 ## 8. Próxima acción concreta
 
-**F0 — Comunicado de cierre pendiente de envío al Eje de Control, no
-bloqueante.** Ya no es una ratificación abierta: DT-001 cerró
-transversalmente la decisión de tratamiento el 10 sep 2026, así que F0 pasó
-a ser un reporte de cierre, no un ítem a ratificar. El comunicado cubre tres
-cosas ya resueltas localmente: (a) que el satélite Blog opera bajo DT-001 en
-todo el flujo editorial (voz partner/directa/híbrida como norma de marca
+**Hikashi — acción inmediata:** pegar el comunicado F0 (ya redactado) en el
+chat del Master TSM. F0 no es una ratificación abierta: DT-001 cerró
+transversalmente la decisión de tratamiento el 10 sep 2026, así que F0 es un
+reporte de cierre, no un ítem a ratificar. El comunicado cubre tres cosas ya
+resueltas localmente: (a) que el satélite Blog opera bajo DT-001 en todo el
+flujo editorial (voz partner/directa/híbrida como norma de marca
 transversal); (b) los hallazgos de nomenclatura real de schema (F1,
 documentados en DAT-002); (c) toma de nota de DT-002 (acceso MCP a
-Supabase). Responsable: Hikashi.
+Supabase).
 
-**F0, F3 (plantillas de prompt) y F4 (checklist editorial) avanzan en
-paralelo, sin dependencia entre sí.**
+**Hikashi — segunda acción:** pasar los 9 archivos del banco de prompts (F3)
+más DT-003 a Liza para revisión. Ninguno de los dos está commiteado todavía.
+
+**Cuando Liza apruebe:** abrir una nueva sesión del satélite Blog para
+commitear F3 en `vice-city-motors` y DT-003 en `gobernanza-tsm`.
+
+**En paralelo, no bloquea F3:** TD-04 (verificación independiente del enum
+contra Supabase, aún sin ejecutar) y la auditoría de voz del satélite Sitio
+web/SEO (acción derivada de DT-001 + DT-003).
+
+**F4 (checklist editorial) ya está cerrada** — mergeada a `main` en el
+commit `f41cff8`.
 
 Pendiente transversal (no de este satélite): ver
 `docs/decisiones-transversales.md` del repo `theshowroommiami/gobernanza-tsm`
