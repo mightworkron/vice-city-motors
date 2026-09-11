@@ -1,5 +1,5 @@
 proyecto: "The Showroom Miami — Blog"
-ultima_actualizacion: "2026-09-10"
+ultima_actualizacion: "2026-09-11"
 contexto: >
   Restructuracion de lineas de negocio de 6 a 7 (1 sep 2026). Ver handoff.md
   para el contexto narrativo completo y el historial de decisiones.
@@ -18,7 +18,8 @@ fuente_de_verdad:
 fases:
   - id: 0
     nombre: "Comunicado de cierre al Eje de Control"
-    estado: "listo_para_envio"
+    estado: "completada"
+    fecha_ejecucion: "2026-09-11"
     dueño: "Hikashi"
     bloquea: []
     descripcion: >
@@ -31,6 +32,11 @@ fases:
       de DT-002 (acceso MCP de Claude Code a Supabase), registrada en
       docs/decisiones-transversales.md del repo theshowroommiami/gobernanza-tsm.
     entregable: "Mensaje enviado al chat del Eje de Control confirmando el envio del comunicado."
+    evidencia: >
+      Confirmado por Hikashi el 2026-09-11: comunicado pegado en el chat
+      del Master TSM. Accion humana ejecutada fuera de git, sin artefacto
+      versionable en el repo — ver docs/proyectos/blog/handoff.md, seccion
+      1 (entrada del 11 sep 2026) y seccion 8, para el registro narrativo.
     riesgo: >
       Probabilidad baja de que el Eje objete la aplicacion de DT-001 en el
       satelite Blog, dado que la decision es transversal y ya esta cerrada

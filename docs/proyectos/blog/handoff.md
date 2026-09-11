@@ -17,6 +17,19 @@
 
 ## 1. Qué cambió recientemente (lo más importante primero)
 
+- **11 sep 2026 — Cierre de las dos acciones humanas pendientes: comunicado
+  F0 enviado e instructivo v4 pegado en Claude.ai.** Hikashi pegó el
+  comunicado F0 en el chat del Master TSM, cerrando el reporte de DT-001 al
+  Eje de Control (ver detalle del contenido del comunicado en la sección 8).
+  Hikashi también pegó el instructivo v4
+  (`docs/proyectos/blog/instructivo-proyecto-claude-ai.md`, commit
+  `5faa774`) en el campo "Instrucciones del proyecto" del proyecto Blog TSM
+  en Claude.ai, cerrando el círculo repo ↔ Claude.ai para ese documento.
+  Ambas eran las dos acciones humanas pendientes señaladas en la sección 8
+  de este archivo y, la primera, en la fase 0 de `workplan.yml`. Ninguna de
+  las dos deja artefacto versionable en este repo más allá de esta entrada
+  — son acciones ejecutadas fuera de git (pegado manual en Claude.ai y en el
+  chat del Master TSM).
 - **11 sep 2026 — TD-04 cerrada: verificación independiente del enum
   `post_linea_negocio` contra Supabase staging y producción.** Ejecutada el
   2026-09-11 03:56:45 UTC, vía los MCP de Supabase scopeados por proyecto
@@ -64,13 +77,13 @@
   `src/integrations/supabase/types.ts`) sigue abierta — es tarea aparte, no
   se tocó en esta verificación.
 
-  Siguiente paso concreto tras este cierre: se mantienen los pasos ya
-  anotados — Hikashi pega el comunicado F0 en el chat del Master TSM si aún
-  no lo hizo; Hikashi pasa los 9 archivos de F3 más DT-003 a Liza para
-  revisión; cuando Liza apruebe, se abre una sesión nueva para commitear F3
-  en `vice-city-motors` y DT-003 en `gobernanza-tsm`. TD-04 se retira de la
-  lista "en paralelo, no bloquea F3" (sección 8) — ya no aplica, quedó
-  cerrada.
+  Siguiente paso concreto tras este cierre: Hikashi pasa los 9 archivos de
+  F3 más DT-003 a Liza para revisión; cuando Liza apruebe, se abre una
+  sesión nueva para commitear F3 en `vice-city-motors` y DT-003 en
+  `gobernanza-tsm`. (El envío del comunicado F0, mencionado antes como paso
+  pendiente, ya se cerró — ver la entrada de arriba, del mismo día.) TD-04
+  se retira de la lista "en paralelo, no bloquea F3" (sección 8) — ya no
+  aplica, quedó cerrada.
 - **10 sep 2026 — Cierre de sesión (F0 redactada, F4 cerrada, F3 en pausa).**
   F0 (comunicado al Eje de Control) quedó redactado y listo para pegar,
   esperando el envío por Hikashi al chat del Master TSM. F4 (checklist
@@ -166,17 +179,22 @@
 
 ## 8. Próxima acción concreta
 
-**Hikashi — acción inmediata:** pegar el comunicado F0 (ya redactado) en el
-chat del Master TSM. F0 no es una ratificación abierta: DT-001 cerró
-transversalmente la decisión de tratamiento el 10 sep 2026, así que F0 es un
-reporte de cierre, no un ítem a ratificar. El comunicado cubre tres cosas ya
-resueltas localmente: (a) que el satélite Blog opera bajo DT-001 en todo el
-flujo editorial (voz partner/directa/híbrida como norma de marca
+**Comunicado F0 — cerrado (11 sep 2026).** Hikashi pegó el comunicado F0 en
+el chat del Master TSM. F0 no era una ratificación abierta: DT-001 cerró
+transversalmente la decisión de tratamiento el 10 sep 2026, así que F0 fue
+un reporte de cierre, no un ítem a ratificar. El comunicado cubrió tres
+cosas ya resueltas localmente: (a) que el satélite Blog opera bajo DT-001 en
+todo el flujo editorial (voz partner/directa/híbrida como norma de marca
 transversal); (b) los hallazgos de nomenclatura real de schema (F1,
 documentados en DAT-002); (c) toma de nota de DT-002 (acceso MCP a
 Supabase).
 
-**Hikashi — segunda acción:** pasar los 9 archivos del banco de prompts (F3)
+**Instructivo v4 — cerrado (11 sep 2026).** Hikashi pegó
+`docs/proyectos/blog/instructivo-proyecto-claude-ai.md` (commit `5faa774`)
+en el campo "Instrucciones del proyecto" del proyecto Blog TSM en Claude.ai,
+cerrando el círculo repo ↔ Claude.ai para ese documento.
+
+**Hikashi — próxima acción:** pasar los 9 archivos del banco de prompts (F3)
 más DT-003 a Liza para revisión. Ninguno de los dos está commiteado todavía.
 
 **Cuando Liza apruebe:** abrir una nueva sesión del satélite Blog para
