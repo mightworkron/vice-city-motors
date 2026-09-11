@@ -11,12 +11,66 @@
 > `workplan.yml` y `decisiones.md` en la misma carpeta). El workstream de
 > Sitio Web tiene su propia terna equivalente en `/docs/proyectos/web/`.
 
-**Última actualización:** 10 sep 2026
+**Última actualización:** 11 sep 2026
 
 ---
 
 ## 1. Qué cambió recientemente (lo más importante primero)
 
+- **11 sep 2026 — TD-04 cerrada: verificación independiente del enum
+  `post_linea_negocio` contra Supabase staging y producción.** Ejecutada el
+  2026-09-11 03:56:45 UTC, vía los MCP de Supabase scopeados por proyecto
+  (`mcp__supabase-tsm-staging__execute_sql` y
+  `mcp__supabase-tsm-prod__execute_sql`, ambos de solo lectura para esta
+  operación — consistente con DT-002). Query SQL literal ejecutada, idéntica
+  en los dos entornos:
+
+  ```sql
+  -- 1. Tipo enum: nombre real y valores en orden
+  SELECT
+    n.nspname     AS schema,
+    t.typname     AS type_name,
+    e.enumlabel   AS enum_value,
+    e.enumsortorder AS sort_order
+  FROM pg_type t
+  JOIN pg_enum e         ON e.enumtypid  = t.oid
+  JOIN pg_namespace n    ON n.oid        = t.typnamespace
+  WHERE t.typname IN ('post_linea_negocio','linea_negocio')
+  ORDER BY t.typname, e.enumsortorder;
+
+  -- 2. Columna real en posts que usa ese tipo
+  SELECT
+    c.table_schema,
+    c.table_name,
+    c.column_name,
+    c.data_type,
+    c.udt_name
+  FROM information_schema.columns c
+  WHERE c.table_name = 'posts'
+    AND c.column_name IN ('linea','linea_negocio')
+  ORDER BY c.table_schema, c.column_name;
+
+  -- 3. Cantidad de posts (esperado: 0, blog parte de cero)
+  SELECT COUNT(*) AS total_posts FROM public.posts;
+  ```
+
+  Resultado: 7 valores del enum `post_linea_negocio`, idénticos en staging y
+  producción, mismo `sort_order` 1 a 7: `collision_repair`, `towing`,
+  `wrap_ppf_tint`, `exotic_rentals`, `custom_builds`, `financial`, `sales`.
+  Columna `posts.linea` con `udt_name = post_linea_negocio` en ambos
+  entornos. `total_posts = 0` en ambos. Ninguna ocurrencia de `sales_finance`
+  ni `collision_repair_insurance` en ninguno de los dos entornos. Conclusión:
+  TD-04 queda cerrada. TD-01 (regeneración de tipos en
+  `src/integrations/supabase/types.ts`) sigue abierta — es tarea aparte, no
+  se tocó en esta verificación.
+
+  Siguiente paso concreto tras este cierre: se mantienen los pasos ya
+  anotados — Hikashi pega el comunicado F0 en el chat del Master TSM si aún
+  no lo hizo; Hikashi pasa los 9 archivos de F3 más DT-003 a Liza para
+  revisión; cuando Liza apruebe, se abre una sesión nueva para commitear F3
+  en `vice-city-motors` y DT-003 en `gobernanza-tsm`. TD-04 se retira de la
+  lista "en paralelo, no bloquea F3" (sección 8) — ya no aplica, quedó
+  cerrada.
 - **10 sep 2026 — Cierre de sesión (F0 redactada, F4 cerrada, F3 en pausa).**
   F0 (comunicado al Eje de Control) quedó redactado y listo para pegar,
   esperando el envío por Hikashi al chat del Master TSM. F4 (checklist
@@ -128,9 +182,10 @@ más DT-003 a Liza para revisión. Ninguno de los dos está commiteado todavía.
 **Cuando Liza apruebe:** abrir una nueva sesión del satélite Blog para
 commitear F3 en `vice-city-motors` y DT-003 en `gobernanza-tsm`.
 
-**En paralelo, no bloquea F3:** TD-04 (verificación independiente del enum
-contra Supabase, aún sin ejecutar) y la auditoría de voz del satélite Sitio
-web/SEO (acción derivada de DT-001 + DT-003).
+**En paralelo, no bloquea F3:** la auditoría de voz del satélite Sitio
+web/SEO (acción derivada de DT-001 + DT-003). TD-04 (verificación
+independiente del enum contra Supabase) ya se ejecutó y cerró el 11 sep
+2026 — ver punto 1 más arriba.
 
 **F4 (checklist editorial) ya está cerrada** — mergeada a `main` en el
 commit `f41cff8`.

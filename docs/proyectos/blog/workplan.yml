@@ -195,7 +195,9 @@ bloques_emergentes:
         de handoff.md, workplan.yml y decisiones.md, no verificable
         independientemente desde el repo.
       prioridad: "media"
-      estado: "abierta"
+      estado: "cerrada"
+      fecha_verificacion: "2026-09-11"
+      evidencia: "<pendiente URL>"
       accion_requerida: >
         Verificacion independiente contra Supabase (staging y produccion)
         que confirme los 7 valores del enum y quede registrada en
