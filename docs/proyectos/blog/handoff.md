@@ -118,3 +118,12 @@ paralelo, sin dependencia entre sí.**
 Pendiente transversal (no de este satélite): ver
 `docs/decisiones-transversales.md` del repo `theshowroommiami/gobernanza-tsm`
 — DT-002, acceso MCP de Claude Code a Supabase (staging + producción).
+
+**Fuentes de verdad del satélite:**
+
+- `docs/proyectos/blog/checklist-editorial.md` — checklist de revisión por
+  post y registro trimestral. Fuente de verdad del flujo de revisión
+  editorial (F4).
+- `docs/proyectos/blog/decisiones.md` — decisiones locales del satélite.
+- `docs/proyectos/blog/workplan.yml` — estado real de fases y deuda
+  técnica.
