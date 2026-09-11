@@ -65,6 +65,27 @@
 - **Descripción:** Se establece CLAUDE.md en la raíz del repo como fuente de reglas para Claude Code, y /docs/proyectos/<workstream>/ (handoff.md, workplan.yml, decisiones.md) como esquema de documentación viva por workstream, separado de la memoria conversacional de cualquier interfaz.
 - **Origen:** definida en el chat de Blog.
 
+### DAT-002 — Corrección de nombres reales de schema
+- **Fecha:** 10 sep 2026
+- **Estado:** Ratificada
+- **Alcance:** Blog (impacta Sitio Web si en el futuro valida o inserta contra el mismo schema)
+- **Descripción:** El enum se llama `post_linea_negocio`, no `linea_negocio`. La columna en `posts` se llama `linea`, no `linea_negocio`. Estos nombres deben usarse en todo prompt o instrucción futura sobre este schema — la documentación previa tenía ambos incorrectos.
+- **Origen:** confirmado directamente contra Supabase (staging y producción) en la fase 1 del workplan.
+
+### ARQ-003 — Eliminación de sales_finance del enum
+- **Fecha:** 10 sep 2026
+- **Estado:** Ratificada
+- **Alcance:** Blog
+- **Descripción:** `financial` y `sales` quedan como líneas completamente separadas, no como alias de un valor combinado legado. `sales_finance` se eliminó del enum `post_linea_negocio` en staging y producción (requirió recreación completa del tipo, ya que Postgres no soporta `DROP VALUE` directo).
+- **Origen:** decisión de Hikashi — no tiene sentido mantener el valor legado una vez que las dos líneas tienen enum propio; mantenerlo habría sido solo ruido.
+
+### PRC-003 — Referencia cruzada a decisión transversal DT-002
+- **Fecha:** 10 sep 2026
+- **Estado:** Ratificada
+- **Alcance:** Blog (decisión en sí es transversal a todos los satélites)
+- **Descripción:** La configuración de acceso MCP a Supabase (tokens, scoping, permisos) es decisión transversal — ver DT-002 en `docs/decisiones-transversales.md` del repo `theshowroommiami/gobernanza-tsm`. No se repite el detalle acá.
+- **Origen:** definida en el chat de Blog, registrada formalmente como DT-002 en el repo de gobernanza.
+
 ---
 
 ## Plantilla para nueva entrada
