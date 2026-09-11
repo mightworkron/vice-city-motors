@@ -197,7 +197,7 @@ bloques_emergentes:
       prioridad: "media"
       estado: "cerrada"
       fecha_verificacion: "2026-09-11"
-      evidencia: "<pendiente URL>"
+      evidencia: "https://github.com/mightworkron/vice-city-motors/commit/1bc415f9d7db373c59347fef118ca78d79c9d5ea"
       accion_requerida: >
         Verificacion independiente contra Supabase (staging y produccion)
         que confirme los 7 valores del enum y quede registrada en
