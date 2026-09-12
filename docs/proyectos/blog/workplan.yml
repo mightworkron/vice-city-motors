@@ -85,9 +85,9 @@ fases:
     nota: >
       Liza ya reviso los 9 archivos de sesion 2 y devolvio observaciones;
       se aplicaron en sesion 3 (11 sep 2026) sobre 6 de los 9 (2 quedaron
-      sin cambios, validadas tal cual). El banco (8 archivos revisados +
-      2 sin cambios + 3 borradores de acta nuevos) espera auditoria de
-      cierre de Liza antes de commitear. Sigue sin existir en git.
+      sin cambios, validadas tal cual). El banco esta respaldado en la
+      rama f3/banco-prompts de vice-city-motors, sin mergear, y espera
+      auditoria de cierre de Liza antes de eso.
     bloqueada_por: []
     dueño: "Hikashi (con apoyo de este chat)"
     bloquea: [5]
@@ -221,13 +221,24 @@ bloques_emergentes:
     - id: "TD-05"
       titulo: "Campo Instructions del ChatGPT Project saturado"
       descripcion: >
-        El contenido pegable de project-instructions.md v1.3 ocupa 7983
+        El contenido pegable de project-instructions.md v1.3 ocupa 7942
         caracteres sobre un limite duro de 8000 en el campo Instructions
         del Project. Medido, no estimado. Cualquier regla nueva obliga a
         comprimir otra. Implicancia de arquitectura: el Rulebook
         institucional de Nivel 1 que propone Liza no cabe en Instructions
         y tiene que vivir como archivo del Sources.
       prioridad: "media"
+      estado: "abierta"
+
+    - id: "TD-06"
+      titulo: "Transporte git inconsistente entre repos hermanos"
+      descripcion: >
+        vice-city-motors usa SSH con id_ed25519_showroom; gobernanza-tsm
+        se clono por HTTPS via gh porque el clone por SSH fallo por la
+        config de alias (github-showroom vs host generico). Funciona,
+        pero dos repos hermanos con transportes distintos confunden a
+        sesiones futuras y dependen de dos mecanismos de auth distintos.
+      prioridad: "baja"
       estado: "abierta"
 
   preguntas_rfc: []

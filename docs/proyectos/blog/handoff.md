@@ -44,16 +44,21 @@
   permitida con límite de alcance). Se commitean junto con DT-003 y DT-004
   en el mismo bloque, cuando Liza apruebe.
 
-  Riesgo abierto al momento de este commit: los 9 archivos del banco y los
-  3 borradores de DT viven fuera de git — en el chat de Claude.ai, en la
-  descarga local de Hikashi, y los 9 del banco además en
-  `docs/proyectos/blog/prompts-chatgpt/` del working tree, sin commitear.
-  Mitigación planificada para el mismo día: respaldarlos en la rama
-  `f3/banco-prompts` de `vice-city-motors` y los borradores en
-  `dt/005-007-borrador` de `gobernanza-tsm`, ninguna de las dos mergeable
-  hasta la aprobación de Liza. Verificación para quien lea esto después:
-  `git ls-remote --heads origin f3/banco-prompts`. Si devuelve vacío, la
-  mitigación no se ejecutó y el riesgo sigue abierto en su forma original.
+  Riesgo mitigado el 11 sep 2026. Los 9 archivos del banco están
+  respaldados en la rama `f3/banco-prompts` de `vice-city-motors`
+  (https://github.com/mightworkron/vice-city-motors/tree/f3/banco-prompts),
+  junto con ESTADO-DE-LA-RAMA.md que marca el contenido como no aprobado.
+  Las actas DT-005, DT-006 y DT-007 están redactadas como PROPUESTA al
+  final de `docs/decisiones-transversales.md` en la rama
+  `dt/005-007-borrador` de `gobernanza-tsm`
+  (https://github.com/theshowroommiami/gobernanza-tsm/tree/dt/005-007-borrador),
+  precedidas de un aviso de que nada de lo que sigue es norma vigente, y
+  con DT-003 y DT-004 marcadas como RESERVADO porque nunca se escribieron.
+  Ninguna de las dos ramas se mergea hasta la aprobación de Liza. El
+  respaldo elimina el riesgo de pérdida; no implica aprobación ni convierte
+  el contenido en fuente de verdad. Verificación:
+  `git ls-remote --heads origin f3/banco-prompts` en vice-city-motors y
+  `git ls-remote --heads origin dt/005-007-borrador` en gobernanza-tsm.
 - **11 sep 2026 — Cierre de las dos acciones humanas pendientes: comunicado
   F0 enviado e instructivo v4 pegado en Claude.ai.** Hikashi pegó el
   comunicado F0 en el chat del Master TSM, cerrando el reporte de DT-001 al
@@ -195,6 +200,9 @@
 - PR #11 mergeado, deploy Netlify confirmado.
 - Flujo de estados de post: `draft` → `en_revision` → `aprobado` → `publicado` → `rechazado`.
 - **Acceso MCP a Supabase (10 sep 2026):** la conexión inicial usaba un legacy token de acceso a toda la cuenta, no scopeado a proyecto. Se reemplazó por dos tokens nuevos scopeados por proyecto y limitados a permisos de Database, hecho desde Claude Code en terminal; el legacy token fue revocado. Decisión y detalle completo en DT-002 (`docs/decisiones-transversales.md`, repo `theshowroommiami/gobernanza-tsm`) — es transversal, no se repite acá.
+- Repo `gobernanza-tsm` clonado el 11 sep 2026 en
+  /Users/hikashi/Documents/Proyectos-CC/TheShowRoomMiami/gobernanza-tsm,
+  hermano de vice-city-motors. Clonado por HTTPS vía gh — ver TD-06.
 
 ## 5. Cumplimiento — activo y bloqueado
 
@@ -260,3 +268,12 @@ Pendiente transversal (no de este satélite): ver
 - `docs/proyectos/blog/decisiones.md` — decisiones locales del satélite.
 - `docs/proyectos/blog/workplan.yml` — estado real de fases y deuda
   técnica.
+
+**Deuda de gobernanza — DT-003 y DT-004 nunca se escribieron.**
+Ambas se redactaron en la sesión 2 del satélite Blog y quedaron solo en
+esa conversación. DT-003 (Network Partner) ya está referenciada como
+vigente por `plantilla-sales.md`, por `project-instructions.md` y por el
+instructivo del proyecto — es decir, hay documentos apoyándose en un acta
+que no existe. Los números están reservados en la rama
+`dt/005-007-borrador`. La sesión 4 tiene que redactar las dos actas antes
+de mergear esa rama.
