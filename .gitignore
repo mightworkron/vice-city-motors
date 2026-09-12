@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Tooling directories (local, not part of the deployed site)
+.claude/
+.netlify/

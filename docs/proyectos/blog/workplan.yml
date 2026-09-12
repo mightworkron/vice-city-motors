@@ -82,7 +82,12 @@ fases:
   - id: 3
     nombre: "Actualizar plantillas de prompt (6 a 7 lineas)"
     estado: "pendiente"
-    nota: "esperando revision de Liza sobre los 9 archivos disenados en sesion 2 del chat Claude.ai"
+    nota: >
+      Liza ya reviso los 9 archivos de sesion 2 y devolvio observaciones;
+      se aplicaron en sesion 3 (11 sep 2026) sobre 6 de los 9 (2 quedaron
+      sin cambios, validadas tal cual). El banco (8 archivos revisados +
+      2 sin cambios + 3 borradores de acta nuevos) espera auditoria de
+      cierre de Liza antes de commitear. Sigue sin existir en git.
     bloqueada_por: []
     dueño: "Hikashi (con apoyo de este chat)"
     bloquea: [5]
@@ -138,17 +143,17 @@ lineas_de_negocio:
     - id: "exotic_rentals"
       nombre_display: "Rental Exotic Cars"
       estado_contenido: "bloqueada"
-      motivo_bloqueo: "tratamiento (referido/partner) pendiente de ratificar con eje de control — ver fase 0. Enum ya migrado, ya no es motivo de bloqueo."
+      motivo_bloqueo: "falta confirmar el aliado (Liza). Tratamiento ya no es motivo de bloqueo: DT-001 cerro la ratificacion el 10 sep y el comunicado F0 se envio el 11 sep. Enum ya migrado, tampoco es motivo de bloqueo."
       tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
     - id: "financial"
       nombre_display: "Financial"
       estado_contenido: "bloqueada"
-      motivo_bloqueo: "falta documentacion de Liza; tratamiento pendiente de ratificar. Enum ya migrado, ya no es motivo de bloqueo."
+      motivo_bloqueo: "falta confirmar el aliado (Liza). Tratamiento ya no es motivo de bloqueo: DT-001 cerro la ratificacion el 10 sep y el comunicado F0 se envio el 11 sep. Enum ya migrado, tampoco es motivo de bloqueo."
       tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
     - id: "sales"
       nombre_display: "Sales"
       estado_contenido: "bloqueada"
-      motivo_bloqueo: "falta documentacion de Liza; tratamiento pendiente de ratificar. Enum ya migrado, ya no es motivo de bloqueo."
+      motivo_bloqueo: "falta confirmar el aliado (Liza). Tratamiento ya no es motivo de bloqueo: DT-001 cerro la ratificacion el 10 sep y el comunicado F0 se envio el 11 sep. Enum ya migrado, tampoco es motivo de bloqueo."
       tratamiento: "referido/partner — nunca servicio directo de TSRM; contenido verificado y complementado manualmente"
 
 bloques_emergentes:
@@ -204,12 +209,25 @@ bloques_emergentes:
       estado: "cerrada"
       fecha_verificacion: "2026-09-11"
       evidencia: "https://github.com/mightworkron/vice-city-motors/commit/1bc415f9d7db373c59347fef118ca78d79c9d5ea"
-      accion_requerida: >
-        Verificacion independiente contra Supabase (staging y produccion)
-        que confirme los 7 valores del enum y quede registrada en
-        handoff.md con fecha y query ejecutada. Requerida antes de F5
-        (arranque de produccion de contenido). Complementaria a TD-01
-        (regeneracion de tipos) — TD-04 verifica el estado real de la base;
-        TD-01 sincroniza el codigo con ese estado.
+      accion_ejecutada: >
+        Se ejecuto la verificacion independiente contra Supabase (staging y
+        produccion): confirmo los 7 valores del enum y quedo registrada en
+        handoff.md con fecha y query ejecutada (11 sep 2026). Era requisito
+        previo a F5 (arranque de produccion de contenido) y complementaria
+        a TD-01 (regeneracion de tipos) — TD-04 verifico el estado real de
+        la base; TD-01 (todavia abierta) sincroniza el codigo con ese
+        estado.
+
+    - id: "TD-05"
+      titulo: "Campo Instructions del ChatGPT Project saturado"
+      descripcion: >
+        El contenido pegable de project-instructions.md v1.3 ocupa 7983
+        caracteres sobre un limite duro de 8000 en el campo Instructions
+        del Project. Medido, no estimado. Cualquier regla nueva obliga a
+        comprimir otra. Implicancia de arquitectura: el Rulebook
+        institucional de Nivel 1 que propone Liza no cabe en Instructions
+        y tiene que vivir como archivo del Sources.
+      prioridad: "media"
+      estado: "abierta"
 
   preguntas_rfc: []

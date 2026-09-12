@@ -17,6 +17,43 @@
 
 ## 1. Qué cambió recientemente (lo más importante primero)
 
+- **11 sep 2026 — Sesión 3: revisión de Liza aplicada al banco de F3, sin
+  commitear.** Liza revisó los 9 archivos del banco de prompts y devolvió
+  observaciones. Se clasificaron y se aplicaron sobre 6 de los 9.
+  `plantilla-sales.md` y `plantilla-financial.md` quedan sin cambios en 1.0
+  — Liza las validó tal cual. Versiones resultantes tras aplicar las
+  observaciones: `towing` 2.0, `collision_repair` 1.2, `wrap_ppf_tint` 1.2,
+  `custom_builds` 1.1, `exotic_rentals` 1.1, `project-instructions` 1.3,
+  `README` 1.2.
+
+  Dos hechos de negocio nuevos, confirmados por Hikashi el 11 sep 2026:
+  (1) la ejecución de Collision Repair y de Custom Builds es **mixta** —
+  operación propia más canalización de trabajos puntuales a talleres
+  licenciados de terceros. Las líneas siguen siendo directas y DT-001 no se
+  modifica; lo que cambia es que ninguna pieza puede afirmar que todo el
+  trabajo es in-house, ni atribuir la ejecución de un caso concreto sin
+  confirmarla. (2) TSM **no es towing company**: lo que presta es remolque
+  sin costo hacia el taller y de vuelta al cliente para vehículos que entran
+  a reparación por colisión, más transporte en flatbed de vehículos de
+  lujo, exóticos y de baja altura libre. Sin tarifas, sin despacho al
+  público, sin cobertura de highway.
+
+  A partir de estos hechos se redactaron borradores de tres actas nuevas
+  para `gobernanza-tsm`: DT-005 (transporte de cortesía), DT-006 (ejecución
+  mixta y Operational Status Gate) y DT-007 ("insurance" como keyword
+  permitida con límite de alcance). Se commitean junto con DT-003 y DT-004
+  en el mismo bloque, cuando Liza apruebe.
+
+  Riesgo abierto al momento de este commit: los 9 archivos del banco y los
+  3 borradores de DT viven fuera de git — en el chat de Claude.ai, en la
+  descarga local de Hikashi, y los 9 del banco además en
+  `docs/proyectos/blog/prompts-chatgpt/` del working tree, sin commitear.
+  Mitigación planificada para el mismo día: respaldarlos en la rama
+  `f3/banco-prompts` de `vice-city-motors` y los borradores en
+  `dt/005-007-borrador` de `gobernanza-tsm`, ninguna de las dos mergeable
+  hasta la aprobación de Liza. Verificación para quien lea esto después:
+  `git ls-remote --heads origin f3/banco-prompts`. Si devuelve vacío, la
+  mitigación no se ejecutó y el riesgo sigue abierto en su forma original.
 - **11 sep 2026 — Cierre de las dos acciones humanas pendientes: comunicado
   F0 enviado e instructivo v4 pegado en Claude.ai.** Hikashi pegó el
   comunicado F0 en el chat del Master TSM, cerrando el reporte de DT-001 al
@@ -137,9 +174,9 @@
 | Towing | Core | Activa | Nunca afirmar cobertura de autopistas |
 | Custom Builds | Core | Bloqueada | Faltan 2–3 casos reales documentados con fotos (Liza) |
 | PPF - Wrap & Tint | Core | Activa | — |
-| Rental Exotic Cars | Complementaria | Bloqueada | Tratamiento pendiente de ratificar con eje de control (enum ya migrado, ya no es motivo de bloqueo) |
-| Financial | Complementaria | Bloqueada | Falta doc. de Liza; tratamiento pendiente de ratificar (enum ya migrado, ya no es motivo de bloqueo) |
-| Sales | Complementaria | Bloqueada | Falta doc. de Liza; tratamiento pendiente de ratificar (enum ya migrado, ya no es motivo de bloqueo) |
+| Rental Exotic Cars | Complementaria | Bloqueada | Falta confirmar el aliado (Liza) — tratamiento ya no es motivo de bloqueo: DT-001 cerró la ratificación el 10 sep y el comunicado F0 se envió el 11 sep |
+| Financial | Complementaria | Bloqueada | Falta confirmar el aliado (Liza) — tratamiento ya no es motivo de bloqueo: DT-001 cerró la ratificación el 10 sep y el comunicado F0 se envió el 11 sep |
+| Sales | Complementaria | Bloqueada | Falta confirmar el aliado (Liza) — tratamiento ya no es motivo de bloqueo: DT-001 cerró la ratificación el 10 sep y el comunicado F0 se envió el 11 sep |
 
 ## 3. Plan de fases (ver `workplan.yml` para el detalle machine-readable)
 
@@ -168,7 +205,7 @@
 
 ## 6. Elementos verificables (E-E-A-T) disponibles
 
-**Confirmados (5):** rating Google (4.9/5, 1000+ clientes), fotos del taller (incl. piso epóxico), cobertura geográfica, limitación de towing en autopistas, brandline.
+**Confirmados (5):** rating Google: 5.0 sobre 236 reseñas, verificado el 11 sep 2026 contra la ficha de Google Business Profile (nombre de ficha: "The Showroom Miami Auto Body Shop", categoría: Auto body shop in Miami, Florida). Toda mención de esta métrica en una pieza publicada debe ir con su fecha de verificación. La cifra "1000+ clientes" que figuraba en versiones anteriores de este documento NO tiene fuente documentada — 236 reseñas no la sustentan — y queda fuera de uso hasta que exista un documento que la respalde. Además: fotos del taller (incl. piso epóxico), cobertura geográfica, limitación de towing en autopistas, brandline.
 **Restringido (1):** coordinación con aseguradoras (solo uso descriptivo, no diferenciador exclusivo).
 **Bloqueados (3):** casos/fotos de vehículos reales, estado Sales/Financial, fotos de mural (pendiente derechos).
 
@@ -194,11 +231,14 @@ Supabase).
 en el campo "Instrucciones del proyecto" del proyecto Blog TSM en Claude.ai,
 cerrando el círculo repo ↔ Claude.ai para ese documento.
 
-**Hikashi — próxima acción:** pasar los 9 archivos del banco de prompts (F3)
-más DT-003 a Liza para revisión. Ninguno de los dos está commiteado todavía.
+**Hikashi — próxima acción:** entregar a Liza el paquete corregido (8
+archivos revisados + `plantilla-sales.md` y `plantilla-financial.md` sin
+cambios + borrador de DT-005/006/007) para auditoría de cierre. Ninguno de
+estos archivos ni borradores está commiteado todavía.
 
-**Cuando Liza apruebe:** abrir una nueva sesión del satélite Blog para
-commitear F3 en `vice-city-motors` y DT-003 en `gobernanza-tsm`.
+**Cuando Liza apruebe:** abrir una nueva sesión (sesión 4) del satélite Blog
+para commitear F3 en `vice-city-motors` y DT-003 a DT-007 en
+`gobernanza-tsm`.
 
 **En paralelo, no bloquea F3:** la auditoría de voz del satélite Sitio
 web/SEO (acción derivada de DT-001 + DT-003). TD-04 (verificación
