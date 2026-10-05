@@ -27,3 +27,11 @@ desde qué Project de Claude.ai llegó el instructivo.
   o directamente contra Supabase antes de escribir código o copy.
 
 La gobernanza del sitio vive en theshowroommiami/gobernanza-tsm (privado).
+
+## Proxy /blog y robots.txt
+
+- /blog lo sirve el proxy de public/_redirects (200! hacia blog-tsm). No declarar /blog en App.tsx, pageSEO ni sitemap.xml: un Route genera dist/blog.html.
+- Enlazar /blog solo con un ancla normal, nunca con Link ni NavLink de react-router.
+- No agregar un fallback SPA ni otras reglas antes de las del proxy.
+- robots.txt es mínimo por decisión de web-tsm (PRO-004): no se agregan reglas sin una necesidad demostrada.
+- Los merges a main los hace Hikashi desde la página del PR.
