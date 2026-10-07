@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Star, CreditCard, Clock, Shield, Users, CheckCircle, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pageSEO, getPageStructuredData } from "@/utils/seo";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const Finance = () => {
   const financingBenefits = [
@@ -59,10 +60,10 @@ const Finance = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                     <Phone className="mr-2" size={20} />
-                    Call 305-419-8379 Now
+                    Call {BUSINESS_PHONE_DISPLAY} Now
                   </Button>
                 </a>
               </div>
@@ -147,10 +148,10 @@ const Finance = () => {
                   <p className="text-gray-400 text-sm mb-4">
                     Need help with your application? Our financing experts at The Showroom Miami are standing by.
                   </p>
-                  <a href="tel:305-419-8379">
+                  <a href={BUSINESS_PHONE_HREF}>
                     <Button className="bg-gradient-to-r from-neon-cyan to-neon-blue hover:from-neon-blue hover:to-neon-purple text-black font-bold">
                       <Phone className="mr-2" size={16} />
-                      Call for Assistance: 305-419-8379
+                      Call for Assistance: {BUSINESS_PHONE_DISPLAY}
                     </Button>
                   </a>
                 </div>
@@ -165,7 +166,7 @@ const Finance = () => {
           <CTASection
             title="Ready to Finance Your Dream Car in Miami?"
             subtitle="Don't wait - luxury cars move fast in Miami. Get pre-approved online now and drive home your dream car today with The Showroom Miami!"
-            phoneText="Get Pre-Approved: 305-419-8379"
+            phoneText={`Get Pre-Approved: ${BUSINESS_PHONE_DISPLAY}`}
             className="bg-gradient-to-b from-black/60 to-black/80"
           />
 
@@ -173,7 +174,7 @@ const Finance = () => {
           <CTASection
             title="Start Your Online Credit Approval Today"
             subtitle="Call now for competitive rates and flexible terms, or complete our online application above. The Showroom Miami's financing experts are standing by to help you drive home your dream car today."
-            phoneText="Call 305-419-8379 Now"
+            phoneText={`Call ${BUSINESS_PHONE_DISPLAY} Now`}
           />
         </main>
 

@@ -11,6 +11,7 @@ import CTASection from "@/components/conversion/CTASection";
 import GoogleReviewBadge from "@/components/conversion/GoogleReviewBadge";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import InsuranceLogosSlider from "@/components/InsuranceLogosSlider";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const CollisionRepair = () => {
 
@@ -59,7 +60,7 @@ const CollisionRepair = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                     <Phone className="mr-2" size={20} />
                     Get Free Estimate Now
@@ -120,7 +121,7 @@ const CollisionRepair = () => {
               </div>
 
               <div className="text-center mt-8">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
                     <Phone className="mr-2" size={20} />
                     Get Your Free Estimate
@@ -182,7 +183,7 @@ const CollisionRepair = () => {
           <CTASection 
             title="Ready to Get Your Car Fixed Right?"
             subtitle="Call now for your free estimate. Insurance billing available - you only pay your deductible."
-            phoneText="Get Free Estimate - 305-419-8379"
+            phoneText={`Get Free Estimate - ${BUSINESS_PHONE_DISPLAY}`}
           />
 
           {/* Repair Authorization Form Section */}
@@ -246,7 +247,7 @@ const CollisionRepair = () => {
           <CTASection 
             title="Don't Let Insurance Companies Delay Your Repair"
             subtitle="Call now for immediate assistance. We handle everything - from paperwork to final delivery. Your car will look better than before the accident, guaranteed."
-            phoneText="Call 305-419-8379 Now"
+            phoneText={`Call ${BUSINESS_PHONE_DISPLAY} Now`}
           />
 
           <div className="text-center pb-12">

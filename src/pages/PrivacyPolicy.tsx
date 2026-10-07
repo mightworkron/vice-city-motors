@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SEOHead from "@/components/SEOHead";
 import { pageSEO } from "@/utils/seo";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const PrivacyPolicy = () => {
   return (
@@ -209,8 +210,8 @@ const PrivacyPolicy = () => {
                 </p>
                 <p>
                   Phone:{" "}
-                  <a href="tel:305-419-8379" className="text-neon-pink hover:text-neon-cyan transition-colors">
-                    (305) 419-8379
+                  <a href={BUSINESS_PHONE_HREF} className="text-neon-pink hover:text-neon-cyan transition-colors">
+                    {BUSINESS_PHONE_DISPLAY}
                   </a>
                 </p>
               </div>

@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Phone, MapPin, Clock, Instagram, Mail, Facebook, Star } from "lucide-react";
-import { BUSINESS_ADDRESS, GBP_PROFILE_URL, GBP_RATING, GBP_REVIEW_COUNT } from "@/config/business";
+import { BUSINESS_ADDRESS, GBP_PROFILE_URL, GBP_RATING, GBP_REVIEW_COUNT, BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const Footer = () => {
   const hasGbpStats = GBP_RATING !== null && GBP_REVIEW_COUNT !== null;
@@ -91,8 +91,8 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-gray-300">
                 <Phone size={16} className="text-neon-cyan" />
-                <a href="tel:305-419-8379" className="hover:text-neon-pink transition-colors duration-300">
-                  305-419-8379
+                <a href={BUSINESS_PHONE_HREF} className="hover:text-neon-pink transition-colors duration-300">
+                  {BUSINESS_PHONE_DISPLAY}
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">

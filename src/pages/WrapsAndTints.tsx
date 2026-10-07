@@ -10,6 +10,7 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const WrapsAndTints = () => {
   const wrapServices = ["Full vehicle color change wraps", "Partial wraps and accent graphics", "Commercial and advertising wraps", "Textured and specialty finishes", "Custom design and artwork", "Wrap removal and restoration"];
@@ -62,13 +63,13 @@ const WrapsAndTints = () => {
               </p>
               
               <div className="flex flex-col items-center">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button 
                     size="lg" 
                     className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
                   >
                     <Phone className="mr-2" size={20} />
-                    Get Free Quote - 305-419-8379
+                    Get Free Quote - {BUSINESS_PHONE_DISPLAY}
                   </Button>
                 </a>
                 <p className="text-sm text-neon-cyan mt-3 font-medium mb-8">
@@ -237,10 +238,10 @@ const WrapsAndTints = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:305-419-8379">
+              <a href={BUSINESS_PHONE_HREF}>
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
                   <Phone className="mr-2" size={20} />
-                  Call 305-419-8379
+                  Call {BUSINESS_PHONE_DISPLAY}
                 </Button>
               </a>
             </div>

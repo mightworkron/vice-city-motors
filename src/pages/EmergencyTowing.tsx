@@ -11,6 +11,7 @@ import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import CTASection from "@/components/conversion/CTASection";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const EmergencyTowing = () => {
   const benefits = [
@@ -56,10 +57,10 @@ const EmergencyTowing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                     <Phone className="mr-2" size={20} />
-                    Call 305-419-8379 Now
+                    Call {BUSINESS_PHONE_DISPLAY} Now
                   </Button>
                 </a>
               </div>
@@ -142,7 +143,7 @@ const EmergencyTowing = () => {
                     isn't just transportation - it's an investment.
                   </p>
                   
-                  <a href="tel:305-419-8379">
+                  <a href={BUSINESS_PHONE_HREF}>
                     <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
                       <Phone className="mr-2" size={20} />
                       Get Emergency Help Now
@@ -160,7 +161,7 @@ const EmergencyTowing = () => {
           <CTASection 
             title="Stuck? Don't Panic - Call Us!"
             subtitle="15-minute average response time. Low car-safe equipment. Available 24/7."
-            phoneText="Emergency Towing - 305-419-8379"
+            phoneText={`Emergency Towing - ${BUSINESS_PHONE_DISPLAY}`}
           />
 
           {/* Service Areas */}
@@ -199,7 +200,7 @@ const EmergencyTowing = () => {
           <CTASection 
             title="Don't Risk Your Investment with Cheap Towing"
             subtitle="When your luxury car breaks down, you need professionals who understand what's at stake. Call now for immediate dispatch."
-            phoneText="Call 305-419-8379 Now"
+            phoneText={`Call ${BUSINESS_PHONE_DISPLAY} Now`}
           />
         </main>
 
