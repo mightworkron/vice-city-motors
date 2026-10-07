@@ -1,4 +1,4 @@
-import { GBP_PROFILE_URL } from "@/config/business";
+import { GBP_PROFILE_URL, BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_E164 } from "@/config/business";
 
 export interface SEOData {
   title: string;
@@ -28,7 +28,7 @@ export const pageSEO = {
   },
   collisionRepair: {
     title: "Collision Repair Miami | Insurance Direct Billing",
-    description: "Expert collision repair in Miami. Insurance approved, factory-quality work, 2-5 day turnaround. Free estimates. Call 305-419-8379 now!",
+    description: `Expert collision repair in Miami. Insurance approved, factory-quality work, 2-5 day turnaround. Free estimates. Call ${BUSINESS_PHONE_DISPLAY} now!`,
     keywords: "collision repair Miami, auto body repair Miami, car accident repair, insurance claims Miami, frame alignment Miami, paint matching Miami Dade",
     canonicalUrl: "/collision-repair",
     serviceName: "Collision Repair"
@@ -56,7 +56,7 @@ export const pageSEO = {
   },
   customBuilds: {
     title: "Custom Car Builds Miami | Performance Upgrades",
-    description: "Custom car builds & modifications in Miami. Performance upgrades, luxury interiors, custom paint jobs. Call 305-419-8379 for a consultation!",
+    description: `Custom car builds & modifications in Miami. Performance upgrades, luxury interiors, custom paint jobs. Call ${BUSINESS_PHONE_DISPLAY} for a consultation!`,
     keywords: "custom car builds Miami, automotive customization Miami, performance upgrades, luxury car modifications Brickell, custom paint jobs Miami Beach",
     canonicalUrl: "/custom-builds",
     serviceName: "Custom Builds"
@@ -96,7 +96,7 @@ export const generateStructuredData = (pageType: 'home' | 'service', serviceName
     "name": "The Showroom Miami",
     "description": "Premium automotive services in Miami including collision repair, custom builds, exotic rentals, wraps, tints, and PPF",
     "url": "https://showroommiami.com",
-    "telephone": "305-419-8379",
+    "telephone": BUSINESS_PHONE_E164,
     "priceRange": "$$",
     "paymentAccepted": "Cash, Credit Card, Insurance Direct Billing",
     "address": {
@@ -320,7 +320,7 @@ export const pageFAQs: Record<string, FAQItem[]> = {
   exoticRentals: [
     {
       question: "How do I check vehicle availability?",
-      answer: "Use our booking form to submit your rental request, or call us at 305-419-8379. We'll check real-time availability and help you select the perfect vehicle for your dates."
+      answer: `Use our booking form to submit your rental request, or call us at ${BUSINESS_PHONE_DISPLAY}. We'll check real-time availability and help you select the perfect vehicle for your dates.`
     }
   ],
   customBuilds: [

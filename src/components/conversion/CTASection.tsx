@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 interface CTASectionProps {
   title: string;
@@ -9,7 +10,7 @@ interface CTASectionProps {
   className?: string;
 }
 
-const CTASection = ({ title, subtitle, phoneText = "Call 305-419-8379", className = "" }: CTASectionProps) => {
+const CTASection = ({ title, subtitle, phoneText = `Call ${BUSINESS_PHONE_DISPLAY}`, className = "" }: CTASectionProps) => {
   return (
     <section className={`py-16 ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -20,7 +21,7 @@ const CTASection = ({ title, subtitle, phoneText = "Call 305-419-8379", classNam
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">{subtitle}</p>
         )}
         
-        <a href="tel:305-419-8379" onClick={() => {
+        <a href={BUSINESS_PHONE_HREF} onClick={() => {
           if (typeof window !== 'undefined' && (window as any).gtag) {
             (window as any).gtag('event', 'conversion', {
               'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'

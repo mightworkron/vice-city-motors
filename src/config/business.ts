@@ -21,12 +21,12 @@ export const GBP_REVIEW_URL = "https://search.google.com/local/writereview?place
 export const GBP_RATING: number | null = 5.0;
 export const GBP_REVIEW_COUNT: number | null = 239;
 
-// Must match the consolidated GBP listing EXACTLY — mismatched name/address/phone
-// (NAP inconsistency) between the website and GBP hurts local SEO ranking.
-// Currently mirrors what's already live in src/utils/seo.ts's LocalBusiness schema
-// and src/components/Footer.tsx — double-check both against the actual GBP listing
-// before merging, in case the consolidated profile uses different formatting.
-export const BUSINESS_PHONE = "305-419-8379";
+// Single source of the business phone. Do not hardcode the number anywhere else.
+// Name, address and phone must match the Google Business Profile listing (NAP consistency).
+// E164 is for tel: links and structured data; DISPLAY is for visible text.
+export const BUSINESS_PHONE_E164 = "+13054198379";
+export const BUSINESS_PHONE_DISPLAY = "305-419-8379";
+export const BUSINESS_PHONE_HREF = `tel:${BUSINESS_PHONE_E164}`;
 
 export const BUSINESS_ADDRESS = {
   streetAddress: "7820 NW 6th Ct",

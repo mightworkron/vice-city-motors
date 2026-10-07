@@ -10,6 +10,7 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import SolutionSection from "@/components/conversion/SolutionSection";
 import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const CustomBuilds = () => {
   const customFeatures = ["Performance upgrades and modifications", "Luxury interior customization", "Custom paint and graphic work", "Suspension and handling upgrades", "Audio system integration", "Body kit installation"];
@@ -82,13 +83,13 @@ const CustomBuilds = () => {
               </p>
               
               <div className="flex flex-col items-center">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button 
                     size="lg" 
                     className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
                   >
                     <Phone className="mr-2" size={20} />
-                    Schedule Consultation - 305-419-8379
+                    Schedule Consultation - {BUSINESS_PHONE_DISPLAY}
                   </Button>
                 </a>
                 <p className="text-sm text-neon-cyan mt-3 font-medium mb-8">
@@ -201,7 +202,7 @@ const CustomBuilds = () => {
                     that are truly one-of-a-kind.
                   </p>
                   
-                  <a href="tel:305-419-8379">
+                  <a href={BUSINESS_PHONE_HREF}>
                     <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
                       <Phone className="mr-2" size={20} />
                       Schedule Consultation
@@ -291,10 +292,10 @@ const CustomBuilds = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
                     <Phone className="mr-2" size={20} />
-                    Call 305-419-8379
+                    Call {BUSINESS_PHONE_DISPLAY}
                   </Button>
                 </a>
               </div>

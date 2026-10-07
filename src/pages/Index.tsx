@@ -21,6 +21,7 @@ import { sanitizeInput, validateEmail, isRateLimited } from "@/utils/security";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -220,7 +221,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <a href="tel:305-419-8379" onClick={() => {
+              <a href={BUSINESS_PHONE_HREF} onClick={() => {
                 if (typeof window !== 'undefined' && (window as any).gtag) {
                   (window as any).gtag('event', 'conversion', {
                     'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
@@ -240,14 +241,14 @@ const Index = () => {
               </Link>
             </div>
 
-            <a href="tel:305-419-8379" className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block" onClick={() => {
+            <a href={BUSINESS_PHONE_HREF} className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block" onClick={() => {
               if (typeof window !== 'undefined' && (window as any).gtag) {
                 (window as any).gtag('event', 'conversion', {
                   'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
                 });
               }
             }}>
-              305-419-8379
+              {BUSINESS_PHONE_DISPLAY}
             </a>
 
             <GoogleReviewBadge variant="hero" className="mt-6" />
@@ -364,14 +365,14 @@ const Index = () => {
                       <Phone className="text-neon-cyan" size={24} />
                       <div>
                         <p className="text-white font-medium">Call Us</p>
-                        <a href="tel:305-419-8379" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" onClick={() => {
+                        <a href={BUSINESS_PHONE_HREF} className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" onClick={() => {
                           if (typeof window !== 'undefined' && (window as any).gtag) {
                             (window as any).gtag('event', 'conversion', {
                               'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
                             });
                           }
                         }}>
-                          305-419-8379
+                          {BUSINESS_PHONE_DISPLAY}
                         </a>
                       </div>
                     </div>

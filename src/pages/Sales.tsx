@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Eye, DollarSign, Calendar, Gauge, Star } from "lucide-react";
 import { pageSEO, getPageStructuredData } from "@/utils/seo";
 import { useState } from "react";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 interface Car {
   id: number;
@@ -71,10 +72,10 @@ const Sales = () => {
             Call us to discuss your specific needs and get notified when matching vehicles arrive.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a href="tel:305-419-8379">
+            <a href={BUSINESS_PHONE_HREF}>
               <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4">
                 <Phone className="mr-2" size={20} />
-                Call 305-419-8379
+                Call {BUSINESS_PHONE_DISPLAY}
               </Button>
             </a>
             <a href="/finance">
@@ -128,10 +129,10 @@ const Sales = () => {
                 and we'll notify you when matching vehicles become available.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:305-419-8379">
+                <a href={BUSINESS_PHONE_HREF}>
                   <Button className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white">
                     <Phone className="mr-2" size={16} />
-                    Call 305-419-8379
+                    Call {BUSINESS_PHONE_DISPLAY}
                   </Button>
                 </a>
                 <a href="/finance">
@@ -193,7 +194,7 @@ const Sales = () => {
               </div>
               
               <div className="flex gap-4">
-                <a href="tel:305-419-8379" className="flex-1">
+                <a href={BUSINESS_PHONE_HREF} className="flex-1">
                   <Button className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white">
                     <Phone className="mr-2" size={16} />
                     Call About This Car
@@ -214,7 +215,7 @@ const Sales = () => {
       <SocialProof className="bg-black/50" />
 
       {/* Final CTA Section */}
-      <CTASection title="Ready to Find Your Perfect Car?" subtitle="Our premium inventory is being carefully curated. Call us to discuss your specific requirements and get notified when matching vehicles arrive." phoneText="Call 305-419-8379 Now" className="bg-gradient-to-r from-neon-purple/10 to-neon-blue/10" />
+      <CTASection title="Ready to Find Your Perfect Car?" subtitle="Our premium inventory is being carefully curated. Call us to discuss your specific requirements and get notified when matching vehicles arrive." phoneText={`Call ${BUSINESS_PHONE_DISPLAY} Now`} className="bg-gradient-to-r from-neon-purple/10 to-neon-blue/10" />
 
       <Footer />
       <FloatingCallButton />

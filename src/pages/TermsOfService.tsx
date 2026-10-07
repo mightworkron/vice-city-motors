@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import SEOHead from "@/components/SEOHead";
 import { pageSEO } from "@/utils/seo";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const TermsOfService = () => {
   return (
@@ -307,7 +308,7 @@ const TermsOfService = () => {
                       <div className="border-l-2 border-neon-cyan/50 pl-4">
                         <p className="font-semibold text-neon-cyan mb-2">Example #4</p>
                         <p className="italic text-gray-400">
-                          "Your vehicle estimate is now ready. Please reply YES to confirm or call us at 305-419-8379. —The Showroom Miami. Reply STOP to opt-out."
+                          "Your vehicle estimate is now ready. Please reply YES to confirm or call us at {BUSINESS_PHONE_DISPLAY}. —The Showroom Miami. Reply STOP to opt-out."
                         </p>
                       </div>
                     </div>
@@ -398,8 +399,8 @@ const TermsOfService = () => {
                   <p>7820 NW 6th Ct, Miami, Florida</p>
                   <p>
                     Phone:{" "}
-                    <a href="tel:305-419-8379" className="text-neon-pink hover:text-neon-cyan transition-colors">
-                      305-419-8379
+                    <a href={BUSINESS_PHONE_HREF} className="text-neon-pink hover:text-neon-cyan transition-colors">
+                      {BUSINESS_PHONE_DISPLAY}
                     </a>
                   </p>
                   <p>

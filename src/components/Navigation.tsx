@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,14 +55,14 @@ const Navigation = () => {
           {/* Enhanced Phone and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <a
-              href="tel:305-419-8379"
+              href={BUSINESS_PHONE_HREF}
               className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-all duration-300"
               aria-label="Call Showroom Miami"
             >
               <Phone size={20} />
               <div className="flex flex-col">
                 <span className="font-orbitron font-bold text-sm">CALL NOW</span>
-                <span className="font-medium text-xs">305-419-8379</span>
+                <span className="font-medium text-xs">{BUSINESS_PHONE_DISPLAY}</span>
               </div>
             </a>
 
@@ -95,14 +96,14 @@ const Navigation = () => {
               </Link>
             ))}
             <a
-              href="tel:305-419-8379"
+              href={BUSINESS_PHONE_HREF}
               className="flex items-center justify-center space-x-2 text-neon-cyan hover:text-neon-pink transition-all duration-300 mt-4"
               aria-label="Call Showroom Miami"
             >
               <Phone size={20} />
               <div className="flex flex-col">
                 <span className="font-orbitron font-bold">CALL NOW</span>
-                <span className="font-medium">305-419-8379</span>
+                <span className="font-medium">{BUSINESS_PHONE_DISPLAY}</span>
               </div>
             </a>
           </div>

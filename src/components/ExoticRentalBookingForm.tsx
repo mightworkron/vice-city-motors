@@ -26,6 +26,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { sanitizeInput, validateEmail, validatePhoneNumber, isRateLimited } from "@/utils/security";
+import { BUSINESS_PHONE_DISPLAY } from "@/config/business";
 
 const rentalFormSchema = z.object({
   // Personal Information with enhanced validation
@@ -195,7 +196,7 @@ const ExoticRentalBookingForm = ({ isOpen, onClose }: ExoticRentalBookingFormPro
       console.error("Error submitting booking:", error);
       toast({
         title: "Error",
-        description: "There was an issue with your booking request. Please call us directly at 305-419-8379.",
+        description: `There was an issue with your booking request. Please call us directly at ${BUSINESS_PHONE_DISPLAY}.`,
         variant: "destructive",
       });
     } finally {

@@ -1,11 +1,12 @@
 
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BUSINESS_PHONE_HREF } from "@/config/business";
 
 const FloatingCallButton = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <a href="tel:305-419-8379" aria-label="Call Showroom Miami" onClick={() => {
+      <a href={BUSINESS_PHONE_HREF} aria-label="Call Showroom Miami" onClick={() => {
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'conversion', {
             'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'

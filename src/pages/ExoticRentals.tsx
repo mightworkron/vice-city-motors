@@ -12,6 +12,7 @@ import SocialProof from "@/components/conversion/SocialProof";
 import FAQSection from "@/components/conversion/FAQSection";
 import ExoticRentalBookingForm from "@/components/ExoticRentalBookingForm";
 import { useState } from "react";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
 const ExoticRentals = () => {
   const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
@@ -81,7 +82,7 @@ const ExoticRentals = () => {
                   Book Your Exotic Rental
                 </Button>
                 <p className="text-sm text-neon-cyan mt-3 font-medium">
-                  Or call 305-419-8379 for immediate assistance
+                  Or call {BUSINESS_PHONE_DISPLAY} for immediate assistance
                 </p>
               </div>
               
@@ -154,7 +155,7 @@ const ExoticRentals = () => {
                 <Car className="mr-2" size={20} />
                 Request Booking
               </Button>
-              <a href="tel:305-419-8379">
+              <a href={BUSINESS_PHONE_HREF}>
                 <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/20">
                   <Phone className="mr-2" size={20} />
                   Call for Immediate Assistance
@@ -317,10 +318,10 @@ const ExoticRentals = () => {
                 <Car className="mr-2" size={20} />
                 Book Your Rental Now
               </Button>
-              <a href="tel:305-419-8379">
+              <a href={BUSINESS_PHONE_HREF}>
                 <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/20">
                   <Phone className="mr-2" size={20} />
-                  Call 305-419-8379
+                  Call {BUSINESS_PHONE_DISPLAY}
                 </Button>
               </a>
             </div>
