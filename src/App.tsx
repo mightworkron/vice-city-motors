@@ -16,6 +16,7 @@ import Sales from "./pages/Sales";
 import Finance from "./pages/Finance";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import AuthorizationReceived from "./pages/AuthorizationReceived";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
         <Route path="/finance" element={<Finance />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/authorization-received" element={<AuthorizationReceived />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </TooltipProvider>
