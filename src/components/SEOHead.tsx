@@ -39,6 +39,11 @@ const SEOHead = ({ seoData = {}, structuredData }: SEOHeadProps) => {
       setMetaTag('keywords', seo.keywords);
     }
 
+    if (seo.noindex) {
+      setMetaTag('robots', 'noindex');
+      setMetaTag('googlebot', 'noindex');
+    }
+
     // Open Graph tags
     setMetaTag('og:title', seo.title, true);
     setMetaTag('og:description', seo.description, true);

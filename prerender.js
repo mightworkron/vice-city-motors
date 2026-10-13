@@ -88,6 +88,12 @@ const setTag = (html, tagRegex, tagHtml) => {
 
       html = setTag(html, /<link rel="canonical" href="[^"]*"\s*\/>/, `<link rel="canonical" href="${canonicalUrl}" />`)
 
+      if (seo.noindex) {
+        // Served in the static HTML so crawlers see it without running JS. robots.txt must NOT disallow this route.
+        html = setTag(html, /<meta name="robots" content="[^"]*"\s*\/>/, `<meta name="robots" content="noindex" />`)
+        html = setTag(html, /<meta name="googlebot" content="[^"]*"\s*\/>/, `<meta name="googlebot" content="noindex" />`)
+      }
+
       html = setTag(html, /<meta property="og:title" content="[^"]*"\s*\/>/, `<meta property="og:title" content="${title}" />`)
       html = setTag(html, /<meta property="og:description" content="[^"]*"\s*\/>/, `<meta property="og:description" content="${description}" />`)
       html = setTag(html, /<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${ogImage}" />`)

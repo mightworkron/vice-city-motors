@@ -9,6 +9,8 @@ export interface SEOData {
   canonicalUrl?: string;
   /** Service name passed to generateStructuredData('service', ...) for this page, if any. */
   serviceName?: string;
+  /** When true, prerender.js writes <meta name="robots" content="noindex"> into the static HTML. */
+  noindex?: boolean;
 }
 
 export const defaultSEO: SEOData = {
@@ -86,6 +88,13 @@ export const pageSEO = {
     description: "Read The Showroom Miami's terms and conditions covering our automotive services, rental policies, and service agreements in Miami, Florida.",
     keywords: "terms and conditions, service agreement, Showroom Miami terms, auto repair terms, exotic car rental terms Miami",
     canonicalUrl: "/terms-of-service"
+  },
+  // Post-submit confirmation page for the JotForm repair authorization. Not indexed, not in sitemap.xml.
+  authorizationReceived: {
+    title: "Authorization Received | The Showroom Miami",
+    description: "Confirmation of your signed repair authorization.",
+    canonicalUrl: "/authorization-received",
+    noindex: true
   }
 };
 
