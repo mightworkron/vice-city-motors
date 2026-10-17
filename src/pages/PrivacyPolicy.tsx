@@ -210,7 +210,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <p>
                   Phone:{" "}
-                  <a href={BUSINESS_PHONE_HREF} className="text-neon-pink hover:text-neon-cyan transition-colors">
+                  <a href={BUSINESS_PHONE_HREF} data-call-location="page_body" className="text-neon-pink hover:text-neon-cyan transition-colors">
                     {BUSINESS_PHONE_DISPLAY}
                   </a>
                 </p>

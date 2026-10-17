@@ -56,6 +56,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a
               href={BUSINESS_PHONE_HREF}
+              data-call-location="header"
               className="hidden sm:flex items-center space-x-2 text-neon-cyan hover:text-neon-pink transition-all duration-300"
               aria-label="Call Showroom Miami"
             >
@@ -97,6 +98,7 @@ const Navigation = () => {
             ))}
             <a
               href={BUSINESS_PHONE_HREF}
+              data-call-location="header"
               className="flex items-center justify-center space-x-2 text-neon-cyan hover:text-neon-pink transition-all duration-300 mt-4"
               aria-label="Call Showroom Miami"
             >

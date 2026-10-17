@@ -60,7 +60,7 @@ const CollisionRepair = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href={BUSINESS_PHONE_HREF}>
+                <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                     <Phone className="mr-2" size={20} />
                     Get Free Estimate Now
@@ -121,7 +121,7 @@ const CollisionRepair = () => {
               </div>
 
               <div className="text-center mt-8">
-                <a href={BUSINESS_PHONE_HREF}>
+                <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300">
                     <Phone className="mr-2" size={20} />
                     Get Your Free Estimate

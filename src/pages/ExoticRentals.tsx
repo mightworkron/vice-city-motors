@@ -155,7 +155,7 @@ const ExoticRentals = () => {
                 <Car className="mr-2" size={20} />
                 Request Booking
               </Button>
-              <a href={BUSINESS_PHONE_HREF}>
+              <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                 <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/20">
                   <Phone className="mr-2" size={20} />
                   Call for Immediate Assistance
@@ -318,7 +318,7 @@ const ExoticRentals = () => {
                 <Car className="mr-2" size={20} />
                 Book Your Rental Now
               </Button>
-              <a href={BUSINESS_PHONE_HREF}>
+              <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                 <Button size="lg" variant="outline" className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan/20">
                   <Phone className="mr-2" size={20} />
                   Call {BUSINESS_PHONE_DISPLAY}

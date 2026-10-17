@@ -41,7 +41,7 @@ const AuthorizationReceived = () => {
           <p className="text-xl text-gray-300 font-rajdhani mb-8">{COPY.body}</p>
           <p className="text-lg text-gray-300 mb-8">
             {COPY.ctaPrefix}{" "}
-            <a href={BUSINESS_PHONE_HREF} className="text-neon-pink hover:text-neon-cyan transition-colors">
+            <a href={BUSINESS_PHONE_HREF} data-call-location="page_body" className="text-neon-pink hover:text-neon-cyan transition-colors">
               {BUSINESS_PHONE_DISPLAY}
             </a>
           </p>
