@@ -2,6 +2,47 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- anl-02: captura del ID de envío de JotForm. Debe ser el primer script del head, antes de GTM y gtag.js. -->
+    <script>
+    (function () {
+      try {
+        if (location.pathname.replace(/\/+$/, '') !== '/authorization-received') return;
+        var params = new URLSearchParams(location.search);
+        var raw = params.get('sid');
+        var sid = raw !== null && /^[0-9]{1,24}$/.test(raw) ? raw : '';
+        if (params.has('sid')) {
+          params.delete('sid');
+          var qs = params.toString();
+          history.replaceState(history.state, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+        }
+        var target = '/authorization-received' + (sid ? '?sid=' + sid : '');
+        if (window.self !== window.top) {
+          window.__authSid = sid;
+          try {
+            window.top.location.replace(location.origin + target);
+          } catch (e) {
+            window.__authRedirectFailed = true;
+          }
+          return;
+        }
+        if (!sid) return;
+        var KEY = 'tsm_auth_sids';
+        var list = [];
+        try {
+          list = JSON.parse(localStorage.getItem(KEY) || '[]');
+          if (!Array.isArray(list)) list = [];
+        } catch (e) { list = []; }
+        if (list.indexOf(sid) !== -1) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'repair_authorization_signed', submission_id: sid });
+        try {
+          list.push(sid);
+          localStorage.setItem(KEY, JSON.stringify(list.slice(-50)));
+        } catch (e) {}
+      } catch (e) {}
+    })();
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

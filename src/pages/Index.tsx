@@ -115,15 +115,6 @@ const Index = () => {
       return;
     }
 
-    // Track Google Ads conversion
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-17422213105/CONTACT_FORM_LABEL',
-        'value': 1.0,
-        'currency': 'USD'
-      });
-    }
-
     setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "", website: "" });
   };
