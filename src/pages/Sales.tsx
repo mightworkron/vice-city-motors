@@ -72,7 +72,7 @@ const Sales = () => {
             Call us to discuss your specific needs and get notified when matching vehicles arrive.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a href={BUSINESS_PHONE_HREF}>
+            <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
               <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4">
                 <Phone className="mr-2" size={20} />
                 Call {BUSINESS_PHONE_DISPLAY}
@@ -129,7 +129,7 @@ const Sales = () => {
                 and we'll notify you when matching vehicles become available.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={BUSINESS_PHONE_HREF}>
+                <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                   <Button className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white">
                     <Phone className="mr-2" size={16} />
                     Call {BUSINESS_PHONE_DISPLAY}
@@ -194,7 +194,7 @@ const Sales = () => {
               </div>
               
               <div className="flex gap-4">
-                <a href={BUSINESS_PHONE_HREF} className="flex-1">
+                <a href={BUSINESS_PHONE_HREF} data-call-location="page_body" className="flex-1">
                   <Button className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white">
                     <Phone className="mr-2" size={16} />
                     Call About This Car

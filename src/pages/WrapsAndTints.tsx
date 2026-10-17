@@ -63,7 +63,7 @@ const WrapsAndTints = () => {
               </p>
               
               <div className="flex flex-col items-center">
-                <a href={BUSINESS_PHONE_HREF}>
+                <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                   <Button 
                     size="lg" 
                     className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105"
@@ -238,7 +238,7 @@ const WrapsAndTints = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BUSINESS_PHONE_HREF}>
+              <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg transition-all duration-300">
                   <Phone className="mr-2" size={20} />
                   Call {BUSINESS_PHONE_DISPLAY}

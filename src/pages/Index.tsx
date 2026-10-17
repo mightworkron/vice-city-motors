@@ -221,13 +221,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <a href={BUSINESS_PHONE_HREF} onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).gtag) {
-                  (window as any).gtag('event', 'conversion', {
-                    'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
-                  });
-                }
-              }}>
+              <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                 <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                   <Phone className="mr-2" size={20} />
                   Call Now
@@ -241,13 +235,7 @@ const Index = () => {
               </Link>
             </div>
 
-            <a href={BUSINESS_PHONE_HREF} className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block" onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).gtag) {
-                (window as any).gtag('event', 'conversion', {
-                  'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
-                });
-              }
-            }}>
+            <a href={BUSINESS_PHONE_HREF} className="text-2xl font-orbitron font-bold text-neon-cyan hover:text-neon-pink transition-colors duration-300 mb-8 block" data-call-location="page_body">
               {BUSINESS_PHONE_DISPLAY}
             </a>
 
@@ -365,13 +353,7 @@ const Index = () => {
                       <Phone className="text-neon-cyan" size={24} />
                       <div>
                         <p className="text-white font-medium">Call Us</p>
-                        <a href={BUSINESS_PHONE_HREF} className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" onClick={() => {
-                          if (typeof window !== 'undefined' && (window as any).gtag) {
-                            (window as any).gtag('event', 'conversion', {
-                              'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
-                            });
-                          }
-                        }}>
+                        <a href={BUSINESS_PHONE_HREF} className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" data-call-location="page_body">
                           {BUSINESS_PHONE_DISPLAY}
                         </a>
                       </div>

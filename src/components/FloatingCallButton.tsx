@@ -6,13 +6,7 @@ import { BUSINESS_PHONE_HREF } from "@/config/business";
 const FloatingCallButton = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <a href={BUSINESS_PHONE_HREF} aria-label="Call Showroom Miami" onClick={() => {
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'conversion', {
-            'send_to': 'AW-17422213105/PHONE_CLICK_LABEL'
-          });
-        }
-      }}>
+      <a href={BUSINESS_PHONE_HREF} data-call-location="floating" aria-label="Call Showroom Miami">
         <Button 
           size="lg" 
           className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-6 py-4 rounded-full neon-border transition-all duration-300 transform hover:scale-110 shadow-2xl hover:animate-none"

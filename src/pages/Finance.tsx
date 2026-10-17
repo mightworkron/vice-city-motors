@@ -60,7 +60,7 @@ const Finance = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href={BUSINESS_PHONE_HREF}>
+                <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                   <Button size="lg" className="bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-blue text-white font-bold px-8 py-4 rounded-lg neon-border transition-all duration-300 transform hover:scale-105">
                     <Phone className="mr-2" size={20} />
                     Call {BUSINESS_PHONE_DISPLAY} Now
@@ -148,7 +148,7 @@ const Finance = () => {
                   <p className="text-gray-400 text-sm mb-4">
                     Need help with your application? Our financing experts at The Showroom Miami are standing by.
                   </p>
-                  <a href={BUSINESS_PHONE_HREF}>
+                  <a href={BUSINESS_PHONE_HREF} data-call-location="page_body">
                     <Button className="bg-gradient-to-r from-neon-cyan to-neon-blue hover:from-neon-blue hover:to-neon-purple text-black font-bold">
                       <Phone className="mr-2" size={16} />
                       Call for Assistance: {BUSINESS_PHONE_DISPLAY}

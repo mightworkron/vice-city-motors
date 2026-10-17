@@ -91,7 +91,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-gray-300">
                 <Phone size={16} className="text-neon-cyan" />
-                <a href={BUSINESS_PHONE_HREF} className="hover:text-neon-pink transition-colors duration-300">
+                <a href={BUSINESS_PHONE_HREF} data-call-location="footer" className="hover:text-neon-pink transition-colors duration-300">
                   {BUSINESS_PHONE_DISPLAY}
                 </a>
               </div>
