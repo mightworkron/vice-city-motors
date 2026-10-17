@@ -5,6 +5,13 @@ import SEOHead from "@/components/SEOHead";
 import { pageSEO } from "@/utils/seo";
 import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/config/business";
 
+declare global {
+  interface Window {
+    __authSid?: string;
+    __authRedirectFailed?: boolean;
+  }
+}
+
 // Editable page copy.
 const COPY = {
   title: "Authorization received",
@@ -17,15 +24,18 @@ const COPY = {
 const AuthorizationReceived = () => {
   const [framed, setFramed] = useState(false);
 
-  // The JotForm thank-you redirect loads this page inside the form iframe; break out to the top window.
+  // The JotForm thank-you redirect loads this page inside the form iframe. The capture script at the
+  // top of index.html's head is the only one that redirects the top window (and carries sid); here we
+  // only show the fallback link when that redirect failed.
   useEffect(() => {
-    if (window.self === window.top) return;
-    try {
-      window.top!.location.replace(window.location.href);
-    } catch {
+    if (window.self !== window.top && window.__authRedirectFailed) {
       setFramed(true);
     }
   }, []);
+
+  const fullWindowHref =
+    "/authorization-received" +
+    (typeof window !== "undefined" && window.__authSid ? `?sid=${window.__authSid}` : "");
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -51,7 +61,7 @@ const AuthorizationReceived = () => {
             </a>
             {framed && (
               <a
-                href="/authorization-received"
+                href={fullWindowHref}
                 target="_top"
                 className="block text-neon-pink hover:text-neon-cyan transition-colors underline"
               >
