@@ -354,13 +354,7 @@ const Index = () => {
                       <Mail className="text-neon-cyan" size={24} />
                       <div>
                         <p className="text-white font-medium">Email Us</p>
-                        <a href="mailto:info@showroommiami.com" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300" onClick={() => {
-                          if (typeof window !== 'undefined' && (window as any).gtag) {
-                            (window as any).gtag('event', 'conversion', {
-                              'send_to': 'AW-17422213105/EMAIL_CLICK_LABEL'
-                            });
-                          }
-                        }}>
+                        <a href="mailto:info@showroommiami.com" className="text-neon-cyan hover:text-neon-pink transition-colors duration-300">
                           info@showroommiami.com
                         </a>
                       </div>
