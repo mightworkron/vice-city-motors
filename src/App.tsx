@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
-import GoogleAnalytics from "./components/GoogleAnalytics";
 import Index from "./pages/Index";
 import CollisionRepair from "./pages/CollisionRepair";
 import EmergencyTowing from "./pages/EmergencyTowing";
@@ -25,7 +24,6 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <ScrollToTop />
-      <GoogleAnalytics />
       <Toaster />
       <Sonner />
       <Routes>
