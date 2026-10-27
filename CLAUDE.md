@@ -26,7 +26,7 @@ desde qué Project de Claude.ai llegó el instructivo.
   desde memoria o entrenamiento — siempre confirmar contra gobernanza-tsm
   o directamente contra Supabase antes de escribir código o copy.
 
-La gobernanza del sitio vive en theshowroommiami/gobernanza-tsm (privado).
+La gobernanza del sitio vive en theshowroommiami-tsm/gobernanza-tsm (privado).
 
 ## Proxy /blog y robots.txt
 
